@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Eden Cao"><title>面向对象建模分析（二) · Eden's Blog</title><meta name="description" content="需求工程需求工程的基本概念什么是需求工程？对系统应该提供的服务和所受到的约束进行理解、分析、建立文档、检验的过程
+软件需求的困难
+应用领域的广泛性
+非功能性需求建模技术的缺乏
+沟通上的困难
+
+
+软件需求的内容
+功能需求
+  对系统应该提供的服务、功能以及系统在特定条件下的行为的描述
+
+非功能需求
+ "><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title><a href="/">Eden's Blog</a></h3><div class="description"><p>一些奇奇怪怪的东西</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">Home</a></li><li><a href="/archives">Arquivo</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>面向对象建模分析（二)</a></h3></div><div class="post-content"><h1 id="需求工程"><a href="#需求工程" class="headerlink" title="需求工程"></a>需求工程</h1><h2 id="需求工程的基本概念"><a href="#需求工程的基本概念" class="headerlink" title="需求工程的基本概念"></a>需求工程的基本概念</h2><h3 id="什么是需求工程？"><a href="#什么是需求工程？" class="headerlink" title="什么是需求工程？"></a>什么是需求工程？</h3><p>对系统应该提供的服务和所受到的约束进行理解、分析、建立文档、检验的过程</p>
+<h3 id="软件需求的困难"><a href="#软件需求的困难" class="headerlink" title="软件需求的困难"></a>软件需求的困难</h3><ul>
+<li>应用领域的广泛性</li>
+<li>非功能性需求建模技术的缺乏</li>
+<li>沟通上的困难</li>
+</ul>
+<!-- -->
+<h3 id="软件需求的内容"><a href="#软件需求的内容" class="headerlink" title="软件需求的内容"></a>软件需求的内容</h3><ul>
+<li><p>功能需求</p>
+<p>  对系统应该提供的服务、功能以及系统在特定条件下的行为的描述</p>
+</li>
+<li><p>非功能需求</p>
+<p>  如性能指标、道德约束等</p>
+</li>
+<li><p>领域需求</p>
+<p>  是由软件系统的应用领域所决定的特有的功能需求</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="需求分析的作用"><a href="#需求分析的作用" class="headerlink" title="需求分析的作用"></a>需求分析的作用</h3><ul>
+<li><p>定义软件范围及必须满足的约束</p>
+</li>
+<li><p>确定软件功能、性能与其他系统成分接口</p>
+</li>
+<li><p>建立数据模型、功能模型、行为模型</p>
+</li>
+<li><p>最终提供需求规格说明，并作为评估质量的依据</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="需求工程基本活动"><a href="#需求工程基本活动" class="headerlink" title="需求工程基本活动"></a>需求工程基本活动</h3><ul>
+<li>获取需求</li>
+<li>需求分析与建模</li>
+<li>确认需求</li>
+<li>进化需求</li>
+</ul>
+<!-- -->
+<h3 id="需求获取"><a href="#需求获取" class="headerlink" title="需求获取"></a>需求获取</h3><p><strong>三个问题：</strong></p>
+<ul>
+<li>明确需要获取的信息（what）</li>
+<li>明确所获取信息的来源和渠道（where）</li>
+<li>怎样获取需求（how）</li>
+</ul>
+<!-- -->
+<h3 id="需求获取技术"><a href="#需求获取技术" class="headerlink" title="需求获取技术"></a>需求获取技术</h3><ul>
+<li><p>面谈法</p>
+<p>  众包：一个公司和机构吧过去由员工执行的工作任务，以自由自愿的方式外包给非特定的大众网络的做法。</p>
+</li>
+<li><p>问卷调查法</p>
+</li>
+<li><p>需求专题讨论会</p>
+</li>
+<li><p>观察用户的工作流程</p>
+</li>
+<li><p>原型化方法</p>
+</li>
+<li><p>基于用例的方法</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="需求分析与建模"><a href="#需求分析与建模" class="headerlink" title="需求分析与建模"></a>需求分析与建模</h3><p><strong>三个层次：</strong></p>
+<ul>
+<li>需求分析</li>
+<li>需求建模</li>
+<li>需求规格说明</li>
+</ul>
+<!-- -->
+<h3 id="需求分析常用技术"><a href="#需求分析常用技术" class="headerlink" title="需求分析常用技术"></a>需求分析常用技术</h3><ul>
+<li><p>分解</p>
+</li>
+<li><p>抽象</p>
+</li>
+<li><p>多视点</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="需求分析方法"><a href="#需求分析方法" class="headerlink" title="需求分析方法"></a>需求分析方法</h3><h4 id="功能分解方法"><a href="#功能分解方法" class="headerlink" title="功能分解方法"></a>功能分解方法</h4><div class="image-package"><div class="image-container" style="max-width: 700px; max-height: 256px;"><div class="image-container-fill" style="padding-bottom: 20.65%;"></div><div class="image-view" data-width="1240" data-height="256"><img data-original-src="//upload-images.jianshu.io/upload_images/5617469-8f086672c082915e.jpg" data-original-width="1240" data-original-height="256" data-original-format="image/jpeg" data-original-filesize="41842"></div></div><div class="image-caption">功能分解方法.jpg</div></div>
+
+<ul>
+<li><p>将系统看作若干功能模块的集合，每个功能可以分解为子功能（递归） - <strong>不足之处</strong> <br></p>
+<p>   需要人工完成<br></p>
+<p>   无法对描述的准确度进行验证<br></p>
+<p>   难以适应需求变化</p>
+  <!-- -->
+</li>
+</ul>
+<!-- -->
+<h4 id="结构化分析方法"><a href="#结构化分析方法" class="headerlink" title="结构化分析方法"></a>结构化分析方法</h4><ul>
+<li>不考</li>
+</ul>
+<!-- -->
+<h4 id="信息建模法"><a href="#信息建模法" class="headerlink" title="信息建模法"></a>信息建模法</h4><p>是从数据的角度对现实世界建立系统的信息模型。ER图</p>
+<h4 id="面向对象分析方法"><a href="#面向对象分析方法" class="headerlink" title="面向对象分析方法"></a>面向对象分析方法</h4><p>识别问题域内的对象，分析他们之间的关系，并建立起三类模型。</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-01</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,//yoursite.com/2019/05/01/ Object-oriented-modeling-analysis2/,Eden's Blog,面向对象建模分析（二),;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2019/05/01/Big-Front-End/" title="永不落伍的大前端">Post Anterior</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2019/05/01/ Object-oriented-modeling-analysis3/" title="面向对象建模分析（四）">Próximo post</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/jianshu-image-fixer.js"></script></body></html>
