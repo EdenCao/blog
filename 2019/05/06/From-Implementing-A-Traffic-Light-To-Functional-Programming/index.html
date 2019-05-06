@@ -212,7 +212,7 @@ styleElm.href = 'https://imsun.github.io/gitment/style/default.css';
 document.head.appendChild(styleElm)
 
 var gitment = new Gitment({
-    id: document.querySelector('.post-title').val(),
+    id: document.querySelector('.post-title').val().split(' ').join('_'),
     owner: 'EdenCao',
     repo: 'blog',
     oauth: {
