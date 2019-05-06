@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Cao Yong,ednencaox@gmail.com"><title>VScode 配置清单 · Eden's Blog</title><meta name="description" content="VS code 配置文件我一直觉得所谓的编辑器之争与语言之争以及编程风格之争是一件很无聊的事情，一个优秀的工程师需要学会在合适的地方选择合适的工具或语言帮助自己完成任务，而几个同样优秀的编程风格之间最重要的是有一个统一的标准。或许是我见识浅薄，但我坚持认为只有拥有这样的认知标准才能称为一个优秀的工程"><meta name="keywords" content="JavaScript,TypeScript,Linux,macOS"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/blog/css/style.css"><link rel="stylesheet" href="/blog/css/blog_basic.css"><link rel="stylesheet" href="/blog/css/font-awesome.min.css"><link rel="stylesheet" href="/blog/css/atom-one-light.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/blog/images/logo@2x.png" style="width:127px;"><h3 title><a href="/">Eden's Blog</a></h3><div class="description"><p>一些奇奇怪怪的东西</p></div></div></div><ul class="social-links"><li><a href="http://github.com/EdenCao"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/blog/archives/">归档</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img src="/blog/images/logo.jpg"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>VScode 配置清单</a></h3></div><div class="post-content"><h1 id="VS-code-配置文件"><a href="#VS-code-配置文件" class="headerlink" title="VS code 配置文件"></a>VS code 配置文件</h1><p>我一直觉得所谓的编辑器之争与语言之争以及编程风格之争是一件很无聊的事情，一个优秀的工程师需要学会在合适的地方选择合适的工具或语言帮助自己完成任务，而几个同样优秀的编程风格之间最重要的是有一个统一的标准。或许是我见识浅薄，但我坚持认为只有拥有这样的认知标准才能称为一个优秀的工程师，而不是成为语言和工具的奴隶。</p>
+<p>VS code 确实对我来说拥有无与伦比的优势，相比于插件丰富的 Atom 来说，vs code 内置的终端确实更对我的胃口，经过简单的配置就可以使用，在这一点上的确对我很有吸引力。</p>
+<h2 id="vscode配置"><a href="#vscode配置" class="headerlink" title="vscode配置"></a>vscode配置</h2><pre><code>{
+    &quot;gitlens.advanced.messages&quot;: {
+        &quot;suppressCommitHasNoPreviousCommitWarning&quot;: false,
+        &quot;suppressCommitNotFoundWarning&quot;: false,
+        &quot;suppressFileNotUnderSourceControlWarning&quot;: false,
+        &quot;suppressGitVersionWarning&quot;: false,
+        &quot;suppressLineUncommittedWarning&quot;: false,
+        &quot;suppressNoRepositoryWarning&quot;: false,
+        &quot;suppressUpdateNotice&quot;: false,
+        &quot;suppressWelcomeNotice&quot;: true
+    },
+    // 开启vscode-icons主题
+    &quot;workbench.iconTheme&quot;: &quot;vscode-icons&quot;,
+    // 个人感觉颜色比较鲜艳的主题
+    &quot;workbench.colorTheme&quot;: &quot;One Dark Pro Vivid&quot;,
+    // 我在这里对自动保存设置了一个延迟
+    &quot;files.autoSave&quot;: &quot;afterDelay&quot;,
+    &quot;git.confirmSync&quot;: false,
+    &quot;editor.formatOnType&quot;: true,
+    // 在这里主要做了对vue语言的支持
+    &quot;files.associations&quot;: {
+        &quot;*.vue&quot;: &quot;vue&quot;,
+        &quot;*.js&quot;: &quot;javascript&quot;,
+        &quot;*.md&quot;: &quot;markdown&quot;
+    },
+    // 将一些不必要的搜索范围去掉
+    &quot;search.exclude&quot;: {
+        &quot;**/node_modules&quot;: true,
+        &quot;**/bower_components&quot;: true,
+        &quot;**/dist&quot;: true,
+        &quot;**/.git&quot;: true
+    },
+    // 主要是设置选中范围是尖角还是圆角，没啥必要
+    &quot;editor.roundedSelection&quot;: false,
+    // 因为有时后需要查看.git的设置，所以将.git加入显示范围
+    &quot;files.exclude&quot;: {
+        &quot;**/.git&quot;: false,
+        &quot;**/.svn&quot;: true,
+        &quot;**/.hg&quot;: true,
+        &quot;**/CVS&quot;: true,
+        &quot;**/.DS_Store&quot;: true
+    },
+    // 这里主要是设置emmet对于vue的支持
+    &quot;emmet.syntaxProfiles&quot;: {
+        &quot;vue&quot;: &quot;html&quot;,
+        &quot;vue-html&quot;: &quot;html&quot;,
+    },
+    // 同上
+    &quot;emmet.includeLanguages&quot;: {
+        &quot;vue-html&quot;: &quot;html&quot;,
+        &quot;vue&quot;: &quot;html&quot;,
+        &quot;javascript&quot;: &quot;javascriptreact&quot;
+    },
+    // 我比较喜欢用Enter换行，所以emmet提示设置只用tab选择
+    &quot;emmet.triggerExpansionOnTab&quot;: true,
+    // Fira Code是我最喜欢的字体，下面会介绍原因
+    &quot;editor.fontFamily&quot;: &quot;Fira Code, Menlo, Monaco, &#39;Courier New&#39;, monospace&quot;,
+    // 将行高设置高一点会显得很高大上且舒服
+    &quot;editor.lineHeight&quot;: 24,
+    // 缩进规则，主要看公司要求和个人习惯
+    &quot;[javascript]&quot;: {
+        &quot;editor.insertSpaces&quot;: true,
+        &quot;editor.tabSize&quot;: 4
+    },
+     // 因为我没怎么用过打开的编辑器，都是用cmd+p进行跳转。。
+    &quot;explorer.openEditors.visible&quot;: 0,
+    // 主要是一些css代码规范的问题，禁用important
+    &quot;css.lint.important&quot;: &quot;error&quot;,
+    &quot;less.lint.important&quot;: &quot;error&quot;,
+    &quot;scss.lint.important&quot;: &quot;error&quot;,
+    // 设置eslint对于vue的支持
+    &quot;eslint.validate&quot;: [
+        &quot;javascript&quot;,
+        &quot;javascriptreact&quot;,
+        &quot;html&quot;,
+        &quot;vue&quot;
+    ],
+    // 我不是很喜欢小地图。。
+    &quot;editor.minimap.enabled&quot;: false,
+    // Fira Code 支持需要开启
+    &quot;editor.fontLigatures&quot;: true,
+    &quot;editor.tabSize&quot;: 4,
+    // 对于一些比较头痛的地方禁用emmet
+    &quot;emmet.excludeLanguages&quot;: [
+        &quot;markdown&quot;,
+        &quot;less&quot;,
+        &quot;pug&quot;
+    ],
+    // 设置代码换行大小
+    &quot;editor.rulers&quot;: [
+        80,
+        120
+    ],
+    &quot;todohighlight.include&quot;: [
+        &quot;**/*.js&quot;,
+        &quot;**/*.jsx&quot;,
+        &quot;**/*.ts&quot;,
+        &quot;**/*.tsx&quot;,
+        &quot;**/*.html&quot;,
+        &quot;**/*.php&quot;,
+        &quot;**/*.css&quot;,
+        &quot;**/*.scss&quot;,
+        &quot;**/*.less&quot;,
+        &quot;**/*.vue&quot;
+    ],
+    // 一个给文件加注释头的插件。。
+    &quot;topper.headerTemplates&quot;: [
+        {
+            &quot;defaultCStyled&quot;: {
+                &quot;headerBegin&quot;: &quot;/**&quot;,
+                &quot;headerPrefix&quot;: &quot;*&quot;,
+                &quot;headerEnd&quot;: &quot;*/&quot;,
+                &quot;template&quot;: [
+                    &quot;${headerBegin}&quot;,
+                    &quot;${headerPrefix} ${fileName}&quot;,
+                    &quot;${headerPrefix} @author ${author}&quot;,
+                    &quot;${headerPrefix} @description ${description}&quot;,
+                    &quot;${headerPrefix} @created ${createdDate}&quot;,
+                    &quot;${headerPrefix} @copyright ${copyright}&quot;,
+                    &quot;${headerPrefix} @last-modified ${lastModifiedDate}&quot;,
+                    &quot;${headerEnd}&quot;
+                ]
+            }
+        },
+        {
+            &quot;python&quot;: {
+                &quot;headerBegin&quot;: &quot;#&quot;,
+                &quot;headerPrefix&quot;: &quot;#&quot;,
+                &quot;headerEnd&quot;: &quot;#&quot;,
+                &quot;template&quot;: [
+                    &quot;${headerBegin}&quot;,
+                    &quot;${headerPrefix} ${fileName}&quot;,
+                    &quot;${headerPrefix} @author ${author}&quot;,
+                    &quot;${headerPrefix} @description ${description}&quot;,
+                    &quot;${headerPrefix} @created ${createdDate}&quot;,
+                    &quot;${headerPrefix} @last-modified ${lastModifiedDate}&quot;,
+                    &quot;${headerEnd}&quot;
+                ]
+            }
+        }
+    ],
+    &quot;topper.customTemplateParameters&quot;: [
+        {
+            &quot;personalProfile&quot;: {
+                &quot;author&quot;: &quot;yungcho&quot;,
+                &quot;website&quot;: &quot;&quot;,
+                &quot;copyright&quot;: &quot;None \n None&quot;,
+                &quot;license&quot;: &quot;None&quot;,
+                &quot;email&quot;: &quot;yungcho@foxmail.com&quot;
+            }
+        },
+        {
+            &quot;officeProfile&quot;: {
+                &quot;author&quot;: &quot;Cao Yong&quot;,
+                &quot;department&quot;: &quot;PGC&quot;,
+                &quot;email&quot;: &quot;caoyong@bytedance.com&quot;
+            }
+        }
+    ],
+    &quot;git.autofetch&quot;: true,
+    &quot;workbench.activityBar.visible&quot;: true,
+}
+</code></pre><h2 id="字体介绍"><a href="#字体介绍" class="headerlink" title="字体介绍"></a>字体介绍</h2><p>一个非常漂亮的连字体，专为程序员设计。具体不再赘述，详细可以查看 <a href="https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Ftonsky%2FFiraCode" target="_blank" rel="noopener">fira code 的 github</a></p>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h3 id="Auto-Close-Tag"><a href="#Auto-Close-Tag" class="headerlink" title="Auto Close Tag"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dformulahendry.auto-close-tag" target="_blank" rel="noopener">Auto Close Tag</a></h3><p>Auto Close Tag 可以帮助我们自动闭合标签，并且可以帮我们检查标签是否完备，这在使用Vue、React组件式开发的过程中可以帮助我们节省大量的时间。</p>
+<h3 id="Auto-Rename-Tag"><a href="#Auto-Rename-Tag" class="headerlink" title="Auto Rename Tag"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dformulahendry.auto-rename-tag" target="_blank" rel="noopener">Auto Rename Tag</a></h3><p>与 Auto Close Tag 是一对，可以在我们修改标签的时候自动帮助我们修改一对。</p>
+<h3 id="Beautify"><a href="#Beautify" class="headerlink" title="Beautify"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DHookyQR.beautify" target="_blank" rel="noopener">Beautify</a></h3><p>一个自动格式化软件</p>
+<h3 id="Bracket-Pair-Colorizer"><a href="#Bracket-Pair-Colorizer" class="headerlink" title="Bracket Pair Colorizer"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DCoenraadS.bracket-pair-colorizer" target="_blank" rel="noopener">Bracket Pair Colorizer</a></h3><p>一个自动给括号上不同颜色的插件，妈妈再也不怕我面对括号嵌套了。</p>
+<h3 id="EditorConfig-VS-Code-Snippet"><a href="#EditorConfig-VS-Code-Snippet" class="headerlink" title="EditorConfig VS Code Snippet"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dzgudino.editorconfig-vscode-snippet" target="_blank" rel="noopener">EditorConfig VS Code Snippet</a></h3><p>项目文件中的<code>.editorconfig</code>文件，加上这个插件就能自动读取了。</p>
+<h3 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddbaeumer.vscode-eslint" target="_blank" rel="noopener">ESLint</a></h3><p>一个添加vscode对于eslint支持的插件，加上以后不需要命令行就可以直接在编辑器中标识不符合规则的部分。</p>
+<h3 id="filesize"><a href="#filesize" class="headerlink" title="filesize"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dmkxml.vscode-filesize" target="_blank" rel="noopener">filesize</a></h3><p>一个可以自动标识文件大小的小插件</p>
+<h3 id="Git-History"><a href="#Git-History" class="headerlink" title="Git History"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddonjayamanne.githistory" target="_blank" rel="noopener">Git History</a></h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-4f543e4a4ffde0dc.gif" alt="gitHistory">一个很方便的查看git历史记录的插件</p>
+<h3 id="GitLens"><a href="#GitLens" class="headerlink" title="GitLens"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Deamodio.gitlens" target="_blank" rel="noopener">GitLens</a></h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-82e7fc27724d2b85.gif" alt="GitLens">一个可以看到当前代码提交记录的插件</p>
+<h3 id="HTML-CSS-SUPPORT"><a href="#HTML-CSS-SUPPORT" class="headerlink" title="HTML CSS SUPPORT"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Decmel.vscode-html-css" target="_blank" rel="noopener">HTML CSS SUPPORT</a></h3><p>代码补全工具</p>
+<h3 id="HTML-Snippets"><a href="#HTML-Snippets" class="headerlink" title="HTML Snippets"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dabusaidm.html-snippets" target="_blank" rel="noopener">HTML Snippets</a></h3><p>HTML的snippet插件</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-74e8c410147ac51c.gif" alt="html snippet">### <a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dzhuangtongfa.Material-theme" target="_blank" rel="noopener">One Dark Pro</a></p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-7645cf03cde89df4.png" alt="oneDarkPro">很漂亮的vscode主题，再也不羡慕Atom了</p>
+<h3 id="Path-Intellisense"><a href="#Path-Intellisense" class="headerlink" title="Path Intellisense"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dchristian-kohler.path-intellisense" target="_blank" rel="noopener">Path Intellisense</a></h3><p>自动路径提示</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-432a522c222f3ae5.gif" alt="path intellisense">### <a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dchrmarti.regex" target="_blank" rel="noopener">Regex Previewer</a></p>
+<p>一个写完正则就可以直接测试的插件</p>
+<h3 id="TODO-Highlight"><a href="#TODO-Highlight" class="headerlink" title="TODO Highlight"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dwayou.vscode-todo-highlight" target="_blank" rel="noopener">TODO Highlight</a></h3><p>一个TODO LIST的插件</p>
+<h3 id="Vetur"><a href="#Vetur" class="headerlink" title="Vetur"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Doctref.vetur" target="_blank" rel="noopener">Vetur</a></h3><p>vue官方推荐的插件，可以代码提示等功能</p>
+<h3 id="vscode-icons"><a href="#vscode-icons" class="headerlink" title="vscode-icons"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Drobertohuertasm.vscode-icons" target="_blank" rel="noopener">vscode-icons</a></h3><p>很漂亮且很实用的图标插件，帮助我们区分不同类型。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-57f5cc18c0676ebd.gif" alt="vscode-icon"></p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,//edencao.github.io/blog/2019/05/06/VScode-Configuration-List/,Eden's Blog,VScode 配置清单,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/blog/2019/05/06/Operating-System-(2)/" title="操作系统（二）">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/blog/2019/05/06/Draft.js-Data-Structure/" title="Draft.js的数据结构">下一篇</a></li></ul></div><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js?v=undefined"></script><script>var valine = new Valine({
+  el:'#vcomments',
+  notify:false || false, 
+  verify:false|| false, 
+  app_id:'xdXxwiFUCKBJJfW8Yw0gl5UW-gzGzoHsz',
+  app_key:'5lyhKzBrlLhctaThJWRMTP3l',
+  placeholder:'Input your comment here',
+  path: window.location.pathname,
+  avatar:'mm'
+})</script></div></div></div></div><script src="/blog/js/jquery.js"></script><script src="/blog/js/jquery-migrate-1.2.1.min.js"></script><script src="/blog/js/jquery.appear.js"></script><script src="/blog/js/highlight.pack.js"></script><script>hljs.configure({
+  tabReplace: '  ',
+})
+hljs.initHighlightingOnLoad();</script></body></html>
