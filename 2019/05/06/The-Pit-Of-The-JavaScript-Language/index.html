@@ -68,7 +68,9 @@ Javascript语言精粹第3章 对象原型if  (typeof Object.beget !== &amp;#39;
 styleElm.rel = 'stylesheet'; 
 styleElm.href = 'https://imsun.github.io/gitment/style/default.css';
 document.head.appendChild(styleElm)
+
 var gitment = new Gitment({
+    id: document.querySelector('.post-title').val(),
     owner: 'EdenCao',
     repo: 'blog',
     oauth: {
