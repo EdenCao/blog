@@ -520,3 +520,7 @@ dl dt {
     #fb_comments .c_content, #fb_comments .comment_body {
       margin-left: 57px;   }
 }
+
+#comments.gitment {
+  margin: 30px;
+}
