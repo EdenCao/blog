@@ -1,16 +1,424 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Cao Yong,ednencaox@gmail.com"><title>谈谈 rem 与 vw -- rem · Eden's Blog</title><meta name="description" content="谈谈rem与vw — rem写这篇文章的原因，源于我在头条的面试。面试官问到了关于手机端适配rem的问题，这个问题非常有意思，想和大家分享一下：
-Q:能谈谈rem的作用吗，与em有什么区别？
-A: rem 是html 的font-size大小，一般为 16px， em 是父节点的 font-size"><meta name="keywords" content="JavaScript,TypeScript,Linux,macOS"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/blog/css/style.css"><link rel="stylesheet" href="/blog/css/blog_basic.css"><link rel="stylesheet" href="/blog/css/font-awesome.min.css"><link rel="stylesheet" href="/blog/css/atom-one-light.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/blog/images/logo@2x.png" style="width:127px;"><h3 title><a href="/">Eden's Blog</a></h3><div class="description"><p>一些奇奇怪怪的东西</p></div></div></div><ul class="social-links"><li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="http://github.com/EdenCao"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/blog/">首页</a></li><li><a href="/blog/archives/">归档</a></li><li><a href="/blog/2019/05/06/links/">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>谈谈 rem 与 vw -- rem</a></h3></div><div class="post-content"><h1 id="谈谈rem与vw-—-rem"><a href="#谈谈rem与vw-—-rem" class="headerlink" title="谈谈rem与vw — rem"></a>谈谈rem与vw — rem</h1><p>写这篇文章的原因，源于我在头条的面试。面试官问到了关于手机端适配rem的问题，这个问题非常有意思，想和大家分享一下：</p>
-<pre><code>Q:能谈谈rem的作用吗，与em有什么区别？
-A: rem 是html 的font-size大小，一般为 16px， em 是父节点的 font-size 大小
-Q: 我们为什么要用rem去做手机的适配？如果rem只是根节点字体大小的话，那么rem 其实和px 、em没有区别，rem解决了什么问题？
-</code></pre><p>我之前确实做过几个简单的手机H5页面，只是在使用淘宝的lib-flexible方案，只觉得rem是解决方案的结果，但是从没想过为什么要使用rem来做手机端的适配。</p>
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/blog/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/favicons/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicons/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicons/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/blog/images/favicons/safari-pinned-tab.svg?v=7.1.1" color="#222">
+
+
+  <link rel="manifest" href="/blog/images/favicons/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/blog/images/favicons/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="谈谈rem与vw — rem写这篇文章的原因，源于我在头条的面试。面试官问到了关于手机端适配rem的问题，这个问题非常有意思，想和大家分享一下： 123Q:能谈谈rem的作用吗，与em有什么区别？A: rem 是html 的font-size大小，一般为 16px， em 是父节点的 font-size 大小Q: 我们为什么要用rem去做手机的适配？如果rem只是根节点字体大小的话，那么rem 其">
+<meta name="keywords" content="JavaScript,TypeScript,Linux,macOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈谈 rem 与 vw -- rem">
+<meta property="og:url" content="//edencao.github.io/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/index.html">
+<meta property="og:site_name" content="Eden&#39;s Blog">
+<meta property="og:description" content="谈谈rem与vw — rem写这篇文章的原因，源于我在头条的面试。面试官问到了关于手机端适配rem的问题，这个问题非常有意思，想和大家分享一下： 123Q:能谈谈rem的作用吗，与em有什么区别？A: rem 是html 的font-size大小，一般为 16px， em 是父节点的 font-size 大小Q: 我们为什么要用rem去做手机的适配？如果rem只是根节点字体大小的话，那么rem 其">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-ed6d76dad2b44548.jpg">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-518e49b5197bf1f3.jpg">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-5206f315d53cde18.jpeg">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-aa5c7c5195cd2639.jpg">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-648a2fc5ba4c63e2.png">
+<meta property="og:updated_time" content="2019-05-06T08:50:33.244Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="谈谈 rem 与 vw -- rem">
+<meta name="twitter:description" content="谈谈rem与vw — rem写这篇文章的原因，源于我在头条的面试。面试官问到了关于手机端适配rem的问题，这个问题非常有意思，想和大家分享一下： 123Q:能谈谈rem的作用吗，与em有什么区别？A: rem 是html 的font-size大小，一般为 16px， em 是父节点的 font-size 大小Q: 我们为什么要用rem去做手机的适配？如果rem只是根节点字体大小的话，那么rem 其">
+<meta name="twitter:image" content="//upload-images.jianshu.io/upload_images/5617469-ed6d76dad2b44548.jpg">
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Eden's Blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="//edencao.github.io/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>谈谈 rem 与 vw -- rem | Eden's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eden's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/2019/05/06/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>links</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">谈谈 rem 与 vw -- rem
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="谈谈rem与vw-—-rem"><a href="#谈谈rem与vw-—-rem" class="headerlink" title="谈谈rem与vw — rem"></a>谈谈rem与vw — rem</h1><p>写这篇文章的原因，源于我在头条的面试。面试官问到了关于手机端适配rem的问题，这个问题非常有意思，想和大家分享一下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Q:能谈谈<span class="built_in">rem</span>的作用吗，与em有什么区别？</span><br><span class="line">A: <span class="built_in">rem</span> 是html 的font-<span class="built_in">size</span>大小，一般为 <span class="number">16</span>px， em 是父节点的 font-<span class="built_in">size</span> 大小</span><br><span class="line">Q: 我们为什么要用<span class="built_in">rem</span>去做手机的适配？如果<span class="built_in">rem</span>只是根节点字体大小的话，那么<span class="built_in">rem</span> 其实和px 、em没有区别，<span class="built_in">rem</span>解决了什么问题？</span><br></pre></td></tr></table></figure>
+<p>我之前确实做过几个简单的手机H5页面，只是在使用淘宝的lib-flexible方案，只觉得rem是解决方案的结果，但是从没想过为什么要使用rem来做手机端的适配。</p>
 <p>当我再次去看淘宝的lib-flexible的时候，发现此方案已经不被推荐了，取而代之的是<a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.w3cplus.com%2Fmobile%2Fvw-layout-in-vue.html" target="_blank" rel="noopener">《如何在Vue项目中使用vw实现移动端适配》</a>,于是想借此机会将 rem 与 vw 一起总结一下。</p>
 <h2 id="手机端适配模式"><a href="#手机端适配模式" class="headerlink" title="手机端适配模式"></a>手机端适配模式</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-ed6d76dad2b44548.jpg" alt="手机淘宝团队适配协作模式">## 一些基本概念</p>
 <p>具体内容可以查看<a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.w3cplus.com%2Fmobile%2Flib-flexible-for-html5-layout.html" target="_blank" rel="noopener">《使用Flexible实现手淘H5页面的最终适配》</a>,在这里，我只对其中的一些概念谈一谈自己的理解。</p>
 <h3 id="viewport"><a href="#viewport" class="headerlink" title="viewport"></a>viewport</h3><p>简单来说，viewport严格等于浏览器视窗大小（不包含滚动条），但是在移动设备上有些复杂，分为 visualviewport 与 layoutviewport。这里不做详细解释，可以查看<a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.w3cplus.com%2Fcss%2Fviewports.html" target="_blank" rel="noopener">《viewports剖析》</a>来了解详细内容，看完这篇文章，你会明白为什么在html头部 emmet 会自动帮你生成</p>
-<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-</code></pre><h3 id="设备独立像素（虚拟像素）"><a href="#设备独立像素（虚拟像素）" class="headerlink" title="设备独立像素（虚拟像素）"></a>设备独立像素（虚拟像素）</h3><p>设备独立像素是软件概念上的一个像素，一个设备独立像素可以对应多个物理像素，对应关系由相关系统控制（我们不用管），CSS像素（即写在css中的1px）就是一种设备独立像素。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">"viewport"</span> <span class="attribute">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="设备独立像素（虚拟像素）"><a href="#设备独立像素（虚拟像素）" class="headerlink" title="设备独立像素（虚拟像素）"></a>设备独立像素（虚拟像素）</h3><p>设备独立像素是软件概念上的一个像素，一个设备独立像素可以对应多个物理像素，对应关系由相关系统控制（我们不用管），CSS像素（即写在css中的1px）就是一种设备独立像素。</p>
 <p>例如苹果是Retina屏，1px（虚拟像素） = 4px（物理像素，dpr=2）</p>
 <p>盗一张手淘的图：</p>
 <p><img src="//upload-images.jianshu.io/upload_images/5617469-518e49b5197bf1f3.jpg" alt="物理像素对虚拟像素">### dpr</p>
@@ -23,25 +431,14 @@ Q: 我们为什么要用rem去做手机的适配？如果rem只是根节点字�
 <p><br></p>
 <p><img src="//upload-images.jianshu.io/upload_images/5617469-5206f315d53cde18.jpeg" alt="手淘webapp.jpeg">可以试着打开一下手机淘宝页面，你会发现你无法将这个页面放大。</p>
 <p>考虑一个问题，你需要为一个 375px 大小的屏幕做页面，页面充满整个屏幕, 里面有一个 200px 大小的弹窗，你需要如何去实现它？</p>
-<pre><code>.wrapper {
-  width: 375px;
-
-  .dialog {
-    width: 200px;
-  }
-}
-</code></pre><p>如果这么做就 GG 了，当这个页面放到大一些的屏幕上（例如 414px的屏幕），那么显示出来的效果会出现留白。 414 是 iPhone * Plus 的尺寸，如果放到 ipad 上面那么留白会更大。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">375px</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="selector-class">.dialog</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果这么做就 GG 了，当这个页面放到大一些的屏幕上（例如 414px的屏幕），那么显示出来的效果会出现留白。 414 是 iPhone * Plus 的尺寸，如果放到 ipad 上面那么留白会更大。</p>
 <p>我们如何解决这个问题呢？</p>
 <p>如果能够有一种动态的修改元素的长度就好了。</p>
 <p>rem 就是这样一种原理，我们的组件使用 rem 进行编写，然后使用 JavaScript 动态设置 rem 到 px 的映射关系，这样就可以实现对于不同手机页面的适配了。</p>
 <p>上 lib-flexible 源码</p>
-<pre><code>// 经过精简
-var docEl = document.documentElement;
-function setRemUnit () {
-    var rem = docEl.clientWidth / 10
-    docEl.style.fontSize = rem + &#39;px&#39;
- }
-</code></pre><p>具体 rem 的计算我会在下面介绍，核心代码实际上就是为 html 元素设置一个 font-size 而已。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 经过精简</span></span><br><span class="line"><span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setRemUnit</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rem = docEl.clientWidth / <span class="number">10</span></span><br><span class="line">    docEl.style.fontSize = rem + <span class="string">'px'</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>具体 rem 的计算我会在下面介绍，核心代码实际上就是为 html 元素设置一个 font-size 而已。</p>
 <h3 id="lib-flexible-设置-dpr-又是为了什么？"><a href="#lib-flexible-设置-dpr-又是为了什么？" class="headerlink" title="lib-flexible 设置 dpr 又是为了什么？"></a>lib-flexible 设置 dpr 又是为了什么？</h3><p>为了解决“极致的1px”问题。</p>
 <p>再次把这张图放一下：</p>
 <p><img src="//upload-images.jianshu.io/upload_images/5617469-aa5c7c5195cd2639.jpg" alt="物理像素对虚拟像素">在 Retina 屏幕上面，1个 CSS 像素实际上对应着4个物理像素（dpr=2的情况）。当我们在屏幕上画1px 的线时，Retina 屏幕实际上是2个物理像素宽。我们要实现“极致的1px”就是希望在Retina屏幕上画出一条1个物理像素宽的细线。</p>
@@ -51,63 +448,435 @@ function setRemUnit () {
 <p>实际上使用 rem 配合 dpr 缩放的方式有非常多的问题。最明显的例子就是安卓机 dpr 的混乱，例如 VIVO 的某款手机甚至出现了 dpr 为小数的情况（上文我们介绍到，1个 CSS 像素对应多少个物理像素 dpr 就是几，显然不可能出现小数位的情况），所以使用缩放来实现“极致的1px”兼容性并不是很好。</p>
 <p>有团队的做法是将 dpr 设置有问题的机型进行上报，然后收集成一个白名单，再根据白名单在 lib-flexible 对于有问题的机型进行单独适配，然而这个工作量一般的小团队没有精力去做……</p>
 <p>所以我们可以看到 2.0 版本已经舍弃了这种做法。</p>
-<pre><code>// 进行了精简
-// detect 0.5px supports
-var docEl = document.documentElement;
-if (dpr &gt;= 2) {
-  var fakeBody = document.createElement(&#39;body&#39;)
-  var testElement = document.createElement(&#39;div&#39;)
-  testElement.style.border = &#39;.5px solid transparent&#39;
-  fakeBody.appendChild(testElement)
-  docEl.appendChild(fakeBody)
-  if (testElement.offsetHeight === 1) {
-    docEl.classList.add(&#39;hairlines&#39;)
-  }
-  docEl.removeChild(fakeBody)
-}
-</code></pre><p>可以看到这个版本对于设备进行了一个测试，如果该设备支持 0.5px 的书写方式，那么就在 <code>html</code> 元素上面添加一个 <code>hairlines</code> 的类,我们在使用的时候只需要在<code>header</code>中添加<code>.hirlines div {border-width: 0.5px}</code>就可以了。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 进行了精简</span></span><br><span class="line"><span class="comment">// detect 0.5px supports</span></span><br><span class="line"><span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement;</span><br><span class="line"><span class="keyword">if</span> (dpr &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> fakeBody = <span class="built_in">document</span>.createElement(<span class="string">'body'</span>)</span><br><span class="line">  <span class="keyword">var</span> testElement = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">  testElement.style.border = <span class="string">'.5px solid transparent'</span></span><br><span class="line">  fakeBody.appendChild(testElement)</span><br><span class="line">  docEl.appendChild(fakeBody)</span><br><span class="line">  <span class="keyword">if</span> (testElement.offsetHeight === <span class="number">1</span>) &#123;</span><br><span class="line">    docEl.classList.add(<span class="string">'hairlines'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  docEl.removeChild(fakeBody)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到这个版本对于设备进行了一个测试，如果该设备支持 0.5px 的书写方式，那么就在 <code>html</code> 元素上面添加一个 <code>hairlines</code> 的类,我们在使用的时候只需要在<code>header</code>中添加<code>.hirlines div {border-width: 0.5px}</code>就可以了。</p>
 <p>例如：</p>
-<pre><code>// some device support 0.5 px
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot; class=&quot;hairlines&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;style&gt;
-      div {
-        boder: 1px solid #000;
-      }
-      .hairlines div {
-        border: 0.5px solid #000;
-      }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div&gt;我是极致的1px&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>这样，如果支持 0.5 px，就会出现一条非常细的线，否则就按照正常的显示方式。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// some device support 0.5 px</span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">class</span>=<span class="string">"hairlines"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      div &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">boder</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.hairlines</span> <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">border</span>: 0<span class="selector-class">.5px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>我是极致的1px<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样，如果支持 0.5 px，就会出现一条非常细的线，否则就按照正常的显示方式。</p>
 <h2 id="Rem的映射方式"><a href="#Rem的映射方式" class="headerlink" title="Rem的映射方式"></a>Rem的映射方式</h2><p>这个问题其实很简单，首先我们设定一个基于设计稿的 rem 基准值，然后在真实设备上乘一个设计稿对真实设备的比值：</p>
 <p><img src="//upload-images.jianshu.io/upload_images/5617469-648a2fc5ba4c63e2.png" alt="rem转化公式.png">而 lib-flexible 则默认规定了 rem 的取值为屏幕宽度的十分之一</p>
 <h2 id="Rem的一些问题"><a href="#Rem的一些问题" class="headerlink" title="Rem的一些问题"></a>Rem的一些问题</h2><p>使用 rem 方式布局其实有很多问题。我们使用 rem 转换出来的 px 往往有很多小数点，所以最终的展示效果的 CSS 长宽实际上是经过四舍五入的。因此往往我们需要手动去调整“最后的1px”，这给我们带来了很多的麻烦。</p>
 <p>因此 rem 确实是对移动端适配的一种解决方案，但并非无懈可击。</p>
-</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,//edencao.github.io/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/,Eden's Blog,谈谈 rem 与 vw -- rem,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/blog/2019/05/06/Draft.js-Data-Structure/" title="Draft.js的数据结构">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/blog/2019/05/06/Draft.js-Event-Handling-Mechanism/" title="Draft.js的事件处理机制">下一篇</a></li></ul></div><div class="gitment" id="comments"></div><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var styleElm = document.createElement('link');
-styleElm.rel = 'stylesheet'; 
-styleElm.href = 'https://imsun.github.io/gitment/style/default.css';
-document.head.appendChild(styleElm)
 
-var gitment = new Gitment({
-    id: document.querySelector('.post-title').textContent.split(' ').join('_'),
-    owner: 'EdenCao',
-    repo: 'blog',
-    oauth: {
-        client_id: '524a2ec70d9f93b7d96f',
-        client_secret: '403fd7b08932eb72291927b7c5bb6e574f7aa379'
-    }
-});
-gitment.render('comments')</script></div></div></div></div><script src="/blog/js/jquery.js"></script><script src="/blog/js/jquery-migrate-1.2.1.min.js"></script><script src="/blog/js/jquery.appear.js"></script><script src="/blog/js/highlight.pack.js"></script><script>hljs.configure({
-  tabReplace: '  ',
-})
-hljs.initHighlightingOnLoad();</script></body></html>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/05/06/Draft.js-Event-Handling-Mechanism/" rel="next" title="Draft.js的事件处理机制">
+                <i class="fa fa-chevron-left"></i> Draft.js的事件处理机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2019/05/06/Draft.js-Data-Structure/" rel="prev" title="Draft.js的数据结构">
+                Draft.js的数据结构 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blog/images/avatar.jpg" alt="Cao Yong">
+            
+              <p class="site-author-name" itemprop="name">Cao Yong</p>
+              <div class="site-description motion-element" itemprop="description">一些奇奇怪怪的东西</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/blog/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/EdenCao" title="GitHub &rarr; https://github.com/EdenCao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:edencaox@gmail.com" title="E-Mail &rarr; mailto:edencaox@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#谈谈rem与vw-—-rem"><span class="nav-number">1.</span> <span class="nav-text">谈谈rem与vw — rem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#手机端适配模式"><span class="nav-number">1.1.</span> <span class="nav-text">手机端适配模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#viewport"><span class="nav-number">1.1.1.</span> <span class="nav-text">viewport</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备独立像素（虚拟像素）"><span class="nav-number">1.1.2.</span> <span class="nav-text">设备独立像素（虚拟像素）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem"><span class="nav-number">1.1.3.</span> <span class="nav-text">rem</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lib-flexible"><span class="nav-number">1.2.</span> <span class="nav-text">lib-flexible</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rem-解决了什么问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">rem 解决了什么问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lib-flexible-设置-dpr-又是为了什么？"><span class="nav-number">1.2.2.</span> <span class="nav-text">lib-flexible 设置 dpr 又是为了什么？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rem的映射方式"><span class="nav-number">1.3.</span> <span class="nav-text">Rem的映射方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rem的一些问题"><span class="nav-number">1.4.</span> <span class="nav-text">Rem的一些问题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cao Yong</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/blog/js/utils.js?v=7.1.1"></script>
+
+  <script src="/blog/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/blog/js/affix.js?v=7.1.1"></script>
+
+  <script src="/blog/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/blog/js/scrollspy.js?v=7.1.1"></script>
+<script src="/blog/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/blog/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'EdenCao',
+      repo: 'blog',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '403fd7b08932eb72291927b7c5bb6e574f7aa379',
+      
+        client_id: '524a2ec70d9f93b7d96f'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

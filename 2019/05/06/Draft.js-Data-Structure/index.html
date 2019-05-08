@@ -1,5 +1,419 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Cao Yong,ednencaox@gmail.com"><title>Draft.js的数据结构 · Eden's Blog</title><meta name="description" content="Draft.js的数据结构Draft.js使用EditorState来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍Draft.js的数据结构。
-不可变的数据结构Draft.js基于immutable.js实现了一种不可变的数据结构，基于这种数据结构"><meta name="keywords" content="JavaScript,TypeScript,Linux,macOS"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/blog/css/style.css"><link rel="stylesheet" href="/blog/css/blog_basic.css"><link rel="stylesheet" href="/blog/css/font-awesome.min.css"><link rel="stylesheet" href="/blog/css/atom-one-light.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/blog/images/logo@2x.png" style="width:127px;"><h3 title><a href="/">Eden's Blog</a></h3><div class="description"><p>一些奇奇怪怪的东西</p></div></div></div><ul class="social-links"><li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="http://github.com/EdenCao"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/blog/">首页</a></li><li><a href="/blog/archives/">归档</a></li><li><a href="/blog/2019/05/06/links/">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Draft.js的数据结构</a></h3></div><div class="post-content"><h1 id="Draft-js的数据结构"><a href="#Draft-js的数据结构" class="headerlink" title="Draft.js的数据结构"></a>Draft.js的数据结构</h1><p><code>Draft.js</code>使用EditorState来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍<code>Draft.js</code>的数据结构。</p>
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/blog/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/favicons/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicons/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicons/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/blog/images/favicons/safari-pinned-tab.svg?v=7.1.1" color="#222">
+
+
+  <link rel="manifest" href="/blog/images/favicons/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/blog/images/favicons/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Draft.js的数据结构Draft.js使用EditorState来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍Draft.js的数据结构。 不可变的数据结构Draft.js基于immutable.js实现了一种不可变的数据结构，基于这种数据结构，Draft.js实现了单项数据流，即 event -&amp;gt; onChange -&amp;gt; Edi">
+<meta name="keywords" content="JavaScript,TypeScript,Linux,macOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Draft.js的数据结构">
+<meta property="og:url" content="//edencao.github.io/blog/2019/05/06/Draft.js-Data-Structure/index.html">
+<meta property="og:site_name" content="Eden&#39;s Blog">
+<meta property="og:description" content="Draft.js的数据结构Draft.js使用EditorState来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍Draft.js的数据结构。 不可变的数据结构Draft.js基于immutable.js实现了一种不可变的数据结构，基于这种数据结构，Draft.js实现了单项数据流，即 event -&amp;gt; onChange -&amp;gt; Edi">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-da61a2f10ca947bb.png">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-5f9ea9a1806e6f34.png">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-6cb8672da4e5a2a1.png">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-d113d9fa0a9f9133.png">
+<meta property="og:updated_time" content="2019-05-06T09:20:01.669Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Draft.js的数据结构">
+<meta name="twitter:description" content="Draft.js的数据结构Draft.js使用EditorState来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍Draft.js的数据结构。 不可变的数据结构Draft.js基于immutable.js实现了一种不可变的数据结构，基于这种数据结构，Draft.js实现了单项数据流，即 event -&amp;gt; onChange -&amp;gt; Edi">
+<meta name="twitter:image" content="//upload-images.jianshu.io/upload_images/5617469-da61a2f10ca947bb.png">
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Eden's Blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="//edencao.github.io/blog/2019/05/06/Draft.js-Data-Structure/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Draft.js的数据结构 | Eden's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eden's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/2019/05/06/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>links</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Draft.js-Data-Structure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Draft.js的数据结构
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33 / 修改时间：17:20:01" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/blog/2019/05/06/Draft.js-Data-Structure/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/blog/2019/05/06/Draft.js-Data-Structure/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Draft-js的数据结构"><a href="#Draft-js的数据结构" class="headerlink" title="Draft.js的数据结构"></a>Draft.js的数据结构</h1><p><code>Draft.js</code>使用EditorState来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍<code>Draft.js</code>的数据结构。</p>
 <h2 id="不可变的数据结构"><a href="#不可变的数据结构" class="headerlink" title="不可变的数据结构"></a>不可变的数据结构</h2><p><code>Draft.js</code>基于<code>immutable.js</code>实现了一种不可变的数据结构，基于这种数据结构，<code>Draft.js</code>实现了单项数据流，即 event -&gt; onChange -&gt; EditorState</p>
 <h2 id="EditorState-概览"><a href="#EditorState-概览" class="headerlink" title="EditorState 概览"></a>EditorState 概览</h2><p>我在 <a href="https://link.jianshu.com?t=https%3A%2F%2Fcodepen.io%2Fyungcho%2Fpen%2FNXJxNL%3Feditors%3D1111" target="_blank" rel="noopener">CodePen</a> 上面实现了一个简单的Demo用于展示EditorState，你可以在上面尝试一下。</p>
 <p><img src="//upload-images.jianshu.io/upload_images/5617469-da61a2f10ca947bb.png" alt="EditorState.png">上图展示了一个完整的EditorState，我们可以轻易的猜测出一些属性的含义，比如currentContent记录了当前编辑器中展示内容的状态，selection中标识当前的选区，redoStack和undoStack分别是撤销、重做栈，而EditorState则提供了操作这些属性的顶层方法。</p>
@@ -7,69 +421,432 @@
 <p><img src="//upload-images.jianshu.io/upload_images/5617469-5f9ea9a1806e6f34.png" alt="块级样式.png">当我在<code>draft</code>中随意输入一些文字的时候，text将会记录下文字内容，而此时用于记录块级样式的type值为<code>unstyled</code></p>
 <p><img src="//upload-images.jianshu.io/upload_images/5617469-6cb8672da4e5a2a1.png" alt="块级样式与内联样式.png">现在我们将H1（块级元素）应用于文本，我们可以发现用于标识块级样式的type值变为了<code>header-one</code>，当我们继续在该行输入的时候，将会同样被赋予H1样式。通过上述的数据结构我们可以发现，由于块级样式由type所规定，所以块级样式之间不可被嵌套，即不会出现无序列表嵌套有序列表的情况出现。</p>
 <p>对于同一块级元素中的文本内容，<code>draft</code>将其按照字符进行拆分,每一个字符的内联样式用数组进行展示，由此可以解决内联样式的嵌套问题。</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-d113d9fa0a9f9133.png" alt="内联样式.png"></p>
-<pre><code>[
- [&#39;ITALIC&#39;], // 斜
- [&#39;ITALIC&#39;], // 体
- [],
- [&#39;ITALIC&#39;,&#39;BOLD&#39;,&#39;UNDERLINE&#39;], //斜
- [&#39;ITALIC&#39;,&#39;BOLD&#39;,&#39;UNDERLINE&#39;], //体
- [&#39;ITALIC&#39;,&#39;BOLD&#39;,&#39;UNDERLINE&#39;], //加
- ...
-]
-</code></pre><h2 id="Entity元数据"><a href="#Entity元数据" class="headerlink" title="Entity元数据"></a>Entity元数据</h2><p>Entity并不是一个难以理解的数据类型，Entity数据主要用于展示一些不可被分割的数据类型，例如图片、mention、超链接等。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-d113d9fa0a9f9133.png" alt="内联样式.png"><br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"> [<span class="symbol">'ITALIC</span>'], // 斜</span><br><span class="line"> [<span class="symbol">'ITALIC</span>'], // 体</span><br><span class="line"> [],</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //斜</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //体</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //加</span><br><span class="line"> ...</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h2 id="Entity元数据"><a href="#Entity元数据" class="headerlink" title="Entity元数据"></a>Entity元数据</h2><p>Entity并不是一个难以理解的数据类型，Entity数据主要用于展示一些不可被分割的数据类型，例如图片、mention、超链接等。</p>
 <p>典型场景就是mention类型，详细来说，我们在日常使用中会在富文本编辑器中提及一些人， @xxx 的数据类型要求是一个统一整体，一旦 @xxx 中有某一个字符被删除，就有可能会出现 @ 出的名字和 @ 的对象不一致的情况。</p>
 <p>在上图中，我将插入的图片数据结构打印了出来，我们可以发现这是一个Entity，记录了data，mutability与type，<code>Draft.js</code>向外暴露了一个顶层接口，当Entity数据被注入的时候，可以通过这个接口来设计数据对象的展现方式，如下图</p>
-<pre><code>// Draft Editor
-&lt;Editor
- blockRendererFn={this.mediaBlockRenderer}
-/&gt;
-​
-// mediaBlockRenderer
-mediaBlockRenderer(block) {
- if(block.getType() === &#39;atomic&#39;) {
- return {
- component: Media,
- editable: false,
- }
- }
- return null;
-}
-</code></pre><pre><code>// Media
-const Media = (props) =&gt; {
- const entity = props.contentState.getEntity(
- props.block.getEntityAt(0)
- );
- const {src} = entity.getData();
- const type = entity.getType();
- console.log({entity});
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Draft Editor</span></span><br><span class="line">&lt;Editor</span><br><span class="line"> blockRendererFn=&#123;<span class="keyword">this</span>.mediaBlockRenderer&#125;</span><br><span class="line">/&gt;</span><br><span class="line">​</span><br><span class="line"><span class="comment">// mediaBlockRenderer</span></span><br><span class="line">mediaBlockRenderer(block) &#123;</span><br><span class="line"> <span class="keyword">if</span>(block.getType() === <span class="string">'atomic'</span>) &#123;</span><br><span class="line"> <span class="keyword">return</span> &#123;</span><br><span class="line"> component: Media,</span><br><span class="line"> editable: <span class="literal">false</span>,</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Media</span></span><br><span class="line"><span class="keyword">const</span> Media = <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">const</span> entity = props.contentState.getEntity(</span><br><span class="line"> props.block.getEntityAt(<span class="number">0</span>)</span><br><span class="line"> );</span><br><span class="line"> <span class="keyword">const</span> &#123;src&#125; = entity.getData();</span><br><span class="line"> <span class="keyword">const</span> <span class="keyword">type</span> = entity.getType();</span><br><span class="line"> <span class="built_in">console</span>.log(&#123;entity&#125;);</span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> media;</span><br><span class="line"> <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">'audio'</span>) &#123;</span><br><span class="line"> media = &lt;Audio src=&#123;src&#125; /&gt;;</span><br><span class="line"> &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">'image'</span>) &#123;</span><br><span class="line"> media = &lt;Image src=&#123;src&#125; /&gt;;</span><br><span class="line"> &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">'video'</span>) &#123;</span><br><span class="line"> media = &lt;Video src=&#123;src&#125; /&gt;;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> media;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
- let media;
- if (type === &#39;audio&#39;) {
- media = &lt;Audio src={src} /&gt;;
- } else if (type === &#39;image&#39;) {
- media = &lt;Image src={src} /&gt;;
- } else if (type === &#39;video&#39;) {
- media = &lt;Video src={src} /&gt;;
- }
+      
+    </div>
 
- return media;
-};
-</code></pre></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,//edencao.github.io/blog/2019/05/06/Draft.js-Data-Structure/,Eden's Blog,Draft.js的数据结构,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/blog/2019/05/06/VScode-Configuration-List/" title="VScode 配置清单">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/" title="谈谈 rem 与 vw -- rem">下一篇</a></li></ul></div><div class="gitment" id="comments"></div><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var styleElm = document.createElement('link');
-styleElm.rel = 'stylesheet'; 
-styleElm.href = 'https://imsun.github.io/gitment/style/default.css';
-document.head.appendChild(styleElm)
+    
 
-var gitment = new Gitment({
-    id: document.querySelector('.post-title').textContent.split(' ').join('_'),
-    owner: 'EdenCao',
-    repo: 'blog',
-    oauth: {
-        client_id: '524a2ec70d9f93b7d96f',
-        client_secret: '403fd7b08932eb72291927b7c5bb6e574f7aa379'
-    }
-});
-gitment.render('comments')</script></div></div></div></div><script src="/blog/js/jquery.js"></script><script src="/blog/js/jquery-migrate-1.2.1.min.js"></script><script src="/blog/js/jquery.appear.js"></script><script src="/blog/js/highlight.pack.js"></script><script>hljs.configure({
-  tabReplace: '  ',
-})
-hljs.initHighlightingOnLoad();</script></body></html>
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/" rel="next" title="谈谈 rem 与 vw -- rem">
+                <i class="fa fa-chevron-left"></i> 谈谈 rem 与 vw -- rem
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2019/05/06/VScode-Configuration-List/" rel="prev" title="VScode 配置清单">
+                VScode 配置清单 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blog/images/avatar.jpg" alt="Cao Yong">
+            
+              <p class="site-author-name" itemprop="name">Cao Yong</p>
+              <div class="site-description motion-element" itemprop="description">一些奇奇怪怪的东西</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/blog/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/EdenCao" title="GitHub &rarr; https://github.com/EdenCao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:edencaox@gmail.com" title="E-Mail &rarr; mailto:edencaox@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Draft-js的数据结构"><span class="nav-number">1.</span> <span class="nav-text">Draft.js的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#不可变的数据结构"><span class="nav-number">1.1.</span> <span class="nav-text">不可变的数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EditorState-概览"><span class="nav-number">1.2.</span> <span class="nav-text">EditorState 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式展现"><span class="nav-number">1.3.</span> <span class="nav-text">样式展现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Entity元数据"><span class="nav-number">1.4.</span> <span class="nav-text">Entity元数据</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cao Yong</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/blog/js/utils.js?v=7.1.1"></script>
+
+  <script src="/blog/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/blog/js/affix.js?v=7.1.1"></script>
+
+  <script src="/blog/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/blog/js/scrollspy.js?v=7.1.1"></script>
+<script src="/blog/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/blog/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'EdenCao',
+      repo: 'blog',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '403fd7b08932eb72291927b7c5bb6e574f7aa379',
+      
+        client_id: '524a2ec70d9f93b7d96f'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

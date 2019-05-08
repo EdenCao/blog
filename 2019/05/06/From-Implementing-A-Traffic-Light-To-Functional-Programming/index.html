@@ -1,226 +1,855 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Cao Yong,ednencaox@gmail.com"><title>从实现一个红绿灯到函数式编程 · Eden's Blog</title><meta name="description" content="我认为函数式编程的本质是把函数当作变量来使用。最近接触了React，我们可以发现在React中处处存在函数式编程的思想，我们将JSX写成一个函数的返回值，并且在render中调用她们。函数是对于过程的抽象，我们将过程抽象成一个函数，然后根据不同的场景传入不同的变量值从而得到不同的结果。而函数式编程是"><meta name="keywords" content="JavaScript,TypeScript,Linux,macOS"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/blog/css/style.css"><link rel="stylesheet" href="/blog/css/blog_basic.css"><link rel="stylesheet" href="/blog/css/font-awesome.min.css"><link rel="stylesheet" href="/blog/css/atom-one-light.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/blog/images/logo@2x.png" style="width:127px;"><h3 title><a href="/">Eden's Blog</a></h3><div class="description"><p>一些奇奇怪怪的东西</p></div></div></div><ul class="social-links"><li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="http://github.com/EdenCao"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/blog/">首页</a></li><li><a href="/blog/archives/">归档</a></li><li><a href="/blog/2019/05/06/links/">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>从实现一个红绿灯到函数式编程</a></h3></div><div class="post-content"><p>我认为函数式编程的本质是把函数当作变量来使用。最近接触了<code>React</code>，我们可以发现在<code>React</code>中处处存在函数式编程的思想，我们将<code>JSX</code>写成一个函数的返回值，并且在<code>render</code>中调用她们。函数是对于过程的抽象，我们将过程抽象成一个函数，然后根据不同的场景传入不同的变量值从而得到不同的结果。而函数式编程是对于函数的抽象，我们把函数看作是一个变量，然后根据不同的场景传入不同的函数值从而得到不同的结果。</p>
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/blog/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/favicons/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicons/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicons/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/blog/images/favicons/safari-pinned-tab.svg?v=7.1.1" color="#222">
+
+
+  <link rel="manifest" href="/blog/images/favicons/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/blog/images/favicons/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="我认为函数式编程的本质是把函数当作变量来使用。最近接触了React，我们可以发现在React中处处存在函数式编程的思想，我们将JSX写成一个函数的返回值，并且在render中调用她们。函数是对于过程的抽象，我们将过程抽象成一个函数，然后根据不同的场景传入不同的变量值从而得到不同的结果。而函数式编程是对于函数的抽象，我们把函数看作是一个变量，然后根据不同的场景传入不同的函数值从而得到不同的结果。 我">
+<meta name="keywords" content="JavaScript,TypeScript,Linux,macOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从实现一个红绿灯到函数式编程">
+<meta property="og:url" content="//edencao.github.io/blog/2019/05/06/From-Implementing-A-Traffic-Light-To-Functional-Programming/index.html">
+<meta property="og:site_name" content="Eden&#39;s Blog">
+<meta property="og:description" content="我认为函数式编程的本质是把函数当作变量来使用。最近接触了React，我们可以发现在React中处处存在函数式编程的思想，我们将JSX写成一个函数的返回值，并且在render中调用她们。函数是对于过程的抽象，我们将过程抽象成一个函数，然后根据不同的场景传入不同的变量值从而得到不同的结果。而函数式编程是对于函数的抽象，我们把函数看作是一个变量，然后根据不同的场景传入不同的函数值从而得到不同的结果。 我">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-06T08:50:33.186Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从实现一个红绿灯到函数式编程">
+<meta name="twitter:description" content="我认为函数式编程的本质是把函数当作变量来使用。最近接触了React，我们可以发现在React中处处存在函数式编程的思想，我们将JSX写成一个函数的返回值，并且在render中调用她们。函数是对于过程的抽象，我们将过程抽象成一个函数，然后根据不同的场景传入不同的变量值从而得到不同的结果。而函数式编程是对于函数的抽象，我们把函数看作是一个变量，然后根据不同的场景传入不同的函数值从而得到不同的结果。 我">
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Eden's Blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="//edencao.github.io/blog/2019/05/06/From-Implementing-A-Traffic-Light-To-Functional-Programming/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>从实现一个红绿灯到函数式编程 | Eden's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eden's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/2019/05/06/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>links</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/From-Implementing-A-Traffic-Light-To-Functional-Programming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">从实现一个红绿灯到函数式编程
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/blog/2019/05/06/From-Implementing-A-Traffic-Light-To-Functional-Programming/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/blog/2019/05/06/From-Implementing-A-Traffic-Light-To-Functional-Programming/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>我认为函数式编程的本质是把函数当作变量来使用。最近接触了<code>React</code>，我们可以发现在<code>React</code>中处处存在函数式编程的思想，我们将<code>JSX</code>写成一个函数的返回值，并且在<code>render</code>中调用她们。函数是对于过程的抽象，我们将过程抽象成一个函数，然后根据不同的场景传入不同的变量值从而得到不同的结果。而函数式编程是对于函数的抽象，我们把函数看作是一个变量，然后根据不同的场景传入不同的函数值从而得到不同的结果。</p>
 <p>我希望可以通过实现一个小的<code>demo</code>来讲清楚这件事，这个<code>demo</code>是我很久以前在某个技术网站看到的，具体的网址已经记不清楚了，鉴于小伙伴们对于我所讲的函数式编程的概念非常感兴趣，所以我将这个例子翻了出来，自己将它重新实现一遍。若是没有讲清楚或错误的地方，则是受限于我的浅薄的技术功底，并希望被指正。</p>
 <h2 id="红绿灯函数"><a href="#红绿灯函数" class="headerlink" title="红绿灯函数"></a>红绿灯函数</h2><p>客户希望我们实现一个红绿灯函数，每隔1秒钟，变换一次信号，无限循环。可以使用console.log来模拟信号灯亮的过程，即在控制台打印’绿灯亮’,1s后继续打印’黄灯亮’,1s后打印’红灯亮’…无限循环</p>
 <p>实现这个效果非常简单，直接上代码</p>
-<pre><code>function semaphores() {
-    setTimeout(()=&gt;{
-        console.log(&#39;绿灯亮&#39;);
-        setTimeout(() =&gt; {
-            console.log(&#39;黄灯亮&#39;);
-            setTimeout(() =&gt; {
-                console.log(&#39;红灯亮&#39;);
-                semaphores();
-            }, 1000)
-        }, 1000)
-    },1000) 
-}
-
-// delay 1s
-// 绿灯亮 
-// delay 1s
-// 黄灯亮
-// delay 1s
-// 红灯亮
-// delay 1s
-// ...
-</code></pre><p>但是很明显，这样的函数及其不优雅，我们的红绿灯只有三种颜色，如果要是有十几种颜色的霓虹灯闪来闪去的话，我们就要嵌套十几层代码了。这样可读性实在是太差了，于是我们希望可以把它优化一下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'绿灯亮'</span>);</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'黄灯亮'</span>);</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'红灯亮'</span>);</span><br><span class="line">                semaphores();</span><br><span class="line">            &#125;, <span class="number">1000</span>)</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;,<span class="number">1000</span>) </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮 </span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>但是很明显，这样的函数及其不优雅，我们的红绿灯只有三种颜色，如果要是有十几种颜色的霓虹灯闪来闪去的话，我们就要嵌套十几层代码了。这样可读性实在是太差了，于是我们希望可以把它优化一下。</p>
 <p>仔细分析一下我们的代码就会发现，上面的demo有非常多的冗余代码，setTimeout在一个函数中被重复使用了三次，每次只不过是一个嵌套再打印不同的红黄绿灯而已，我们为什么不把公共部分提取出来呢？把红黄绿灯提取成变量，代码质量会好很多。</p>
 <p>so出现了下列的代码：</p>
-<pre><code>const TRAFFIC_LIGHT = [
-    &#39;绿灯&#39;,
-    &#39;黄灯&#39;,
-    &#39;红灯&#39;
-]
-
-function semaphores(lightList = [], count = 0) {
-    // 控制器
-    let lightLength = lightList.length;
-
-    return setTimeout(() =&gt; {
-        console.log(`${lightList[count % lightLength]}`);
-        count ++;
-        semaphores(lightList,count);
-    }, 1000)
-}
-
-// delay 1s
-// 绿灯亮 
-// delay 1s
-// 黄灯亮
-// delay 1s
-// 红灯亮
-// delay 1s
-// ...
-</code></pre><p>我们还可以进一步优化，同时将时间抽离:</p>
-<pre><code>const TRAFFIC_LIGHT = [
-    [&#39;绿灯&#39;, 1000],
-    [&#39;黄灯&#39;, 2000],
-    [&#39;红灯&#39;, 3000]
-]
-
-function semaphores(lightList = [], count = 0) {
-    const lightLength = lightList.length;     
-
-    return function handleSemaphores(){
-        const [light, time] = lightList[count % lightLength];
-
-        return setTimeout(() =&gt; {
-            console.log(`${light}亮`);
-            count ++;
-            handleSemaphores();
-        }, time)
-    }
-}
-
-// delay 1s
-// 绿灯亮 
-// delay 2s
-// 黄灯亮
-// delay 3s
-// 红灯亮
-// delay 1s
-// ...
-</code></pre><p>我们可以更加容易修改我们的代码，以应对将来可能的需求变更。这也是我们常见的函数形式。变量只是 Number、String、Object、undefined、null、Boolean，但是我们再次将问题变得复杂一些：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    <span class="string">'绿灯'</span>,</span><br><span class="line">    <span class="string">'黄灯'</span>,</span><br><span class="line">    <span class="string">'红灯'</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 控制器</span></span><br><span class="line">    <span class="keyword">let</span> lightLength = lightList.length;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;lightList[count % lightLength]&#125;</span>`</span>);</span><br><span class="line">        count ++;</span><br><span class="line">        semaphores(lightList,count);</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮 </span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>我们还可以进一步优化，同时将时间抽离:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮 </span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>我们可以更加容易修改我们的代码，以应对将来可能的需求变更。这也是我们常见的函数形式。变量只是 Number、String、Object、undefined、null、Boolean，但是我们再次将问题变得复杂一些：</p>
 <p>我们的红绿灯效果良好，客户非常满意，并且希望扩展应用范围。为了应对可能到来的困惑，我们需要在每次信号灯亮起的时候添加上一条提示语，提醒剩余时间。不同的应用场景将有不同的提示语。</p>
 <p>这也非常简单，我们只需要多加一条语句就可以完成:</p>
-<pre><code>const TRAFFIC_LIGHT = [
-    [&#39;绿灯&#39;, 1000],
-    [&#39;黄灯&#39;, 2000],
-    [&#39;红灯&#39;, 3000]
-]
-
-function semaphores(lightList = [], count = 0) {
-    const lightLength = lightList.length;     
-
-    return function handleSemaphores(){
-        const [light, time] = lightList[count % lightLength];
-
-        return setTimeout(() =&gt; {
-            console.log(`${light}亮`);
-            // add here!!!
-            console.log(&#39;这是一条提示语&#39;);
-            count ++;
-            handleSemaphores();
-        }, time)
-    }
-}
-
-// delay 1s
-// 绿灯亮 
-// 这是一条提示语
-// delay 2s
-// 黄灯亮
-// 这是一条提示语
-// delay 3s
-// 红灯亮
-// 这是一条提示语
-// delay 1s
-// ...
-</code></pre><p>但随着我们的应用场景进一步增多，我们的红绿灯将广泛的用于医疗、运输、零售行业，对于这些行业我们需要在信号灯亮起时拥有不同的操作，有的是发出声响、有的是打印提示语、有的是发出警报、有的是打开开关…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            <span class="comment">// add here!!!</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'这是一条提示语'</span>);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮 </span></span><br><span class="line"><span class="comment">// 这是一条提示语</span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// 这是一条提示语</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// 这是一条提示语</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>但随着我们的应用场景进一步增多，我们的红绿灯将广泛的用于医疗、运输、零售行业，对于这些行业我们需要在信号灯亮起时拥有不同的操作，有的是发出声响、有的是打印提示语、有的是发出警报、有的是打开开关…</p>
 <p>那么我们是不是需要把上面的那份代码到处拷贝一下，然后修改位于16行的代码，分别把它修改为发声、打印、报警、开关控制…</p>
 <p>显然一般的函数已经无法满足我们的需求了，这时候我们就需要函数式编程。</p>
 <h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><p>我上面只是为了引出函数式编程的例子，所以举例夸张了一些。事实上函数式编程并不是非常高大上的概念，它就和面向对象、面向过程一样，只是一种编程的范式，在实际中拥有着非常广泛的应用（例如JSX）</p>
 <p>就像我一开始提到的那样，函数式编程的核心不过是将函数当作变量那样来使用。我们希望改造一下我们的红绿灯函数，使我们的函数在信号灯亮后，可以在不同的场景使用不同的参数，我们来设计一下这个函数.首先我们需要传入一个函数，所以我们在形参列表中加入一个<code>handler</code>的变量，便于我们使用它。然后在我们希望使用它的地方使用就好了。</p>
-<pre><code>const TRAFFIC_LIGHT = [
-    [&#39;绿灯&#39;, 1000],
-    [&#39;黄灯&#39;, 2000],
-    [&#39;红灯&#39;, 3000]
-]
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请注意我们在这里加入了一个参数handler</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], handler, count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            <span class="comment">// 在这里使用它</span></span><br><span class="line">            handler &amp;&amp; handler(light, time);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以这样使用上面的函数:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 我们只需要在不同的场景改变不同的handler就可以了</span></span><br><span class="line"><span class="keyword">const</span> handler = <span class="function"><span class="keyword">function</span> (<span class="params">light, time</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'函数式编程好爽啊'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮<span class="subst">$&#123;time&#125;</span>毫秒~~`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> doTrafficLight = semaphores(TRAFFIC_LIGHT, handler);</span><br><span class="line"><span class="keyword">const</span> trafficTimeHandler = doTrafficLight();</span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮</span></span><br><span class="line"><span class="comment">// 函数式编程好爽啊</span></span><br><span class="line"><span class="comment">// 绿灯亮1000毫秒~~</span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// 函数式编程好爽啊</span></span><br><span class="line"><span class="comment">// 黄灯亮2000毫秒~~</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// 函数式编程好爽啊</span></span><br><span class="line"><span class="comment">// 红灯亮3000毫秒~~</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>我们更可以优化一下上面的函数，使得不同等亮起时使用不同的行为函数:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// do something...</span></span><br><span class="line">    &#125;],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// do something...</span></span><br><span class="line">    &#125;],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// do something...</span></span><br><span class="line">    &#125;]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们去掉了handler!!!!</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time, handler] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            <span class="comment">// 在这里使用它</span></span><br><span class="line">            handler &amp;&amp; handler(light, time);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮</span></span><br><span class="line"><span class="comment">// dosomething1...</span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// dosomething2...</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// dosomething3...</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>函数式编程的抽象程度更高，它是对于过程的抽象。如果没有传入的参数作为支撑，那么这个函数毫无意义，比较明显的例子是<code>JavaScript</code>中的<code>map</code>和<code>reduce</code>。这是最主要的概念，剩下的概念则都是一些规定，帮助我们写出更好的更健壮的函数式函数，相信理解了我刚刚所说的例子，再去理解其他概念会容易许多。</p>
 
-// 请注意我们在这里加入了一个参数handler
-function semaphores(lightList = [], handler, count = 0) {
-    const lightLength = lightList.length;     
+      
+    </div>
 
-    return function handleSemaphores(){
-        const [light, time] = lightList[count % lightLength];
+    
 
-        return setTimeout(() =&gt; {
-            console.log(`${light}亮`);
-            // 在这里使用它
-            handler &amp;&amp; handler(light, time);
-            count ++;
-            handleSemaphores();
-        }, time)
-    }
-}
-</code></pre><p>我们可以这样使用上面的函数:</p>
-<pre><code>// 我们只需要在不同的场景改变不同的handler就可以了
-const handler = function (light, time) {
-    console.log(&#39;函数式编程好爽啊&#39;);
-    console.log(`${light}亮${time}毫秒~~`)
-}
+    
+    
+    
 
-const doTrafficLight = semaphores(TRAFFIC_LIGHT, handler);
-const trafficTimeHandler = doTrafficLight();
-// delay 1s
-// 绿灯亮
-// 函数式编程好爽啊
-// 绿灯亮1000毫秒~~
-// delay 2s
-// 黄灯亮
-// 函数式编程好爽啊
-// 黄灯亮2000毫秒~~
-// delay 3s
-// 红灯亮
-// 函数式编程好爽啊
-// 红灯亮3000毫秒~~
-// ...
-</code></pre><p>我们更可以优化一下上面的函数，使得不同等亮起时使用不同的行为函数:</p>
-<pre><code>const TRAFFIC_LIGHT = [
-    [&#39;绿灯&#39;, 1000, function() {
-     // do something...
-    }],
-    [&#39;黄灯&#39;, 2000, function() {
-     // do something...
-    }],
-    [&#39;红灯&#39;, 3000, function() {
-     // do something...
-    }]
-]
+    
 
-// 我们去掉了handler!!!!
-function semaphores(lightList = [], count = 0) {
-    const lightLength = lightList.length;     
+    
+      
+    
+    
 
-    return function handleSemaphores(){
-        const [light, time, handler] = lightList[count % lightLength];
+    
 
-        return setTimeout(() =&gt; {
-            console.log(`${light}亮`);
-            // 在这里使用它
-            handler &amp;&amp; handler(light, time);
-            count ++;
-            handleSemaphores();
-        }, time)
-    }
-}
+    <footer class="post-footer">
+      
 
-// delay 1s
-// 绿灯亮
-// dosomething1...
-// delay 2s
-// 黄灯亮
-// dosomething2...
-// delay 3s
-// 红灯亮
-// dosomething3...
-// ...
-</code></pre><p>函数式编程的抽象程度更高，它是对于过程的抽象。如果没有传入的参数作为支撑，那么这个函数毫无意义，比较明显的例子是<code>JavaScript</code>中的<code>map</code>和<code>reduce</code>。这是最主要的概念，剩下的概念则都是一些规定，帮助我们写出更好的更健壮的函数式函数，相信理解了我刚刚所说的例子，再去理解其他概念会容易许多。</p>
-</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,//edencao.github.io/blog/2019/05/06/From-Implementing-A-Traffic-Light-To-Functional-Programming/,Eden's Blog,从实现一个红绿灯到函数式编程,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/blog/2019/05/06/Draft.js-Event-Handling-Mechanism/" title="Draft.js的事件处理机制">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/blog/2019/05/06/Event-Dilutes-Debounce-&amp;-Throttle/" title="事件稀释 Debounce &amp; Throttle">下一篇</a></li></ul></div><div class="gitment" id="comments"></div><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var styleElm = document.createElement('link');
-styleElm.rel = 'stylesheet'; 
-styleElm.href = 'https://imsun.github.io/gitment/style/default.css';
-document.head.appendChild(styleElm)
+      
+      
+      
 
-var gitment = new Gitment({
-    id: document.querySelector('.post-title').textContent.split(' ').join('_'),
-    owner: 'EdenCao',
-    repo: 'blog',
-    oauth: {
-        client_id: '524a2ec70d9f93b7d96f',
-        client_secret: '403fd7b08932eb72291927b7c5bb6e574f7aa379'
-    }
-});
-gitment.render('comments')</script></div></div></div></div><script src="/blog/js/jquery.js"></script><script src="/blog/js/jquery-migrate-1.2.1.min.js"></script><script src="/blog/js/jquery.appear.js"></script><script src="/blog/js/highlight.pack.js"></script><script>hljs.configure({
-  tabReplace: '  ',
-})
-hljs.initHighlightingOnLoad();</script></body></html>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/05/06/Event-Dilutes-Debounce-&-Throttle/" rel="next" title="事件稀释 Debounce & Throttle">
+                <i class="fa fa-chevron-left"></i> 事件稀释 Debounce & Throttle
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2019/05/06/Draft.js-Event-Handling-Mechanism/" rel="prev" title="Draft.js的事件处理机制">
+                Draft.js的事件处理机制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blog/images/avatar.jpg" alt="Cao Yong">
+            
+              <p class="site-author-name" itemprop="name">Cao Yong</p>
+              <div class="site-description motion-element" itemprop="description">一些奇奇怪怪的东西</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/blog/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/EdenCao" title="GitHub &rarr; https://github.com/EdenCao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:edencaox@gmail.com" title="E-Mail &rarr; mailto:edencaox@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#红绿灯函数"><span class="nav-number">1.</span> <span class="nav-text">红绿灯函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程"><span class="nav-number">2.</span> <span class="nav-text">函数式编程</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cao Yong</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/blog/js/utils.js?v=7.1.1"></script>
+
+  <script src="/blog/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/blog/js/affix.js?v=7.1.1"></script>
+
+  <script src="/blog/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/blog/js/scrollspy.js?v=7.1.1"></script>
+<script src="/blog/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/blog/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'EdenCao',
+      repo: 'blog',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '403fd7b08932eb72291927b7c5bb6e574f7aa379',
+      
+        client_id: '524a2ec70d9f93b7d96f'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,37 +1,2517 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Cao Yong,ednencaox@gmail.com"><title>Eden's Blog</title><meta name="description" content="一些奇奇怪怪的东西"><meta name="keywords" content="JavaScript,TypeScript,Linux,macOS"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/blog/css/style.css"><link rel="stylesheet" href="/blog/css/blog_basic.css"><link rel="stylesheet" href="/blog/css/font-awesome.min.css"><link rel="stylesheet" href="/blog/css/atom-one-light.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/blog/images/logo@2x.png" style="width:127px;"><h3 title><a href="/">Eden's Blog</a></h3><div class="description"><p>一些奇奇怪怪的东西</p></div></div></div><ul class="social-links"><li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="http://github.com/EdenCao"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a class="current" href="/blog/">首页</a></li><li><a href="/blog/archives/">归档</a></li><li><a href="/blog/2019/05/06/links/">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/Remember-A-Millet-Front-End-Test/">记一次小米前端面试题</a></h3></div><div class="post-content"><p>这两天参加了一次小米的面试，面试方式比较随意，直接用微信聊的。感觉面试题有些意思，所以想记下来，也使我学到了不少东西。
-
-Q:
-定义这样一个函数
-function doRepeat(func, times, wait) {
-}
-参数分别是需要 repeat的函数， repeat的次数，每次repeat的间隔
-使用...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/Operating-System-(I)/">操作系统（一）</a></h3></div><div class="post-content"><p>操作系统概述计算机系统硬件
- 计算机的实体部分，是有形的设备和装置的总称
-软件
- 控制计算机运行的程序及其相关信息
-操作系统层次结构下层的软件为上一层提供服务，上层的软件依靠下层的软件完成任务。
-什么是操作系统
-一个系统软件 - 为用户提供方便操作计算机的手段
-
-使系统能够高效运转
-管理和控制系统中的各种资源
-协...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/Operating-System-(2)/">操作系统（二）</a></h3></div><div class="post-content"><p>进程调度进程进程是程序在计算机中的一个执行过程。程序是静态的，而进程是动态的。
-每个进程都有一个进程控制块，操作系统用来存放进程有关的信息。
-进程的创建四种主要事件会导致进程的创建：
-
-系统初始化
-正在运行的程序执行了创建进程的系统调用
-用户请求创建一个新的进程
-一个批处理作业的初始化
+<!DOCTYPE html>
 
 
-进程的终止进程的终止通...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/VScode-Configuration-List/">VScode 配置清单</a></h3></div><div class="post-content"><p>VS code 配置文件我一直觉得所谓的编辑器之争与语言之争以及编程风格之争是一件很无聊的事情，一个优秀的工程师需要学会在合适的地方选择合适的工具或语言帮助自己完成任务，而几个同样优秀的编程风格之间最重要的是有一个统一的标准。或许是我见识浅薄，但我坚持认为只有拥有这样的认知标准才能称为一个优秀的工程师，而不是成为...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/Draft.js-Data-Structure/">Draft.js的数据结构</a></h3></div><div class="post-content"><p>Draft.js的数据结构Draft.js使用EditorState来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍Draft.js的数据结构。
-不可变的数据结构Draft.js基于immutable.js实现了一种不可变的数据结构，基于这种数据结构，Draft....</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/">谈谈 rem 与 vw -- rem</a></h3></div><div class="post-content"><p>谈谈rem与vw — rem写这篇文章的原因，源于我在头条的面试。面试官问到了关于手机端适配rem的问题，这个问题非常有意思，想和大家分享一下：
-Q:能谈谈rem的作用吗，与em有什么区别？
-A: rem 是html 的font-size大小，一般为 16px， em 是父节点的 font-size 大小
-Q: ...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/Draft.js-Event-Handling-Mechanism/">Draft.js的事件处理机制</a></h3></div><div class="post-content"><p>Draft 事件处理机制Draft.js 内部封装了一系列基础的事件处理函数，当事件触发时，这些函数接收当前event，并基于此生成new editorState，我们在接收到new editorState后再将该数据绑定到Draft上，这就是Draft的单向数据流。其中react层只负责视图层，我们将通过一些流...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/From-Implementing-A-Traffic-Light-To-Functional-Programming/">从实现一个红绿灯到函数式编程</a></h3></div><div class="post-content"><p>我认为函数式编程的本质是把函数当作变量来使用。最近接触了React，我们可以发现在React中处处存在函数式编程的思想，我们将JSX写成一个函数的返回值，并且在render中调用她们。函数是对于过程的抽象，我们将过程抽象成一个函数，然后根据不同的场景传入不同的变量值从而得到不同的结果。而函数式编程是对于函数的抽象...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/Event-Dilutes-Debounce-&amp;-Throttle/">事件稀释 Debounce &amp; Throttle</a></h3></div><div class="post-content"><p>事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次ajax请求，这简直是一场灾难。
-稀释原理比较常见的解决方法是 Debounce和Throttle。两者的目的都是为了稀释事件，但是原理有所不同。
-Deb...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/You-Know-The-JS-Prototype-Chain-(top)---Objects-And-Prototypes/">你知道的JS原型链（上）--对象与原型</a></h3></div><div class="post-content"><p>你知道的JS原型链–对象与原型最近一直在以忙为借口犯懒，到了清明节终于捱不过去了，所以还是准备写一篇文章来总结一下。最近开发的一个项目涉及到一些关于es6继承的问题。得益于JavaScript强大的原型机制，我们可以很轻易的模仿出类的特性，当然由于是基于原型实现的class语法糖，所以我们可以做出一些特别骚气的操...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/blog/">上一页</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/blog/page/3/">下一页</a></li></ul></div></div></div></div><script src="/blog/js/jquery.js"></script><script src="/blog/js/jquery-migrate-1.2.1.min.js"></script><script src="/blog/js/jquery.appear.js"></script><script src="/blog/js/highlight.pack.js"></script><script>hljs.configure({
-  tabReplace: '  ',
-})
-hljs.initHighlightingOnLoad();</script></body></html>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/blog/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/favicons/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicons/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicons/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/blog/images/favicons/safari-pinned-tab.svg?v=7.1.1" color="#222">
+
+
+  <link rel="manifest" href="/blog/images/favicons/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/blog/images/favicons/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一些奇奇怪怪的东西">
+<meta name="keywords" content="JavaScript,TypeScript,Linux,macOS">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Eden&#39;s Blog">
+<meta property="og:url" content="//edencao.github.io/blog/page/2/index.html">
+<meta property="og:site_name" content="Eden&#39;s Blog">
+<meta property="og:description" content="一些奇奇怪怪的东西">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eden&#39;s Blog">
+<meta name="twitter:description" content="一些奇奇怪怪的东西">
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Eden's Blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="//edencao.github.io/blog/page/2/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Eden's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eden's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/2019/05/06/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>links</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Remember-A-Millet-Front-End-Test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/Remember-A-Millet-Front-End-Test/" class="post-title-link" itemprop="url">记一次小米前端面试题</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这两天参加了一次小米的面试，面试方式比较随意，直接用微信聊的。感觉面试题有些意思，所以想记下来，也使我学到了不少东西。</p>
+<blockquote>
+<p>Q:</p>
+<p>定义这样一个函数</p>
+<p>function doRepeat(func, times, wait) {</p>
+<p>}</p>
+<p>参数分别是需要 repeat的函数， repeat的次数，每次repeat的间隔</p>
+<p>使用方式如下：</p>
+<p>调用这个函数能返回一个新函数，比如传入的是alert，这个函数的调用就是<br></p>
+<p> var repeatedFun = doRepeat(alert, 10, 5000);</p>
+<p>调用返回的这个新函数，如: repeatFun(“hellworld”);</p>
+<p>会依次alert十次 helloworld，每次间隔5秒</p>
+</blockquote>
+<p>这个题目很简单，单从要求来看考验的是闭包函数，所以我们只需要使用延时函数再return一个函数就能达到要求，答案网上也能查到。我使用<code>setInterval</code>函数实现的，这里只给出部分关键性代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> _args = <span class="built_in">arguments</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> handler = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (i == times) &#123;</span><br><span class="line">                clearInterval(handler);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            func(_args[<span class="number">0</span>]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;, wait)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数非常简单，请在十分钟内完成就好。但是这里想说一下几个要点：</p>
+<ul>
+<li><p>一个是程序的可用性：即程序是否可以正常运行，这个是最基本的条件，如果不能达到请自觉面壁30秒。</p>
+</li>
+<li><p>另外一个是程序的健壮性：是否检查传参的完整性？是否检查参数类型？我想强调这一点，因为javascript是自动类型的语言，在运行过程中进行类型的检测是十分重要的问题。</p>
+</li>
+<li><p>另外一个是程序的可读性：这个也是最基本的问题之一，代码风格良好的程序应该可读性强，并且仅添加必要的注释。</p>
+</li>
+<li><p>程序的和谐性：即在程序出错的情况下是否依然可以返回标准的数据格式？可以看到我在检查参数出错以后返回</p>
+</li>
+</ul>
+<!-- -->
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>这么做可以避免因为此函数出错而影响其他的功能性函数。</p>
+<ul>
+<li>程序的包容性：可以看到我在函数中进行了类型转换。这也是我在工作中遇到的问题，当我们参与工作的协作之时，我们往往需要调用同事或者其他人的函数，而javascript的自动类型也可能导致传过来的参数类型并不标准，如果我们能在代码中给予这些“小问题”适当的支持，那么我们的函数将会友好很多。这里我将并不标准的字符串类型转换为了Number类型。</li>
+</ul>
+<!-- -->
+<p>这些特点实际上是我在某篇文章上面看到的，但是实际应用以后发现受益良多，我会在找到这篇文章以后把链接发上来。我坚信良好的代码风格可以帮助我们避免很多坑，并且严格遵守这一点。</p>
+<p>但是实际上我写的这个函数并不完善，这一点也将在后面的面试题中考到。</p>
+<blockquote>
+<p>Q:<br></p>
+<p> 请再用setTimeout实现一下</p>
+</blockquote>
+<p>果然考到了这一点，setTimeout在实际运用的过程中会有很多的坑，最明显的问题就是异步问题，这也是我一开始使用<code>setInterval</code>来实现的原因。下面给出代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> _args = <span class="built_in">arguments</span>;</span><br><span class="line">        <span class="comment">// 如果次数大于0先执行一遍，避免setTimeout延迟问题</span></span><br><span class="line">        <span class="keyword">if</span> (times &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            func(_args[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; times; i++) &#123;</span><br><span class="line">            (<span class="built_in">window</span>.setTimeout)(func(_args[<span class="number">0</span>]), wait);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是我一开始写的代码，但是实际上这段代码是错误的。我在setTimeout一行中使用了立即执行函数，但是立即执行函数并不会阻塞函数的运行，所以这段代码还是会在N秒过后一下子把所有的函数全部执行一遍。</p>
+<p>请注意，这里又一个小坑，使用setTimeout是延迟执行函数，如果直接使用第一次传入的函数不会立即执行，所以需要先做一次判断。</p>
+<blockquote>
+<p>Q:<br></p>
+<p> 能不能不要一下子就设定好所有的setTimeout<br></p>
+<p> 在完成一个setTimeout后再去递归一下</p>
+</blockquote>
+<p>这次考的是递归，没有什么难度。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回函数主体</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 如果次数达到则退出</span></span><br><span class="line">        <span class="keyword">if</span> (times === i) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> _args = <span class="built_in">arguments</span>;</span><br><span class="line">        </span><br><span class="line">        func(_args[<span class="number">0</span>]);</span><br><span class="line">        i++;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 尾递归</span></span><br><span class="line">        <span class="keyword">return</span> setTimeout(repeat.bind(<span class="keyword">this</span>, _args[<span class="number">0</span>]), wait);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>写到这里，突然觉得这个函数其实还是不够健壮。我们来分析一下参数，func参数，默认是一个函数。times参数，默认是一个非负数。wait也默认是一个非负数。</p>
+<p>如果传入的参数times是一个负数，那么这个函数将会陷入死循环。这里做检测是否存在过度优化的问题？我还是抱有疑虑。</p>
+<blockquote>
+<p>Q: 这里如果有多个参数怎么办？比如传入的函数叫console.log,可以接受多个参数<br></p>
+<p> A:方法比较多，比如可以规定传参的格式，用数组将参数包裹起来，或者使用arguments<br></p>
+<p> Q: show me the code</p>
+</blockquote>
+<p>这里实际上有个坑，就是IE9的setTimeout只能传入两个参数（IE的梗已经被玩烂了）,这里可以使用<code>bind</code>函数来解决这个问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回函数主体</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 如果次数达到则退出</span></span><br><span class="line">        <span class="keyword">if</span> (times === i) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> _args = [].slice.call(<span class="built_in">arguments</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果次数大于0并且是第一次执行则先执行一遍，避免setTimeout延迟问题</span></span><br><span class="line">        func(..._args)</span><br><span class="line">        <span class="comment">// 尾递归</span></span><br><span class="line">        <span class="keyword">return</span> setTimeout(repeat.bind(<span class="keyword">this</span>, _args), wait);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里同样解释一下这行代码的作用</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _args = [].slice.<span class="built_in">call</span>(arguments)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到我在下面的代码中使用了展开运算符<code>...</code>，但是展开运算符的使用需要迭代器。<code>arguments</code>不是数组，所以没有迭代器。</p>
+<p>考虑以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log([] <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><br><span class="line">&#125;)() <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span> <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><br><span class="line">&#125;)() <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>这些大概就是全部的面试过程，不过最后俺没去成小米，因为时间实在是不合适……</p>
+<p>最后想给自己挖个坑，也出个升级版的问题</p>
+<blockquote>
+<p>Q: 请将这道题用setTimeout配合Generator函数实现一遍</p>
+</blockquote>
+<p>这几天考试，等考完试我再来填……</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Operating-System-(I)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/Operating-System-(I)/" class="post-title-link" itemprop="url">操作系统（一）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h1><h2 id="计算机系统"><a href="#计算机系统" class="headerlink" title="计算机系统"></a>计算机系统</h2><p><strong>硬件</strong><br></p>
+<p> 计算机的实体部分，是有形的设备和装置的总称</p>
+<p><strong>软件</strong><br></p>
+<p> 控制计算机运行的程序及其相关信息</p>
+<h2 id="操作系统层次结构"><a href="#操作系统层次结构" class="headerlink" title="操作系统层次结构"></a>操作系统层次结构</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-36373db9790f0607.jpg" alt="操作系统层次结构.jpg">下层的软件为上一层提供服务，上层的软件依靠下层的软件完成任务。</p>
+<h2 id="什么是操作系统"><a href="#什么是操作系统" class="headerlink" title="什么是操作系统"></a>什么是操作系统</h2><ul>
+<li><p>一个系统软件 - 为用户提供方便操作计算机的手段</p>
+<ul>
+<li>使系统能够高效运转</li>
+<li>管理和控制系统中的各种资源</li>
+<li><p>协调系统中的各个组成部分</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>计算机程序，作用和地位比较特殊 - 为用户使用计算机提供基础支持</p>
+<ul>
+<li><p>负责提高整个计算机系统的效率</p>
+<!-- -->
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+<h2 id="操作系统的任务"><a href="#操作系统的任务" class="headerlink" title="操作系统的任务"></a>操作系统的任务</h2><ul>
+<li>方便用户使用计算机：提供接口</li>
+<li>提高系统效率：管理资源</li>
+</ul>
+<!-- -->
+<h3 id="管理资源"><a href="#管理资源" class="headerlink" title="管理资源"></a>管理资源</h3><p>资源类型：</p>
+<ul>
+<li>储存器</li>
+<li>各种输入输出设备</li>
+<li>以文件形式存在的各种数据</li>
+<li>各种可执行程序</li>
+</ul>
+<!-- -->
+<p>因此资源管理包括：</p>
+<ul>
+<li>储存器管理</li>
+<li>I/O设备管理</li>
+<li>文件管理</li>
+<li>进程管理</li>
+</ul>
+<!-- -->
+<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><ul>
+<li>形式上与普通函数相似，但有本质区别</li>
+<li>使程序能够运行核心态指令</li>
+</ul>
+<!-- -->
+<h2 id="指令级别"><a href="#指令级别" class="headerlink" title="指令级别"></a>指令级别</h2><ul>
+<li><p>核心级 - 比较重要、会对系统产生致命影响的指令</p>
+  <!-- -->
+</li>
+<li><p>用户级</p>
+</li>
+</ul>
+<!-- -->
+<h2 id="处理机的工作状态"><a href="#处理机的工作状态" class="headerlink" title="处理机的工作状态"></a>处理机的工作状态</h2><ul>
+<li><p>核心态 - 通过设置硬件标记实现</p>
+<ul>
+<li><p>处理机才能执行核心级指令</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>用户态 - 不能执行核心级指令，只能执行用户级指令</p>
+  <!-- -->
+</li>
+</ul>
+<!-- -->
+<h2 id="操作系统类型"><a href="#操作系统类型" class="headerlink" title="操作系统类型"></a>操作系统类型</h2><ul>
+<li><p>管理的硬件规模 - 嵌入式操作系统</p>
+<ul>
+<li>微机操作系统</li>
+<li>中小型机操作系统</li>
+<li><p>大/巨型机操作系统</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>响应和处理用户任务的方式 - 批处理操作系统</p>
+<ul>
+<li>分时操作系统</li>
+<li><p>实时操作系统</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>管理资源的内容 - 单机操作系统</p>
+<ul>
+<li>网络操作系统</li>
+<li><p>分布式操作系统</p>
+<!-- -->
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Operating-System-(2)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/Operating-System-(2)/" class="post-title-link" itemprop="url">操作系统（二）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h1><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>进程是程序在计算机中的一个执行过程。程序是静态的，而进程是动态的。</p>
+<p>每个进程都有一个进程控制块，操作系统用来存放进程有关的信息。</p>
+<h3 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h3><p>四种主要事件会导致进程的创建：</p>
+<ul>
+<li>系统初始化</li>
+<li>正在运行的程序执行了创建进程的系统调用</li>
+<li>用户请求创建一个新的进程</li>
+<li>一个批处理作业的初始化</li>
+</ul>
+<!-- -->
+<h3 id="进程的终止"><a href="#进程的终止" class="headerlink" title="进程的终止"></a>进程的终止</h3><p>进程的终止通常由以下四种主要事件导致：</p>
+<ul>
+<li>正常退出（自愿）</li>
+<li>出错推出（自愿）</li>
+<li>严重错误（非自愿）</li>
+<li>被其他进程杀死（非自愿）</li>
+</ul>
+<!-- -->
+<h3 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-8e08e1fbe8970bf0.jpg" alt="进程状态转换.jpg">基本状态：执行、就绪、阻塞<br></p>
+<p> 其他状态：挂起、僵死、等待</p>
+<p><strong>挂起：</strong></p>
+<ul>
+<li>将暂不执行的进程换出到外村，节省内存空间</li>
+</ul>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-d94bbff6214608f1.jpg" alt="进程五状态.jpg"><img src="//upload-images.jianshu.io/upload_images/5617469-988366503631c074.jpg" alt="linux进程状态图.jpg">### 进程调度的时机</p>
+<ul>
+<li>新进程的创建</li>
+<li>当前进程的退出</li>
+<li>正在执行的进程阻塞</li>
+<li>I/O中断发生</li>
+</ul>
+<!-- -->
+<h2 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li><p>CPU的分配方式 - 非剥夺式（非抢占式）</p>
+<ul>
+<li><p>剥夺式（抢占式）</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>系统的分时方式 - 批处理系统</p>
+<ul>
+<li>交互系统</li>
+<li><p>实时系统</p>
+<!-- -->
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+<h3 id="调度目标"><a href="#调度目标" class="headerlink" title="调度目标"></a>调度目标</h3><ul>
+<li>公平（让每个用户满意）</li>
+<li>平衡（系统效率最高）</li>
+</ul>
+<!-- -->
+<h3 id="批处理系统"><a href="#批处理系统" class="headerlink" title="批处理系统"></a>批处理系统</h3><h4 id="调度目标-1"><a href="#调度目标-1" class="headerlink" title="调度目标"></a>调度目标</h4><ul>
+<li>吞吐量：系统每小时完成的作业数</li>
+<li>周转时间： 一个作业从提交到完成时的统计平均时间</li>
+<li>CPU利用率</li>
+</ul>
+<!-- -->
+<h4 id="批处理系统中的调度算法"><a href="#批处理系统中的调度算法" class="headerlink" title="批处理系统中的调度算法"></a>批处理系统中的调度算法</h4><p><strong>先来先服务</strong></p>
+<ul>
+<li><p>按照请求CPU的顺序使用CPU - 就绪队列时间先后的顺序</p>
+<ul>
+<li><p>队首取，队尾加</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>易于理解、便于实现</p>
+</li>
+<li>对短作业不公平</li>
+</ul>
+<!-- -->
+<p><strong>最短作业优先</strong></p>
+<ul>
+<li>提高平均周转时间</li>
+<li>预知作业运行时间</li>
+<li><p>最短剩余时间优先 - 最短作业优先的强占版</p>
+<ul>
+<li><p>新作业比正在执行的作业剩余时间短</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>长作业无限期等待 - 有失公平性</p>
+  <!-- -->
+</li>
+</ul>
+<!-- -->
+<p><strong>最高响应比优先算法</strong></p>
+<ul>
+<li><p>响应比 - 作业等待时间/作业所需运行时间</p>
+  <!-- -->
+</li>
+<li><p>优先考虑短作业</p>
+</li>
+<li>防止长作业无限等待</li>
+</ul>
+<!-- -->
+<h3 id="交互系统"><a href="#交互系统" class="headerlink" title="交互系统"></a>交互系统</h3><h4 id="调度目标-2"><a href="#调度目标-2" class="headerlink" title="调度目标"></a>调度目标</h4><ul>
+<li><p>响应时间 - 快速响应交互请求</p>
+  <!-- -->
+</li>
+</ul>
+<!-- -->
+<h4 id="交互系统中的调度算法"><a href="#交互系统中的调度算法" class="headerlink" title="交互系统中的调度算法"></a>交互系统中的调度算法</h4><p><strong>轮转法</strong></p>
+<ul>
+<li><p>使用时间片进行调度的算法，时间片段用完后会排到队尾，考虑到CPU效率与用户等待时间一般设置为20ms-50ms - 未用完时间片就I/O阻塞的，当I/O就绪后到就绪队尾重新排队。可以为其单设队列，优先考虑I/O后就绪进程直至其用完时间片。</p>
+  <!-- -->
+</li>
+<li><p>优先级 - 优先级高的进程先运行，同优先级的进程轮转（同一队列中轮转）</p>
+<ul>
+<li><p>每个进程设立优先级，高优先级的队列中没有进程，调度下一级队列 - 静态设定</p>
+<ul>
+<li><p>动态设定：在优先级高的进程运行一个时间片后降低其优先级（防止高优先级进程独占CPU饿死低优先级的进程）</p>
+<!-- -->
+</li>
+</ul>
+<!-- -->
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+<p><strong>彩票法</strong></p>
+<ul>
+<li>向进程提供各种系统资源的彩票</li>
+<li><p>调度时随机抽取彩票，拥有该彩票的资源得到资源 - 可给重要的今晨更多的彩票</p>
+<ul>
+<li><p>协作进程可以交换彩票</p>
+<!-- -->
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+<p><strong>公平分享法</strong></p>
+<ul>
+<li><p>为每个用户分配一定比例的CPU时间 - 假设用户1开了四个进程ABCD，用户2开设一个进程E，则CPU调度有可能为AEBECEDEAEBE…</p>
+  <!-- -->
+</li>
+<li><p>按照比例个用户之间挑选进程</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="实时系统"><a href="#实时系统" class="headerlink" title="实时系统"></a>实时系统</h3><h4 id="调度目标-3"><a href="#调度目标-3" class="headerlink" title="调度目标"></a>调度目标</h4><ul>
+<li><p>满足截止时间 - 正确的但是迟到的应答比没有更糟糕</p>
+  <!-- -->
+</li>
+<li><p>硬实时 - 必须满足的绝对的截止时间</p>
+  <!-- -->
+</li>
+<li><p>软实时 - 可以容忍偶尔的错失截止时间</p>
+  <!-- -->
+</li>
+</ul>
+<!-- -->
+<h4 id="基本条件"><a href="#基本条件" class="headerlink" title="基本条件"></a>基本条件</h4><ul>
+<li>提供必要的信息</li>
+<li>系统处理能力强</li>
+<li>采用抢占式调度机制</li>
+<li>具有快速切换机制</li>
+</ul>
+<!-- -->
+<h4 id="调度算法-1"><a href="#调度算法-1" class="headerlink" title="调度算法"></a>调度算法</h4><p><strong>最早截止时间优先算法</strong></p>
+<p>先把截止时间早的任务给完成，否则这个任务如果在截止时间后才完成就没有意义了。</p>
+<p><strong>进程切换开销</strong></p>
+<ul>
+<li>时间和空间上的系统开销</li>
+<li>保存和恢复进程的上下文</li>
+</ul>
+<!-- -->
+<h2 id="Linux的进程调度"><a href="#Linux的进程调度" class="headerlink" title="Linux的进程调度"></a>Linux的进程调度</h2><p>这里朱凯豪师兄总结的特别好，这里<a href="https://link.jianshu.com?t=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FR99AZagHRvSrAKXXJmCWnA" target="_blank" rel="noopener">附上链接</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/VScode-Configuration-List/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/VScode-Configuration-List/" class="post-title-link" itemprop="url">VScode 配置清单</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="VS-code-配置文件"><a href="#VS-code-配置文件" class="headerlink" title="VS code 配置文件"></a>VS code 配置文件</h1><p>我一直觉得所谓的编辑器之争与语言之争以及编程风格之争是一件很无聊的事情，一个优秀的工程师需要学会在合适的地方选择合适的工具或语言帮助自己完成任务，而几个同样优秀的编程风格之间最重要的是有一个统一的标准。或许是我见识浅薄，但我坚持认为只有拥有这样的认知标准才能称为一个优秀的工程师，而不是成为语言和工具的奴隶。</p>
+<p>VS code 确实对我来说拥有无与伦比的优势，相比于插件丰富的 Atom 来说，vs code 内置的终端确实更对我的胃口，经过简单的配置就可以使用，在这一点上的确对我很有吸引力。</p>
+<h2 id="vscode配置"><a href="#vscode配置" class="headerlink" title="vscode配置"></a>vscode配置</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"gitlens.advanced.messages"</span>: &#123;</span><br><span class="line">        <span class="string">"suppressCommitHasNoPreviousCommitWarning"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressCommitNotFoundWarning"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressFileNotUnderSourceControlWarning"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressGitVersionWarning"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressLineUncommittedWarning"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressNoRepositoryWarning"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressUpdateNotice"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressWelcomeNotice"</span>: <span class="keyword">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 开启vscode-icons主题</span></span><br><span class="line">    <span class="string">"workbench.iconTheme"</span>: <span class="string">"vscode-icons"</span>,</span><br><span class="line">    <span class="comment">// 个人感觉颜色比较鲜艳的主题</span></span><br><span class="line">    <span class="string">"workbench.colorTheme"</span>: <span class="string">"One Dark Pro Vivid"</span>,</span><br><span class="line">    <span class="comment">// 我在这里对自动保存设置了一个延迟</span></span><br><span class="line">    <span class="string">"files.autoSave"</span>: <span class="string">"afterDelay"</span>,</span><br><span class="line">    <span class="string">"git.confirmSync"</span>: <span class="keyword">false</span>,</span><br><span class="line">    <span class="string">"editor.formatOnType"</span>: <span class="keyword">true</span>,</span><br><span class="line">    <span class="comment">// 在这里主要做了对vue语言的支持</span></span><br><span class="line">    <span class="string">"files.associations"</span>: &#123;</span><br><span class="line">        <span class="string">"*.vue"</span>: <span class="string">"vue"</span>,</span><br><span class="line">        <span class="string">"*.js"</span>: <span class="string">"javascript"</span>,</span><br><span class="line">        <span class="string">"*.md"</span>: <span class="string">"markdown"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 将一些不必要的搜索范围去掉</span></span><br><span class="line">    <span class="string">"search.exclude"</span>: &#123;</span><br><span class="line">        <span class="string">"**/node_modules"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"**/bower_components"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"**/dist"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"**/.git"</span>: <span class="keyword">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 主要是设置选中范围是尖角还是圆角，没啥必要</span></span><br><span class="line">    <span class="string">"editor.roundedSelection"</span>: <span class="keyword">false</span>,</span><br><span class="line">    <span class="comment">// 因为有时后需要查看.git的设置，所以将.git加入显示范围</span></span><br><span class="line">    <span class="string">"files.exclude"</span>: &#123;</span><br><span class="line">        <span class="string">"**/.git"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"**/.svn"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"**/.hg"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"**/CVS"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"**/.DS_Store"</span>: <span class="keyword">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 这里主要是设置emmet对于vue的支持</span></span><br><span class="line">    <span class="string">"emmet.syntaxProfiles"</span>: &#123;</span><br><span class="line">        <span class="string">"vue"</span>: <span class="string">"html"</span>,</span><br><span class="line">        <span class="string">"vue-html"</span>: <span class="string">"html"</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 同上</span></span><br><span class="line">    <span class="string">"emmet.includeLanguages"</span>: &#123;</span><br><span class="line">        <span class="string">"vue-html"</span>: <span class="string">"html"</span>,</span><br><span class="line">        <span class="string">"vue"</span>: <span class="string">"html"</span>,</span><br><span class="line">        <span class="string">"javascript"</span>: <span class="string">"javascriptreact"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 我比较喜欢用Enter换行，所以emmet提示设置只用tab选择</span></span><br><span class="line">    <span class="string">"emmet.triggerExpansionOnTab"</span>: <span class="keyword">true</span>,</span><br><span class="line">    <span class="comment">// Fira Code是我最喜欢的字体，下面会介绍原因</span></span><br><span class="line">    <span class="string">"editor.fontFamily"</span>: <span class="string">"Fira Code, Menlo, Monaco, 'Courier New', monospace"</span>,</span><br><span class="line">    <span class="comment">// 将行高设置高一点会显得很高大上且舒服</span></span><br><span class="line">    <span class="string">"editor.lineHeight"</span>: <span class="number">24</span>,</span><br><span class="line">    <span class="comment">// 缩进规则，主要看公司要求和个人习惯</span></span><br><span class="line">    <span class="string">"[javascript]"</span>: &#123;</span><br><span class="line">        <span class="string">"editor.insertSpaces"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"editor.tabSize"</span>: <span class="number">4</span></span><br><span class="line">    &#125;,</span><br><span class="line">     <span class="comment">// 因为我没怎么用过打开的编辑器，都是用cmd+p进行跳转。。</span></span><br><span class="line">    <span class="string">"explorer.openEditors.visible"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="comment">// 主要是一些css代码规范的问题，禁用important</span></span><br><span class="line">    <span class="string">"css.lint.important"</span>: <span class="string">"error"</span>,</span><br><span class="line">    <span class="string">"less.lint.important"</span>: <span class="string">"error"</span>,</span><br><span class="line">    <span class="string">"scss.lint.important"</span>: <span class="string">"error"</span>,</span><br><span class="line">    <span class="comment">// 设置eslint对于vue的支持</span></span><br><span class="line">    <span class="string">"eslint.validate"</span>: [</span><br><span class="line">        <span class="string">"javascript"</span>,</span><br><span class="line">        <span class="string">"javascriptreact"</span>,</span><br><span class="line">        <span class="string">"html"</span>,</span><br><span class="line">        <span class="string">"vue"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// 我不是很喜欢小地图。。</span></span><br><span class="line">    <span class="string">"editor.minimap.enabled"</span>: <span class="keyword">false</span>,</span><br><span class="line">    <span class="comment">// Fira Code 支持需要开启</span></span><br><span class="line">    <span class="string">"editor.fontLigatures"</span>: <span class="keyword">true</span>,</span><br><span class="line">    <span class="string">"editor.tabSize"</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="comment">// 对于一些比较头痛的地方禁用emmet</span></span><br><span class="line">    <span class="string">"emmet.excludeLanguages"</span>: [</span><br><span class="line">        <span class="string">"markdown"</span>,</span><br><span class="line">        <span class="string">"less"</span>,</span><br><span class="line">        <span class="string">"pug"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// 设置代码换行大小</span></span><br><span class="line">    <span class="string">"editor.rulers"</span>: [</span><br><span class="line">        <span class="number">80</span>,</span><br><span class="line">        <span class="number">120</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"todohighlight.include"</span>: [</span><br><span class="line">        <span class="string">"**/*.js"</span>,</span><br><span class="line">        <span class="string">"**/*.jsx"</span>,</span><br><span class="line">        <span class="string">"**/*.ts"</span>,</span><br><span class="line">        <span class="string">"**/*.tsx"</span>,</span><br><span class="line">        <span class="string">"**/*.html"</span>,</span><br><span class="line">        <span class="string">"**/*.php"</span>,</span><br><span class="line">        <span class="string">"**/*.css"</span>,</span><br><span class="line">        <span class="string">"**/*.scss"</span>,</span><br><span class="line">        <span class="string">"**/*.less"</span>,</span><br><span class="line">        <span class="string">"**/*.vue"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// 一个给文件加注释头的插件。。</span></span><br><span class="line">    <span class="string">"topper.headerTemplates"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"defaultCStyled"</span>: &#123;</span><br><span class="line">                <span class="string">"headerBegin"</span>: <span class="string">"/**"</span>,</span><br><span class="line">                <span class="string">"headerPrefix"</span>: <span class="string">"*"</span>,</span><br><span class="line">                <span class="string">"headerEnd"</span>: <span class="string">"*/"</span>,</span><br><span class="line">                <span class="string">"template"</span>: [</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerBegin&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> <span class="subst">$&#123;fileName&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @author <span class="subst">$&#123;author&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @description <span class="subst">$&#123;description&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @created <span class="subst">$&#123;createdDate&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @copyright <span class="subst">$&#123;copyright&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @last-modified <span class="subst">$&#123;lastModifiedDate&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerEnd&#125;</span>"</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"python"</span>: &#123;</span><br><span class="line">                <span class="string">"headerBegin"</span>: <span class="string">"#"</span>,</span><br><span class="line">                <span class="string">"headerPrefix"</span>: <span class="string">"#"</span>,</span><br><span class="line">                <span class="string">"headerEnd"</span>: <span class="string">"#"</span>,</span><br><span class="line">                <span class="string">"template"</span>: [</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerBegin&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> <span class="subst">$&#123;fileName&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @author <span class="subst">$&#123;author&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @description <span class="subst">$&#123;description&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @created <span class="subst">$&#123;createdDate&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @last-modified <span class="subst">$&#123;lastModifiedDate&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerEnd&#125;</span>"</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"topper.customTemplateParameters"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"personalProfile"</span>: &#123;</span><br><span class="line">                <span class="string">"author"</span>: <span class="string">"yungcho"</span>,</span><br><span class="line">                <span class="string">"website"</span>: <span class="string">""</span>,</span><br><span class="line">                <span class="string">"copyright"</span>: <span class="string">"None \n None"</span>,</span><br><span class="line">                <span class="string">"license"</span>: <span class="string">"None"</span>,</span><br><span class="line">                <span class="string">"email"</span>: <span class="string">"yungcho@foxmail.com"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"officeProfile"</span>: &#123;</span><br><span class="line">                <span class="string">"author"</span>: <span class="string">"Cao Yong"</span>,</span><br><span class="line">                <span class="string">"department"</span>: <span class="string">"PGC"</span>,</span><br><span class="line">                <span class="string">"email"</span>: <span class="string">"caoyong@bytedance.com"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"git.autofetch"</span>: <span class="keyword">true</span>,</span><br><span class="line">    <span class="string">"workbench.activityBar.visible"</span>: <span class="keyword">true</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字体介绍"><a href="#字体介绍" class="headerlink" title="字体介绍"></a>字体介绍</h2><p>一个非常漂亮的连字体，专为程序员设计。具体不再赘述，详细可以查看 <a href="https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Ftonsky%2FFiraCode" target="_blank" rel="noopener">fira code 的 github</a></p>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h3 id="Auto-Close-Tag"><a href="#Auto-Close-Tag" class="headerlink" title="Auto Close Tag"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dformulahendry.auto-close-tag" target="_blank" rel="noopener">Auto Close Tag</a></h3><p>Auto Close Tag 可以帮助我们自动闭合标签，并且可以帮我们检查标签是否完备，这在使用Vue、React组件式开发的过程中可以帮助我们节省大量的时间。</p>
+<h3 id="Auto-Rename-Tag"><a href="#Auto-Rename-Tag" class="headerlink" title="Auto Rename Tag"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dformulahendry.auto-rename-tag" target="_blank" rel="noopener">Auto Rename Tag</a></h3><p>与 Auto Close Tag 是一对，可以在我们修改标签的时候自动帮助我们修改一对。</p>
+<h3 id="Beautify"><a href="#Beautify" class="headerlink" title="Beautify"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DHookyQR.beautify" target="_blank" rel="noopener">Beautify</a></h3><p>一个自动格式化软件</p>
+<h3 id="Bracket-Pair-Colorizer"><a href="#Bracket-Pair-Colorizer" class="headerlink" title="Bracket Pair Colorizer"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DCoenraadS.bracket-pair-colorizer" target="_blank" rel="noopener">Bracket Pair Colorizer</a></h3><p>一个自动给括号上不同颜色的插件，妈妈再也不怕我面对括号嵌套了。</p>
+<h3 id="EditorConfig-VS-Code-Snippet"><a href="#EditorConfig-VS-Code-Snippet" class="headerlink" title="EditorConfig VS Code Snippet"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dzgudino.editorconfig-vscode-snippet" target="_blank" rel="noopener">EditorConfig VS Code Snippet</a></h3><p>项目文件中的<code>.editorconfig</code>文件，加上这个插件就能自动读取了。</p>
+<h3 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddbaeumer.vscode-eslint" target="_blank" rel="noopener">ESLint</a></h3><p>一个添加vscode对于eslint支持的插件，加上以后不需要命令行就可以直接在编辑器中标识不符合规则的部分。</p>
+<h3 id="filesize"><a href="#filesize" class="headerlink" title="filesize"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dmkxml.vscode-filesize" target="_blank" rel="noopener">filesize</a></h3><p>一个可以自动标识文件大小的小插件</p>
+<h3 id="Git-History"><a href="#Git-History" class="headerlink" title="Git History"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddonjayamanne.githistory" target="_blank" rel="noopener">Git History</a></h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-4f543e4a4ffde0dc.gif" alt="gitHistory">一个很方便的查看git历史记录的插件</p>
+<h3 id="GitLens"><a href="#GitLens" class="headerlink" title="GitLens"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Deamodio.gitlens" target="_blank" rel="noopener">GitLens</a></h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-82e7fc27724d2b85.gif" alt="GitLens">一个可以看到当前代码提交记录的插件</p>
+<h3 id="HTML-CSS-SUPPORT"><a href="#HTML-CSS-SUPPORT" class="headerlink" title="HTML CSS SUPPORT"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Decmel.vscode-html-css" target="_blank" rel="noopener">HTML CSS SUPPORT</a></h3><p>代码补全工具</p>
+<h3 id="HTML-Snippets"><a href="#HTML-Snippets" class="headerlink" title="HTML Snippets"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dabusaidm.html-snippets" target="_blank" rel="noopener">HTML Snippets</a></h3><p>HTML的snippet插件</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-74e8c410147ac51c.gif" alt="html snippet">### <a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dzhuangtongfa.Material-theme" target="_blank" rel="noopener">One Dark Pro</a></p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-7645cf03cde89df4.png" alt="oneDarkPro">很漂亮的vscode主题，再也不羡慕Atom了</p>
+<h3 id="Path-Intellisense"><a href="#Path-Intellisense" class="headerlink" title="Path Intellisense"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dchristian-kohler.path-intellisense" target="_blank" rel="noopener">Path Intellisense</a></h3><p>自动路径提示</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-432a522c222f3ae5.gif" alt="path intellisense">### <a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dchrmarti.regex" target="_blank" rel="noopener">Regex Previewer</a></p>
+<p>一个写完正则就可以直接测试的插件</p>
+<h3 id="TODO-Highlight"><a href="#TODO-Highlight" class="headerlink" title="TODO Highlight"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dwayou.vscode-todo-highlight" target="_blank" rel="noopener">TODO Highlight</a></h3><p>一个TODO LIST的插件</p>
+<h3 id="Vetur"><a href="#Vetur" class="headerlink" title="Vetur"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Doctref.vetur" target="_blank" rel="noopener">Vetur</a></h3><p>vue官方推荐的插件，可以代码提示等功能</p>
+<h3 id="vscode-icons"><a href="#vscode-icons" class="headerlink" title="vscode-icons"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Drobertohuertasm.vscode-icons" target="_blank" rel="noopener">vscode-icons</a></h3><p>很漂亮且很实用的图标插件，帮助我们区分不同类型。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-57f5cc18c0676ebd.gif" alt="vscode-icon"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Draft.js-Data-Structure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/Draft.js-Data-Structure/" class="post-title-link" itemprop="url">Draft.js的数据结构</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33 / 修改时间：17:20:01" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Draft-js的数据结构"><a href="#Draft-js的数据结构" class="headerlink" title="Draft.js的数据结构"></a>Draft.js的数据结构</h1><p><code>Draft.js</code>使用EditorState来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍<code>Draft.js</code>的数据结构。</p>
+<h2 id="不可变的数据结构"><a href="#不可变的数据结构" class="headerlink" title="不可变的数据结构"></a>不可变的数据结构</h2><p><code>Draft.js</code>基于<code>immutable.js</code>实现了一种不可变的数据结构，基于这种数据结构，<code>Draft.js</code>实现了单项数据流，即 event -&gt; onChange -&gt; EditorState</p>
+<h2 id="EditorState-概览"><a href="#EditorState-概览" class="headerlink" title="EditorState 概览"></a>EditorState 概览</h2><p>我在 <a href="https://link.jianshu.com?t=https%3A%2F%2Fcodepen.io%2Fyungcho%2Fpen%2FNXJxNL%3Feditors%3D1111" target="_blank" rel="noopener">CodePen</a> 上面实现了一个简单的Demo用于展示EditorState，你可以在上面尝试一下。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-da61a2f10ca947bb.png" alt="EditorState.png">上图展示了一个完整的EditorState，我们可以轻易的猜测出一些属性的含义，比如currentContent记录了当前编辑器中展示内容的状态，selection中标识当前的选区，redoStack和undoStack分别是撤销、重做栈，而EditorState则提供了操作这些属性的顶层方法。</p>
+<h2 id="样式展现"><a href="#样式展现" class="headerlink" title="样式展现"></a>样式展现</h2><p><code>Draft</code>将样式分为块级样式与内联样式，块级样式之间线性排列，不可嵌套，内联样式则用数组记录，可以重叠。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-5f9ea9a1806e6f34.png" alt="块级样式.png">当我在<code>draft</code>中随意输入一些文字的时候，text将会记录下文字内容，而此时用于记录块级样式的type值为<code>unstyled</code></p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-6cb8672da4e5a2a1.png" alt="块级样式与内联样式.png">现在我们将H1（块级元素）应用于文本，我们可以发现用于标识块级样式的type值变为了<code>header-one</code>，当我们继续在该行输入的时候，将会同样被赋予H1样式。通过上述的数据结构我们可以发现，由于块级样式由type所规定，所以块级样式之间不可被嵌套，即不会出现无序列表嵌套有序列表的情况出现。</p>
+<p>对于同一块级元素中的文本内容，<code>draft</code>将其按照字符进行拆分,每一个字符的内联样式用数组进行展示，由此可以解决内联样式的嵌套问题。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-d113d9fa0a9f9133.png" alt="内联样式.png"><br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"> [<span class="symbol">'ITALIC</span>'], // 斜</span><br><span class="line"> [<span class="symbol">'ITALIC</span>'], // 体</span><br><span class="line"> [],</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //斜</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //体</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //加</span><br><span class="line"> ...</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h2 id="Entity元数据"><a href="#Entity元数据" class="headerlink" title="Entity元数据"></a>Entity元数据</h2><p>Entity并不是一个难以理解的数据类型，Entity数据主要用于展示一些不可被分割的数据类型，例如图片、mention、超链接等。</p>
+<p>典型场景就是mention类型，详细来说，我们在日常使用中会在富文本编辑器中提及一些人， @xxx 的数据类型要求是一个统一整体，一旦 @xxx 中有某一个字符被删除，就有可能会出现 @ 出的名字和 @ 的对象不一致的情况。</p>
+<p>在上图中，我将插入的图片数据结构打印了出来，我们可以发现这是一个Entity，记录了data，mutability与type，<code>Draft.js</code>向外暴露了一个顶层接口，当Entity数据被注入的时候，可以通过这个接口来设计数据对象的展现方式，如下图</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Draft Editor</span></span><br><span class="line">&lt;Editor</span><br><span class="line"> blockRendererFn=&#123;<span class="keyword">this</span>.mediaBlockRenderer&#125;</span><br><span class="line">/&gt;</span><br><span class="line">​</span><br><span class="line"><span class="comment">// mediaBlockRenderer</span></span><br><span class="line">mediaBlockRenderer(block) &#123;</span><br><span class="line"> <span class="keyword">if</span>(block.getType() === <span class="string">'atomic'</span>) &#123;</span><br><span class="line"> <span class="keyword">return</span> &#123;</span><br><span class="line"> component: Media,</span><br><span class="line"> editable: <span class="literal">false</span>,</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Media</span></span><br><span class="line"><span class="keyword">const</span> Media = <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">const</span> entity = props.contentState.getEntity(</span><br><span class="line"> props.block.getEntityAt(<span class="number">0</span>)</span><br><span class="line"> );</span><br><span class="line"> <span class="keyword">const</span> &#123;src&#125; = entity.getData();</span><br><span class="line"> <span class="keyword">const</span> <span class="keyword">type</span> = entity.getType();</span><br><span class="line"> <span class="built_in">console</span>.log(&#123;entity&#125;);</span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> media;</span><br><span class="line"> <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">'audio'</span>) &#123;</span><br><span class="line"> media = &lt;Audio src=&#123;src&#125; /&gt;;</span><br><span class="line"> &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">'image'</span>) &#123;</span><br><span class="line"> media = &lt;Image src=&#123;src&#125; /&gt;;</span><br><span class="line"> &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">'video'</span>) &#123;</span><br><span class="line"> media = &lt;Video src=&#123;src&#125; /&gt;;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> media;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/" class="post-title-link" itemprop="url">谈谈 rem 与 vw -- rem</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="谈谈rem与vw-—-rem"><a href="#谈谈rem与vw-—-rem" class="headerlink" title="谈谈rem与vw — rem"></a>谈谈rem与vw — rem</h1><p>写这篇文章的原因，源于我在头条的面试。面试官问到了关于手机端适配rem的问题，这个问题非常有意思，想和大家分享一下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Q:能谈谈<span class="built_in">rem</span>的作用吗，与em有什么区别？</span><br><span class="line">A: <span class="built_in">rem</span> 是html 的font-<span class="built_in">size</span>大小，一般为 <span class="number">16</span>px， em 是父节点的 font-<span class="built_in">size</span> 大小</span><br><span class="line">Q: 我们为什么要用<span class="built_in">rem</span>去做手机的适配？如果<span class="built_in">rem</span>只是根节点字体大小的话，那么<span class="built_in">rem</span> 其实和px 、em没有区别，<span class="built_in">rem</span>解决了什么问题？</span><br></pre></td></tr></table></figure>
+<p>我之前确实做过几个简单的手机H5页面，只是在使用淘宝的lib-flexible方案，只觉得rem是解决方案的结果，但是从没想过为什么要使用rem来做手机端的适配。</p>
+<p>当我再次去看淘宝的lib-flexible的时候，发现此方案已经不被推荐了，取而代之的是<a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.w3cplus.com%2Fmobile%2Fvw-layout-in-vue.html" target="_blank" rel="noopener">《如何在Vue项目中使用vw实现移动端适配》</a>,于是想借此机会将 rem 与 vw 一起总结一下。</p>
+<h2 id="手机端适配模式"><a href="#手机端适配模式" class="headerlink" title="手机端适配模式"></a>手机端适配模式</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-ed6d76dad2b44548.jpg" alt="手机淘宝团队适配协作模式">## 一些基本概念</p>
+<p>具体内容可以查看<a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.w3cplus.com%2Fmobile%2Flib-flexible-for-html5-layout.html" target="_blank" rel="noopener">《使用Flexible实现手淘H5页面的最终适配》</a>,在这里，我只对其中的一些概念谈一谈自己的理解。</p>
+<h3 id="viewport"><a href="#viewport" class="headerlink" title="viewport"></a>viewport</h3><p>简单来说，viewport严格等于浏览器视窗大小（不包含滚动条），但是在移动设备上有些复杂，分为 visualviewport 与 layoutviewport。这里不做详细解释，可以查看<a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.w3cplus.com%2Fcss%2Fviewports.html" target="_blank" rel="noopener">《viewports剖析》</a>来了解详细内容，看完这篇文章，你会明白为什么在html头部 emmet 会自动帮你生成</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">"viewport"</span> <span class="attribute">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="设备独立像素（虚拟像素）"><a href="#设备独立像素（虚拟像素）" class="headerlink" title="设备独立像素（虚拟像素）"></a>设备独立像素（虚拟像素）</h3><p>设备独立像素是软件概念上的一个像素，一个设备独立像素可以对应多个物理像素，对应关系由相关系统控制（我们不用管），CSS像素（即写在css中的1px）就是一种设备独立像素。</p>
+<p>例如苹果是Retina屏，1px（虚拟像素） = 4px（物理像素，dpr=2）</p>
+<p>盗一张手淘的图：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-518e49b5197bf1f3.jpg" alt="物理像素对虚拟像素">### dpr</p>
+<p>dpr实际上是一个比值，标识一个虚拟像素对应几个物理像素。正常屏幕1个 CSS 像素对应1个物理像素，dpr=1，Retina 屏幕1个 CSS 像素对应 n^2 个物理像素，dpr 为 n。例如上面那张图 dpr 就是2，因为一个 CSS 像素对应 4 个物理像素， 长对应2个，宽对应2个。</p>
+<h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h3><p>rem 简单来说是 html 的 font-size 大小，一般默认为 16px，与 em 的父节点 font-size 大小不同。一般 rem 方案解决小屏幕适配问题就是通过 JavaScript 动态改变 html 元素的 font-size 大小进行适配（组件使用 rem 作为度量）</p>
+<h2 id="lib-flexible"><a href="#lib-flexible" class="headerlink" title="lib-flexible"></a>lib-flexible</h2><p><a href="https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Famfe%2Flib-flexible" target="_blank" rel="noopener">lib-flexible</a>是淘宝团队推出的一种 rem 适配方案，它帮我们解决了不同屏幕如何设置 html 的 font-size 大小与 dpr 的问题。</p>
+<p>可以看到 lib-flexible 里面有两个版本， master 里面用正则匹配 IOS 端和 Android 端，而Branch 2.0 版本则取消了对于 dpr 的适配，具体我会在下面进行介绍。</p>
+<h3 id="rem-解决了什么问题"><a href="#rem-解决了什么问题" class="headerlink" title="rem 解决了什么问题"></a>rem 解决了什么问题</h3><p>首先要明确的一点是 data-dpr 和 rem 解决的是两个维度的问题。 Rem 解决的是移动端适配的问题， data-dpr 是在解决了移动端适配问题的基础上用于提升视觉效果。</p>
+<p>在 Web App 上面，我们需要禁止页面缩放。</p>
+<p><br></p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-5206f315d53cde18.jpeg" alt="手淘webapp.jpeg">可以试着打开一下手机淘宝页面，你会发现你无法将这个页面放大。</p>
+<p>考虑一个问题，你需要为一个 375px 大小的屏幕做页面，页面充满整个屏幕, 里面有一个 200px 大小的弹窗，你需要如何去实现它？</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">375px</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="selector-class">.dialog</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果这么做就 GG 了，当这个页面放到大一些的屏幕上（例如 414px的屏幕），那么显示出来的效果会出现留白。 414 是 iPhone * Plus 的尺寸，如果放到 ipad 上面那么留白会更大。</p>
+<p>我们如何解决这个问题呢？</p>
+<p>如果能够有一种动态的修改元素的长度就好了。</p>
+<p>rem 就是这样一种原理，我们的组件使用 rem 进行编写，然后使用 JavaScript 动态设置 rem 到 px 的映射关系，这样就可以实现对于不同手机页面的适配了。</p>
+<p>上 lib-flexible 源码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 经过精简</span></span><br><span class="line"><span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setRemUnit</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rem = docEl.clientWidth / <span class="number">10</span></span><br><span class="line">    docEl.style.fontSize = rem + <span class="string">'px'</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>具体 rem 的计算我会在下面介绍，核心代码实际上就是为 html 元素设置一个 font-size 而已。</p>
+<h3 id="lib-flexible-设置-dpr-又是为了什么？"><a href="#lib-flexible-设置-dpr-又是为了什么？" class="headerlink" title="lib-flexible 设置 dpr 又是为了什么？"></a>lib-flexible 设置 dpr 又是为了什么？</h3><p>为了解决“极致的1px”问题。</p>
+<p>再次把这张图放一下：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-aa5c7c5195cd2639.jpg" alt="物理像素对虚拟像素">在 Retina 屏幕上面，1个 CSS 像素实际上对应着4个物理像素（dpr=2的情况）。当我们在屏幕上画1px 的线时，Retina 屏幕实际上是2个物理像素宽。我们要实现“极致的1px”就是希望在Retina屏幕上画出一条1个物理像素宽的细线。</p>
+<p>原理其实也很简单，对于 dpr=2的设备，设置 rem 的值为正常值的 2 倍，将需要画出“极致的线”的地方使用1px表示，再将页面缩小2倍，这样1px的线就变成了“0.5px”，实际上为1个物理像素来表示。</p>
+<p>同理，对于 dpr=n 的设备，将 rem 值设为正常的 n 倍，在对页面缩放 n 倍。</p>
+<p>现在的 lib-flexible 有两个版本，master 版本和 2.0 版本。在 master 版本中使用 正则来判断系统种类（IOS/Andorid），但是只对 IOS 系统做了 dpr 的适配，对于 Android 手机，统一设置 dpr =1；</p>
+<p>实际上使用 rem 配合 dpr 缩放的方式有非常多的问题。最明显的例子就是安卓机 dpr 的混乱，例如 VIVO 的某款手机甚至出现了 dpr 为小数的情况（上文我们介绍到，1个 CSS 像素对应多少个物理像素 dpr 就是几，显然不可能出现小数位的情况），所以使用缩放来实现“极致的1px”兼容性并不是很好。</p>
+<p>有团队的做法是将 dpr 设置有问题的机型进行上报，然后收集成一个白名单，再根据白名单在 lib-flexible 对于有问题的机型进行单独适配，然而这个工作量一般的小团队没有精力去做……</p>
+<p>所以我们可以看到 2.0 版本已经舍弃了这种做法。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 进行了精简</span></span><br><span class="line"><span class="comment">// detect 0.5px supports</span></span><br><span class="line"><span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement;</span><br><span class="line"><span class="keyword">if</span> (dpr &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> fakeBody = <span class="built_in">document</span>.createElement(<span class="string">'body'</span>)</span><br><span class="line">  <span class="keyword">var</span> testElement = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">  testElement.style.border = <span class="string">'.5px solid transparent'</span></span><br><span class="line">  fakeBody.appendChild(testElement)</span><br><span class="line">  docEl.appendChild(fakeBody)</span><br><span class="line">  <span class="keyword">if</span> (testElement.offsetHeight === <span class="number">1</span>) &#123;</span><br><span class="line">    docEl.classList.add(<span class="string">'hairlines'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  docEl.removeChild(fakeBody)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到这个版本对于设备进行了一个测试，如果该设备支持 0.5px 的书写方式，那么就在 <code>html</code> 元素上面添加一个 <code>hairlines</code> 的类,我们在使用的时候只需要在<code>header</code>中添加<code>.hirlines div {border-width: 0.5px}</code>就可以了。</p>
+<p>例如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// some device support 0.5 px</span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">class</span>=<span class="string">"hairlines"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      div &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">boder</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.hairlines</span> <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">border</span>: 0<span class="selector-class">.5px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>我是极致的1px<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样，如果支持 0.5 px，就会出现一条非常细的线，否则就按照正常的显示方式。</p>
+<h2 id="Rem的映射方式"><a href="#Rem的映射方式" class="headerlink" title="Rem的映射方式"></a>Rem的映射方式</h2><p>这个问题其实很简单，首先我们设定一个基于设计稿的 rem 基准值，然后在真实设备上乘一个设计稿对真实设备的比值：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-648a2fc5ba4c63e2.png" alt="rem转化公式.png">而 lib-flexible 则默认规定了 rem 的取值为屏幕宽度的十分之一</p>
+<h2 id="Rem的一些问题"><a href="#Rem的一些问题" class="headerlink" title="Rem的一些问题"></a>Rem的一些问题</h2><p>使用 rem 方式布局其实有很多问题。我们使用 rem 转换出来的 px 往往有很多小数点，所以最终的展示效果的 CSS 长宽实际上是经过四舍五入的。因此往往我们需要手动去调整“最后的1px”，这给我们带来了很多的麻烦。</p>
+<p>因此 rem 确实是对移动端适配的一种解决方案，但并非无懈可击。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Draft.js-Event-Handling-Mechanism/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/Draft.js-Event-Handling-Mechanism/" class="post-title-link" itemprop="url">Draft.js的事件处理机制</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Draft-事件处理机制"><a href="#Draft-事件处理机制" class="headerlink" title="Draft 事件处理机制"></a>Draft 事件处理机制</h1><p>Draft.js 内部封装了一系列基础的事件处理函数，当事件触发时，这些函数接收当前<code>event</code>，并基于此生成<code>new editorState</code>，我们在接收到<code>new editorState</code>后再将该数据绑定到<code>Draft</code>上，这就是Draft的单向数据流。其中<code>react</code>层只负责视图层，我们将通过一些流程图与源码的展示来详细介绍这一点。</p>
+<h2 id="事件在-Draft-内部的传递"><a href="#事件在-Draft-内部的传递" class="headerlink" title="事件在 Draft 内部的传递"></a>事件在 Draft 内部的传递</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-b27a9ec7b9eff1a5.png" alt="eventInDraft.png"><code>Draft</code> 由事件驱动，任何事件的触发最终都会被转化为一个新的<code>EditorState</code>。上图是一个简单的流程图，展现了事件在 Draft 内部的传递机制。</p>
+<p><code>react</code>只负责事件的绑定与<code>view</code>的展示，将<code>Draft</code>中内置的事件<code>editorBlur</code>等方法与原生事件<code>blur</code>进行绑定，下面给出了<code>Draft</code>源码进行说明：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DraftEditor.react.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 经过精简</span></span><br><span class="line">render() &#123;</span><br><span class="line">    &lt;div</span><br><span class="line">        <span class="comment">// 将原生事件与Draft内置事件相绑定</span></span><br><span class="line">        onBeforeInput=&#123;<span class="keyword">this</span>._onBeforeInput&#125;</span><br><span class="line">        onBlur=&#123;<span class="keyword">this</span>._onBlur&#125;</span><br><span class="line">        onCopy=&#123;<span class="keyword">this</span>._onCopy&#125;</span><br><span class="line">        onCut=&#123;<span class="keyword">this</span>._onCut&#125;</span><br><span class="line">        onDragEnd=&#123;<span class="keyword">this</span>._onDragEnd&#125;</span><br><span class="line">        onDragEnter=&#123;<span class="keyword">this</span>.onDragEnter&#125;</span><br><span class="line">        ...</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 请暂时忽略下面这部分</span></span><br><span class="line">        &lt;DraftEditorContents &#123;...editorContentsProps&#125; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>通过上面的代码部分我们可以看到，react将原生事件与内置事件做了绑定，例如将<code>_onBlur</code>绑定到了原生事件<code>onBlur</code>上面。而_onBlur内部的事件则被单独抽象出来，与视图层完全解耦。</p>
+<p><code>Draft</code>运用了一些很酷的小技巧来解决内置事件与原生事件的绑定问题：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 经过精简</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; from <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;onBlur, onCopy, onFocus&#125; from <span class="string">'./logicLayer'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  onBlur(e) &#123;</span><br><span class="line">    editOnBlur(e);</span><br><span class="line">  &#125;</span><br><span class="line">  onCopy(e) &#123;</span><br><span class="line">    editOnCopy(e);</span><br><span class="line">  &#125;</span><br><span class="line">  onFocus(e) &#123;</span><br><span class="line">    editonFocus(e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DraftEditor</span> <span class="title">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 事件绑定</span></span><br><span class="line">    <span class="keyword">this</span>._onBlur = <span class="keyword">this</span>._buildHandler(<span class="string">'onBlur'</span>);</span><br><span class="line">    <span class="keyword">this</span>._onCopy = <span class="keyword">this</span>._buildHandler(<span class="string">'onCopy'</span>);</span><br><span class="line">    <span class="keyword">this</span>._onCut = <span class="keyword">this</span>._buildHandler(<span class="string">'onCut'</span>);</span><br><span class="line">    <span class="keyword">this</span>._onInput = <span class="keyword">this</span>._buildHandler(<span class="string">'onInput'</span>);</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">    </span><br><span class="line">  _buildHandler(eventName) &#123;</span><br><span class="line">    <span class="keyword">return</span> e =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> method = <span class="keyword">this</span>._handler &amp;&amp; <span class="keyword">this</span>.handler[eventName];</span><br><span class="line">      method &amp;&amp; method(<span class="keyword">this</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>核心函数是<code>_buildHandler</code>,通过此函数进行事件绑定的分发。</p>
+<p>通过这种方式，可以完成视图层与逻辑层的解耦。</p>
+<p>任何事件的触发最后都会被转化为一个<code>new EditorState</code>,通过onChange（update）方法抛出，我们接收到<code>new EditorState</code>后，再将其绑定到<code>Draft</code>上面，由<code>Draft</code>负责<code>EditorState</code>的转换，最终通过react渲染出来。</p>
+<p>也就是说，任何<code>new EditorState</code>都一定会被<code>Draft</code>抛给我们，再由我们绑定到<code>Draft</code>上面进行展示，<code>EditorState</code>不是一个内部状态。</p>
+<p>当然<code>Draft</code>对EditorState进行转换的过程远远没有这么简单，实际情况要复杂的多，这点我们将会在下面提到。</p>
+<p>通过上面所提到的这种方式，<code>Draft</code>完成了由事件到状态对象的转化，并且完成了数据的单向流动。</p>
+<h2 id="Draft-事件层和展示层的分离"><a href="#Draft-事件层和展示层的分离" class="headerlink" title="Draft 事件层和展示层的分离"></a>Draft 事件层和展示层的分离</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-6125572d566da98e.png" alt="Event&amp;View.png">我在上面大致画出了<code>draft</code>的<code>react</code>层是如何划分的。其实这个图并不准确，但是用来说明已经够用了。</p>
+<p>在<code>react</code>层将事件绑定层与实践展示层分离：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DraftEditor.react.js</span></span><br><span class="line"><span class="comment">// 经过精简</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Event层</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="title">render</span><span class="params">()</span></span> &#123;</span><br><span class="line">    &lt;div</span><br><span class="line">        <span class="comment">// 将原生事件与Draft内置事件相绑定</span></span><br><span class="line">        onBeforeInput=&#123;this._onBeforeInput&#125;</span><br><span class="line">        onBlur=&#123;this._onBlur&#125;</span><br><span class="line">        ...</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * View 层</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        &lt;DraftEditorContents &#123;...editorContentsProps&#125; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>仔细查看上面的代码，依旧是相同的<code>render</code>函数，这次我将事件绑定的部分隐去了大部分，主要可以看到在这个组件中引入了<code>DraftEditorContents</code>组件，这个组件就是事件的展示层。在此层中，储存了<code>preEditorStatus</code>,<code>View</code>层负责将<code>diff</code>过后的<code>latestEditorStatus</code>渲染出来。</p>
+<p>中间会经过一些过程，在此期间<code>Draft</code>会向外暴露一些端口用于处理类似于<code>block</code>样式与<code>inline</code>样式，具体内容会在扩展中提及。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/From-Implementing-A-Traffic-Light-To-Functional-Programming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/From-Implementing-A-Traffic-Light-To-Functional-Programming/" class="post-title-link" itemprop="url">从实现一个红绿灯到函数式编程</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我认为函数式编程的本质是把函数当作变量来使用。最近接触了<code>React</code>，我们可以发现在<code>React</code>中处处存在函数式编程的思想，我们将<code>JSX</code>写成一个函数的返回值，并且在<code>render</code>中调用她们。函数是对于过程的抽象，我们将过程抽象成一个函数，然后根据不同的场景传入不同的变量值从而得到不同的结果。而函数式编程是对于函数的抽象，我们把函数看作是一个变量，然后根据不同的场景传入不同的函数值从而得到不同的结果。</p>
+<p>我希望可以通过实现一个小的<code>demo</code>来讲清楚这件事，这个<code>demo</code>是我很久以前在某个技术网站看到的，具体的网址已经记不清楚了，鉴于小伙伴们对于我所讲的函数式编程的概念非常感兴趣，所以我将这个例子翻了出来，自己将它重新实现一遍。若是没有讲清楚或错误的地方，则是受限于我的浅薄的技术功底，并希望被指正。</p>
+<h2 id="红绿灯函数"><a href="#红绿灯函数" class="headerlink" title="红绿灯函数"></a>红绿灯函数</h2><p>客户希望我们实现一个红绿灯函数，每隔1秒钟，变换一次信号，无限循环。可以使用console.log来模拟信号灯亮的过程，即在控制台打印’绿灯亮’,1s后继续打印’黄灯亮’,1s后打印’红灯亮’…无限循环</p>
+<p>实现这个效果非常简单，直接上代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'绿灯亮'</span>);</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'黄灯亮'</span>);</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'红灯亮'</span>);</span><br><span class="line">                semaphores();</span><br><span class="line">            &#125;, <span class="number">1000</span>)</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;,<span class="number">1000</span>) </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮 </span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>但是很明显，这样的函数及其不优雅，我们的红绿灯只有三种颜色，如果要是有十几种颜色的霓虹灯闪来闪去的话，我们就要嵌套十几层代码了。这样可读性实在是太差了，于是我们希望可以把它优化一下。</p>
+<p>仔细分析一下我们的代码就会发现，上面的demo有非常多的冗余代码，setTimeout在一个函数中被重复使用了三次，每次只不过是一个嵌套再打印不同的红黄绿灯而已，我们为什么不把公共部分提取出来呢？把红黄绿灯提取成变量，代码质量会好很多。</p>
+<p>so出现了下列的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    <span class="string">'绿灯'</span>,</span><br><span class="line">    <span class="string">'黄灯'</span>,</span><br><span class="line">    <span class="string">'红灯'</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 控制器</span></span><br><span class="line">    <span class="keyword">let</span> lightLength = lightList.length;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;lightList[count % lightLength]&#125;</span>`</span>);</span><br><span class="line">        count ++;</span><br><span class="line">        semaphores(lightList,count);</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮 </span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>我们还可以进一步优化，同时将时间抽离:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮 </span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>我们可以更加容易修改我们的代码，以应对将来可能的需求变更。这也是我们常见的函数形式。变量只是 Number、String、Object、undefined、null、Boolean，但是我们再次将问题变得复杂一些：</p>
+<p>我们的红绿灯效果良好，客户非常满意，并且希望扩展应用范围。为了应对可能到来的困惑，我们需要在每次信号灯亮起的时候添加上一条提示语，提醒剩余时间。不同的应用场景将有不同的提示语。</p>
+<p>这也非常简单，我们只需要多加一条语句就可以完成:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            <span class="comment">// add here!!!</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'这是一条提示语'</span>);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮 </span></span><br><span class="line"><span class="comment">// 这是一条提示语</span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// 这是一条提示语</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// 这是一条提示语</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>但随着我们的应用场景进一步增多，我们的红绿灯将广泛的用于医疗、运输、零售行业，对于这些行业我们需要在信号灯亮起时拥有不同的操作，有的是发出声响、有的是打印提示语、有的是发出警报、有的是打开开关…</p>
+<p>那么我们是不是需要把上面的那份代码到处拷贝一下，然后修改位于16行的代码，分别把它修改为发声、打印、报警、开关控制…</p>
+<p>显然一般的函数已经无法满足我们的需求了，这时候我们就需要函数式编程。</p>
+<h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><p>我上面只是为了引出函数式编程的例子，所以举例夸张了一些。事实上函数式编程并不是非常高大上的概念，它就和面向对象、面向过程一样，只是一种编程的范式，在实际中拥有着非常广泛的应用（例如JSX）</p>
+<p>就像我一开始提到的那样，函数式编程的核心不过是将函数当作变量那样来使用。我们希望改造一下我们的红绿灯函数，使我们的函数在信号灯亮后，可以在不同的场景使用不同的参数，我们来设计一下这个函数.首先我们需要传入一个函数，所以我们在形参列表中加入一个<code>handler</code>的变量，便于我们使用它。然后在我们希望使用它的地方使用就好了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请注意我们在这里加入了一个参数handler</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], handler, count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            <span class="comment">// 在这里使用它</span></span><br><span class="line">            handler &amp;&amp; handler(light, time);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以这样使用上面的函数:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 我们只需要在不同的场景改变不同的handler就可以了</span></span><br><span class="line"><span class="keyword">const</span> handler = <span class="function"><span class="keyword">function</span> (<span class="params">light, time</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'函数式编程好爽啊'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮<span class="subst">$&#123;time&#125;</span>毫秒~~`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> doTrafficLight = semaphores(TRAFFIC_LIGHT, handler);</span><br><span class="line"><span class="keyword">const</span> trafficTimeHandler = doTrafficLight();</span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮</span></span><br><span class="line"><span class="comment">// 函数式编程好爽啊</span></span><br><span class="line"><span class="comment">// 绿灯亮1000毫秒~~</span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// 函数式编程好爽啊</span></span><br><span class="line"><span class="comment">// 黄灯亮2000毫秒~~</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// 函数式编程好爽啊</span></span><br><span class="line"><span class="comment">// 红灯亮3000毫秒~~</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>我们更可以优化一下上面的函数，使得不同等亮起时使用不同的行为函数:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// do something...</span></span><br><span class="line">    &#125;],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// do something...</span></span><br><span class="line">    &#125;],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// do something...</span></span><br><span class="line">    &#125;]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们去掉了handler!!!!</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time, handler] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            <span class="comment">// 在这里使用它</span></span><br><span class="line">            handler &amp;&amp; handler(light, time);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮</span></span><br><span class="line"><span class="comment">// dosomething1...</span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// dosomething2...</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// dosomething3...</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>函数式编程的抽象程度更高，它是对于过程的抽象。如果没有传入的参数作为支撑，那么这个函数毫无意义，比较明显的例子是<code>JavaScript</code>中的<code>map</code>和<code>reduce</code>。这是最主要的概念，剩下的概念则都是一些规定，帮助我们写出更好的更健壮的函数式函数，相信理解了我刚刚所说的例子，再去理解其他概念会容易许多。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Event-Dilutes-Debounce-&-Throttle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/Event-Dilutes-Debounce-&-Throttle/" class="post-title-link" itemprop="url">事件稀释 Debounce & Throttle</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次<code>ajax</code>请求，这简直是一场灾难。</p>
+<h2 id="稀释原理"><a href="#稀释原理" class="headerlink" title="稀释原理"></a>稀释原理</h2><p>比较常见的解决方法是 <code>Debounce</code>和<code>Throttle</code>。两者的目的都是为了稀释事件，但是原理有所不同。</p>
+<p><code>Debounce</code>函数的理念是“推迟执行”，即把N次连续事件只执行一次。</p>
+<p><code>Throttle</code>函数的理念是“时间稀释”，即N次连续事件在规定时间内最多执行一次。</p>
+<p>举个例子来说，如果把事件触发比作是乘客，而事件的执行是公交车的话，当我们连续滚动屏幕不停触发’scrolling’事件的时候，就相当于来一个乘客，上一辆公交车，就发车，一辆公交车只搭载一名乘客就出发了。</p>
+<p>而 <code>Debounce</code> 函数则是“推迟发车”，即我们规定公交车等1分钟，每来一名乘客，公交车就多等一分钟，这样只要乘客到达的时间间隔小于1分钟，公交车就会无限等待下去，直到某一次两名乘客到达的时间间隔大于1分钟，公交车发车了。如果不来乘客，公交车就不发车。</p>
+<p><code>Throttle</code>函数则是对于时间的稀释，对于<code>Throttle</code>的公交车，即使有乘客，那么每一分钟最多只发车一次，即使上一名乘客是59秒达到而下一名乘客是1分01秒到达，公交车依旧会在1分钟时准时发车，下一名乘客只能等待下一班车了。同样，如果不来乘客，公交车就不会发车。</p>
+<p>下面我希望能通过一些函数Demo来说明<code>Debounce</code>与<code>Throttle</code></p>
+<h2 id="Debounce"><a href="#Debounce" class="headerlink" title="Debounce"></a>Debounce</h2><p>这里给出了一个Debounce函数的示例，我是用class的方式实现的</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Debounce &#123;</span><br><span class="line">  handleFunction: <span class="built_in">Function</span>;</span><br><span class="line">  time: <span class="built_in">number</span> | <span class="built_in">string</span>;</span><br><span class="line">  handler: <span class="built_in">number</span>;</span><br><span class="line">  context: object;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">handleFunction: <span class="built_in">Function</span>, time: <span class="built_in">number</span> | <span class="built_in">string</span>, context?:<span class="built_in">Object</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.handleFunction = handleFunction || <span class="function">(<span class="params">(<span class="params"></span>) =&gt; &#123; &#125;</span>);</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">time</span> = +<span class="params">time</span> || 0;</span></span><br><span class="line"><span class="function">    // 解决<span class="params">this</span>指针作用域</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">context</span> = <span class="params">context</span> || &#123;&#125;;</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">carry</span> = <span class="params">this</span>.<span class="params">carry</span>.<span class="params">bind</span>(<span class="params"><span class="keyword">this</span></span>);</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">clear</span> = <span class="params">this</span>.<span class="params">clear</span>.<span class="params">bind</span>(<span class="params"><span class="keyword">this</span></span>);</span></span><br><span class="line"><span class="function">    // <span class="params">setTimeout</span> 句柄</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">handler</span> = 0;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">carry</span><span class="params">()</span>: <span class="params">void</span> &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params"><span class="keyword">this</span>.handler</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">this</span>.<span class="params">clear</span><span class="params">()</span>;</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">handler</span> = <span class="params">setTimeout</span>(<span class="params">(<span class="params"></span>) =&gt; &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">this</span>.clear(<span class="params"></span>);</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">this</span>.handleFunction.apply(<span class="params"><span class="keyword">this</span>.context</span>);</span></span></span><br><span class="line"><span class="function"><span class="params">    &#125;, <span class="keyword">this</span>.time</span>);</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">clear</span><span class="params">()</span>: <span class="params">void</span> &#123;</span></span><br><span class="line"><span class="function">    <span class="params">clearTimeout</span>(<span class="params"><span class="keyword">this</span>.handler</span>);</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">handler</span> = 0;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>核心是<code>Debounce.prototype.carry</code>函数，我们可以看到，在每次调用的时候首先检测当前有没有正在执行的Debounce函数，如果有的话，则取消上一次的执行，再添加一次新的延迟执行函数，从而达到上述效果。</p>
+<p>如果你想测试一下上面的函数，可以用以下方式调用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Debounce <span class="keyword">from</span> <span class="string">'path/to/debounce'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> Debounce(<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hi"</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, a.carry);</span><br></pre></td></tr></table></figure>
+<p>再新建个HTML，然后把body的height设置大点就OK了。</p>
+<h2 id="Throttle"><a href="#Throttle" class="headerlink" title="Throttle"></a>Throttle</h2><p>同样给出<code>Throttle</code>函数</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Throttle &#123;</span><br><span class="line">  handleFunction: <span class="built_in">Function</span>;</span><br><span class="line">  time: <span class="built_in">number</span> | <span class="built_in">string</span>;</span><br><span class="line">  handler: <span class="built_in">number</span>;</span><br><span class="line">  context: object;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">handleFunction: <span class="built_in">Function</span>, time: <span class="built_in">number</span> | <span class="built_in">string</span>, context?:<span class="built_in">Object</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.handleFunction = handleFunction || <span class="function">(<span class="params">(<span class="params"></span>) =&gt; &#123; &#125;</span>);</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">time</span> = +<span class="params">time</span> || 0;</span></span><br><span class="line"><span class="function">    // 解决<span class="params">this</span>指针作用域</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">context</span> = <span class="params">context</span> || &#123;&#125;;</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">carry</span> = <span class="params">this</span>.<span class="params">carry</span>.<span class="params">bind</span>(<span class="params"><span class="keyword">this</span></span>);</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">clear</span> = <span class="params">this</span>.<span class="params">clear</span>.<span class="params">bind</span>(<span class="params"><span class="keyword">this</span></span>);</span></span><br><span class="line"><span class="function">    // <span class="params">setTimeout</span> 句柄</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">handler</span> = 0;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">carry</span><span class="params">()</span>: <span class="params">any</span> &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params"><span class="keyword">this</span>.handler</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">return</span>;</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">handler</span> = <span class="params">setInterval</span>(<span class="params">(<span class="params"></span>) =&gt; &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">this</span>.handleFunction.apply(<span class="params"><span class="keyword">this</span>.context</span>);</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">this</span>.clear(<span class="params"></span>);</span></span></span><br><span class="line"><span class="function"><span class="params">    &#125;, <span class="keyword">this</span>.time</span>);</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">clear</span><span class="params">()</span>: <span class="params">void</span> &#123;</span></span><br><span class="line"><span class="function">    <span class="params">clearInterval</span>(<span class="params"><span class="keyword">this</span>.handler</span>);</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">handler</span> = 0;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="params">export</span> <span class="params">default</span> <span class="params">Throttle</span>;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到其中的<code>carry</code>函数在规定时间内最多执行一次。</p>
+<h2 id="最近在项目中遇到的一些坑"><a href="#最近在项目中遇到的一些坑" class="headerlink" title="最近在项目中遇到的一些坑"></a>最近在项目中遇到的一些坑</h2><p>其实这篇文章在写出以后确实在项目中遇到了一些问题，所以再看这篇文章写的还是有些不太全面。对于事件稀释，Throttle和Debounce都不过是稀释方法的一种。大致思想都是在对于在某一段时间内频繁触发的事件合并为一次进行请求。但是实际业务中的事件稀释方式要多得多。对于长页面的lazy load，不一定需要按时间为单位，亦可以按请求为单位，因为我们需要避免的事一秒发出几十次请求。对于不同的场景，我们要分析具体需要稀释的事情是什么。在错误的场景使用不合适的稀释方式可能反而会造成性能问题。事件稀释的精髓在于对于“事件”的稀释，不要拘泥于形式。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/You-Know-The-JS-Prototype-Chain-(top)---Objects-And-Prototypes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/You-Know-The-JS-Prototype-Chain-(top)---Objects-And-Prototypes/" class="post-title-link" itemprop="url">你知道的JS原型链（上）--对象与原型</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="你知道的JS原型链–对象与原型"><a href="#你知道的JS原型链–对象与原型" class="headerlink" title="你知道的JS原型链–对象与原型"></a>你知道的JS原型链–对象与原型</h1><p>最近一直在以忙为借口犯懒，到了清明节终于捱不过去了，所以还是准备写一篇文章来总结一下。最近开发的一个项目涉及到一些关于es6继承的问题。得益于<code>JavaScript</code>强大的原型机制，我们可以很轻易的模仿出类的特性，当然由于是基于原型实现的<code>class</code>语法糖，所以我们可以做出一些特别骚气的操作，比如动态继承。<br></p>
+<p> 例如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'this is A'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// class factory</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">InheritMaker</span>(<span class="params">constructor</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">constructor</span> </span>&#123;</span><br><span class="line">        <span class="keyword">constructor</span>()&#123;</span><br><span class="line">            <span class="keyword">super</span>();</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'this is B'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> A(); <span class="comment">// this is A</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> B = InheritMaker(A);</span><br><span class="line"><span class="keyword">const</span> b = <span class="keyword">new</span> B(); <span class="comment">// this is A; this is B</span></span><br></pre></td></tr></table></figure>
+<p>说实话，我一直在思考这种方式到底是不是违反了类的初衷。类是静态的，但是我们在 <code>JavaScript</code>中可以在运行时动态选择继承，这使得类的行为变得不确定: 我无法知道我的类到底会实现什么样子的功能，只用运行时才知道。这种见鬼的实现方式在<code>Java</code>中绝对会报错报到死，但是在<code>JavaScript</code>中却可以平稳运行。</p>
+<p>说了这么多，这种灵活不失骚气的实现方式还是得益于<code>JavaScript</code>中强大的原型机制。接下来，我希望来说清楚<code>JavaScript</code>中的原型到底是怎么回事，以及抛砖引玉的对于<code>es6</code>的<code>class</code>实现进行一些粗浅的探讨。</p>
+<h2 id="对象与原型"><a href="#对象与原型" class="headerlink" title="对象与原型"></a>对象与原型</h2><p>我最一开始接触<code>JavaScript</code>的时候不知道什么是原型，把它和对象当作两个概念来看待。<br></p>
+<p> 我们都知道，一个类<code>new</code>出来的实例是一个对象。</p>
+<p>我们来看下<code>EcmaScript</code>对于对象的定义:</p>
+<blockquote>
+<p>无序属性的集合，其属性可以包含基本值，对象或者函数</p>
+</blockquote>
+<p>原型就是无需属性的集合，<strong>原型就是对象,原型就是实例</strong></p>
+<p>下面让我们来抛开<code>es6</code>谈一谈对象与原型。</p>
+<p>我们都知道，对象是我们用<code>class</code> ‘new’出来的，例如我们想实现创建两个人，张三和李四，他们都拥有相同的属性，但是属性的值不同，所以我们将他们归为一个‘类’，在某些静态语言中大致长这样：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> People &#123;</span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params"><span class="built_in">string</span> name, int age</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> zhangsan = <span class="keyword">new</span> People(<span class="string">'张三'</span>， <span class="number">12</span>)；</span><br><span class="line"><span class="keyword">const</span> lisi = <span class="keyword">new</span> People(<span class="string">'李四'</span>, <span class="number">14</span>);</span><br></pre></td></tr></table></figure>
+<p>这样两个人就创建好了。</p>
+<p>但是<code>JavaScript</code>没有类的概念怎么破？</p>
+<p>下面用<code>es5</code>实现了同样的 效果：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Peole</span></span>(name, age) &#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> zhangsan = <span class="keyword">new</span> <span class="type">People</span>(<span class="string">'张三'</span>, <span class="number">12</span>);</span><br><span class="line"><span class="keyword">var</span> lisi = <span class="keyword">new</span> <span class="type">People</span>(<span class="string">'李四'</span>， <span class="number">14</span>);</span><br></pre></td></tr></table></figure>
+<p>上面创建了一个构造函数，实现了相同的效果。</p>
+<p>对于<code>JavaScript</code>来说，<code>People</code>是一个实例，它的构造函数是<code>Function</code>,因此它拥有<code>__proto__</code>,又是(构造)函数，所以拥有<code>prototype</code>，值得说明的一点是只有函数拥有<code>prototype</code>。</p>
+<p>那么<code>prototype</code>与<code>__proto__</code>又有什么区别呢？</p>
+<h2 id="prototype-amp-proto"><a href="#prototype-amp-proto" class="headerlink" title="prototype &amp; proto"></a>prototype &amp; <strong>proto</strong></h2><p><code>JavaScript</code>中有两个指针，<code>prototype</code>与<code>__proto__</code>，我在初学的时候一直对于这两个指针一直十分困惑，现在我希望可以解释清楚这些事情。</p>
+<p>对于<code>People</code>构造函数来说，它在被创建的时候拥有<code>prototype</code>属性，<code>prototype</code>的<code>constructor</code>指向它本身：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-8776a720059a3953.png" alt="image.png">如果用一种不太准确但容易理解的方式来解释，<code>prototype</code>才是People的类，上面拥有People所定义的一切方法，例如我们举个例子：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span> </span>&#123;</span><br><span class="line">    constructor(name, age)&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    changeName(<span class="keyword">new</span><span class="type">Name</span>)&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = <span class="keyword">new</span><span class="type">Name</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们在上面多声明了一个方法<code>changeName</code>,因此上面的图改为：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-fc3524fcefb3885f.png" alt="image.png">这就是prototype</p>
+<p>但是我们也说了<code>People</code>不仅仅是个构造函数，它还是<code>Function</code>的实例，对于一个实例来说，它需要知道创建它的类是什么。</p>
+<p>注意这里非常容易糊涂：</p>
+<p>prototype指向的是<strong>它作为构造函数的类</strong><br></p>
+<p> _<em>proto</em>_指向的是<strong>创建它的类</strong></p>
+<p>其实这也非常容易理解，因为对于<code>JavaScript</code>来说，函数也是一个对象。也就是说函数也是被‘<code>new</code>’出来的。创建它的类是<code>Function</code></p>
+<p>就是下面的这个<code>Function</code>:</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> People = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span><span class="params">()</span>;</span></span><br></pre></td></tr></table></figure>
+<p>因此上面的图可以更改为：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-f4fe34645ad9a7e7.png" alt="image.png">同样的，Function类的构造函数也是一个函数。。所以<code>Function构造函数</code>的<code>prototype</code>指向<code>Function类</code>,而它的<code>__proto__</code>也指向它的类：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-0286d0a3e51b7e69.png" alt="image.png">因此你可以试一下：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span> === <span class="function"><span class="keyword">Function</span>.<span class="title">__proto__</span></span>; // true</span><br></pre></td></tr></table></figure>
+<p>我们刚才也说过了，prototype 也是一个对象，也是被’<code>new</code>‘出来的，因为是对象，所以创造它的构造函数是<code>Object</code>,因此上图可以更改为：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-33255fb67e9242a7.png" alt="image.png">因此就出现了一个问题，创建Object的类是个毛？</p>
+<p>说的再玄幻一点就是创建对象的是个什么玩应？</p>
+<p><strong>是null</strong></p>
+<p>从无到有。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>因此原型的本质可以概括为：</p>
+<p><strong>JavaScript中的类也是个对象</strong></p>
+<p>当然这不太准确，我会在下节做阐述，先这么理解就好。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/blog/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blog/images/avatar.jpg" alt="Cao Yong">
+            
+              <p class="site-author-name" itemprop="name">Cao Yong</p>
+              <div class="site-description motion-element" itemprop="description">一些奇奇怪怪的东西</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/blog/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/EdenCao" title="GitHub &rarr; https://github.com/EdenCao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:edencaox@gmail.com" title="E-Mail &rarr; mailto:edencaox@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cao Yong</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/blog/js/utils.js?v=7.1.1"></script>
+
+  <script src="/blog/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/blog/js/affix.js?v=7.1.1"></script>
+
+  <script src="/blog/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/blog/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

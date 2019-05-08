@@ -1,7 +1,410 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Cao Yong,ednencaox@gmail.com"><title>前端组件化之路的一些思考与被神化的MVVM · Eden's Blog</title><meta name="description" content="当初上手使用的时候就直接使用的 Vue，简单方便且直接。但最近在思考为什么三大框架得以挤掉 jQuery 变得流行，至于流行的原因众说纷纭，但我认为真正的原因只有两个：
+<!DOCTYPE html>
 
-提供一种简单方便的开发范式，你不需要知道框架的运行原理就可以快速方便的开发出一个网站
-第二个原因则是最重要的：因为数据和 DOM"><meta name="keywords" content="JavaScript,TypeScript,Linux,macOS"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/blog/css/style.css"><link rel="stylesheet" href="/blog/css/blog_basic.css"><link rel="stylesheet" href="/blog/css/font-awesome.min.css"><link rel="stylesheet" href="/blog/css/atom-one-light.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/blog/images/logo@2x.png" style="width:127px;"><h3 title><a href="/">Eden's Blog</a></h3><div class="description"><p>一些奇奇怪怪的东西</p></div></div></div><ul class="social-links"><li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="http://github.com/EdenCao"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/blog/">首页</a></li><li><a href="/blog/archives/">归档</a></li><li><a href="/blog/2019/05/06/links/">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>前端组件化之路的一些思考与被神化的MVVM</a></h3></div><div class="post-content"><p>当初上手使用的时候就直接使用的 Vue，简单方便且直接。但最近在思考为什么三大框架得以挤掉 jQuery 变得流行，至于流行的原因众说纷纭，但我认为真正的原因只有两个：</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/blog/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/favicons/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicons/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicons/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/blog/images/favicons/safari-pinned-tab.svg?v=7.1.1" color="#222">
+
+
+  <link rel="manifest" href="/blog/images/favicons/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/blog/images/favicons/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="当初上手使用的时候就直接使用的 Vue，简单方便且直接。但最近在思考为什么三大框架得以挤掉 jQuery 变得流行，至于流行的原因众说纷纭，但我认为真正的原因只有两个：  提供一种简单方便的开发范式，你不需要知道框架的运行原理就可以快速方便的开发出一个网站 第二个原因则是最重要的：因为数据和 DOM 的同步并不简单。   简单方便的开发范式先说第一个：无论是 Vue、React还是Angular实">
+<meta name="keywords" content="JavaScript,TypeScript,Linux,macOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端组件化之路的一些思考与被神化的MVVM">
+<meta property="og:url" content="//edencao.github.io/blog/2019/05/06/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/index.html">
+<meta property="og:site_name" content="Eden&#39;s Blog">
+<meta property="og:description" content="当初上手使用的时候就直接使用的 Vue，简单方便且直接。但最近在思考为什么三大框架得以挤掉 jQuery 变得流行，至于流行的原因众说纷纭，但我认为真正的原因只有两个：  提供一种简单方便的开发范式，你不需要知道框架的运行原理就可以快速方便的开发出一个网站 第二个原因则是最重要的：因为数据和 DOM 的同步并不简单。   简单方便的开发范式先说第一个：无论是 Vue、React还是Angular实">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-06T08:50:33.073Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端组件化之路的一些思考与被神化的MVVM">
+<meta name="twitter:description" content="当初上手使用的时候就直接使用的 Vue，简单方便且直接。但最近在思考为什么三大框架得以挤掉 jQuery 变得流行，至于流行的原因众说纷纭，但我认为真正的原因只有两个：  提供一种简单方便的开发范式，你不需要知道框架的运行原理就可以快速方便的开发出一个网站 第二个原因则是最重要的：因为数据和 DOM 的同步并不简单。   简单方便的开发范式先说第一个：无论是 Vue、React还是Angular实">
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Eden's Blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="//edencao.github.io/blog/2019/05/06/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>前端组件化之路的一些思考与被神化的MVVM | Eden's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eden's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/2019/05/06/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>links</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端组件化之路的一些思考与被神化的MVVM
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/blog/2019/05/06/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/blog/2019/05/06/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>当初上手使用的时候就直接使用的 Vue，简单方便且直接。但最近在思考为什么三大框架得以挤掉 jQuery 变得流行，至于流行的原因众说纷纭，但我认为真正的原因只有两个：</p>
 <ul>
 <li>提供一种简单方便的开发范式，你不需要知道框架的运行原理就可以快速方便的开发出一个网站</li>
 <li>第二个原因则是最重要的：因为数据和 DOM 的同步并不简单。</li>
@@ -13,136 +416,11 @@
 <p> 万幸我没有经历过那样一个时代。</p>
 <h2 id="数据与-DOM-的同步问题"><a href="#数据与-DOM-的同步问题" class="headerlink" title="数据与 DOM 的同步问题"></a>数据与 DOM 的同步问题</h2><p>JavaScript 的主要运行环境之一是浏览器，其责任是负责视图的渲染与用户的交互。随着前端页面的复杂程度的增长，js 必须承担起更大的责任。数据的改变与DOM的同步问题变成了一个非常头痛的问题。</p>
 <p>这里我想做一个简单的todo-list来说明这个问题。</p>
-<pre><code>class Todo {
-      constructor(msg) {
-        this.msg = msg;
-        this.dom = null;
-
-        this.createTodoItem();
-      }
-
-      createTodoItem() {
-        const todo = document.createElement(&#39;div&#39;);
-        todo.innerText = this.msg;
-        this.dom = todo;
-      }
-
-      remove() {
-        this.dom.remove();
-        this.dom = null;
-      }
-
-      destroy() {
-        this.remove();
-      }
-    }
-
-    class Diff {
-      constructor(option, index, data) {
-        this.op = option;
-        this.index = index;
-        this.data = data;
-      }
-    }
-
-    class TodoWrapper {
-      constructor(wrapper) {
-        if (typeof wrapper === &#39;string&#39;) {
-          wrapper = document.querySelector(wrapper);
-        }
-        this.wrapper = wrapper;
-        this.container = null;
-        this.todos = [];
-        this.todoDoms = [];
-
-        this.createContainer();
-      }
-
-      render(diff) {
-        switch (diff.op) {
-          case &#39;add&#39;:
-            this.addTodoItemDom(diff.index, diff.data);
-            break;
-          case &#39;remove&#39;:
-            this.removeTodoItemDom(diff.index, diff.data);
-            break;
-        }
-      }
-
-      addTodoItemDom(index, todo) {
-        const sibling = this.todoDoms[index];
-        if (this.todoDoms.indexOf(todo) &gt;= 0) {
-          return;
-        }
-
-        if (!sibling) {
-          this.container.appendChild(todo.dom);
-        } else {
-          this.container.insertBefore(todo.dom, sibling);
-        }
-      }
-
-      removeTodoItemDom(index) {
-        const todo = this.todoDoms[index];
-        todo.remove();
-        this.todoDoms.splice(index, 1);
-      }
-
-      addTodoItem(index, todo) {
-        if (this.todos.indexOf(todo) &gt;= 0) {
-          return;
-        }
-        this.todos.splice(index, 0, todo);
-        const diff = new Diff(&#39;add&#39;, index, todo);
-        this.render(diff);
-      }
-
-      removeTodoItem(index, todo) {
-        if (this.todos.indexOf(todo) &gt;= 0) {
-          return;
-        }
-        this.todos.splice(index, 1, todo);
-        const diff = new Diff(&#39;remove&#39;, index, todo);
-        this.render(diff);
-      }
-
-      createContainer() {
-        const container = document.createElement(&#39;div&#39;);
-        container.classList.add(&#39;todo-container&#39;);
-        this.wrapper.appendChild(container);
-        this.container = container;
-      }
-
-      destroy() {
-        this.wrapper = null;
-        this.container = null;
-      }
-    }
-</code></pre><p>如此复杂的操作也是MVVM出现的原因。我们不需要再关注 DOM 的同步问题，只需要关注数据的改变即可。当数据改变的时候，我们的视图会随之变化。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Todo</span> </span>&#123;</span><br><span class="line">      <span class="keyword">constructor</span>(msg) &#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">        <span class="keyword">this</span>.dom = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.createTodoItem();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      createTodoItem() &#123;</span><br><span class="line">        <span class="keyword">const</span> todo = document.createElement(<span class="string">'div'</span>);</span><br><span class="line">        todo.innerText = <span class="keyword">this</span>.msg;</span><br><span class="line">        <span class="keyword">this</span>.dom = todo;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      remove() &#123;</span><br><span class="line">        <span class="keyword">this</span>.dom.remove();</span><br><span class="line">        <span class="keyword">this</span>.dom = <span class="literal">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      destroy() &#123;</span><br><span class="line">        <span class="keyword">this</span>.remove();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Diff</span> </span>&#123;</span><br><span class="line">      <span class="keyword">constructor</span>(option, index, <span class="keyword">data</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.op = option;</span><br><span class="line">        <span class="keyword">this</span>.index = index;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">data</span> = <span class="keyword">data</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">TodoWrapper</span> </span>&#123;</span><br><span class="line">      <span class="keyword">constructor</span>(wrapper) &#123;</span><br><span class="line">        <span class="keyword">if</span> (typeof wrapper === <span class="string">'string'</span>) &#123;</span><br><span class="line">          wrapper = document.querySelector(wrapper);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.wrapper = wrapper;</span><br><span class="line">        <span class="keyword">this</span>.container = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">this</span>.todos = [];</span><br><span class="line">        <span class="keyword">this</span>.todoDoms = [];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.createContainer();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      render(diff) &#123;</span><br><span class="line">        switch (diff.op) &#123;</span><br><span class="line">          case <span class="string">'add'</span>:</span><br><span class="line">            <span class="keyword">this</span>.addTodoItemDom(diff.index, diff.<span class="keyword">data</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">          case <span class="string">'remove'</span>:</span><br><span class="line">            <span class="keyword">this</span>.removeTodoItemDom(diff.index, diff.<span class="keyword">data</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      addTodoItemDom(index, todo) &#123;</span><br><span class="line">        <span class="keyword">const</span> sibling = <span class="keyword">this</span>.todoDoms[index];</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.todoDoms.indexOf(todo) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!sibling) &#123;</span><br><span class="line">          <span class="keyword">this</span>.container.appendChild(todo.dom);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">this</span>.container.insertBefore(todo.dom, sibling);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      removeTodoItemDom(index) &#123;</span><br><span class="line">        <span class="keyword">const</span> todo = <span class="keyword">this</span>.todoDoms[index];</span><br><span class="line">        todo.remove();</span><br><span class="line">        <span class="keyword">this</span>.todoDoms.splice(index, <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      addTodoItem(index, todo) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.todos.indexOf(todo) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.todos.splice(index, <span class="number">0</span>, todo);</span><br><span class="line">        <span class="keyword">const</span> diff = new Diff(<span class="string">'add'</span>, index, todo);</span><br><span class="line">        <span class="keyword">this</span>.render(diff);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      removeTodoItem(index, todo) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.todos.indexOf(todo) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.todos.splice(index, <span class="number">1</span>, todo);</span><br><span class="line">        <span class="keyword">const</span> diff = new Diff(<span class="string">'remove'</span>, index, todo);</span><br><span class="line">        <span class="keyword">this</span>.render(diff);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      createContainer() &#123;</span><br><span class="line">        <span class="keyword">const</span> container = document.createElement(<span class="string">'div'</span>);</span><br><span class="line">        container.classList.add(<span class="string">'todo-container'</span>);</span><br><span class="line">        <span class="keyword">this</span>.wrapper.appendChild(container);</span><br><span class="line">        <span class="keyword">this</span>.container = container;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      destroy() &#123;</span><br><span class="line">        <span class="keyword">this</span>.wrapper = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">this</span>.container = <span class="literal">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>如此复杂的操作也是MVVM出现的原因。我们不需要再关注 DOM 的同步问题，只需要关注数据的改变即可。当数据改变的时候，我们的视图会随之变化。</p>
 <p>用Vue举例</p>
-<pre><code>// in .vue
-&lt;template&gt;
-  &lt;div class=&quot;todo-wrapper&quot;&gt;
-    &lt;template v-for=&quot;todo in todoList&quot;&gt;
-      &lt;Todo :msg=&quot;todo.msg&quot; /&gt;
-    &lt;/template&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-export default Vue.extend({
-  name: &#39;todoList&#39;,
-  components: {
-    Todo,
-  }
-  data() {
-    return {
-      todoList: [],
-    }
-  }
-})
-&lt;/script&gt;
-</code></pre><p>是不是简单多了？</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// <span class="keyword">in</span> .vue</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="xml">  </span><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"todo-wrapper"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span><span class="xml"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"todo in todoList"</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Todo</span> <span class="attr">:msg</span>=<span class="string">"todo.msg"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">export default Vue.extend(</span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery"> <span class="built_in"> name</span>: <span class="string">'todoList'</span>,</span></span><br><span class="line"><span class="xquery">  components: &#123;</span></span><br><span class="line"><span class="xquery">    Todo,</span></span><br><span class="line"><span class="xquery">  &#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  data() </span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="xquery">      todoList: [],</span></span><br><span class="line"><span class="xquery">    &#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>是不是简单多了？</p>
 <p>三大框架的流行使得现在出现很多脱离了框架就不会进行网站开发的“偏科生”</p>
 <p>之前有一篇特别有名的文章 <a href="https://github.com/xufei/blog/issues/19" target="_blank" rel="noopener">2015前端组件化框架之路 · Issue #19 · xufei/blog · GitHub</a> 推荐在学习框架的同时读一读，大概可以理解在15年那个分叉路口的风起云涌，也大致能理解为什么现在三大框架三足鼎立。</p>
 <p>有些框架被历史放弃，有些则激流勇进。</p>
@@ -161,21 +439,426 @@ export default Vue.extend({
 <p>当页面的变量达到非常大的时候，对于性能的需求与内存的需求都是一个不小的数字。</p>
 <p>我没有深入研究过React，不过相信过程都是差不多的，都需要进行依赖收集。</p>
 <p>MVVM的确是前端工程化的利器，但还是需要用客观的思想去看待问题，有时候自己瞎想，当工程规模更大的时候、更大的时候、更大的时候，MVVM 或许就会成为限制前端发展的瓶颈。</p>
-</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,//edencao.github.io/blog/2019/05/06/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/,Eden's Blog,前端组件化之路的一些思考与被神化的MVVM,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/blog/2019/05/06/Observer-Mode-Vs.-Subscription-Publishing-Mode/" title="观察者模式 vs 订阅发布模式">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/blog/2019/05/06/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/" title="关于 ES Class 继承中的二三事（一）(你知道的原型链下)">下一篇</a></li></ul></div><div class="gitment" id="comments"></div><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var styleElm = document.createElement('link');
-styleElm.rel = 'stylesheet'; 
-styleElm.href = 'https://imsun.github.io/gitment/style/default.css';
-document.head.appendChild(styleElm)
 
-var gitment = new Gitment({
-    id: document.querySelector('.post-title').textContent.split(' ').join('_'),
-    owner: 'EdenCao',
-    repo: 'blog',
-    oauth: {
-        client_id: '524a2ec70d9f93b7d96f',
-        client_secret: '403fd7b08932eb72291927b7c5bb6e574f7aa379'
-    }
-});
-gitment.render('comments')</script></div></div></div></div><script src="/blog/js/jquery.js"></script><script src="/blog/js/jquery-migrate-1.2.1.min.js"></script><script src="/blog/js/jquery.appear.js"></script><script src="/blog/js/highlight.pack.js"></script><script>hljs.configure({
-  tabReplace: '  ',
-})
-hljs.initHighlightingOnLoad();</script></body></html>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/05/06/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/" rel="next" title="关于 ES Class 继承中的二三事（一）(你知道的原型链下)">
+                <i class="fa fa-chevron-left"></i> 关于 ES Class 继承中的二三事（一）(你知道的原型链下)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2019/05/06/Observer-Mode-Vs.-Subscription-Publishing-Mode/" rel="prev" title="观察者模式 vs 订阅发布模式">
+                观察者模式 vs 订阅发布模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blog/images/avatar.jpg" alt="Cao Yong">
+            
+              <p class="site-author-name" itemprop="name">Cao Yong</p>
+              <div class="site-description motion-element" itemprop="description">一些奇奇怪怪的东西</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/blog/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/EdenCao" title="GitHub &rarr; https://github.com/EdenCao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:edencaox@gmail.com" title="E-Mail &rarr; mailto:edencaox@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单方便的开发范式"><span class="nav-number">1.</span> <span class="nav-text">简单方便的开发范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据与-DOM-的同步问题"><span class="nav-number">2.</span> <span class="nav-text">数据与 DOM 的同步问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#被神化的MVVM"><span class="nav-number">3.</span> <span class="nav-text">被神化的MVVM</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cao Yong</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/blog/js/utils.js?v=7.1.1"></script>
+
+  <script src="/blog/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/blog/js/affix.js?v=7.1.1"></script>
+
+  <script src="/blog/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/blog/js/scrollspy.js?v=7.1.1"></script>
+<script src="/blog/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/blog/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'EdenCao',
+      repo: 'blog',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '403fd7b08932eb72291927b7c5bb6e574f7aa379',
+      
+        client_id: '524a2ec70d9f93b7d96f'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

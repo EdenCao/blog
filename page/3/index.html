@@ -1,11 +1,1108 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Cao Yong,ednencaox@gmail.com"><title>Eden's Blog</title><meta name="description" content="一些奇奇怪怪的东西"><meta name="keywords" content="JavaScript,TypeScript,Linux,macOS"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/blog/css/style.css"><link rel="stylesheet" href="/blog/css/blog_basic.css"><link rel="stylesheet" href="/blog/css/font-awesome.min.css"><link rel="stylesheet" href="/blog/css/atom-one-light.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/blog/images/logo@2x.png" style="width:127px;"><h3 title><a href="/">Eden's Blog</a></h3><div class="description"><p>一些奇奇怪怪的东西</p></div></div></div><ul class="social-links"><li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li><li><a href="http://github.com/EdenCao"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a class="current" href="/blog/">首页</a></li><li><a href="/blog/archives/">归档</a></li><li><a href="/blog/2019/05/06/links/">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/Observer-Mode-Vs.-Subscription-Publishing-Mode/">观察者模式 vs 订阅发布模式</a></h3></div><div class="post-content"><p>一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。
-实际上，我理解中的观察者模式是1:n，而订阅发布模式是m:n的模式。观察者模式需要观察者直接在被观察这种注册，两者直接耦合，一般是同步的，而订阅发布模式则存在一个调度中心，观察者与被观察者不关心对方是谁，只通过消息通信，一般是异步的。
-...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/">前端组件化之路的一些思考与被神化的MVVM</a></h3></div><div class="post-content"><p>当初上手使用的时候就直接使用的 Vue，简单方便且直接。但最近在思考为什么三大框架得以挤掉 jQuery 变得流行，至于流行的原因众说纷纭，但我认为真正的原因只有两个：
+<!DOCTYPE html>
 
-提供一种简单方便的开发范式，你不需要知道框架的运行原理就可以快速方便的开发出一个网站
-第二个原因则是最重要的：因为数据和 DOM 的同步并不简...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/blog/2019/05/06/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/">关于 ES Class 继承中的二三事（一）(你知道的原型链下)</a></h3></div><div class="post-content"><p>距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。
-如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：https://www.jianshu.com/p/866657da6b7e
-其实上里面有一些概念是错误的：JS 中的 Class 是一个对象。...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/blog/page/2/">上一页</a></li></ul></div></div></div></div><script src="/blog/js/jquery.js"></script><script src="/blog/js/jquery-migrate-1.2.1.min.js"></script><script src="/blog/js/jquery.appear.js"></script><script src="/blog/js/highlight.pack.js"></script><script>hljs.configure({
-  tabReplace: '  ',
-})
-hljs.initHighlightingOnLoad();</script></body></html>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/blog/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/favicons/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicons/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicons/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/blog/images/favicons/safari-pinned-tab.svg?v=7.1.1" color="#222">
+
+
+  <link rel="manifest" href="/blog/images/favicons/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/blog/images/favicons/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一些奇奇怪怪的东西">
+<meta name="keywords" content="JavaScript,TypeScript,Linux,macOS">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Eden&#39;s Blog">
+<meta property="og:url" content="//edencao.github.io/blog/page/3/index.html">
+<meta property="og:site_name" content="Eden&#39;s Blog">
+<meta property="og:description" content="一些奇奇怪怪的东西">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eden&#39;s Blog">
+<meta name="twitter:description" content="一些奇奇怪怪的东西">
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Eden's Blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="//edencao.github.io/blog/page/3/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Eden's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eden's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/2019/05/06/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>links</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Observer-Mode-Vs.-Subscription-Publishing-Mode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/Observer-Mode-Vs.-Subscription-Publishing-Mode/" class="post-title-link" itemprop="url">观察者模式 vs 订阅发布模式</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。</p>
+<p>实际上，我理解中的观察者模式是1:n，而订阅发布模式是m:n的模式。观察者模式需要观察者直接在被观察这种注册，两者直接耦合，一般是同步的，而订阅发布模式则存在一个调度中心，观察者与被观察者不关心对方是谁，只通过消息通信，一般是异步的。</p>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-cfc10dbaa7f89f40.png" alt="image.png"><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadTask</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> status: <span class="string">'loadding'</span> | <span class="string">'finished'</span> | <span class="string">'pause'</span> = <span class="string">'loadding'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="keyword">public</span> id: number, <span class="keyword">public</span> taskName: string) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> finish() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'finished'</span>;</span><br><span class="line">    console.log(`Task $&#123;<span class="keyword">this</span>.taskName&#125; <span class="keyword">is</span> notifed`);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> pause() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'pause'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> start() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'loadding'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadList</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> downloadList: DownloadTask[];</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList = [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> add(task: DownloadTask) &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.push(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> remove(id: number) &#123;</span><br><span class="line">    <span class="keyword">for</span> (let task of <span class="keyword">this</span>.downloadList) &#123;</span><br><span class="line">      <span class="keyword">if</span> (task.id === id) &#123;</span><br><span class="line">        <span class="keyword">const</span> index = <span class="keyword">this</span>.downloadList.indexOf(task);</span><br><span class="line">        <span class="keyword">this</span>.downloadList.splice(index, <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">get</span>(index: number) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.downloadList[index];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> length() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.downloadList.length;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">DataHub</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> downloadList = <span class="keyword">new</span> DownloadList();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">addDownloadTask</span>(<span class="params">task: DownloadTask</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.<span class="keyword">add</span>(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">removeDownloadTask</span>(<span class="params">task: DownloadTask</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.<span class="keyword">remove</span>(task.id);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">notify</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> len = <span class="keyword">this</span>.downloadList.length();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">      <span class="keyword">this</span>.downloadList.<span class="keyword">get</span>(i).finish();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> task1 = <span class="keyword">new</span> DownloadTask(<span class="number">1</span>, <span class="string">'task1'</span>);</span><br><span class="line"><span class="keyword">const</span> task2 = <span class="keyword">new</span> DownloadTask(<span class="number">2</span>, <span class="string">'task2'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dataHub = <span class="keyword">new</span> DataHub();</span><br><span class="line"></span><br><span class="line">dataHub.addDownloadTask(task1);</span><br><span class="line">dataHub.addDownloadTask(task2);</span><br><span class="line"></span><br><span class="line">dataHub.notify();</span><br></pre></td></tr></table></figure>
+<h2 id="订阅发布模式"><a href="#订阅发布模式" class="headerlink" title="订阅发布模式"></a>订阅发布模式</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-0b00146ea93782a9.png" alt="image.png"><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadTask</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> status: <span class="string">'loadding'</span> | <span class="string">'finished'</span> | <span class="string">'pause'</span> = <span class="string">'loadding'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="keyword">public</span> id: number, <span class="keyword">public</span> taskName: string) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> finish() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'finished'</span>;</span><br><span class="line">    console.log(`Task $&#123;<span class="keyword">this</span>.taskName&#125; <span class="keyword">is</span> notifed`);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> pause() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'pause'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> start() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'loadding'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadList</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> downloadList: DownloadTask[];</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList = [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> add(task: DownloadTask) &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.push(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> remove(id: number) &#123;</span><br><span class="line">    <span class="keyword">for</span> (let task of <span class="keyword">this</span>.downloadList) &#123;</span><br><span class="line">      <span class="keyword">if</span> (task.id === id) &#123;</span><br><span class="line">        <span class="keyword">const</span> index = <span class="keyword">this</span>.downloadList.indexOf(task);</span><br><span class="line">        <span class="keyword">this</span>.downloadList.splice(index, <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">get</span>(index: number) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.downloadList[index];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> length() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.downloadList.length;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">DataHub</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> downloadList = <span class="keyword">new</span> DownloadList();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">addDownloadTask</span>(<span class="params">task: DownloadTask</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.<span class="keyword">add</span>(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">removeDownloadTask</span>(<span class="params">task: DownloadTask</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.<span class="keyword">remove</span>(task.id);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">notify</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> len = <span class="keyword">this</span>.downloadList.length();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">      <span class="keyword">this</span>.downloadList.<span class="keyword">get</span>(i).finish();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> DepManager &#123;</span><br><span class="line">  <span class="keyword">public</span> events: &#123;</span><br><span class="line">    [index: <span class="built_in">string</span>]: <span class="function">(<span class="params">(<span class="params">...rest: <span class="built_in">any</span>[]</span>) =&gt; <span class="built_in">void</span></span>)[];</span></span><br><span class="line"><span class="function">  &#125; = &#123;&#125;;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">public</span> <span class="params">registerChannel</span>(<span class="params">evtName: <span class="built_in">string</span></span>) &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params">!<span class="keyword">this</span>.events[evtName]</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">this</span>.<span class="params">events</span>[<span class="params">evtName</span>] = [];</span></span><br><span class="line"><span class="function">    &#125; <span class="params">else</span> &#123;</span></span><br><span class="line"><span class="function">      <span class="params">console</span>.<span class="params">error</span>(<span class="params">'already registed'</span>);</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">public</span> <span class="params">subscribe</span>(<span class="params">evtName: <span class="built_in">string</span>, cb: <span class="built_in">any</span></span>) &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params"><span class="keyword">this</span>.events[evtName]</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">this</span>.<span class="params">events</span>[<span class="params">evtName</span>].<span class="params">push</span>(<span class="params">cb</span>);</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">public</span> <span class="params">emit</span>(<span class="params">evtName: <span class="built_in">string</span>, payload?: <span class="built_in">any</span></span>) &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params"><span class="keyword">this</span>.events[evtName]</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">try</span> &#123;</span></span><br><span class="line"><span class="function">        <span class="params">const</span> <span class="params">subscribers</span> = <span class="params">this</span>.<span class="params">events</span>[<span class="params">evtName</span>];</span></span><br><span class="line"><span class="function">        <span class="params">for</span> (<span class="params"><span class="keyword">let</span> i = 0; i &lt; subscribers.length; i++</span>) &#123;</span></span><br><span class="line"><span class="function">          <span class="params">subscribers</span>[<span class="params">i</span>].<span class="params">call</span>(<span class="params"><span class="literal">null</span>, payload</span>);</span></span><br><span class="line"><span class="function">        &#125;</span></span><br><span class="line"><span class="function">      &#125; <span class="params">catch</span> (<span class="params">e</span>) &#123;&#125;</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> task1 = <span class="keyword">new</span> DownloadTask(<span class="number">1</span>, <span class="string">'task1'</span>);</span><br><span class="line"><span class="keyword">const</span> task2 = <span class="keyword">new</span> DownloadTask(<span class="number">2</span>, <span class="string">'task2'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> taskList = <span class="keyword">new</span> DownloadList();</span><br><span class="line">taskList.<span class="built_in">add</span>(task1);</span><br><span class="line">taskList.<span class="built_in">add</span>(task2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> manager = <span class="keyword">new</span> DepManager();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dataHub = <span class="keyword">new</span> DataHub();</span><br><span class="line"></span><br><span class="line">manager.registerChannel(<span class="string">'datahub'</span>);</span><br><span class="line"></span><br><span class="line">manager.subscribe(<span class="string">'datahub'</span>, () =&gt; &#123;</span><br><span class="line">  console.<span class="built_in">log</span>(<span class="string">'dispatch'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">manager.emit(<span class="string">'datahub'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>其实比较明显的地方在于观察者模式提供了一种点对多点的交互，但是当业务逻辑复杂的时候这种关系难以维护，因为需要单独对于被观察者进行注册，而订阅发布者模式则提供了一种统一事件管理方式，但相对的，实现所需要的成本则更高一些。</p>
+<p>注：<br></p>
+<p> 以上的代码源自知乎：<a href="https://www.zhihu.com/question/23486749" target="_blank" rel="noopener">https://www.zhihu.com/question/23486749</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/" class="post-title-link" itemprop="url">前端组件化之路的一些思考与被神化的MVVM</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>当初上手使用的时候就直接使用的 Vue，简单方便且直接。但最近在思考为什么三大框架得以挤掉 jQuery 变得流行，至于流行的原因众说纷纭，但我认为真正的原因只有两个：</p>
+<ul>
+<li>提供一种简单方便的开发范式，你不需要知道框架的运行原理就可以快速方便的开发出一个网站</li>
+<li>第二个原因则是最重要的：因为数据和 DOM 的同步并不简单。</li>
+</ul>
+<!-- -->
+<h2 id="简单方便的开发范式"><a href="#简单方便的开发范式" class="headerlink" title="简单方便的开发范式"></a>简单方便的开发范式</h2><p>先说第一个：无论是 Vue、React还是Angular实际上都默认提供了一种简单方便并且可维护的项目组织结构方式：组件。</p>
+<p>无论是 Vue的单文件组件还是 React 的tsx都鼓励将一个完整的网站、页面的不同组成部分拆分成一个组件，再像搭积木一样将它们拼接起来。这样所构建的网站可维护性良好、更容易构建出来超大规模项目 — — 超过数十万行代码的 js 项目。<br></p>
+<p> 你再也不需要使用类似于jQuery一样类似于意大利面条一样的开发方式了。当然，事实上在 MVVM 框架出现之前有各种各样的方法将项目拆分，但的确很少有像 jsx 一样优雅的项目组织方式了。<br></p>
+<p> 万幸我没有经历过那样一个时代。</p>
+<h2 id="数据与-DOM-的同步问题"><a href="#数据与-DOM-的同步问题" class="headerlink" title="数据与 DOM 的同步问题"></a>数据与 DOM 的同步问题</h2><p>JavaScript 的主要运行环境之一是浏览器，其责任是负责视图的渲染与用户的交互。随着前端页面的复杂程度的增长，js 必须承担起更大的责任。数据的改变与DOM的同步问题变成了一个非常头痛的问题。</p>
+<p>这里我想做一个简单的todo-list来说明这个问题。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Todo</span> </span>&#123;</span><br><span class="line">      <span class="keyword">constructor</span>(msg) &#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">        <span class="keyword">this</span>.dom = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.createTodoItem();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      createTodoItem() &#123;</span><br><span class="line">        <span class="keyword">const</span> todo = document.createElement(<span class="string">'div'</span>);</span><br><span class="line">        todo.innerText = <span class="keyword">this</span>.msg;</span><br><span class="line">        <span class="keyword">this</span>.dom = todo;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      remove() &#123;</span><br><span class="line">        <span class="keyword">this</span>.dom.remove();</span><br><span class="line">        <span class="keyword">this</span>.dom = <span class="literal">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      destroy() &#123;</span><br><span class="line">        <span class="keyword">this</span>.remove();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Diff</span> </span>&#123;</span><br><span class="line">      <span class="keyword">constructor</span>(option, index, <span class="keyword">data</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.op = option;</span><br><span class="line">        <span class="keyword">this</span>.index = index;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">data</span> = <span class="keyword">data</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">TodoWrapper</span> </span>&#123;</span><br><span class="line">      <span class="keyword">constructor</span>(wrapper) &#123;</span><br><span class="line">        <span class="keyword">if</span> (typeof wrapper === <span class="string">'string'</span>) &#123;</span><br><span class="line">          wrapper = document.querySelector(wrapper);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.wrapper = wrapper;</span><br><span class="line">        <span class="keyword">this</span>.container = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">this</span>.todos = [];</span><br><span class="line">        <span class="keyword">this</span>.todoDoms = [];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.createContainer();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      render(diff) &#123;</span><br><span class="line">        switch (diff.op) &#123;</span><br><span class="line">          case <span class="string">'add'</span>:</span><br><span class="line">            <span class="keyword">this</span>.addTodoItemDom(diff.index, diff.<span class="keyword">data</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">          case <span class="string">'remove'</span>:</span><br><span class="line">            <span class="keyword">this</span>.removeTodoItemDom(diff.index, diff.<span class="keyword">data</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      addTodoItemDom(index, todo) &#123;</span><br><span class="line">        <span class="keyword">const</span> sibling = <span class="keyword">this</span>.todoDoms[index];</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.todoDoms.indexOf(todo) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!sibling) &#123;</span><br><span class="line">          <span class="keyword">this</span>.container.appendChild(todo.dom);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">this</span>.container.insertBefore(todo.dom, sibling);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      removeTodoItemDom(index) &#123;</span><br><span class="line">        <span class="keyword">const</span> todo = <span class="keyword">this</span>.todoDoms[index];</span><br><span class="line">        todo.remove();</span><br><span class="line">        <span class="keyword">this</span>.todoDoms.splice(index, <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      addTodoItem(index, todo) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.todos.indexOf(todo) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.todos.splice(index, <span class="number">0</span>, todo);</span><br><span class="line">        <span class="keyword">const</span> diff = new Diff(<span class="string">'add'</span>, index, todo);</span><br><span class="line">        <span class="keyword">this</span>.render(diff);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      removeTodoItem(index, todo) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.todos.indexOf(todo) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.todos.splice(index, <span class="number">1</span>, todo);</span><br><span class="line">        <span class="keyword">const</span> diff = new Diff(<span class="string">'remove'</span>, index, todo);</span><br><span class="line">        <span class="keyword">this</span>.render(diff);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      createContainer() &#123;</span><br><span class="line">        <span class="keyword">const</span> container = document.createElement(<span class="string">'div'</span>);</span><br><span class="line">        container.classList.add(<span class="string">'todo-container'</span>);</span><br><span class="line">        <span class="keyword">this</span>.wrapper.appendChild(container);</span><br><span class="line">        <span class="keyword">this</span>.container = container;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      destroy() &#123;</span><br><span class="line">        <span class="keyword">this</span>.wrapper = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">this</span>.container = <span class="literal">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>如此复杂的操作也是MVVM出现的原因。我们不需要再关注 DOM 的同步问题，只需要关注数据的改变即可。当数据改变的时候，我们的视图会随之变化。</p>
+<p>用Vue举例</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// <span class="keyword">in</span> .vue</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="xml">  </span><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"todo-wrapper"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span><span class="xml"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"todo in todoList"</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Todo</span> <span class="attr">:msg</span>=<span class="string">"todo.msg"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">export default Vue.extend(</span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery"> <span class="built_in"> name</span>: <span class="string">'todoList'</span>,</span></span><br><span class="line"><span class="xquery">  components: &#123;</span></span><br><span class="line"><span class="xquery">    Todo,</span></span><br><span class="line"><span class="xquery">  &#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  data() </span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="xquery">      todoList: [],</span></span><br><span class="line"><span class="xquery">    &#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>是不是简单多了？</p>
+<p>三大框架的流行使得现在出现很多脱离了框架就不会进行网站开发的“偏科生”</p>
+<p>之前有一篇特别有名的文章 <a href="https://github.com/xufei/blog/issues/19" target="_blank" rel="noopener">2015前端组件化框架之路 · Issue #19 · xufei/blog · GitHub</a> 推荐在学习框架的同时读一读，大概可以理解在15年那个分叉路口的风起云涌，也大致能理解为什么现在三大框架三足鼎立。</p>
+<p>有些框架被历史放弃，有些则激流勇进。</p>
+<h2 id="被神化的MVVM"><a href="#被神化的MVVM" class="headerlink" title="被神化的MVVM"></a>被神化的MVVM</h2><p>不久之前 Vue 在 github 的 star 数量超过了 react。但其实随着我接触前段时间的增长，我发现我更加喜欢 react 的开发方式，即使我最先接触的是 Vue。</p>
+<p>用于比较 Vue 与 React 区别的文章有很多，我在这里只想谈谈我自己的使用感受。</p>
+<p>就使用方式而言，Vue 是传一个配置文件给构造函数，而 React 则是配合 babel 的 jsx 转换自己写一个组件的类。</p>
+<p>ES6提供了标准的 Class，这让构建一个 React 组件时继承方式变得简单，当然，Vue 也提供了自己的 mixin 方式来实现，但总觉得有些别扭。</p>
+<p>当然，我并不是说Vue不好。</p>
+<p>什么是 MVVM 呢？</p>
+<p>就我自己而言的理解来说，数据驱动，使开发人员的关注点从视图分离，不需要注重数据与视图同步的过程。</p>
+<p>就实现方式而言，Vue通过es5所提供的 getter 和 setter 方法来实现依赖手机与视图更新，而React 则是通过手动触发。</p>
+<p>就效果而言，Vue的实现方式可以实现精准dom更新（因为Vue是深度绑定，如果是数组则会遍历整个数组使其响应化），而React则因为使用了数据更新的浅拷贝换取性能优势。</p>
+<p>这里仅以 Vue 为例</p>
+<p>相信对于 Vue 有一定了解的人都听说过 Watcher， Vue 实际上是使用观察者模式来实现 MVVM（不是发布订阅模式）</p>
+<p>在Vue初始化的时候实际上会进行一次渲染以触发数据的getter进行依赖收集。由于依赖收集与视图的更新依赖于getter/setter，为了达到这个目的，Vue需要深度遍历Data的每一个属性使其响应化（深度遍历每一个属性为其绑定上getter/setter，如果是数组，则会遍历整个数组）。</p>
+<p>当页面的变量达到非常大的时候，对于性能的需求与内存的需求都是一个不小的数字。</p>
+<p>我没有深入研究过React，不过相信过程都是差不多的，都需要进行依赖收集。</p>
+<p>MVVM的确是前端工程化的利器，但还是需要用客观的思想去看待问题，有时候自己瞎想，当工程规模更大的时候、更大的时候、更大的时候，MVVM 或许就会成为限制前端发展的瓶颈。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/06/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/" class="post-title-link" itemprop="url">关于 ES Class 继承中的二三事（一）(你知道的原型链下)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。</p>
+<p>如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：<a href="https://www.jianshu.com/p/866657da6b7e" target="_blank" rel="noopener">https://www.jianshu.com/p/866657da6b7e</a></p>
+<p>其实上里面有一些概念是错误的：JS 中的 Class 是一个对象。本质上来说，如果将对象比喻成是一栋楼的话，Class 就是楼的设计图。这两者是不能混淆的，区别在于 JavaScript 使用原型来模拟类似于面向对象编程语言的一些行为，因此才会出现类似于“沿着原型寻方法” 或者 “遮蔽”这样的特性。</p>
+<p>实际上实现继承的方式有很多，《JavaScript 高级程序设计》上面已经介绍的很详细了，因此在这里不再赘述。不过如果你读过类属于 Vue / React 这种类库的源码的话就会发现，他们的核心代码还是在使用 Prototype 上面挂方法的方式来实现的（Monkey Patch）。</p>
+<p>如果你是用 ES Class 去实现一些比较复杂的 Class 的话就会发现，ES6 Class 实际上还是不适合去写一些特别复杂的类（尤其是类似于 Vue 这种）。</p>
+<p>如果你拥抱 ES6 Class 的话，就完全拥抱，如果你不喜欢这种方式，就完全不要用，这对于团队风格的统一、代码的实现方式以及日后维护都有着难以谚语的好处。</p>
+<p>继承的方式有很多种，写 React 组件采用的是组合式继承，Vue 则是提供了官方的 mixins。</p>
+<p>在标准 ES6 出现之前，我们都是在通过手动的方式来模拟继承的方式。现在，为了拥抱新的标准，我们会使用类似于 Babel 或者 shim 的方式来使用一些语法的新特性。</p>
+<p>但如果看过 Babel 的具体实现就会发现，继承实际上还是基于原型实现的。具体来说是把实例属性挂到对象上，然后 class 方法放到原型上。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-baa09c4e46e6d98a.png" alt="image.png">## 关于 bind</p>
+<p>如果你通读过类库 React 的官方文档的话，一定会记得 React 推荐你使用组合的方式来实现继承，而不是 Inheritance。这里附上原文地址：<a href="https://reactjs.org/docs/composition-vs-inheritance.html" target="_blank" rel="noopener">Composition vs Inheritance – React</a></p>
+<p>一个经常非常常见的问题是 this 丢失的问题，为此我们需要在 React 组件中这样写：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-44532289517b9738.png" alt="image.png">是因为 method 方法在传递引用的过程中 this 丢失了，因此我们需要手动将远行方法绑定到实例上面。<br></p>
+<p> Bind 方法返回一个指定 this 的新函数，由于方法会先一步挂到 class 上面，因此右侧的 method 指的是原型上的 method 方法，这句话在实例上面创建了一个 method 属性，此属性保持着对于绑定 this 的 method 函数的引用。</p>
+<p>同样的写法还有如下两种：</p>
+<ul>
+<li>property method</li>
+</ul>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-c7ebf470a45062ff.png" alt="image.png">- 在使用的时候绑定：</p>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-1562b36d33528f56.png" alt="image.png">这三种使用方式会造成什么问题？</p>
+<p>第一种会在实例上面创建一个实例属性。</p>
+<p>第二种方法实际上会被编译到 constructor 当中, 类似于这样：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-c67d34240301d20e.png" alt="image.png">我们在使用类继承的时候经常需要重载父类的函数，在 JavaScript 当中是通过遮蔽实现的。但是如果你在父类中使用了这种属性函数的方法，由于原型上的方法会先一步挂在到原型上，后一步 super 才会执行，结果是你的遮蔽是失效的。即使你在构造函数中手动绑定了 this 指向，也无法在函数内部通过 super.method 实现访问父类方法，因为这个方法并不存在在父类的原型上面。</p>
+<p>第三种方式实在使用的时候绑定：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-4110695187c69974.png" alt="image.png">但是 bind 函数被执行后会返回一个新的函数，这会造成每次 render 函数执行时会重新创建一个新的函数传递给自组件，props 改变，可能造成不必要的子组件重新渲染。</p>
+<p>实际上这些问题不仅仅在使用 react 的时候才会出现，如果你大量依赖于继承去实现你自己的类库的话，很容易碰到上述问题。</p>
+<p>不过我在 github 上面找到了一个很有意思的解决方案：</p>
+<p>Autobind:<a href="https://github.com/andreypopp/autobind-decorator" target="_blank" rel="noopener">GitHub - andreypopp/autobind-decorator: Decorator to automatically bind methods to class instances</a></p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-ebf0b761fe81f898.png" alt="image.png">因为实际上是创建了一个 getter 的闭包函数来存储 bind 的fn，因次只有在第一次访问的时候会绑定 this，剩下的访问的都是同一个函数，从而解决了多次渲染的问题。</p>
+<p>但这个方案也不是尽善尽美，我目前主要遇到了两个问题：</p>
+<ol>
+<li>实际上使用 decorator 去实现，但是高阶组件可能会有一些问题：</li>
+</ol>
+<!-- -->
+<p>如果你受过阮老师的教诲的话，他在博客中曾经提到过 react-redux 实际上是一个装饰器工厂，你可以如此使用：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@connect</span>(...)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Component</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component&lt;any</span>, <span class="title">any&gt;</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>不过我现在没有找到这句话，可能已经被其他大神纠正了。</p>
+<p>在这种装饰器里面是无法使用另一个装饰器的。</p>
+<p>而且 react 为了避免 bind 污染子属性的问题，使用组合的方式来实现继承，因此你在写高阶组件的时候实际上是这么写的</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-724ca8fb99d9b649.png" alt="image.png">实际上返回的是一个全新的组件，因此高阶组件 connect 到底属不属于 decorator 需要另作讨论。</p>
+<ol start="2">
+<li><p>mixins<br></p>
+<p>另外就是在使用 mixins 的时候，可能会出发 autobind 的 getter 导致绑定到错误的对象上面。</p>
+</li>
+</ol>
+<!-- -->
+<p>如果你是用 autobind 的话，大概需要注意如上两个问题。</p>
+<p>实际上，就我个人而言，还是倾向于使用 bind 来解决 this 指向问题，不仅仅因为机制简单易懂，而且可以避免很多类似于 autobind 或者 property function 的问题，并且在子类中可以正确的使用 super.method 访问父类的方法。</p>
+<p>但如果你像我一样同样青睐这种方式的话，要注意一下：只在必要的地方使用 bind 以保证 this 的正确指向（因为会存在污染子类的问题），一般情况下，需要 bind 的情况只发生在<strong>需要传递函数引用的时候</strong></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/blog/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blog/images/avatar.jpg" alt="Cao Yong">
+            
+              <p class="site-author-name" itemprop="name">Cao Yong</p>
+              <div class="site-description motion-element" itemprop="description">一些奇奇怪怪的东西</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/blog/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/EdenCao" title="GitHub &rarr; https://github.com/EdenCao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:edencaox@gmail.com" title="E-Mail &rarr; mailto:edencaox@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cao Yong</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/blog/js/utils.js?v=7.1.1"></script>
+
+  <script src="/blog/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/blog/js/affix.js?v=7.1.1"></script>
+
+  <script src="/blog/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/blog/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
