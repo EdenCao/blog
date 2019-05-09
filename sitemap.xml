@@ -30,9 +30,23 @@
   </url>
   
   <url>
+    <loc>//edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/</loc>
+    
+    <lastmod>2019-05-09T08:19:17.890Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>//edencao.github.io/blog/2019/05/09/The-Big-Front-End-That-Never-Goes-Out-Of-Style/</loc>
     
     <lastmod>2019-05-09T08:19:17.890Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//edencao.github.io/blog/2019/05/09/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/</loc>
+    
+    <lastmod>2019-05-09T08:19:17.889Z</lastmod>
     
   </url>
   
@@ -79,6 +93,13 @@
   </url>
   
   <url>
+    <loc>//edencao.github.io/blog/2019/05/09/Remember-A-Millet-Front-End-Test/</loc>
+    
+    <lastmod>2019-05-09T08:19:17.887Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/</loc>
     
     <lastmod>2019-05-09T08:19:17.886Z</lastmod>
@@ -100,6 +121,13 @@
   </url>
   
   <url>
+    <loc>//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</loc>
+    
+    <lastmod>2019-05-09T08:19:17.885Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(I)/</loc>
     
     <lastmod>2019-05-09T08:19:17.885Z</lastmod>
@@ -107,9 +135,16 @@
   </url>
   
   <url>
-    <loc>//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</loc>
+    <loc>//edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-&-Throttle/</loc>
     
-    <lastmod>2019-05-09T08:19:17.885Z</lastmod>
+    <lastmod>2019-05-09T08:19:17.884Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//edencao.github.io/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/</loc>
+    
+    <lastmod>2019-05-09T08:19:17.884Z</lastmod>
     
   </url>
   
@@ -124,41 +159,6 @@
     <loc>//edencao.github.io/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/</loc>
     
     <lastmod>2019-05-09T08:19:17.883Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//edencao.github.io/blog/2019/05/08/The-Pit-Of-The-JavaScript-Language/</loc>
-    
-    <lastmod>2019-05-08T15:32:52.055Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//edencao.github.io/blog/2019/05/08/Remember-A-Millet-Front-End-Test/</loc>
-    
-    <lastmod>2019-05-08T15:32:51.607Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//edencao.github.io/blog/2019/05/08/From-Implementing-A-Traffic-Light-To-Functional-Programming/</loc>
-    
-    <lastmod>2019-05-08T15:32:51.204Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//edencao.github.io/blog/2019/05/08/Event-Dilutes-Debounce-&-Throttle/</loc>
-    
-    <lastmod>2019-05-08T15:32:51.156Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//edencao.github.io/blog/2019/05/08/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/</loc>
-    
-    <lastmod>2019-05-08T15:32:50.942Z</lastmod>
     
   </url>
   
