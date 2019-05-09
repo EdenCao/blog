@@ -1,0 +1,3040 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/blog/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/favicons/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicons/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicons/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/blog/images/favicons/safari-pinned-tab.svg?v=7.1.1" color="#222">
+
+
+  <link rel="manifest" href="/blog/images/favicons/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/blog/images/favicons/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一些奇奇怪怪的东西">
+<meta name="keywords" content="JavaScript,TypeScript,Linux,macOS">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Eden&#39;s Blog">
+<meta property="og:url" content="https://edencao.github.io/blog/page/2/index.html">
+<meta property="og:site_name" content="Eden&#39;s Blog">
+<meta property="og:description" content="一些奇奇怪怪的东西">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eden&#39;s Blog">
+<meta name="twitter:description" content="一些奇奇怪怪的东西">
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Eden's Blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://edencao.github.io/blog/page/2/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Eden's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eden's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/2019/05/06/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>links</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://edencao.github.io/blog/blog/2019/05/09/Operating-System-(I)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/09/Operating-System-(I)/" class="post-title-link" itemprop="url">操作系统（一）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h1><h2 id="计算机系统"><a href="#计算机系统" class="headerlink" title="计算机系统"></a>计算机系统</h2><p><strong>硬件</strong><br></p>
+<p> 计算机的实体部分，是有形的设备和装置的总称</p>
+<p><strong>软件</strong><br></p>
+<p> 控制计算机运行的程序及其相关信息</p>
+<h2 id="操作系统层次结构"><a href="#操作系统层次结构" class="headerlink" title="操作系统层次结构"></a>操作系统层次结构</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-36373db9790f0607.jpg" alt="操作系统层次结构.jpg">下层的软件为上一层提供服务，上层的软件依靠下层的软件完成任务。</p>
+<h2 id="什么是操作系统"><a href="#什么是操作系统" class="headerlink" title="什么是操作系统"></a>什么是操作系统</h2><ul>
+<li><p>一个系统软件 - 为用户提供方便操作计算机的手段</p>
+<ul>
+<li>使系统能够高效运转</li>
+<li>管理和控制系统中的各种资源</li>
+<li><p>协调系统中的各个组成部分</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>计算机程序，作用和地位比较特殊 - 为用户使用计算机提供基础支持</p>
+<ul>
+<li><p>负责提高整个计算机系统的效率</p>
+<!-- -->
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+<h2 id="操作系统的任务"><a href="#操作系统的任务" class="headerlink" title="操作系统的任务"></a>操作系统的任务</h2><ul>
+<li>方便用户使用计算机：提供接口</li>
+<li>提高系统效率：管理资源</li>
+</ul>
+<!-- -->
+<h3 id="管理资源"><a href="#管理资源" class="headerlink" title="管理资源"></a>管理资源</h3><p>资源类型：</p>
+<ul>
+<li>储存器</li>
+<li>各种输入输出设备</li>
+<li>以文件形式存在的各种数据</li>
+<li>各种可执行程序</li>
+</ul>
+<!-- -->
+<p>因此资源管理包括：</p>
+<ul>
+<li>储存器管理</li>
+<li>I/O设备管理</li>
+<li>文件管理</li>
+<li>进程管理</li>
+</ul>
+<!-- -->
+<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><ul>
+<li>形式上与普通函数相似，但有本质区别</li>
+<li>使程序能够运行核心态指令</li>
+</ul>
+<!-- -->
+<h2 id="指令级别"><a href="#指令级别" class="headerlink" title="指令级别"></a>指令级别</h2><ul>
+<li><p>核心级 - 比较重要、会对系统产生致命影响的指令</p>
+  <!-- -->
+</li>
+<li><p>用户级</p>
+</li>
+</ul>
+<!-- -->
+<h2 id="处理机的工作状态"><a href="#处理机的工作状态" class="headerlink" title="处理机的工作状态"></a>处理机的工作状态</h2><ul>
+<li><p>核心态 - 通过设置硬件标记实现</p>
+<ul>
+<li><p>处理机才能执行核心级指令</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>用户态 - 不能执行核心级指令，只能执行用户级指令</p>
+  <!-- -->
+</li>
+</ul>
+<!-- -->
+<h2 id="操作系统类型"><a href="#操作系统类型" class="headerlink" title="操作系统类型"></a>操作系统类型</h2><ul>
+<li><p>管理的硬件规模 - 嵌入式操作系统</p>
+<ul>
+<li>微机操作系统</li>
+<li>中小型机操作系统</li>
+<li><p>大/巨型机操作系统</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>响应和处理用户任务的方式 - 批处理操作系统</p>
+<ul>
+<li>分时操作系统</li>
+<li><p>实时操作系统</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>管理资源的内容 - 单机操作系统</p>
+<ul>
+<li>网络操作系统</li>
+<li><p>分布式操作系统</p>
+<!-- -->
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://edencao.github.io/blog/blog/2019/05/09/Software-Process-And-Project-Management-(2)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/09/Software-Process-And-Project-Management-(2)/" class="post-title-link" itemprop="url">软件过程与项目管理（二）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="过程思维"><a href="#过程思维" class="headerlink" title="过程思维"></a>过程思维</h2><p><strong>面向过程的思维与面向任务的思维区别是什么</strong></p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-35ca4fe72db4c4cc.jpg" alt="过程思维与任务思维.jpg">面向过程的思维：<br></p>
+<p> 注重的是总体目标、各部分工作的协调性和一致性，从而消除了各部分工作之间的冲突，提高了总体的工作效率，从而有效的达到工作的总体目标</p>
+<p>面向任务的思维：<br></p>
+<p> 注重人物、作业、人员、组织架构，特点是指派人员去完成，解决局部问题。</p>
+<h3 id="软件过程与软件质量"><a href="#软件过程与软件质量" class="headerlink" title="软件过程与软件质量"></a>软件过程与软件质量</h3><p>解决软件问题的重要一步是把整个软件工作当作软件过程来对待，使其能够控制、度量和改进。</p>
+<h2 id="软件过程成熟度"><a href="#软件过程成熟度" class="headerlink" title="软件过程成熟度"></a>软件过程成熟度</h2><p>一个特定软件过程得到清晰的定义、管理、测量、控制的有效制度。</p>
+<h4 id="软件过程成熟度的对比"><a href="#软件过程成熟度的对比" class="headerlink" title="软件过程成熟度的对比"></a>软件过程成熟度的对比</h4><ol>
+<li>角色与职责</li>
+</ol>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-7ce5c3fd234cd5d8.jpg" alt="角色与职责.jpg">2. 处理变更的方式</p>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-ee410fb9ab3ecd1d.jpg" alt="处理变更的方式.jpg">3. 对问题发生的反应</p>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-212c5c1e3076cc9b.jpg" alt="对问题发生的反应.jpg">4. 可信性</p>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-235faf33cc040b54.jpg" alt="可信性.jpg">5. 对工作人员的奖励</p>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-1f24fba56174e4ee.jpg" alt="对工作人员的奖励.jpg">6. 预见性</p>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-095ac0cdff877dc9.jpg" alt="预见性.jpg">### 高效软件过程（与规范过程相同）</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li>有明确定义</li>
+<li>有相应培训</li>
+<li>具有强制性和可服从性</li>
+<li>可不断改进</li>
+</ul>
+<!-- -->
+<p><strong>实现：</strong></p>
+<ul>
+<li>过程文档化</li>
+<li>应有相应培训</li>
+<li>过程必须背监控并被强制执行</li>
+</ul>
+<!-- -->
+<p><strong>高效过程保证机制：</strong></p>
+<ul>
+<li>明确过程所有者</li>
+<li>过程培训</li>
+<li>过程实施情况的度量和反馈</li>
+<li>过程使用者的反馈</li>
+<li>吸收外部反馈（法律、法规、标准的变更，技术、方法的进步，政策调整，目标客户的特征、需求的变更）</li>
+<li>实施和检验</li>
+</ul>
+<!-- -->
+<p><strong>实现条件:</strong></p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-573cd3a1fe2ba960.jpg" alt="高效软件实现条件.jpg">### 过程认同与过程制度化</p>
+<p>过程的要求已经变成全体员工的自觉行动，得到大家的认同和坚持遵循时，过程便成为制度化的。</p>
+<p>要靠过程文化和过程基础设施的支持</p>
+<h4 id="过程文化"><a href="#过程文化" class="headerlink" title="过程文化"></a>过程文化</h4><p>指人们的习惯和行为收到过程思维和过程管理原则的影响。人们对于规范化过程时完全认同的，就是说，人们的活动自觉的安过程要求去做。</p>
+<p>过程文化应具有自己的特性。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-5ced31263ecd6f32.jpg" alt="过程文化特征表现.jpg">#### 过程基础设施</p>
+<p>支持软件过程的基础框架和结构基础</p>
+<p>过程基础设施包含组织和管理基础设施、技术基础设施</p>
+<p>组织和管理基础设施：组织和管理的岗位和职责</p>
+<p>技术基础设施：支持定义过程、开展过程活动、获取和分析过程有关绩效反馈以及不断进行过程改进活动所必须的技术工具和平台。</p>
+<p>组织管理基础设施：建立、监控和推进过程活动的岗位及其职责</p>
+<h2 id="质量管理与认证体系"><a href="#质量管理与认证体系" class="headerlink" title="质量管理与认证体系"></a>质量管理与认证体系</h2><p>近代质量管理的理论与实践 是软件过程成熟度学说的基础</p>
+<h3 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-7033a9c15143de07.jpg" alt="cmmi.jpg"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://edencao.github.io/blog/blog/2019/05/09/Remember-A-Millet-Front-End-Test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/09/Remember-A-Millet-Front-End-Test/" class="post-title-link" itemprop="url">记一次小米前端面试题</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这两天参加了一次小米的面试，面试方式比较随意，直接用微信聊的。感觉面试题有些意思，所以想记下来，也使我学到了不少东西。</p>
+<blockquote>
+<p>Q:</p>
+<p>定义这样一个函数</p>
+<p>function doRepeat(func, times, wait) {</p>
+<p>}</p>
+<p>参数分别是需要 repeat的函数， repeat的次数，每次repeat的间隔</p>
+<p>使用方式如下：</p>
+<p>调用这个函数能返回一个新函数，比如传入的是alert，这个函数的调用就是<br></p>
+<p> var repeatedFun = doRepeat(alert, 10, 5000);</p>
+<p>调用返回的这个新函数，如: repeatFun(“hellworld”);</p>
+<p>会依次alert十次 helloworld，每次间隔5秒</p>
+</blockquote>
+<p>这个题目很简单，单从要求来看考验的是闭包函数，所以我们只需要使用延时函数再return一个函数就能达到要求，答案网上也能查到。我使用<code>setInterval</code>函数实现的，这里只给出部分关键性代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> _args = <span class="built_in">arguments</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> handler = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (i == times) &#123;</span><br><span class="line">                clearInterval(handler);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            func(_args[<span class="number">0</span>]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;, wait)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数非常简单，请在十分钟内完成就好。但是这里想说一下几个要点：</p>
+<ul>
+<li><p>一个是程序的可用性：即程序是否可以正常运行，这个是最基本的条件，如果不能达到请自觉面壁30秒。</p>
+</li>
+<li><p>另外一个是程序的健壮性：是否检查传参的完整性？是否检查参数类型？我想强调这一点，因为javascript是自动类型的语言，在运行过程中进行类型的检测是十分重要的问题。</p>
+</li>
+<li><p>另外一个是程序的可读性：这个也是最基本的问题之一，代码风格良好的程序应该可读性强，并且仅添加必要的注释。</p>
+</li>
+<li><p>程序的和谐性：即在程序出错的情况下是否依然可以返回标准的数据格式？可以看到我在检查参数出错以后返回</p>
+</li>
+</ul>
+<!-- -->
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>这么做可以避免因为此函数出错而影响其他的功能性函数。</p>
+<ul>
+<li>程序的包容性：可以看到我在函数中进行了类型转换。这也是我在工作中遇到的问题，当我们参与工作的协作之时，我们往往需要调用同事或者其他人的函数，而javascript的自动类型也可能导致传过来的参数类型并不标准，如果我们能在代码中给予这些“小问题”适当的支持，那么我们的函数将会友好很多。这里我将并不标准的字符串类型转换为了Number类型。</li>
+</ul>
+<!-- -->
+<p>这些特点实际上是我在某篇文章上面看到的，但是实际应用以后发现受益良多，我会在找到这篇文章以后把链接发上来。我坚信良好的代码风格可以帮助我们避免很多坑，并且严格遵守这一点。</p>
+<p>但是实际上我写的这个函数并不完善，这一点也将在后面的面试题中考到。</p>
+<blockquote>
+<p>Q:<br></p>
+<p> 请再用setTimeout实现一下</p>
+</blockquote>
+<p>果然考到了这一点，setTimeout在实际运用的过程中会有很多的坑，最明显的问题就是异步问题，这也是我一开始使用<code>setInterval</code>来实现的原因。下面给出代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> _args = <span class="built_in">arguments</span>;</span><br><span class="line">        <span class="comment">// 如果次数大于0先执行一遍，避免setTimeout延迟问题</span></span><br><span class="line">        <span class="keyword">if</span> (times &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            func(_args[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; times; i++) &#123;</span><br><span class="line">            (<span class="built_in">window</span>.setTimeout)(func(_args[<span class="number">0</span>]), wait);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是我一开始写的代码，但是实际上这段代码是错误的。我在setTimeout一行中使用了立即执行函数，但是立即执行函数并不会阻塞函数的运行，所以这段代码还是会在N秒过后一下子把所有的函数全部执行一遍。</p>
+<p>请注意，这里又一个小坑，使用setTimeout是延迟执行函数，如果直接使用第一次传入的函数不会立即执行，所以需要先做一次判断。</p>
+<blockquote>
+<p>Q:<br></p>
+<p> 能不能不要一下子就设定好所有的setTimeout<br></p>
+<p> 在完成一个setTimeout后再去递归一下</p>
+</blockquote>
+<p>这次考的是递归，没有什么难度。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回函数主体</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 如果次数达到则退出</span></span><br><span class="line">        <span class="keyword">if</span> (times === i) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> _args = <span class="built_in">arguments</span>;</span><br><span class="line">        </span><br><span class="line">        func(_args[<span class="number">0</span>]);</span><br><span class="line">        i++;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 尾递归</span></span><br><span class="line">        <span class="keyword">return</span> setTimeout(repeat.bind(<span class="keyword">this</span>, _args[<span class="number">0</span>]), wait);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>写到这里，突然觉得这个函数其实还是不够健壮。我们来分析一下参数，func参数，默认是一个函数。times参数，默认是一个非负数。wait也默认是一个非负数。</p>
+<p>如果传入的参数times是一个负数，那么这个函数将会陷入死循环。这里做检测是否存在过度优化的问题？我还是抱有疑虑。</p>
+<blockquote>
+<p>Q: 这里如果有多个参数怎么办？比如传入的函数叫console.log,可以接受多个参数<br></p>
+<p> A:方法比较多，比如可以规定传参的格式，用数组将参数包裹起来，或者使用arguments<br></p>
+<p> Q: show me the code</p>
+</blockquote>
+<p>这里实际上有个坑，就是IE9的setTimeout只能传入两个参数（IE的梗已经被玩烂了）,这里可以使用<code>bind</code>函数来解决这个问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回函数主体</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 如果次数达到则退出</span></span><br><span class="line">        <span class="keyword">if</span> (times === i) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> _args = [].slice.call(<span class="built_in">arguments</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果次数大于0并且是第一次执行则先执行一遍，避免setTimeout延迟问题</span></span><br><span class="line">        func(..._args)</span><br><span class="line">        <span class="comment">// 尾递归</span></span><br><span class="line">        <span class="keyword">return</span> setTimeout(repeat.bind(<span class="keyword">this</span>, _args), wait);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里同样解释一下这行代码的作用</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _args = [].slice.<span class="built_in">call</span>(arguments)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到我在下面的代码中使用了展开运算符<code>...</code>，但是展开运算符的使用需要迭代器。<code>arguments</code>不是数组，所以没有迭代器。</p>
+<p>考虑以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log([] <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><br><span class="line">&#125;)() <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span> <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><br><span class="line">&#125;)() <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>这些大概就是全部的面试过程，不过最后俺没去成小米，因为时间实在是不合适……</p>
+<p>最后想给自己挖个坑，也出个升级版的问题</p>
+<blockquote>
+<p>Q: 请将这道题用setTimeout配合Generator函数实现一遍</p>
+</blockquote>
+<p>这几天考试，等考完试我再来填……</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://edencao.github.io/blog/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/" class="post-title-link" itemprop="url">观察者模式 vs 订阅发布模式</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。</p>
+<p>实际上，我理解中的观察者模式是1:n，而订阅发布模式是m:n的模式。观察者模式需要观察者直接在被观察这种注册，两者直接耦合，一般是同步的，而订阅发布模式则存在一个调度中心，观察者与被观察者不关心对方是谁，只通过消息通信，一般是异步的。</p>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-cfc10dbaa7f89f40.png" alt="image.png"><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadTask</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> status: <span class="string">'loadding'</span> | <span class="string">'finished'</span> | <span class="string">'pause'</span> = <span class="string">'loadding'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="keyword">public</span> id: number, <span class="keyword">public</span> taskName: string) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> finish() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'finished'</span>;</span><br><span class="line">    console.log(`Task $&#123;<span class="keyword">this</span>.taskName&#125; <span class="keyword">is</span> notifed`);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> pause() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'pause'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> start() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'loadding'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadList</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> downloadList: DownloadTask[];</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList = [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> add(task: DownloadTask) &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.push(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> remove(id: number) &#123;</span><br><span class="line">    <span class="keyword">for</span> (let task of <span class="keyword">this</span>.downloadList) &#123;</span><br><span class="line">      <span class="keyword">if</span> (task.id === id) &#123;</span><br><span class="line">        <span class="keyword">const</span> index = <span class="keyword">this</span>.downloadList.indexOf(task);</span><br><span class="line">        <span class="keyword">this</span>.downloadList.splice(index, <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">get</span>(index: number) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.downloadList[index];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> length() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.downloadList.length;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">DataHub</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> downloadList = <span class="keyword">new</span> DownloadList();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">addDownloadTask</span>(<span class="params">task: DownloadTask</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.<span class="keyword">add</span>(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">removeDownloadTask</span>(<span class="params">task: DownloadTask</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.<span class="keyword">remove</span>(task.id);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">notify</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> len = <span class="keyword">this</span>.downloadList.length();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">      <span class="keyword">this</span>.downloadList.<span class="keyword">get</span>(i).finish();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> task1 = <span class="keyword">new</span> DownloadTask(<span class="number">1</span>, <span class="string">'task1'</span>);</span><br><span class="line"><span class="keyword">const</span> task2 = <span class="keyword">new</span> DownloadTask(<span class="number">2</span>, <span class="string">'task2'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dataHub = <span class="keyword">new</span> DataHub();</span><br><span class="line"></span><br><span class="line">dataHub.addDownloadTask(task1);</span><br><span class="line">dataHub.addDownloadTask(task2);</span><br><span class="line"></span><br><span class="line">dataHub.notify();</span><br></pre></td></tr></table></figure>
+<h2 id="订阅发布模式"><a href="#订阅发布模式" class="headerlink" title="订阅发布模式"></a>订阅发布模式</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-0b00146ea93782a9.png" alt="image.png"><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadTask</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> status: <span class="string">'loadding'</span> | <span class="string">'finished'</span> | <span class="string">'pause'</span> = <span class="string">'loadding'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="keyword">public</span> id: number, <span class="keyword">public</span> taskName: string) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> finish() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'finished'</span>;</span><br><span class="line">    console.log(`Task $&#123;<span class="keyword">this</span>.taskName&#125; <span class="keyword">is</span> notifed`);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> pause() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'pause'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> start() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'loadding'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadList</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> downloadList: DownloadTask[];</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList = [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> add(task: DownloadTask) &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.push(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> remove(id: number) &#123;</span><br><span class="line">    <span class="keyword">for</span> (let task of <span class="keyword">this</span>.downloadList) &#123;</span><br><span class="line">      <span class="keyword">if</span> (task.id === id) &#123;</span><br><span class="line">        <span class="keyword">const</span> index = <span class="keyword">this</span>.downloadList.indexOf(task);</span><br><span class="line">        <span class="keyword">this</span>.downloadList.splice(index, <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">get</span>(index: number) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.downloadList[index];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> length() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.downloadList.length;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">DataHub</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> downloadList = <span class="keyword">new</span> DownloadList();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">addDownloadTask</span>(<span class="params">task: DownloadTask</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.<span class="keyword">add</span>(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">removeDownloadTask</span>(<span class="params">task: DownloadTask</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.<span class="keyword">remove</span>(task.id);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">notify</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> len = <span class="keyword">this</span>.downloadList.length();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">      <span class="keyword">this</span>.downloadList.<span class="keyword">get</span>(i).finish();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> DepManager &#123;</span><br><span class="line">  <span class="keyword">public</span> events: &#123;</span><br><span class="line">    [index: <span class="built_in">string</span>]: <span class="function">(<span class="params">(<span class="params">...rest: <span class="built_in">any</span>[]</span>) =&gt; <span class="built_in">void</span></span>)[];</span></span><br><span class="line"><span class="function">  &#125; = &#123;&#125;;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">public</span> <span class="params">registerChannel</span>(<span class="params">evtName: <span class="built_in">string</span></span>) &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params">!<span class="keyword">this</span>.events[evtName]</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">this</span>.<span class="params">events</span>[<span class="params">evtName</span>] = [];</span></span><br><span class="line"><span class="function">    &#125; <span class="params">else</span> &#123;</span></span><br><span class="line"><span class="function">      <span class="params">console</span>.<span class="params">error</span>(<span class="params">'already registed'</span>);</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">public</span> <span class="params">subscribe</span>(<span class="params">evtName: <span class="built_in">string</span>, cb: <span class="built_in">any</span></span>) &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params"><span class="keyword">this</span>.events[evtName]</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">this</span>.<span class="params">events</span>[<span class="params">evtName</span>].<span class="params">push</span>(<span class="params">cb</span>);</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">public</span> <span class="params">emit</span>(<span class="params">evtName: <span class="built_in">string</span>, payload?: <span class="built_in">any</span></span>) &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params"><span class="keyword">this</span>.events[evtName]</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">try</span> &#123;</span></span><br><span class="line"><span class="function">        <span class="params">const</span> <span class="params">subscribers</span> = <span class="params">this</span>.<span class="params">events</span>[<span class="params">evtName</span>];</span></span><br><span class="line"><span class="function">        <span class="params">for</span> (<span class="params"><span class="keyword">let</span> i = 0; i &lt; subscribers.length; i++</span>) &#123;</span></span><br><span class="line"><span class="function">          <span class="params">subscribers</span>[<span class="params">i</span>].<span class="params">call</span>(<span class="params"><span class="literal">null</span>, payload</span>);</span></span><br><span class="line"><span class="function">        &#125;</span></span><br><span class="line"><span class="function">      &#125; <span class="params">catch</span> (<span class="params">e</span>) &#123;&#125;</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> task1 = <span class="keyword">new</span> DownloadTask(<span class="number">1</span>, <span class="string">'task1'</span>);</span><br><span class="line"><span class="keyword">const</span> task2 = <span class="keyword">new</span> DownloadTask(<span class="number">2</span>, <span class="string">'task2'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> taskList = <span class="keyword">new</span> DownloadList();</span><br><span class="line">taskList.<span class="built_in">add</span>(task1);</span><br><span class="line">taskList.<span class="built_in">add</span>(task2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> manager = <span class="keyword">new</span> DepManager();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dataHub = <span class="keyword">new</span> DataHub();</span><br><span class="line"></span><br><span class="line">manager.registerChannel(<span class="string">'datahub'</span>);</span><br><span class="line"></span><br><span class="line">manager.subscribe(<span class="string">'datahub'</span>, () =&gt; &#123;</span><br><span class="line">  console.<span class="built_in">log</span>(<span class="string">'dispatch'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">manager.emit(<span class="string">'datahub'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>其实比较明显的地方在于观察者模式提供了一种点对多点的交互，但是当业务逻辑复杂的时候这种关系难以维护，因为需要单独对于被观察者进行注册，而订阅发布者模式则提供了一种统一事件管理方式，但相对的，实现所需要的成本则更高一些。</p>
+<p>注：<br></p>
+<p> 以上的代码源自知乎：<a href="https://www.zhihu.com/question/23486749" target="_blank" rel="noopener">https://www.zhihu.com/question/23486749</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://edencao.github.io/blog/blog/2019/05/09/Operating-System-(2)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/09/Operating-System-(2)/" class="post-title-link" itemprop="url">操作系统（二）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h1><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>进程是程序在计算机中的一个执行过程。程序是静态的，而进程是动态的。</p>
+<p>每个进程都有一个进程控制块，操作系统用来存放进程有关的信息。</p>
+<h3 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h3><p>四种主要事件会导致进程的创建：</p>
+<ul>
+<li>系统初始化</li>
+<li>正在运行的程序执行了创建进程的系统调用</li>
+<li>用户请求创建一个新的进程</li>
+<li>一个批处理作业的初始化</li>
+</ul>
+<!-- -->
+<h3 id="进程的终止"><a href="#进程的终止" class="headerlink" title="进程的终止"></a>进程的终止</h3><p>进程的终止通常由以下四种主要事件导致：</p>
+<ul>
+<li>正常退出（自愿）</li>
+<li>出错推出（自愿）</li>
+<li>严重错误（非自愿）</li>
+<li>被其他进程杀死（非自愿）</li>
+</ul>
+<!-- -->
+<h3 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-8e08e1fbe8970bf0.jpg" alt="进程状态转换.jpg">基本状态：执行、就绪、阻塞<br></p>
+<p> 其他状态：挂起、僵死、等待</p>
+<p><strong>挂起：</strong></p>
+<ul>
+<li>将暂不执行的进程换出到外村，节省内存空间</li>
+</ul>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-d94bbff6214608f1.jpg" alt="进程五状态.jpg"><img src="//upload-images.jianshu.io/upload_images/5617469-988366503631c074.jpg" alt="linux进程状态图.jpg">### 进程调度的时机</p>
+<ul>
+<li>新进程的创建</li>
+<li>当前进程的退出</li>
+<li>正在执行的进程阻塞</li>
+<li>I/O中断发生</li>
+</ul>
+<!-- -->
+<h2 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li><p>CPU的分配方式 - 非剥夺式（非抢占式）</p>
+<ul>
+<li><p>剥夺式（抢占式）</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>系统的分时方式 - 批处理系统</p>
+<ul>
+<li>交互系统</li>
+<li><p>实时系统</p>
+<!-- -->
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+<h3 id="调度目标"><a href="#调度目标" class="headerlink" title="调度目标"></a>调度目标</h3><ul>
+<li>公平（让每个用户满意）</li>
+<li>平衡（系统效率最高）</li>
+</ul>
+<!-- -->
+<h3 id="批处理系统"><a href="#批处理系统" class="headerlink" title="批处理系统"></a>批处理系统</h3><h4 id="调度目标-1"><a href="#调度目标-1" class="headerlink" title="调度目标"></a>调度目标</h4><ul>
+<li>吞吐量：系统每小时完成的作业数</li>
+<li>周转时间： 一个作业从提交到完成时的统计平均时间</li>
+<li>CPU利用率</li>
+</ul>
+<!-- -->
+<h4 id="批处理系统中的调度算法"><a href="#批处理系统中的调度算法" class="headerlink" title="批处理系统中的调度算法"></a>批处理系统中的调度算法</h4><p><strong>先来先服务</strong></p>
+<ul>
+<li><p>按照请求CPU的顺序使用CPU - 就绪队列时间先后的顺序</p>
+<ul>
+<li><p>队首取，队尾加</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>易于理解、便于实现</p>
+</li>
+<li>对短作业不公平</li>
+</ul>
+<!-- -->
+<p><strong>最短作业优先</strong></p>
+<ul>
+<li>提高平均周转时间</li>
+<li>预知作业运行时间</li>
+<li><p>最短剩余时间优先 - 最短作业优先的强占版</p>
+<ul>
+<li><p>新作业比正在执行的作业剩余时间短</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p>长作业无限期等待 - 有失公平性</p>
+  <!-- -->
+</li>
+</ul>
+<!-- -->
+<p><strong>最高响应比优先算法</strong></p>
+<ul>
+<li><p>响应比 - 作业等待时间/作业所需运行时间</p>
+  <!-- -->
+</li>
+<li><p>优先考虑短作业</p>
+</li>
+<li>防止长作业无限等待</li>
+</ul>
+<!-- -->
+<h3 id="交互系统"><a href="#交互系统" class="headerlink" title="交互系统"></a>交互系统</h3><h4 id="调度目标-2"><a href="#调度目标-2" class="headerlink" title="调度目标"></a>调度目标</h4><ul>
+<li><p>响应时间 - 快速响应交互请求</p>
+  <!-- -->
+</li>
+</ul>
+<!-- -->
+<h4 id="交互系统中的调度算法"><a href="#交互系统中的调度算法" class="headerlink" title="交互系统中的调度算法"></a>交互系统中的调度算法</h4><p><strong>轮转法</strong></p>
+<ul>
+<li><p>使用时间片进行调度的算法，时间片段用完后会排到队尾，考虑到CPU效率与用户等待时间一般设置为20ms-50ms - 未用完时间片就I/O阻塞的，当I/O就绪后到就绪队尾重新排队。可以为其单设队列，优先考虑I/O后就绪进程直至其用完时间片。</p>
+  <!-- -->
+</li>
+<li><p>优先级 - 优先级高的进程先运行，同优先级的进程轮转（同一队列中轮转）</p>
+<ul>
+<li><p>每个进程设立优先级，高优先级的队列中没有进程，调度下一级队列 - 静态设定</p>
+<ul>
+<li><p>动态设定：在优先级高的进程运行一个时间片后降低其优先级（防止高优先级进程独占CPU饿死低优先级的进程）</p>
+<!-- -->
+</li>
+</ul>
+<!-- -->
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+<p><strong>彩票法</strong></p>
+<ul>
+<li>向进程提供各种系统资源的彩票</li>
+<li><p>调度时随机抽取彩票，拥有该彩票的资源得到资源 - 可给重要的今晨更多的彩票</p>
+<ul>
+<li><p>协作进程可以交换彩票</p>
+<!-- -->
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+<p><strong>公平分享法</strong></p>
+<ul>
+<li><p>为每个用户分配一定比例的CPU时间 - 假设用户1开了四个进程ABCD，用户2开设一个进程E，则CPU调度有可能为AEBECEDEAEBE…</p>
+  <!-- -->
+</li>
+<li><p>按照比例个用户之间挑选进程</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="实时系统"><a href="#实时系统" class="headerlink" title="实时系统"></a>实时系统</h3><h4 id="调度目标-3"><a href="#调度目标-3" class="headerlink" title="调度目标"></a>调度目标</h4><ul>
+<li><p>满足截止时间 - 正确的但是迟到的应答比没有更糟糕</p>
+  <!-- -->
+</li>
+<li><p>硬实时 - 必须满足的绝对的截止时间</p>
+  <!-- -->
+</li>
+<li><p>软实时 - 可以容忍偶尔的错失截止时间</p>
+  <!-- -->
+</li>
+</ul>
+<!-- -->
+<h4 id="基本条件"><a href="#基本条件" class="headerlink" title="基本条件"></a>基本条件</h4><ul>
+<li>提供必要的信息</li>
+<li>系统处理能力强</li>
+<li>采用抢占式调度机制</li>
+<li>具有快速切换机制</li>
+</ul>
+<!-- -->
+<h4 id="调度算法-1"><a href="#调度算法-1" class="headerlink" title="调度算法"></a>调度算法</h4><p><strong>最早截止时间优先算法</strong></p>
+<p>先把截止时间早的任务给完成，否则这个任务如果在截止时间后才完成就没有意义了。</p>
+<p><strong>进程切换开销</strong></p>
+<ul>
+<li>时间和空间上的系统开销</li>
+<li>保存和恢复进程的上下文</li>
+</ul>
+<!-- -->
+<h2 id="Linux的进程调度"><a href="#Linux的进程调度" class="headerlink" title="Linux的进程调度"></a>Linux的进程调度</h2><p>这里朱凯豪师兄总结的特别好，这里<a href="https://link.jianshu.com?t=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FR99AZagHRvSrAKXXJmCWnA" target="_blank" rel="noopener">附上链接</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://edencao.github.io/blog/blog/2019/05/09/Object-oriented-Modeling-Analysis-(I)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/09/Object-oriented-Modeling-Analysis-(I)/" class="post-title-link" itemprop="url">面向对象建模分析（一）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="面向对象分析方法"><a href="#面向对象分析方法" class="headerlink" title="面向对象分析方法"></a>面向对象分析方法</h2><h3 id="软件的错误是怎样产生的？软件工程的挑战有哪些"><a href="#软件的错误是怎样产生的？软件工程的挑战有哪些" class="headerlink" title="软件的错误是怎样产生的？软件工程的挑战有哪些"></a>软件的错误是怎样产生的？软件工程的挑战有哪些</h3><ol>
+<li>交付的软件不是用户需要的</li>
+<li>用户需求的变化</li>
+<li>风险没有管理</li>
+<li>无力的团队管理</li>
+</ol>
+<!-- -->
+<h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><p>软件是一种特别的产品，随着规模和复杂性的进步以及应用领域的扩大逐渐形成了工程。<br></p>
+<p> 是计算机中与硬件相互依存的另一部分，包括程序、数据和说明文档。</p>
+<p>程序是按照设计要求和性能指标设计的指令序列</p>
+<p>数据是程序能够正常操纵信息的数据结构</p>
+<p>说明文档是用于开发和维护软件程序的各种图文资料。</p>
+<h3 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h3><p>软件工程是软件的工程性方法，涵盖了所有生命周期，并提供了一整套工程性方法来指导软件开发。</p>
+<p>软件工程是一门研究如何用系统化、规范化、数量化等工程原则和方法去进行软件的开发和维护的学科。</p>
+<p>包含：1. 软件开发技术 2. 软件项目管理</p>
+<p>软件工程三要素：方法、工具、过程</p>
+<p>软件工程应包括的知识（10个）：软件需求、软件设计、软件构建、软件维护、软件配置管理、软件工程管理、软件工程过程、软件工程工具和方法、软件质量</p>
+<h3 id="软件的发展历程经历了哪几个阶段，每个阶段的特点是什么？"><a href="#软件的发展历程经历了哪几个阶段，每个阶段的特点是什么？" class="headerlink" title="软件的发展历程经历了哪几个阶段，每个阶段的特点是什么？"></a>软件的发展历程经历了哪几个阶段，每个阶段的特点是什么？</h3><ul>
+<li><p><strong>第一阶段：</strong>程序设计阶段 - 个人英雄主义的开发、软件开发就是程序设计、不考虑通用型</p>
+<ul>
+<li>文档不全</li>
+<li>只有程序的概念，没有软件的概念。</li>
+<li><p>采用汇编语言、机器语言应对计算机性能问题</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p><strong>第二阶段：</strong>软件设计阶段 - 程序规模增大、需小组协作生产</p>
+<ul>
+<li>由小组运行、维护</li>
+<li>程序重要性提升，不再被视作硬件的附属成分。</li>
+<li><p>在计算机系统的开发过程中与硬件工程师共同起主导作用。</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p><strong>第三阶段：</strong>传统软件工程阶段 - 采用工程化生产方式</p>
+<ul>
+<li>软件产业兴起</li>
+<li>软件开发成功率、质量大大提升。</li>
+<li><p>软件工程并发环境及并发环境涌现，度量问题得到重视。</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p><strong>第四阶段：</strong>现代软件工程阶段 - OOP广泛使用</p>
+<ul>
+<li><p>软件开发技术逐渐成熟</p>
+<!-- -->
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+<h3 id="软件危机"><a href="#软件危机" class="headerlink" title="软件危机"></a>软件危机</h3><p>指计算机软件的开发和维护过程中所遇到了一系列严重问题。</p>
+<h3 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h3><p>包括分析、设计、实现、测试和维护等。</p>
+<h3 id="软件工程的框架"><a href="#软件工程的框架" class="headerlink" title="软件工程的框架"></a>软件工程的框架</h3><p>软件工程目标：正确性、可用性、费用合算</p>
+<p>软件工程活动：需求、设计、实现、确认、支持</p>
+<p>软件工程原则：适宜开发范型、合适设计方法、高质量工程支持</p>
+<h3 id="软件过程"><a href="#软件过程" class="headerlink" title="软件过程"></a>软件过程</h3><p>是为了获得高质量软件所需要完成的一系列步骤。</p>
+<p>生命周期模型把生命周期划分成那些阶段以及执行顺序，也称为软件过程模型。</p>
+<p>常见模型：瀑布模型、快速原型模型、增量模型、螺旋模型</p>
+<h3 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-7c113c0f38095316.jpg" alt="瀑布模型.jpg"><strong>应用场景：</strong>大型软件项目；需求明确；需求变化少</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li>阶段间具有顺序性和依赖性</li>
+<li>推迟实现的观点。</li>
+<li>质量保证的观点</li>
+</ul>
+<!-- -->
+<p><strong>优点：</strong></p>
+<ul>
+<li>严格规定了必须提交的文档</li>
+<li>按活动划分的检查点</li>
+<li>当前阶段完成后，只需关注后续阶段</li>
+</ul>
+<!-- -->
+<p><strong>缺点：</strong></p>
+<ul>
+<li>阶段划分固定、阶段间大量文档增加工作量</li>
+<li>开发模型线性，只有在过程结束才能看到成果，增加风险</li>
+<li>早期的错误可能要等到末期测试才能发现，带来严重后果</li>
+</ul>
+<!-- -->
+<h3 id="快速原型模型"><a href="#快速原型模型" class="headerlink" title="快速原型模型"></a>快速原型模型</h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-910c5279f56299dc.jpg" alt="快速原型模型.jpg"><strong>应用领域：</strong>客户不熟悉软件、沟通理解困难</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>减少需求不明确带来的开发风险</li>
+<li>更好和客户沟通</li>
+<li>减少技术、应用风险，缩小成本，提高产品质量</li>
+</ul>
+<!-- -->
+<p><strong>缺点</strong></p>
+<ul>
+<li>尽可能快速建造原型、限制开发人员创新</li>
+<li>所选技术工具不一定主流，效率低</li>
+<li>可能导致产品设计差</li>
+<li>客户确定真正需求、原型可能被抛弃</li>
+</ul>
+<!-- -->
+<h3 id="增量模型（演化模型）"><a href="#增量模型（演化模型）" class="headerlink" title="增量模型（演化模型）"></a>增量模型（演化模型）</h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-7540c98ec24b4304.jpg" alt="增量模型.jpg"><strong>适用范围：</strong>需求比较明确、架构稳定</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>及时反馈、适应变化好</li>
+<li>客户看到不断变化的软件，降低开发风险</li>
+<li>团队士气的鼓舞</li>
+</ul>
+<!-- -->
+<p><strong>缺点：</strong></p>
+<ul>
+<li>需要开放式的体系结构，维护难度大</li>
+<li>容易退化为边做边改模型、使软件过程控制失去整体性</li>
+</ul>
+<!-- -->
+<h3 id="螺旋模型"><a href="#螺旋模型" class="headerlink" title="螺旋模型"></a>螺旋模型</h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-a0d7885fbe7f587c.jpg" alt="螺旋模型.jpg"><strong>适用范围：</strong>大型复杂的系统</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>强调可选方案以及约束条件支持软件重用</li>
+<li>有助于提升软件质量</li>
+</ul>
+<!-- -->
+<p><strong>缺点：</strong></p>
+<ul>
+<li>要求客户接受相信风险分析</li>
+<li>风险分析成本过大则无意义</li>
+<li>需善于识别风险且准确</li>
+</ul>
+<!-- -->
+<h3 id="结构化方法（面向功能、数据流软件开发方法，结构化生命周期法）"><a href="#结构化方法（面向功能、数据流软件开发方法，结构化生命周期法）" class="headerlink" title="结构化方法（面向功能、数据流软件开发方法，结构化生命周期法）"></a>结构化方法（面向功能、数据流软件开发方法，结构化生命周期法）</h3><p><strong>五个阶段：</strong>规划、分析、设计、实施、运行维护<br></p>
+<p><strong>Jackson方法的表示：</strong>顺序、选择、重复</p>
+<h3 id="面向对象软件开发方法"><a href="#面向对象软件开发方法" class="headerlink" title="面向对象软件开发方法"></a>面向对象软件开发方法</h3><p>自底向上的归纳、自顶向下的分解，尽可能运用人类自然思维方式</p>
+<p><strong>要点：</strong></p>
+<ul>
+<li>客观世界由各种对象组成</li>
+<li>所有对象划分为类</li>
+<li>类具有登记</li>
+<li>对象之间通过消息交互</li>
+</ul>
+<!-- -->
+<p><strong>三大重要特征：</strong>封装、继承、多态</p>
+<p><strong>基本概念：</strong>对象、类、封装…</p>
+<p><strong>核心概念：</strong>对象、类</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://edencao.github.io/blog/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/" class="post-title-link" itemprop="url">面向对象建模分析（二）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="需求工程"><a href="#需求工程" class="headerlink" title="需求工程"></a>需求工程</h1><h2 id="需求工程的基本概念"><a href="#需求工程的基本概念" class="headerlink" title="需求工程的基本概念"></a>需求工程的基本概念</h2><h3 id="什么是需求工程？"><a href="#什么是需求工程？" class="headerlink" title="什么是需求工程？"></a>什么是需求工程？</h3><p>对系统应该提供的服务和所受到的约束进行理解、分析、建立文档、检验的过程</p>
+<h3 id="软件需求的困难"><a href="#软件需求的困难" class="headerlink" title="软件需求的困难"></a>软件需求的困难</h3><ul>
+<li>应用领域的广泛性</li>
+<li>非功能性需求建模技术的缺乏</li>
+<li>沟通上的困难</li>
+</ul>
+<!-- -->
+<h3 id="软件需求的内容"><a href="#软件需求的内容" class="headerlink" title="软件需求的内容"></a>软件需求的内容</h3><ul>
+<li><p>功能需求</p>
+<p>  对系统应该提供的服务、功能以及系统在特定条件下的行为的描述</p>
+</li>
+<li><p>非功能需求</p>
+<p>  如性能指标、道德约束等</p>
+</li>
+<li><p>领域需求</p>
+<p>  是由软件系统的应用领域所决定的特有的功能需求</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="需求分析的作用"><a href="#需求分析的作用" class="headerlink" title="需求分析的作用"></a>需求分析的作用</h3><ul>
+<li><p>定义软件范围及必须满足的约束</p>
+</li>
+<li><p>确定软件功能、性能与其他系统成分接口</p>
+</li>
+<li><p>建立数据模型、功能模型、行为模型</p>
+</li>
+<li><p>最终提供需求规格说明，并作为评估质量的依据</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="需求工程基本活动"><a href="#需求工程基本活动" class="headerlink" title="需求工程基本活动"></a>需求工程基本活动</h3><ul>
+<li>获取需求</li>
+<li>需求分析与建模</li>
+<li>确认需求</li>
+<li>进化需求</li>
+</ul>
+<!-- -->
+<h3 id="需求获取"><a href="#需求获取" class="headerlink" title="需求获取"></a>需求获取</h3><p><strong>三个问题：</strong></p>
+<ul>
+<li>明确需要获取的信息（what）</li>
+<li>明确所获取信息的来源和渠道（where）</li>
+<li>怎样获取需求（how）</li>
+</ul>
+<!-- -->
+<h3 id="需求获取技术"><a href="#需求获取技术" class="headerlink" title="需求获取技术"></a>需求获取技术</h3><ul>
+<li><p>面谈法</p>
+<p>  众包：一个公司和机构吧过去由员工执行的工作任务，以自由自愿的方式外包给非特定的大众网络的做法。</p>
+</li>
+<li><p>问卷调查法</p>
+</li>
+<li><p>需求专题讨论会</p>
+</li>
+<li><p>观察用户的工作流程</p>
+</li>
+<li><p>原型化方法</p>
+</li>
+<li><p>基于用例的方法</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="需求分析与建模"><a href="#需求分析与建模" class="headerlink" title="需求分析与建模"></a>需求分析与建模</h3><p><strong>三个层次：</strong></p>
+<ul>
+<li>需求分析</li>
+<li>需求建模</li>
+<li>需求规格说明</li>
+</ul>
+<!-- -->
+<h3 id="需求分析常用技术"><a href="#需求分析常用技术" class="headerlink" title="需求分析常用技术"></a>需求分析常用技术</h3><ul>
+<li><p>分解</p>
+</li>
+<li><p>抽象</p>
+</li>
+<li><p>多视点</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="需求分析方法"><a href="#需求分析方法" class="headerlink" title="需求分析方法"></a>需求分析方法</h3><h4 id="功能分解方法"><a href="#功能分解方法" class="headerlink" title="功能分解方法"></a>功能分解方法</h4><p><img src="//upload-images.jianshu.io/upload_images/5617469-8f086672c082915e.jpg" alt="功能分解方法.jpg">- 将系统看作若干功能模块的集合，每个功能可以分解为子功能（递归） - <strong>不足之处</strong> <br></p>
+<pre><code> 需要人工完成&lt;br&gt;
+
+ 无法对描述的准确度进行验证&lt;br&gt;
+
+ 难以适应需求变化
+
+&lt;!-- --&gt;
+</code></pre><!-- -->
+<h4 id="结构化分析方法"><a href="#结构化分析方法" class="headerlink" title="结构化分析方法"></a>结构化分析方法</h4><ul>
+<li>不考</li>
+</ul>
+<!-- -->
+<h4 id="信息建模法"><a href="#信息建模法" class="headerlink" title="信息建模法"></a>信息建模法</h4><p>是从数据的角度对现实世界建立系统的信息模型。ER图</p>
+<h4 id="面向对象分析方法"><a href="#面向对象分析方法" class="headerlink" title="面向对象分析方法"></a>面向对象分析方法</h4><p>识别问题域内的对象，分析他们之间的关系，并建立起三类模型。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://edencao.github.io/blog/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/" class="post-title-link" itemprop="url">面向对象建模分析（四）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是动态建模"><a href="#什么是动态建模" class="headerlink" title="什么是动态建模"></a>什么是动态建模</h2><p>所有系统均可表示为：静态结构和动态结构</p>
+<p>状态图、活动图、顺序图和协作图描述系统结构和行为，适合描述系统在不同的时间点是如何动态交互的。</p>
+<h2 id="活动图"><a href="#活动图" class="headerlink" title="活动图"></a>活动图</h2><h3 id="活动图与状态图的区别"><a href="#活动图与状态图的区别" class="headerlink" title="活动图与状态图的区别"></a>活动图与状态图的区别</h3><p>活动图能够表示并发活动</p>
+<p>活动图是面向对象的，流程图示面向过程的</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-cba0f2031eb4ea64.jpg" alt="活动图.jpg">- 带泳道的活动图</p>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-432b73ab0b199281.jpg" alt="泳道.jpg">## 状态图</p>
+<p>只有当行为的改变和状态有关时才能创建状态图</p>
+<p>状态图通常只用于描述单个对象的行为，如果要描述对象间的交互，最好采用时序图或协作图。</p>
+<p>两个核心元素：圆角矩形表示的状态；称为转换的箭头线。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-ba690ddac71b1408.jpg" alt="状态图.jpg"><img src="//upload-images.jianshu.io/upload_images/5617469-e68f47efe5e7cae1.jpg" alt="状态图2.jpg">## 顺序图</p>
+<p>消息的语法格式</p>
+<p>[前置消息列表][警戒条件][消息顺序号][返回值:=]([参数列表])</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-63e65f9ae73257cd.jpg" alt="消息语法格式.jpg">## 协作图</p>
+<p>类元素、关联元素、消息流</p>
+<ul>
+<li>消息标签</li>
+</ul>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-ba0f15c0b575fae2.jpg" alt="消息标签.jpg"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://edencao.github.io/blog/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/" class="post-title-link" itemprop="url">从实现一个红绿灯到函数式编程</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我认为函数式编程的本质是把函数当作变量来使用。最近接触了<code>React</code>，我们可以发现在<code>React</code>中处处存在函数式编程的思想，我们将<code>JSX</code>写成一个函数的返回值，并且在<code>render</code>中调用她们。函数是对于过程的抽象，我们将过程抽象成一个函数，然后根据不同的场景传入不同的变量值从而得到不同的结果。而函数式编程是对于函数的抽象，我们把函数看作是一个变量，然后根据不同的场景传入不同的函数值从而得到不同的结果。</p>
+<p>我希望可以通过实现一个小的<code>demo</code>来讲清楚这件事，这个<code>demo</code>是我很久以前在某个技术网站看到的，具体的网址已经记不清楚了，鉴于小伙伴们对于我所讲的函数式编程的概念非常感兴趣，所以我将这个例子翻了出来，自己将它重新实现一遍。若是没有讲清楚或错误的地方，则是受限于我的浅薄的技术功底，并希望被指正。</p>
+<h2 id="红绿灯函数"><a href="#红绿灯函数" class="headerlink" title="红绿灯函数"></a>红绿灯函数</h2><p>客户希望我们实现一个红绿灯函数，每隔1秒钟，变换一次信号，无限循环。可以使用console.log来模拟信号灯亮的过程，即在控制台打印’绿灯亮’,1s后继续打印’黄灯亮’,1s后打印’红灯亮’…无限循环</p>
+<p>实现这个效果非常简单，直接上代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'绿灯亮'</span>);</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'黄灯亮'</span>);</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'红灯亮'</span>);</span><br><span class="line">                semaphores();</span><br><span class="line">            &#125;, <span class="number">1000</span>)</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;,<span class="number">1000</span>) </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮 </span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>但是很明显，这样的函数及其不优雅，我们的红绿灯只有三种颜色，如果要是有十几种颜色的霓虹灯闪来闪去的话，我们就要嵌套十几层代码了。这样可读性实在是太差了，于是我们希望可以把它优化一下。</p>
+<p>仔细分析一下我们的代码就会发现，上面的demo有非常多的冗余代码，setTimeout在一个函数中被重复使用了三次，每次只不过是一个嵌套再打印不同的红黄绿灯而已，我们为什么不把公共部分提取出来呢？把红黄绿灯提取成变量，代码质量会好很多。</p>
+<p>so出现了下列的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    <span class="string">'绿灯'</span>,</span><br><span class="line">    <span class="string">'黄灯'</span>,</span><br><span class="line">    <span class="string">'红灯'</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 控制器</span></span><br><span class="line">    <span class="keyword">let</span> lightLength = lightList.length;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;lightList[count % lightLength]&#125;</span>`</span>);</span><br><span class="line">        count ++;</span><br><span class="line">        semaphores(lightList,count);</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮 </span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>我们还可以进一步优化，同时将时间抽离:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮 </span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>我们可以更加容易修改我们的代码，以应对将来可能的需求变更。这也是我们常见的函数形式。变量只是 Number、String、Object、undefined、null、Boolean，但是我们再次将问题变得复杂一些：</p>
+<p>我们的红绿灯效果良好，客户非常满意，并且希望扩展应用范围。为了应对可能到来的困惑，我们需要在每次信号灯亮起的时候添加上一条提示语，提醒剩余时间。不同的应用场景将有不同的提示语。</p>
+<p>这也非常简单，我们只需要多加一条语句就可以完成:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            <span class="comment">// add here!!!</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'这是一条提示语'</span>);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮 </span></span><br><span class="line"><span class="comment">// 这是一条提示语</span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// 这是一条提示语</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// 这是一条提示语</span></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>但随着我们的应用场景进一步增多，我们的红绿灯将广泛的用于医疗、运输、零售行业，对于这些行业我们需要在信号灯亮起时拥有不同的操作，有的是发出声响、有的是打印提示语、有的是发出警报、有的是打开开关…</p>
+<p>那么我们是不是需要把上面的那份代码到处拷贝一下，然后修改位于16行的代码，分别把它修改为发声、打印、报警、开关控制…</p>
+<p>显然一般的函数已经无法满足我们的需求了，这时候我们就需要函数式编程。</p>
+<h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><p>我上面只是为了引出函数式编程的例子，所以举例夸张了一些。事实上函数式编程并不是非常高大上的概念，它就和面向对象、面向过程一样，只是一种编程的范式，在实际中拥有着非常广泛的应用（例如JSX）</p>
+<p>就像我一开始提到的那样，函数式编程的核心不过是将函数当作变量那样来使用。我们希望改造一下我们的红绿灯函数，使我们的函数在信号灯亮后，可以在不同的场景使用不同的参数，我们来设计一下这个函数.首先我们需要传入一个函数，所以我们在形参列表中加入一个<code>handler</code>的变量，便于我们使用它。然后在我们希望使用它的地方使用就好了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请注意我们在这里加入了一个参数handler</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], handler, count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            <span class="comment">// 在这里使用它</span></span><br><span class="line">            handler &amp;&amp; handler(light, time);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以这样使用上面的函数:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 我们只需要在不同的场景改变不同的handler就可以了</span></span><br><span class="line"><span class="keyword">const</span> handler = <span class="function"><span class="keyword">function</span> (<span class="params">light, time</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'函数式编程好爽啊'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮<span class="subst">$&#123;time&#125;</span>毫秒~~`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> doTrafficLight = semaphores(TRAFFIC_LIGHT, handler);</span><br><span class="line"><span class="keyword">const</span> trafficTimeHandler = doTrafficLight();</span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮</span></span><br><span class="line"><span class="comment">// 函数式编程好爽啊</span></span><br><span class="line"><span class="comment">// 绿灯亮1000毫秒~~</span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// 函数式编程好爽啊</span></span><br><span class="line"><span class="comment">// 黄灯亮2000毫秒~~</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// 函数式编程好爽啊</span></span><br><span class="line"><span class="comment">// 红灯亮3000毫秒~~</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>我们更可以优化一下上面的函数，使得不同等亮起时使用不同的行为函数:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// do something...</span></span><br><span class="line">    &#125;],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// do something...</span></span><br><span class="line">    &#125;],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// do something...</span></span><br><span class="line">    &#125;]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们去掉了handler!!!!</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time, handler] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            <span class="comment">// 在这里使用它</span></span><br><span class="line">            handler &amp;&amp; handler(light, time);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮</span></span><br><span class="line"><span class="comment">// dosomething1...</span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// dosomething2...</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// dosomething3...</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>函数式编程的抽象程度更高，它是对于过程的抽象。如果没有传入的参数作为支撑，那么这个函数毫无意义，比较明显的例子是<code>JavaScript</code>中的<code>map</code>和<code>reduce</code>。这是最主要的概念，剩下的概念则都是一些规定，帮助我们写出更好的更健壮的函数式函数，相信理解了我刚刚所说的例子，再去理解其他概念会容易许多。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://edencao.github.io/blog/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/" class="post-title-link" itemprop="url">Draft.js的事件处理机制</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Draft-事件处理机制"><a href="#Draft-事件处理机制" class="headerlink" title="Draft 事件处理机制"></a>Draft 事件处理机制</h1><p>Draft.js 内部封装了一系列基础的事件处理函数，当事件触发时，这些函数接收当前<code>event</code>，并基于此生成<code>new editorState</code>，我们在接收到<code>new editorState</code>后再将该数据绑定到<code>Draft</code>上，这就是Draft的单向数据流。其中<code>react</code>层只负责视图层，我们将通过一些流程图与源码的展示来详细介绍这一点。</p>
+<h2 id="事件在-Draft-内部的传递"><a href="#事件在-Draft-内部的传递" class="headerlink" title="事件在 Draft 内部的传递"></a>事件在 Draft 内部的传递</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-b27a9ec7b9eff1a5.png" alt="eventInDraft.png"><code>Draft</code> 由事件驱动，任何事件的触发最终都会被转化为一个新的<code>EditorState</code>。上图是一个简单的流程图，展现了事件在 Draft 内部的传递机制。</p>
+<p><code>react</code>只负责事件的绑定与<code>view</code>的展示，将<code>Draft</code>中内置的事件<code>editorBlur</code>等方法与原生事件<code>blur</code>进行绑定，下面给出了<code>Draft</code>源码进行说明：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DraftEditor.react.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 经过精简</span></span><br><span class="line">render() &#123;</span><br><span class="line">    &lt;div</span><br><span class="line">        <span class="comment">// 将原生事件与Draft内置事件相绑定</span></span><br><span class="line">        onBeforeInput=&#123;<span class="keyword">this</span>._onBeforeInput&#125;</span><br><span class="line">        onBlur=&#123;<span class="keyword">this</span>._onBlur&#125;</span><br><span class="line">        onCopy=&#123;<span class="keyword">this</span>._onCopy&#125;</span><br><span class="line">        onCut=&#123;<span class="keyword">this</span>._onCut&#125;</span><br><span class="line">        onDragEnd=&#123;<span class="keyword">this</span>._onDragEnd&#125;</span><br><span class="line">        onDragEnter=&#123;<span class="keyword">this</span>.onDragEnter&#125;</span><br><span class="line">        ...</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 请暂时忽略下面这部分</span></span><br><span class="line">        &lt;DraftEditorContents &#123;...editorContentsProps&#125; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>通过上面的代码部分我们可以看到，react将原生事件与内置事件做了绑定，例如将<code>_onBlur</code>绑定到了原生事件<code>onBlur</code>上面。而_onBlur内部的事件则被单独抽象出来，与视图层完全解耦。</p>
+<p><code>Draft</code>运用了一些很酷的小技巧来解决内置事件与原生事件的绑定问题：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 经过精简</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; from <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;onBlur, onCopy, onFocus&#125; from <span class="string">'./logicLayer'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  onBlur(e) &#123;</span><br><span class="line">    editOnBlur(e);</span><br><span class="line">  &#125;</span><br><span class="line">  onCopy(e) &#123;</span><br><span class="line">    editOnCopy(e);</span><br><span class="line">  &#125;</span><br><span class="line">  onFocus(e) &#123;</span><br><span class="line">    editonFocus(e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DraftEditor</span> <span class="title">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 事件绑定</span></span><br><span class="line">    <span class="keyword">this</span>._onBlur = <span class="keyword">this</span>._buildHandler(<span class="string">'onBlur'</span>);</span><br><span class="line">    <span class="keyword">this</span>._onCopy = <span class="keyword">this</span>._buildHandler(<span class="string">'onCopy'</span>);</span><br><span class="line">    <span class="keyword">this</span>._onCut = <span class="keyword">this</span>._buildHandler(<span class="string">'onCut'</span>);</span><br><span class="line">    <span class="keyword">this</span>._onInput = <span class="keyword">this</span>._buildHandler(<span class="string">'onInput'</span>);</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">    </span><br><span class="line">  _buildHandler(eventName) &#123;</span><br><span class="line">    <span class="keyword">return</span> e =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> method = <span class="keyword">this</span>._handler &amp;&amp; <span class="keyword">this</span>.handler[eventName];</span><br><span class="line">      method &amp;&amp; method(<span class="keyword">this</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>核心函数是<code>_buildHandler</code>,通过此函数进行事件绑定的分发。</p>
+<p>通过这种方式，可以完成视图层与逻辑层的解耦。</p>
+<p>任何事件的触发最后都会被转化为一个<code>new EditorState</code>,通过onChange（update）方法抛出，我们接收到<code>new EditorState</code>后，再将其绑定到<code>Draft</code>上面，由<code>Draft</code>负责<code>EditorState</code>的转换，最终通过react渲染出来。</p>
+<p>也就是说，任何<code>new EditorState</code>都一定会被<code>Draft</code>抛给我们，再由我们绑定到<code>Draft</code>上面进行展示，<code>EditorState</code>不是一个内部状态。</p>
+<p>当然<code>Draft</code>对EditorState进行转换的过程远远没有这么简单，实际情况要复杂的多，这点我们将会在下面提到。</p>
+<p>通过上面所提到的这种方式，<code>Draft</code>完成了由事件到状态对象的转化，并且完成了数据的单向流动。</p>
+<h2 id="Draft-事件层和展示层的分离"><a href="#Draft-事件层和展示层的分离" class="headerlink" title="Draft 事件层和展示层的分离"></a>Draft 事件层和展示层的分离</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-6125572d566da98e.png" alt="Event&amp;View.png">我在上面大致画出了<code>draft</code>的<code>react</code>层是如何划分的。其实这个图并不准确，但是用来说明已经够用了。</p>
+<p>在<code>react</code>层将事件绑定层与实践展示层分离：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DraftEditor.react.js</span></span><br><span class="line"><span class="comment">// 经过精简</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Event层</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="title">render</span><span class="params">()</span></span> &#123;</span><br><span class="line">    &lt;div</span><br><span class="line">        <span class="comment">// 将原生事件与Draft内置事件相绑定</span></span><br><span class="line">        onBeforeInput=&#123;this._onBeforeInput&#125;</span><br><span class="line">        onBlur=&#123;this._onBlur&#125;</span><br><span class="line">        ...</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * View 层</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        &lt;DraftEditorContents &#123;...editorContentsProps&#125; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>仔细查看上面的代码，依旧是相同的<code>render</code>函数，这次我将事件绑定的部分隐去了大部分，主要可以看到在这个组件中引入了<code>DraftEditorContents</code>组件，这个组件就是事件的展示层。在此层中，储存了<code>preEditorStatus</code>,<code>View</code>层负责将<code>diff</code>过后的<code>latestEditorStatus</code>渲染出来。</p>
+<p>中间会经过一些过程，在此期间<code>Draft</code>会向外暴露一些端口用于处理类似于<code>block</code>样式与<code>inline</code>样式，具体内容会在扩展中提及。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/blog/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blog/images/avatar.jpg" alt="Cao Yong">
+            
+              <p class="site-author-name" itemprop="name">Cao Yong</p>
+              <div class="site-description motion-element" itemprop="description">一些奇奇怪怪的东西</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/blog/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/EdenCao" title="GitHub &rarr; https://github.com/EdenCao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:edencaox@gmail.com" title="E-Mail &rarr; mailto:edencaox@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cao Yong</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/blog/js/utils.js?v=7.1.1"></script>
+
+  <script src="/blog/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/blog/js/affix.js?v=7.1.1"></script>
+
+  <script src="/blog/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/blog/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
