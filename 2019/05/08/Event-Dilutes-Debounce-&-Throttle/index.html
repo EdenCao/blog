@@ -100,17 +100,18 @@
 
 
 
-  <meta name="description" content="一些奇奇怪怪的东西">
+  <meta name="description" content="事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次ajax请求，这简直是一场灾难。 稀释原理比较常见的解决方法是 Debounce和Throttle。两者的目的都是为了稀释事件，但是原理有所不同。 Debounce函数的理念是“推迟执行”，即把N次连续事件只执行一次。 Throttle函数">
 <meta name="keywords" content="JavaScript,TypeScript,Linux,macOS">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Eden&#39;s Blog">
-<meta property="og:url" content="//edencao.github.io/blog/page/3/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事件稀释 Debounce &amp; Throttle">
+<meta property="og:url" content="//edencao.github.io/blog/2019/05/08/Event-Dilutes-Debounce-&-Throttle/index.html">
 <meta property="og:site_name" content="Eden&#39;s Blog">
-<meta property="og:description" content="一些奇奇怪怪的东西">
+<meta property="og:description" content="事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次ajax请求，这简直是一场灾难。 稀释原理比较常见的解决方法是 Debounce和Throttle。两者的目的都是为了稀释事件，但是原理有所不同。 Debounce函数的理念是“推迟执行”，即把N次连续事件只执行一次。 Throttle函数">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-08T15:32:51.156Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Eden&#39;s Blog">
-<meta name="twitter:description" content="一些奇奇怪怪的东西">
+<meta name="twitter:title" content="事件稀释 Debounce &amp; Throttle">
+<meta name="twitter:description" content="事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次ajax请求，这简直是一场灾难。 稀释原理比较常见的解决方法是 Debounce和Throttle。两者的目的都是为了稀释事件，但是原理有所不同。 Debounce函数的理念是“推迟执行”，即把N次连续事件只执行一次。 Throttle函数">
 
 
 
@@ -120,7 +121,7 @@
 
   
   
-  <link rel="canonical" href="//edencao.github.io/blog/page/3/">
+  <link rel="canonical" href="//edencao.github.io/blog/2019/05/08/Event-Dilutes-Debounce-&-Throttle/">
 
 
 
@@ -130,7 +131,7 @@
   };
 </script>
 
-  <title>Eden's Blog</title>
+  <title>事件稀释 Debounce & Throttle | Eden's Blog</title>
   
 
 
@@ -178,8 +179,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,9 +296,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -330,10 +330,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/05/08/Event-Dilutes-Debounce-&-Throttle/" class="post-title-link" itemprop="url">事件稀释 Debounce & Throttle</a>
+          <h1 class="post-title" itemprop="name headline">事件稀释 Debounce & Throttle
+
               
             
           </h1>
@@ -393,9 +391,7 @@
       
 
       
-        
-          
-            <p>事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次<code>ajax</code>请求，这简直是一场灾难。</p>
+        <p>事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次<code>ajax</code>请求，这简直是一场灾难。</p>
 <h2 id="稀释原理"><a href="#稀释原理" class="headerlink" title="稀释原理"></a>稀释原理</h2><p>比较常见的解决方法是 <code>Debounce</code>和<code>Throttle</code>。两者的目的都是为了稀释事件，但是原理有所不同。</p>
 <p><code>Debounce</code>函数的理念是“推迟执行”，即把N次连续事件只执行一次。</p>
 <p><code>Throttle</code>函数的理念是“时间稀释”，即N次连续事件在规定时间内最多执行一次。</p>
@@ -414,8 +410,6 @@
 <p>可以看到其中的<code>carry</code>函数在规定时间内最多执行一次。</p>
 <h2 id="最近在项目中遇到的一些坑"><a href="#最近在项目中遇到的一些坑" class="headerlink" title="最近在项目中遇到的一些坑"></a>最近在项目中遇到的一些坑</h2><p>其实这篇文章在写出以后确实在项目中遇到了一些问题，所以再看这篇文章写的还是有些不太全面。对于事件稀释，Throttle和Debounce都不过是稀释方法的一种。大致思想都是在对于在某一段时间内频繁触发的事件合并为一次进行请求。但是实际业务中的事件稀释方式要多得多。对于长页面的lazy load，不一定需要按时间为单位，亦可以按请求为单位，因为我们需要避免的事一秒发出几十次请求。对于不同的场景，我们要分析具体需要稀释的事情是什么。在错误的场景使用不合适的稀释方式可能反而会造成性能问题。事件稀释的精髓在于对于“事件”的稀释，不要拘泥于形式。</p>
 
-          
-        
       
     </div>
 
@@ -438,185 +432,32 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/08/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cao Yong">
-      <meta itemprop="description" content="一些奇奇怪怪的东西">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eden's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/05/08/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/" class="post-title-link" itemprop="url">前端组件化之路的一些思考与被神化的MVVM</a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/blog/2019/05/08/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/" rel="next" title="前端组件化之路的一些思考与被神化的MVVM">
+                <i class="fa fa-chevron-left"></i> 前端组件化之路的一些思考与被神化的MVVM
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
+              <a href="/blog/2019/05/08/From-Implementing-A-Traffic-Light-To-Functional-Programming/" rel="prev" title="从实现一个红绿灯到函数式编程">
+                从实现一个红绿灯到函数式编程 <i class="fa fa-chevron-right"></i>
+              </a>
             
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-08 23:32:50" itemprop="dateCreated datePublished" datetime="2019-05-08T23:32:50+08:00">2019-05-08</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>当初上手使用的时候就直接使用的 Vue，简单方便且直接。但最近在思考为什么三大框架得以挤掉 jQuery 变得流行，至于流行的原因众说纷纭，但我认为真正的原因只有两个：</p>
-<ul>
-<li>提供一种简单方便的开发范式，你不需要知道框架的运行原理就可以快速方便的开发出一个网站</li>
-<li>第二个原因则是最重要的：因为数据和 DOM 的同步并不简单。</li>
-</ul>
-<!-- -->
-<h2 id="简单方便的开发范式"><a href="#简单方便的开发范式" class="headerlink" title="简单方便的开发范式"></a>简单方便的开发范式</h2><p>先说第一个：无论是 Vue、React还是Angular实际上都默认提供了一种简单方便并且可维护的项目组织结构方式：组件。</p>
-<p>无论是 Vue的单文件组件还是 React 的tsx都鼓励将一个完整的网站、页面的不同组成部分拆分成一个组件，再像搭积木一样将它们拼接起来。这样所构建的网站可维护性良好、更容易构建出来超大规模项目 — — 超过数十万行代码的 js 项目。<br></p>
-<p> 你再也不需要使用类似于jQuery一样类似于意大利面条一样的开发方式了。当然，事实上在 MVVM 框架出现之前有各种各样的方法将项目拆分，但的确很少有像 jsx 一样优雅的项目组织方式了。<br></p>
-<p> 万幸我没有经历过那样一个时代。</p>
-<h2 id="数据与-DOM-的同步问题"><a href="#数据与-DOM-的同步问题" class="headerlink" title="数据与 DOM 的同步问题"></a>数据与 DOM 的同步问题</h2><p>JavaScript 的主要运行环境之一是浏览器，其责任是负责视图的渲染与用户的交互。随着前端页面的复杂程度的增长，js 必须承担起更大的责任。数据的改变与DOM的同步问题变成了一个非常头痛的问题。</p>
-<p>这里我想做一个简单的todo-list来说明这个问题。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Todo</span> </span>&#123;</span><br><span class="line">      <span class="keyword">constructor</span>(msg) &#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">        <span class="keyword">this</span>.dom = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.createTodoItem();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      createTodoItem() &#123;</span><br><span class="line">        <span class="keyword">const</span> todo = document.createElement(<span class="string">'div'</span>);</span><br><span class="line">        todo.innerText = <span class="keyword">this</span>.msg;</span><br><span class="line">        <span class="keyword">this</span>.dom = todo;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      remove() &#123;</span><br><span class="line">        <span class="keyword">this</span>.dom.remove();</span><br><span class="line">        <span class="keyword">this</span>.dom = <span class="literal">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      destroy() &#123;</span><br><span class="line">        <span class="keyword">this</span>.remove();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Diff</span> </span>&#123;</span><br><span class="line">      <span class="keyword">constructor</span>(option, index, <span class="keyword">data</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.op = option;</span><br><span class="line">        <span class="keyword">this</span>.index = index;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">data</span> = <span class="keyword">data</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">TodoWrapper</span> </span>&#123;</span><br><span class="line">      <span class="keyword">constructor</span>(wrapper) &#123;</span><br><span class="line">        <span class="keyword">if</span> (typeof wrapper === <span class="string">'string'</span>) &#123;</span><br><span class="line">          wrapper = document.querySelector(wrapper);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.wrapper = wrapper;</span><br><span class="line">        <span class="keyword">this</span>.container = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">this</span>.todos = [];</span><br><span class="line">        <span class="keyword">this</span>.todoDoms = [];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.createContainer();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      render(diff) &#123;</span><br><span class="line">        switch (diff.op) &#123;</span><br><span class="line">          case <span class="string">'add'</span>:</span><br><span class="line">            <span class="keyword">this</span>.addTodoItemDom(diff.index, diff.<span class="keyword">data</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">          case <span class="string">'remove'</span>:</span><br><span class="line">            <span class="keyword">this</span>.removeTodoItemDom(diff.index, diff.<span class="keyword">data</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      addTodoItemDom(index, todo) &#123;</span><br><span class="line">        <span class="keyword">const</span> sibling = <span class="keyword">this</span>.todoDoms[index];</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.todoDoms.indexOf(todo) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!sibling) &#123;</span><br><span class="line">          <span class="keyword">this</span>.container.appendChild(todo.dom);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">this</span>.container.insertBefore(todo.dom, sibling);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      removeTodoItemDom(index) &#123;</span><br><span class="line">        <span class="keyword">const</span> todo = <span class="keyword">this</span>.todoDoms[index];</span><br><span class="line">        todo.remove();</span><br><span class="line">        <span class="keyword">this</span>.todoDoms.splice(index, <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      addTodoItem(index, todo) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.todos.indexOf(todo) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.todos.splice(index, <span class="number">0</span>, todo);</span><br><span class="line">        <span class="keyword">const</span> diff = new Diff(<span class="string">'add'</span>, index, todo);</span><br><span class="line">        <span class="keyword">this</span>.render(diff);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      removeTodoItem(index, todo) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.todos.indexOf(todo) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.todos.splice(index, <span class="number">1</span>, todo);</span><br><span class="line">        <span class="keyword">const</span> diff = new Diff(<span class="string">'remove'</span>, index, todo);</span><br><span class="line">        <span class="keyword">this</span>.render(diff);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      createContainer() &#123;</span><br><span class="line">        <span class="keyword">const</span> container = document.createElement(<span class="string">'div'</span>);</span><br><span class="line">        container.classList.add(<span class="string">'todo-container'</span>);</span><br><span class="line">        <span class="keyword">this</span>.wrapper.appendChild(container);</span><br><span class="line">        <span class="keyword">this</span>.container = container;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      destroy() &#123;</span><br><span class="line">        <span class="keyword">this</span>.wrapper = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">this</span>.container = <span class="literal">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>如此复杂的操作也是MVVM出现的原因。我们不需要再关注 DOM 的同步问题，只需要关注数据的改变即可。当数据改变的时候，我们的视图会随之变化。</p>
-<p>用Vue举例</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// <span class="keyword">in</span> .vue</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="xml">  </span><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"todo-wrapper"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span><span class="xml"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"todo in todoList"</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Todo</span> <span class="attr">:msg</span>=<span class="string">"todo.msg"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">export default Vue.extend(</span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery"> <span class="built_in"> name</span>: <span class="string">'todoList'</span>,</span></span><br><span class="line"><span class="xquery">  components: &#123;</span></span><br><span class="line"><span class="xquery">    Todo,</span></span><br><span class="line"><span class="xquery">  &#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  data() </span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="xquery">      todoList: [],</span></span><br><span class="line"><span class="xquery">    &#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>是不是简单多了？</p>
-<p>三大框架的流行使得现在出现很多脱离了框架就不会进行网站开发的“偏科生”</p>
-<p>之前有一篇特别有名的文章 <a href="https://github.com/xufei/blog/issues/19" target="_blank" rel="noopener">2015前端组件化框架之路 · Issue #19 · xufei/blog · GitHub</a> 推荐在学习框架的同时读一读，大概可以理解在15年那个分叉路口的风起云涌，也大致能理解为什么现在三大框架三足鼎立。</p>
-<p>有些框架被历史放弃，有些则激流勇进。</p>
-<h2 id="被神化的MVVM"><a href="#被神化的MVVM" class="headerlink" title="被神化的MVVM"></a>被神化的MVVM</h2><p>不久之前 Vue 在 github 的 star 数量超过了 react。但其实随着我接触前段时间的增长，我发现我更加喜欢 react 的开发方式，即使我最先接触的是 Vue。</p>
-<p>用于比较 Vue 与 React 区别的文章有很多，我在这里只想谈谈我自己的使用感受。</p>
-<p>就使用方式而言，Vue 是传一个配置文件给构造函数，而 React 则是配合 babel 的 jsx 转换自己写一个组件的类。</p>
-<p>ES6提供了标准的 Class，这让构建一个 React 组件时继承方式变得简单，当然，Vue 也提供了自己的 mixin 方式来实现，但总觉得有些别扭。</p>
-<p>当然，我并不是说Vue不好。</p>
-<p>什么是 MVVM 呢？</p>
-<p>就我自己而言的理解来说，数据驱动，使开发人员的关注点从视图分离，不需要注重数据与视图同步的过程。</p>
-<p>就实现方式而言，Vue通过es5所提供的 getter 和 setter 方法来实现依赖手机与视图更新，而React 则是通过手动触发。</p>
-<p>就效果而言，Vue的实现方式可以实现精准dom更新（因为Vue是深度绑定，如果是数组则会遍历整个数组使其响应化），而React则因为使用了数据更新的浅拷贝换取性能优势。</p>
-<p>这里仅以 Vue 为例</p>
-<p>相信对于 Vue 有一定了解的人都听说过 Watcher， Vue 实际上是使用观察者模式来实现 MVVM（不是发布订阅模式）</p>
-<p>在Vue初始化的时候实际上会进行一次渲染以触发数据的getter进行依赖收集。由于依赖收集与视图的更新依赖于getter/setter，为了达到这个目的，Vue需要深度遍历Data的每一个属性使其响应化（深度遍历每一个属性为其绑定上getter/setter，如果是数组，则会遍历整个数组）。</p>
-<p>当页面的变量达到非常大的时候，对于性能的需求与内存的需求都是一个不小的数字。</p>
-<p>我没有深入研究过React，不过相信过程都是差不多的，都需要进行依赖收集。</p>
-<p>MVVM的确是前端工程化的利器，但还是需要用客观的思想去看待问题，有时候自己瞎想，当工程规模更大的时候、更大的时候、更大的时候，MVVM 或许就会成为限制前端发展的瓶颈。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -626,175 +467,19 @@
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/links/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cao Yong">
-      <meta itemprop="description" content="一些奇奇怪怪的东西">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eden's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/05/06/links/" class="post-title-link" itemprop="url">友情链接</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-06 22:18:27" itemprop="dateCreated datePublished" datetime="2019-05-06T22:18:27+08:00">2019-05-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-09 16:19:17" itemprop="dateModified" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><a href="https://blog.nyan.im/posts/author/frank" target="_blank" rel="noopener">Frank’s Weblog</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
-
 
 
           </div>
           
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -814,8 +499,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -896,6 +590,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#稀释原理"><span class="nav-number">1.</span> <span class="nav-text">稀释原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debounce"><span class="nav-number">2.</span> <span class="nav-text">Debounce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Throttle"><span class="nav-number">3.</span> <span class="nav-text">Throttle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最近在项目中遇到的一些坑"><span class="nav-number">4.</span> <span class="nav-text">最近在项目中遇到的一些坑</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1026,6 +737,10 @@
 
 
   
+  <script src="/blog/js/scrollspy.js?v=7.1.1"></script>
+<script src="/blog/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -1041,6 +756,37 @@
 
   
 
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '524a2ec70d9f93b7d96f',
+    clientSecret: '403fd7b08932eb72291927b7c5bb6e574f7aa379',
+    repo: 'blog',
+    owner: 'EdenCao',
+    admin: [''],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
 
 
   

@@ -100,18 +100,27 @@
 
 
 
-  <meta name="description" content="Frank’s Weblog">
+  <meta name="description" content="距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。 如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：https://www.jianshu.com/p/866657da6b7e 其实上里面有一些概念是错误的：JS 中的 Class 是一个对象。本质上来说，如果将对象比喻成是一栋楼的话，Class 就是楼的设计图。这两者是不能混淆">
 <meta name="keywords" content="JavaScript,TypeScript,Linux,macOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="友情链接">
-<meta property="og:url" content="//edencao.github.io/blog/2019/05/06/links/index.html">
+<meta property="og:title" content="关于 ES Class 继承中的二三事（一）(你知道的原型链下)">
+<meta property="og:url" content="//edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/index.html">
 <meta property="og:site_name" content="Eden&#39;s Blog">
-<meta property="og:description" content="Frank’s Weblog">
+<meta property="og:description" content="距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。 如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：https://www.jianshu.com/p/866657da6b7e 其实上里面有一些概念是错误的：JS 中的 Class 是一个对象。本质上来说，如果将对象比喻成是一栋楼的话，Class 就是楼的设计图。这两者是不能混淆">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-09T08:19:17.892Z">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-baa09c4e46e6d98a.png">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-44532289517b9738.png">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-c7ebf470a45062ff.png">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-1562b36d33528f56.png">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-c67d34240301d20e.png">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-4110695187c69974.png">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-ebf0b761fe81f898.png">
+<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-724ca8fb99d9b649.png">
+<meta property="og:updated_time" content="2019-05-09T08:19:17.891Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="友情链接">
-<meta name="twitter:description" content="Frank’s Weblog">
+<meta name="twitter:title" content="关于 ES Class 继承中的二三事（一）(你知道的原型链下)">
+<meta name="twitter:description" content="距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。 如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：https://www.jianshu.com/p/866657da6b7e 其实上里面有一些概念是错误的：JS 中的 Class 是一个对象。本质上来说，如果将对象比喻成是一栋楼的话，Class 就是楼的设计图。这两者是不能混淆">
+<meta name="twitter:image" content="//upload-images.jianshu.io/upload_images/5617469-baa09c4e46e6d98a.png">
 
 
 
@@ -121,7 +130,7 @@
 
   
   
-  <link rel="canonical" href="//edencao.github.io/blog/2019/05/06/links/">
+  <link rel="canonical" href="//edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/">
 
 
 
@@ -131,7 +140,7 @@
   };
 </script>
 
-  <title>友情链接 | Eden's Blog</title>
+  <title>关于 ES Class 继承中的二三事（一）(你知道的原型链下) | Eden's Blog</title>
   
 
 
@@ -251,7 +260,7 @@
         
         
           
-          <li class="menu-item menu-item-links menu-item-active">
+          <li class="menu-item menu-item-links">
 
     
     
@@ -313,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/links/">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cao Yong">
@@ -330,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">友情链接
+          <h1 class="post-title" itemprop="name headline">关于 ES Class 继承中的二三事（一）(你知道的原型链下)
 
               
             
@@ -356,25 +365,9 @@
                 
               
 
-              <time title="创建时间：2019-05-06 22:18:27" itemprop="dateCreated datePublished" datetime="2019-05-06T22:18:27+08:00">2019-05-06</time>
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
             
 
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-09 16:19:17" itemprop="dateModified" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
-              
             
           </span>
 
@@ -407,9 +400,57 @@
       
 
       
-        <ul>
-<li><a href="https://blog.nyan.im/posts/author/frank" target="_blank" rel="noopener">Frank’s Weblog</a></li>
+        <p>距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。</p>
+<p>如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：<a href="https://www.jianshu.com/p/866657da6b7e" target="_blank" rel="noopener">https://www.jianshu.com/p/866657da6b7e</a></p>
+<p>其实上里面有一些概念是错误的：JS 中的 Class 是一个对象。本质上来说，如果将对象比喻成是一栋楼的话，Class 就是楼的设计图。这两者是不能混淆的，区别在于 JavaScript 使用原型来模拟类似于面向对象编程语言的一些行为，因此才会出现类似于“沿着原型寻方法” 或者 “遮蔽”这样的特性。</p>
+<p>实际上实现继承的方式有很多，《JavaScript 高级程序设计》上面已经介绍的很详细了，因此在这里不再赘述。不过如果你读过类属于 Vue / React 这种类库的源码的话就会发现，他们的核心代码还是在使用 Prototype 上面挂方法的方式来实现的（Monkey Patch）。</p>
+<p>如果你是用 ES Class 去实现一些比较复杂的 Class 的话就会发现，ES6 Class 实际上还是不适合去写一些特别复杂的类（尤其是类似于 Vue 这种）。</p>
+<p>如果你拥抱 ES6 Class 的话，就完全拥抱，如果你不喜欢这种方式，就完全不要用，这对于团队风格的统一、代码的实现方式以及日后维护都有着难以谚语的好处。</p>
+<p>继承的方式有很多种，写 React 组件采用的是组合式继承，Vue 则是提供了官方的 mixins。</p>
+<p>在标准 ES6 出现之前，我们都是在通过手动的方式来模拟继承的方式。现在，为了拥抱新的标准，我们会使用类似于 Babel 或者 shim 的方式来使用一些语法的新特性。</p>
+<p>但如果看过 Babel 的具体实现就会发现，继承实际上还是基于原型实现的。具体来说是把实例属性挂到对象上，然后 class 方法放到原型上。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-baa09c4e46e6d98a.png" alt="image.png">## 关于 bind</p>
+<p>如果你通读过类库 React 的官方文档的话，一定会记得 React 推荐你使用组合的方式来实现继承，而不是 Inheritance。这里附上原文地址：<a href="https://reactjs.org/docs/composition-vs-inheritance.html" target="_blank" rel="noopener">Composition vs Inheritance – React</a></p>
+<p>一个经常非常常见的问题是 this 丢失的问题，为此我们需要在 React 组件中这样写：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-44532289517b9738.png" alt="image.png">是因为 method 方法在传递引用的过程中 this 丢失了，因此我们需要手动将远行方法绑定到实例上面。<br></p>
+<p> Bind 方法返回一个指定 this 的新函数，由于方法会先一步挂到 class 上面，因此右侧的 method 指的是原型上的 method 方法，这句话在实例上面创建了一个 method 属性，此属性保持着对于绑定 this 的 method 函数的引用。</p>
+<p>同样的写法还有如下两种：</p>
+<ul>
+<li>property method</li>
 </ul>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-c7ebf470a45062ff.png" alt="image.png">- 在使用的时候绑定：</p>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-1562b36d33528f56.png" alt="image.png">这三种使用方式会造成什么问题？</p>
+<p>第一种会在实例上面创建一个实例属性。</p>
+<p>第二种方法实际上会被编译到 constructor 当中, 类似于这样：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-c67d34240301d20e.png" alt="image.png">我们在使用类继承的时候经常需要重载父类的函数，在 JavaScript 当中是通过遮蔽实现的。但是如果你在父类中使用了这种属性函数的方法，由于原型上的方法会先一步挂在到原型上，后一步 super 才会执行，结果是你的遮蔽是失效的。即使你在构造函数中手动绑定了 this 指向，也无法在函数内部通过 super.method 实现访问父类方法，因为这个方法并不存在在父类的原型上面。</p>
+<p>第三种方式实在使用的时候绑定：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-4110695187c69974.png" alt="image.png">但是 bind 函数被执行后会返回一个新的函数，这会造成每次 render 函数执行时会重新创建一个新的函数传递给自组件，props 改变，可能造成不必要的子组件重新渲染。</p>
+<p>实际上这些问题不仅仅在使用 react 的时候才会出现，如果你大量依赖于继承去实现你自己的类库的话，很容易碰到上述问题。</p>
+<p>不过我在 github 上面找到了一个很有意思的解决方案：</p>
+<p>Autobind:<a href="https://github.com/andreypopp/autobind-decorator" target="_blank" rel="noopener">GitHub - andreypopp/autobind-decorator: Decorator to automatically bind methods to class instances</a></p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-ebf0b761fe81f898.png" alt="image.png">因为实际上是创建了一个 getter 的闭包函数来存储 bind 的fn，因次只有在第一次访问的时候会绑定 this，剩下的访问的都是同一个函数，从而解决了多次渲染的问题。</p>
+<p>但这个方案也不是尽善尽美，我目前主要遇到了两个问题：</p>
+<ol>
+<li>实际上使用 decorator 去实现，但是高阶组件可能会有一些问题：</li>
+</ol>
+<!-- -->
+<p>如果你受过阮老师的教诲的话，他在博客中曾经提到过 react-redux 实际上是一个装饰器工厂，你可以如此使用：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@connect</span>(...)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Component</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component&lt;any</span>, <span class="title">any&gt;</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>不过我现在没有找到这句话，可能已经被其他大神纠正了。</p>
+<p>在这种装饰器里面是无法使用另一个装饰器的。</p>
+<p>而且 react 为了避免 bind 污染子属性的问题，使用组合的方式来实现继承，因此你在写高阶组件的时候实际上是这么写的</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-724ca8fb99d9b649.png" alt="image.png">实际上返回的是一个全新的组件，因此高阶组件 connect 到底属不属于 decorator 需要另作讨论。</p>
+<ol start="2">
+<li><p>mixins<br></p>
+<p>另外就是在使用 mixins 的时候，可能会出发 autobind 的 getter 导致绑定到错误的对象上面。</p>
+</li>
+</ol>
+<!-- -->
+<p>如果你是用 autobind 的话，大概需要注意如上两个问题。</p>
+<p>实际上，就我个人而言，还是倾向于使用 bind 来解决 this 指向问题，不仅仅因为机制简单易懂，而且可以避免很多类似于 autobind 或者 property function 的问题，并且在子类中可以正确的使用 super.method 访问父类的方法。</p>
+<p>但如果你像我一样同样青睐这种方式的话，要注意一下：只在必要的地方使用 bind 以保证 this 的正确指向（因为会存在污染子类的问题），一般情况下，需要 bind 的情况只发生在<strong>需要传递函数引用的时候</strong></p>
 
       
     </div>
@@ -440,14 +481,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/blog/2019/05/09/Talk-About-Rem-And-Vw----Rem/" rel="next" title="谈谈 rem 与 vw -- rem">
+                <i class="fa fa-chevron-left"></i> 谈谈 rem 与 vw -- rem
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/05/08/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/" rel="prev" title="前端组件化之路的一些思考与被神化的MVVM">
-                前端组件化之路的一些思考与被神化的MVVM <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/05/09/The-Big-Front-End-That-Never-Goes-Out-Of-Style/" rel="prev" title="永不落伍的大前端">
+                永不落伍的大前端 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

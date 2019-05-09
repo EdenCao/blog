@@ -313,7 +313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Remember-A-Millet-Front-End-Test/">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cao Yong">
@@ -333,7 +333,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/blog/2019/05/06/Remember-A-Millet-Front-End-Test/" class="post-title-link" itemprop="url">记一次小米前端面试题</a>
+                <a href="/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/" class="post-title-link" itemprop="url">观察者模式 vs 订阅发布模式</a>
               
             
           </h1>
@@ -358,7 +358,7 @@
                 
               
 
-              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
             
 
             
@@ -395,76 +395,20 @@
       
         
           
-            <p>这两天参加了一次小米的面试，面试方式比较随意，直接用微信聊的。感觉面试题有些意思，所以想记下来，也使我学到了不少东西。</p>
-<blockquote>
-<p>Q:</p>
-<p>定义这样一个函数</p>
-<p>function doRepeat(func, times, wait) {</p>
-<p>}</p>
-<p>参数分别是需要 repeat的函数， repeat的次数，每次repeat的间隔</p>
-<p>使用方式如下：</p>
-<p>调用这个函数能返回一个新函数，比如传入的是alert，这个函数的调用就是<br></p>
-<p> var repeatedFun = doRepeat(alert, 10, 5000);</p>
-<p>调用返回的这个新函数，如: repeatFun(“hellworld”);</p>
-<p>会依次alert十次 helloworld，每次间隔5秒</p>
-</blockquote>
-<p>这个题目很简单，单从要求来看考验的是闭包函数，所以我们只需要使用延时函数再return一个函数就能达到要求，答案网上也能查到。我使用<code>setInterval</code>函数实现的，这里只给出部分关键性代码。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> _args = <span class="built_in">arguments</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> handler = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (i == times) &#123;</span><br><span class="line">                clearInterval(handler);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            func(_args[<span class="number">0</span>]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;, wait)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个函数非常简单，请在十分钟内完成就好。但是这里想说一下几个要点：</p>
-<ul>
-<li><p>一个是程序的可用性：即程序是否可以正常运行，这个是最基本的条件，如果不能达到请自觉面壁30秒。</p>
-</li>
-<li><p>另外一个是程序的健壮性：是否检查传参的完整性？是否检查参数类型？我想强调这一点，因为javascript是自动类型的语言，在运行过程中进行类型的检测是十分重要的问题。</p>
-</li>
-<li><p>另外一个是程序的可读性：这个也是最基本的问题之一，代码风格良好的程序应该可读性强，并且仅添加必要的注释。</p>
-</li>
-<li><p>程序的和谐性：即在程序出错的情况下是否依然可以返回标准的数据格式？可以看到我在检查参数出错以后返回</p>
-</li>
-</ul>
-<!-- -->
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>这么做可以避免因为此函数出错而影响其他的功能性函数。</p>
-<ul>
-<li>程序的包容性：可以看到我在函数中进行了类型转换。这也是我在工作中遇到的问题，当我们参与工作的协作之时，我们往往需要调用同事或者其他人的函数，而javascript的自动类型也可能导致传过来的参数类型并不标准，如果我们能在代码中给予这些“小问题”适当的支持，那么我们的函数将会友好很多。这里我将并不标准的字符串类型转换为了Number类型。</li>
-</ul>
-<!-- -->
-<p>这些特点实际上是我在某篇文章上面看到的，但是实际应用以后发现受益良多，我会在找到这篇文章以后把链接发上来。我坚信良好的代码风格可以帮助我们避免很多坑，并且严格遵守这一点。</p>
-<p>但是实际上我写的这个函数并不完善，这一点也将在后面的面试题中考到。</p>
-<blockquote>
-<p>Q:<br></p>
-<p> 请再用setTimeout实现一下</p>
-</blockquote>
-<p>果然考到了这一点，setTimeout在实际运用的过程中会有很多的坑，最明显的问题就是异步问题，这也是我一开始使用<code>setInterval</code>来实现的原因。下面给出代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> _args = <span class="built_in">arguments</span>;</span><br><span class="line">        <span class="comment">// 如果次数大于0先执行一遍，避免setTimeout延迟问题</span></span><br><span class="line">        <span class="keyword">if</span> (times &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            func(_args[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; times; i++) &#123;</span><br><span class="line">            (<span class="built_in">window</span>.setTimeout)(func(_args[<span class="number">0</span>]), wait);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这是我一开始写的代码，但是实际上这段代码是错误的。我在setTimeout一行中使用了立即执行函数，但是立即执行函数并不会阻塞函数的运行，所以这段代码还是会在N秒过后一下子把所有的函数全部执行一遍。</p>
-<p>请注意，这里又一个小坑，使用setTimeout是延迟执行函数，如果直接使用第一次传入的函数不会立即执行，所以需要先做一次判断。</p>
-<blockquote>
-<p>Q:<br></p>
-<p> 能不能不要一下子就设定好所有的setTimeout<br></p>
-<p> 在完成一个setTimeout后再去递归一下</p>
-</blockquote>
-<p>这次考的是递归，没有什么难度。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回函数主体</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 如果次数达到则退出</span></span><br><span class="line">        <span class="keyword">if</span> (times === i) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> _args = <span class="built_in">arguments</span>;</span><br><span class="line">        </span><br><span class="line">        func(_args[<span class="number">0</span>]);</span><br><span class="line">        i++;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 尾递归</span></span><br><span class="line">        <span class="keyword">return</span> setTimeout(repeat.bind(<span class="keyword">this</span>, _args[<span class="number">0</span>]), wait);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>写到这里，突然觉得这个函数其实还是不够健壮。我们来分析一下参数，func参数，默认是一个函数。times参数，默认是一个非负数。wait也默认是一个非负数。</p>
-<p>如果传入的参数times是一个负数，那么这个函数将会陷入死循环。这里做检测是否存在过度优化的问题？我还是抱有疑虑。</p>
-<blockquote>
-<p>Q: 这里如果有多个参数怎么办？比如传入的函数叫console.log,可以接受多个参数<br></p>
-<p> A:方法比较多，比如可以规定传参的格式，用数组将参数包裹起来，或者使用arguments<br></p>
-<p> Q: show me the code</p>
-</blockquote>
-<p>这里实际上有个坑，就是IE9的setTimeout只能传入两个参数（IE的梗已经被玩烂了）,这里可以使用<code>bind</code>函数来解决这个问题。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回函数主体</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 如果次数达到则退出</span></span><br><span class="line">        <span class="keyword">if</span> (times === i) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> _args = [].slice.call(<span class="built_in">arguments</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果次数大于0并且是第一次执行则先执行一遍，避免setTimeout延迟问题</span></span><br><span class="line">        func(..._args)</span><br><span class="line">        <span class="comment">// 尾递归</span></span><br><span class="line">        <span class="keyword">return</span> setTimeout(repeat.bind(<span class="keyword">this</span>, _args), wait);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里同样解释一下这行代码的作用</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _args = [].slice.<span class="built_in">call</span>(arguments)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>可以看到我在下面的代码中使用了展开运算符<code>...</code>，但是展开运算符的使用需要迭代器。<code>arguments</code>不是数组，所以没有迭代器。</p>
-<p>考虑以下代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log([] <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><br><span class="line">&#125;)() <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span> <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><br><span class="line">&#125;)() <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<p>这些大概就是全部的面试过程，不过最后俺没去成小米，因为时间实在是不合适……</p>
-<p>最后想给自己挖个坑，也出个升级版的问题</p>
-<blockquote>
-<p>Q: 请将这道题用setTimeout配合Generator函数实现一遍</p>
-</blockquote>
-<p>这几天考试，等考完试我再来填……</p>
+            <p>一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。</p>
+<p>实际上，我理解中的观察者模式是1:n，而订阅发布模式是m:n的模式。观察者模式需要观察者直接在被观察这种注册，两者直接耦合，一般是同步的，而订阅发布模式则存在一个调度中心，观察者与被观察者不关心对方是谁，只通过消息通信，一般是异步的。</p>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-cfc10dbaa7f89f40.png" alt="image.png"><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadTask</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> status: <span class="string">'loadding'</span> | <span class="string">'finished'</span> | <span class="string">'pause'</span> = <span class="string">'loadding'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="keyword">public</span> id: number, <span class="keyword">public</span> taskName: string) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> finish() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'finished'</span>;</span><br><span class="line">    console.log(`Task $&#123;<span class="keyword">this</span>.taskName&#125; <span class="keyword">is</span> notifed`);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> pause() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'pause'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> start() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'loadding'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadList</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> downloadList: DownloadTask[];</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList = [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> add(task: DownloadTask) &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.push(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> remove(id: number) &#123;</span><br><span class="line">    <span class="keyword">for</span> (let task of <span class="keyword">this</span>.downloadList) &#123;</span><br><span class="line">      <span class="keyword">if</span> (task.id === id) &#123;</span><br><span class="line">        <span class="keyword">const</span> index = <span class="keyword">this</span>.downloadList.indexOf(task);</span><br><span class="line">        <span class="keyword">this</span>.downloadList.splice(index, <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">get</span>(index: number) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.downloadList[index];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> length() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.downloadList.length;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">DataHub</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> downloadList = <span class="keyword">new</span> DownloadList();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">addDownloadTask</span>(<span class="params">task: DownloadTask</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.<span class="keyword">add</span>(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">removeDownloadTask</span>(<span class="params">task: DownloadTask</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.<span class="keyword">remove</span>(task.id);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">notify</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> len = <span class="keyword">this</span>.downloadList.length();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">      <span class="keyword">this</span>.downloadList.<span class="keyword">get</span>(i).finish();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> task1 = <span class="keyword">new</span> DownloadTask(<span class="number">1</span>, <span class="string">'task1'</span>);</span><br><span class="line"><span class="keyword">const</span> task2 = <span class="keyword">new</span> DownloadTask(<span class="number">2</span>, <span class="string">'task2'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dataHub = <span class="keyword">new</span> DataHub();</span><br><span class="line"></span><br><span class="line">dataHub.addDownloadTask(task1);</span><br><span class="line">dataHub.addDownloadTask(task2);</span><br><span class="line"></span><br><span class="line">dataHub.notify();</span><br></pre></td></tr></table></figure>
+<h2 id="订阅发布模式"><a href="#订阅发布模式" class="headerlink" title="订阅发布模式"></a>订阅发布模式</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-0b00146ea93782a9.png" alt="image.png"><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadTask</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> status: <span class="string">'loadding'</span> | <span class="string">'finished'</span> | <span class="string">'pause'</span> = <span class="string">'loadding'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="keyword">public</span> id: number, <span class="keyword">public</span> taskName: string) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> finish() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'finished'</span>;</span><br><span class="line">    console.log(`Task $&#123;<span class="keyword">this</span>.taskName&#125; <span class="keyword">is</span> notifed`);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> pause() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'pause'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> start() &#123;</span><br><span class="line">    <span class="keyword">this</span>.status = <span class="string">'loadding'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadList</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> downloadList: DownloadTask[];</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList = [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> add(task: DownloadTask) &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.push(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> remove(id: number) &#123;</span><br><span class="line">    <span class="keyword">for</span> (let task of <span class="keyword">this</span>.downloadList) &#123;</span><br><span class="line">      <span class="keyword">if</span> (task.id === id) &#123;</span><br><span class="line">        <span class="keyword">const</span> index = <span class="keyword">this</span>.downloadList.indexOf(task);</span><br><span class="line">        <span class="keyword">this</span>.downloadList.splice(index, <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">get</span>(index: number) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.downloadList[index];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> length() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.downloadList.length;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">DataHub</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> downloadList = <span class="keyword">new</span> DownloadList();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">addDownloadTask</span>(<span class="params">task: DownloadTask</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.<span class="keyword">add</span>(task);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">removeDownloadTask</span>(<span class="params">task: DownloadTask</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.downloadList.<span class="keyword">remove</span>(task.id);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">notify</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> len = <span class="keyword">this</span>.downloadList.length();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">      <span class="keyword">this</span>.downloadList.<span class="keyword">get</span>(i).finish();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> DepManager &#123;</span><br><span class="line">  <span class="keyword">public</span> events: &#123;</span><br><span class="line">    [index: <span class="built_in">string</span>]: <span class="function">(<span class="params">(<span class="params">...rest: <span class="built_in">any</span>[]</span>) =&gt; <span class="built_in">void</span></span>)[];</span></span><br><span class="line"><span class="function">  &#125; = &#123;&#125;;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">public</span> <span class="params">registerChannel</span>(<span class="params">evtName: <span class="built_in">string</span></span>) &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params">!<span class="keyword">this</span>.events[evtName]</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">this</span>.<span class="params">events</span>[<span class="params">evtName</span>] = [];</span></span><br><span class="line"><span class="function">    &#125; <span class="params">else</span> &#123;</span></span><br><span class="line"><span class="function">      <span class="params">console</span>.<span class="params">error</span>(<span class="params">'already registed'</span>);</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">public</span> <span class="params">subscribe</span>(<span class="params">evtName: <span class="built_in">string</span>, cb: <span class="built_in">any</span></span>) &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params"><span class="keyword">this</span>.events[evtName]</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">this</span>.<span class="params">events</span>[<span class="params">evtName</span>].<span class="params">push</span>(<span class="params">cb</span>);</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">public</span> <span class="params">emit</span>(<span class="params">evtName: <span class="built_in">string</span>, payload?: <span class="built_in">any</span></span>) &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params"><span class="keyword">this</span>.events[evtName]</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">try</span> &#123;</span></span><br><span class="line"><span class="function">        <span class="params">const</span> <span class="params">subscribers</span> = <span class="params">this</span>.<span class="params">events</span>[<span class="params">evtName</span>];</span></span><br><span class="line"><span class="function">        <span class="params">for</span> (<span class="params"><span class="keyword">let</span> i = 0; i &lt; subscribers.length; i++</span>) &#123;</span></span><br><span class="line"><span class="function">          <span class="params">subscribers</span>[<span class="params">i</span>].<span class="params">call</span>(<span class="params"><span class="literal">null</span>, payload</span>);</span></span><br><span class="line"><span class="function">        &#125;</span></span><br><span class="line"><span class="function">      &#125; <span class="params">catch</span> (<span class="params">e</span>) &#123;&#125;</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> task1 = <span class="keyword">new</span> DownloadTask(<span class="number">1</span>, <span class="string">'task1'</span>);</span><br><span class="line"><span class="keyword">const</span> task2 = <span class="keyword">new</span> DownloadTask(<span class="number">2</span>, <span class="string">'task2'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> taskList = <span class="keyword">new</span> DownloadList();</span><br><span class="line">taskList.<span class="built_in">add</span>(task1);</span><br><span class="line">taskList.<span class="built_in">add</span>(task2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> manager = <span class="keyword">new</span> DepManager();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dataHub = <span class="keyword">new</span> DataHub();</span><br><span class="line"></span><br><span class="line">manager.registerChannel(<span class="string">'datahub'</span>);</span><br><span class="line"></span><br><span class="line">manager.subscribe(<span class="string">'datahub'</span>, () =&gt; &#123;</span><br><span class="line">  console.<span class="built_in">log</span>(<span class="string">'dispatch'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">manager.emit(<span class="string">'datahub'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>其实比较明显的地方在于观察者模式提供了一种点对多点的交互，但是当业务逻辑复杂的时候这种关系难以维护，因为需要单独对于被观察者进行注册，而订阅发布者模式则提供了一种统一事件管理方式，但相对的，实现所需要的成本则更高一些。</p>
+<p>注：<br></p>
+<p> 以上的代码源自知乎：<a href="https://www.zhihu.com/question/23486749" target="_blank" rel="noopener">https://www.zhihu.com/question/23486749</a></p>
 
           
         
@@ -521,7 +465,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Operating-System-(I)/">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/09/Operating-System-(2)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cao Yong">
@@ -541,7 +485,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/blog/2019/05/06/Operating-System-(I)/" class="post-title-link" itemprop="url">操作系统（一）</a>
+                <a href="/blog/2019/05/09/Operating-System-(2)/" class="post-title-link" itemprop="url">操作系统（二）</a>
               
             
           </h1>
@@ -566,244 +510,7 @@
                 
               
 
-              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h1><h2 id="计算机系统"><a href="#计算机系统" class="headerlink" title="计算机系统"></a>计算机系统</h2><p><strong>硬件</strong><br></p>
-<p> 计算机的实体部分，是有形的设备和装置的总称</p>
-<p><strong>软件</strong><br></p>
-<p> 控制计算机运行的程序及其相关信息</p>
-<h2 id="操作系统层次结构"><a href="#操作系统层次结构" class="headerlink" title="操作系统层次结构"></a>操作系统层次结构</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-36373db9790f0607.jpg" alt="操作系统层次结构.jpg">下层的软件为上一层提供服务，上层的软件依靠下层的软件完成任务。</p>
-<h2 id="什么是操作系统"><a href="#什么是操作系统" class="headerlink" title="什么是操作系统"></a>什么是操作系统</h2><ul>
-<li><p>一个系统软件 - 为用户提供方便操作计算机的手段</p>
-<ul>
-<li>使系统能够高效运转</li>
-<li>管理和控制系统中的各种资源</li>
-<li><p>协调系统中的各个组成部分</p>
-<!-- -->
-</li>
-</ul>
-</li>
-<li><p>计算机程序，作用和地位比较特殊 - 为用户使用计算机提供基础支持</p>
-<ul>
-<li><p>负责提高整个计算机系统的效率</p>
-<!-- -->
-</li>
-</ul>
-</li>
-</ul>
-<!-- -->
-<h2 id="操作系统的任务"><a href="#操作系统的任务" class="headerlink" title="操作系统的任务"></a>操作系统的任务</h2><ul>
-<li>方便用户使用计算机：提供接口</li>
-<li>提高系统效率：管理资源</li>
-</ul>
-<!-- -->
-<h3 id="管理资源"><a href="#管理资源" class="headerlink" title="管理资源"></a>管理资源</h3><p>资源类型：</p>
-<ul>
-<li>储存器</li>
-<li>各种输入输出设备</li>
-<li>以文件形式存在的各种数据</li>
-<li>各种可执行程序</li>
-</ul>
-<!-- -->
-<p>因此资源管理包括：</p>
-<ul>
-<li>储存器管理</li>
-<li>I/O设备管理</li>
-<li>文件管理</li>
-<li>进程管理</li>
-</ul>
-<!-- -->
-<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><ul>
-<li>形式上与普通函数相似，但有本质区别</li>
-<li>使程序能够运行核心态指令</li>
-</ul>
-<!-- -->
-<h2 id="指令级别"><a href="#指令级别" class="headerlink" title="指令级别"></a>指令级别</h2><ul>
-<li><p>核心级 - 比较重要、会对系统产生致命影响的指令</p>
-  <!-- -->
-</li>
-<li><p>用户级</p>
-</li>
-</ul>
-<!-- -->
-<h2 id="处理机的工作状态"><a href="#处理机的工作状态" class="headerlink" title="处理机的工作状态"></a>处理机的工作状态</h2><ul>
-<li><p>核心态 - 通过设置硬件标记实现</p>
-<ul>
-<li><p>处理机才能执行核心级指令</p>
-<!-- -->
-</li>
-</ul>
-</li>
-<li><p>用户态 - 不能执行核心级指令，只能执行用户级指令</p>
-  <!-- -->
-</li>
-</ul>
-<!-- -->
-<h2 id="操作系统类型"><a href="#操作系统类型" class="headerlink" title="操作系统类型"></a>操作系统类型</h2><ul>
-<li><p>管理的硬件规模 - 嵌入式操作系统</p>
-<ul>
-<li>微机操作系统</li>
-<li>中小型机操作系统</li>
-<li><p>大/巨型机操作系统</p>
-<!-- -->
-</li>
-</ul>
-</li>
-<li><p>响应和处理用户任务的方式 - 批处理操作系统</p>
-<ul>
-<li>分时操作系统</li>
-<li><p>实时操作系统</p>
-<!-- -->
-</li>
-</ul>
-</li>
-<li><p>管理资源的内容 - 单机操作系统</p>
-<ul>
-<li>网络操作系统</li>
-<li><p>分布式操作系统</p>
-<!-- -->
-</li>
-</ul>
-</li>
-</ul>
-<!-- -->
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Operating-System-(2)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cao Yong">
-      <meta itemprop="description" content="一些奇奇怪怪的东西">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eden's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/05/06/Operating-System-(2)/" class="post-title-link" itemprop="url">操作系统（二）</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
             
 
             
@@ -1072,7 +779,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/VScode-Configuration-List/">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/09/Object-oriented-Modeling-Analysis-(I)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cao Yong">
@@ -1092,7 +799,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/blog/2019/05/06/VScode-Configuration-List/" class="post-title-link" itemprop="url">VScode 配置清单</a>
+                <a href="/blog/2019/05/09/Object-oriented-Modeling-Analysis-(I)/" class="post-title-link" itemprop="url">面向对象建模分析（一）</a>
               
             
           </h1>
@@ -1117,7 +824,7 @@
                 
               
 
-              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
             
 
             
@@ -1154,30 +861,148 @@
       
         
           
-            <h1 id="VS-code-配置文件"><a href="#VS-code-配置文件" class="headerlink" title="VS code 配置文件"></a>VS code 配置文件</h1><p>我一直觉得所谓的编辑器之争与语言之争以及编程风格之争是一件很无聊的事情，一个优秀的工程师需要学会在合适的地方选择合适的工具或语言帮助自己完成任务，而几个同样优秀的编程风格之间最重要的是有一个统一的标准。或许是我见识浅薄，但我坚持认为只有拥有这样的认知标准才能称为一个优秀的工程师，而不是成为语言和工具的奴隶。</p>
-<p>VS code 确实对我来说拥有无与伦比的优势，相比于插件丰富的 Atom 来说，vs code 内置的终端确实更对我的胃口，经过简单的配置就可以使用，在这一点上的确对我很有吸引力。</p>
-<h2 id="vscode配置"><a href="#vscode配置" class="headerlink" title="vscode配置"></a>vscode配置</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"gitlens.advanced.messages"</span>: &#123;</span><br><span class="line">        <span class="string">"suppressCommitHasNoPreviousCommitWarning"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressCommitNotFoundWarning"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressFileNotUnderSourceControlWarning"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressGitVersionWarning"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressLineUncommittedWarning"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressNoRepositoryWarning"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressUpdateNotice"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"suppressWelcomeNotice"</span>: <span class="keyword">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 开启vscode-icons主题</span></span><br><span class="line">    <span class="string">"workbench.iconTheme"</span>: <span class="string">"vscode-icons"</span>,</span><br><span class="line">    <span class="comment">// 个人感觉颜色比较鲜艳的主题</span></span><br><span class="line">    <span class="string">"workbench.colorTheme"</span>: <span class="string">"One Dark Pro Vivid"</span>,</span><br><span class="line">    <span class="comment">// 我在这里对自动保存设置了一个延迟</span></span><br><span class="line">    <span class="string">"files.autoSave"</span>: <span class="string">"afterDelay"</span>,</span><br><span class="line">    <span class="string">"git.confirmSync"</span>: <span class="keyword">false</span>,</span><br><span class="line">    <span class="string">"editor.formatOnType"</span>: <span class="keyword">true</span>,</span><br><span class="line">    <span class="comment">// 在这里主要做了对vue语言的支持</span></span><br><span class="line">    <span class="string">"files.associations"</span>: &#123;</span><br><span class="line">        <span class="string">"*.vue"</span>: <span class="string">"vue"</span>,</span><br><span class="line">        <span class="string">"*.js"</span>: <span class="string">"javascript"</span>,</span><br><span class="line">        <span class="string">"*.md"</span>: <span class="string">"markdown"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 将一些不必要的搜索范围去掉</span></span><br><span class="line">    <span class="string">"search.exclude"</span>: &#123;</span><br><span class="line">        <span class="string">"**/node_modules"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"**/bower_components"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"**/dist"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"**/.git"</span>: <span class="keyword">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 主要是设置选中范围是尖角还是圆角，没啥必要</span></span><br><span class="line">    <span class="string">"editor.roundedSelection"</span>: <span class="keyword">false</span>,</span><br><span class="line">    <span class="comment">// 因为有时后需要查看.git的设置，所以将.git加入显示范围</span></span><br><span class="line">    <span class="string">"files.exclude"</span>: &#123;</span><br><span class="line">        <span class="string">"**/.git"</span>: <span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"**/.svn"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"**/.hg"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"**/CVS"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"**/.DS_Store"</span>: <span class="keyword">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 这里主要是设置emmet对于vue的支持</span></span><br><span class="line">    <span class="string">"emmet.syntaxProfiles"</span>: &#123;</span><br><span class="line">        <span class="string">"vue"</span>: <span class="string">"html"</span>,</span><br><span class="line">        <span class="string">"vue-html"</span>: <span class="string">"html"</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 同上</span></span><br><span class="line">    <span class="string">"emmet.includeLanguages"</span>: &#123;</span><br><span class="line">        <span class="string">"vue-html"</span>: <span class="string">"html"</span>,</span><br><span class="line">        <span class="string">"vue"</span>: <span class="string">"html"</span>,</span><br><span class="line">        <span class="string">"javascript"</span>: <span class="string">"javascriptreact"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 我比较喜欢用Enter换行，所以emmet提示设置只用tab选择</span></span><br><span class="line">    <span class="string">"emmet.triggerExpansionOnTab"</span>: <span class="keyword">true</span>,</span><br><span class="line">    <span class="comment">// Fira Code是我最喜欢的字体，下面会介绍原因</span></span><br><span class="line">    <span class="string">"editor.fontFamily"</span>: <span class="string">"Fira Code, Menlo, Monaco, 'Courier New', monospace"</span>,</span><br><span class="line">    <span class="comment">// 将行高设置高一点会显得很高大上且舒服</span></span><br><span class="line">    <span class="string">"editor.lineHeight"</span>: <span class="number">24</span>,</span><br><span class="line">    <span class="comment">// 缩进规则，主要看公司要求和个人习惯</span></span><br><span class="line">    <span class="string">"[javascript]"</span>: &#123;</span><br><span class="line">        <span class="string">"editor.insertSpaces"</span>: <span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"editor.tabSize"</span>: <span class="number">4</span></span><br><span class="line">    &#125;,</span><br><span class="line">     <span class="comment">// 因为我没怎么用过打开的编辑器，都是用cmd+p进行跳转。。</span></span><br><span class="line">    <span class="string">"explorer.openEditors.visible"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="comment">// 主要是一些css代码规范的问题，禁用important</span></span><br><span class="line">    <span class="string">"css.lint.important"</span>: <span class="string">"error"</span>,</span><br><span class="line">    <span class="string">"less.lint.important"</span>: <span class="string">"error"</span>,</span><br><span class="line">    <span class="string">"scss.lint.important"</span>: <span class="string">"error"</span>,</span><br><span class="line">    <span class="comment">// 设置eslint对于vue的支持</span></span><br><span class="line">    <span class="string">"eslint.validate"</span>: [</span><br><span class="line">        <span class="string">"javascript"</span>,</span><br><span class="line">        <span class="string">"javascriptreact"</span>,</span><br><span class="line">        <span class="string">"html"</span>,</span><br><span class="line">        <span class="string">"vue"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// 我不是很喜欢小地图。。</span></span><br><span class="line">    <span class="string">"editor.minimap.enabled"</span>: <span class="keyword">false</span>,</span><br><span class="line">    <span class="comment">// Fira Code 支持需要开启</span></span><br><span class="line">    <span class="string">"editor.fontLigatures"</span>: <span class="keyword">true</span>,</span><br><span class="line">    <span class="string">"editor.tabSize"</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="comment">// 对于一些比较头痛的地方禁用emmet</span></span><br><span class="line">    <span class="string">"emmet.excludeLanguages"</span>: [</span><br><span class="line">        <span class="string">"markdown"</span>,</span><br><span class="line">        <span class="string">"less"</span>,</span><br><span class="line">        <span class="string">"pug"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// 设置代码换行大小</span></span><br><span class="line">    <span class="string">"editor.rulers"</span>: [</span><br><span class="line">        <span class="number">80</span>,</span><br><span class="line">        <span class="number">120</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"todohighlight.include"</span>: [</span><br><span class="line">        <span class="string">"**/*.js"</span>,</span><br><span class="line">        <span class="string">"**/*.jsx"</span>,</span><br><span class="line">        <span class="string">"**/*.ts"</span>,</span><br><span class="line">        <span class="string">"**/*.tsx"</span>,</span><br><span class="line">        <span class="string">"**/*.html"</span>,</span><br><span class="line">        <span class="string">"**/*.php"</span>,</span><br><span class="line">        <span class="string">"**/*.css"</span>,</span><br><span class="line">        <span class="string">"**/*.scss"</span>,</span><br><span class="line">        <span class="string">"**/*.less"</span>,</span><br><span class="line">        <span class="string">"**/*.vue"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// 一个给文件加注释头的插件。。</span></span><br><span class="line">    <span class="string">"topper.headerTemplates"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"defaultCStyled"</span>: &#123;</span><br><span class="line">                <span class="string">"headerBegin"</span>: <span class="string">"/**"</span>,</span><br><span class="line">                <span class="string">"headerPrefix"</span>: <span class="string">"*"</span>,</span><br><span class="line">                <span class="string">"headerEnd"</span>: <span class="string">"*/"</span>,</span><br><span class="line">                <span class="string">"template"</span>: [</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerBegin&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> <span class="subst">$&#123;fileName&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @author <span class="subst">$&#123;author&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @description <span class="subst">$&#123;description&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @created <span class="subst">$&#123;createdDate&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @copyright <span class="subst">$&#123;copyright&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @last-modified <span class="subst">$&#123;lastModifiedDate&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerEnd&#125;</span>"</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"python"</span>: &#123;</span><br><span class="line">                <span class="string">"headerBegin"</span>: <span class="string">"#"</span>,</span><br><span class="line">                <span class="string">"headerPrefix"</span>: <span class="string">"#"</span>,</span><br><span class="line">                <span class="string">"headerEnd"</span>: <span class="string">"#"</span>,</span><br><span class="line">                <span class="string">"template"</span>: [</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerBegin&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> <span class="subst">$&#123;fileName&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @author <span class="subst">$&#123;author&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @description <span class="subst">$&#123;description&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @created <span class="subst">$&#123;createdDate&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerPrefix&#125;</span> @last-modified <span class="subst">$&#123;lastModifiedDate&#125;</span>"</span>,</span><br><span class="line">                    <span class="string">"<span class="subst">$&#123;headerEnd&#125;</span>"</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"topper.customTemplateParameters"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"personalProfile"</span>: &#123;</span><br><span class="line">                <span class="string">"author"</span>: <span class="string">"yungcho"</span>,</span><br><span class="line">                <span class="string">"website"</span>: <span class="string">""</span>,</span><br><span class="line">                <span class="string">"copyright"</span>: <span class="string">"None \n None"</span>,</span><br><span class="line">                <span class="string">"license"</span>: <span class="string">"None"</span>,</span><br><span class="line">                <span class="string">"email"</span>: <span class="string">"yungcho@foxmail.com"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"officeProfile"</span>: &#123;</span><br><span class="line">                <span class="string">"author"</span>: <span class="string">"Cao Yong"</span>,</span><br><span class="line">                <span class="string">"department"</span>: <span class="string">"PGC"</span>,</span><br><span class="line">                <span class="string">"email"</span>: <span class="string">"caoyong@bytedance.com"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"git.autofetch"</span>: <span class="keyword">true</span>,</span><br><span class="line">    <span class="string">"workbench.activityBar.visible"</span>: <span class="keyword">true</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="字体介绍"><a href="#字体介绍" class="headerlink" title="字体介绍"></a>字体介绍</h2><p>一个非常漂亮的连字体，专为程序员设计。具体不再赘述，详细可以查看 <a href="https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Ftonsky%2FFiraCode" target="_blank" rel="noopener">fira code 的 github</a></p>
-<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h3 id="Auto-Close-Tag"><a href="#Auto-Close-Tag" class="headerlink" title="Auto Close Tag"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dformulahendry.auto-close-tag" target="_blank" rel="noopener">Auto Close Tag</a></h3><p>Auto Close Tag 可以帮助我们自动闭合标签，并且可以帮我们检查标签是否完备，这在使用Vue、React组件式开发的过程中可以帮助我们节省大量的时间。</p>
-<h3 id="Auto-Rename-Tag"><a href="#Auto-Rename-Tag" class="headerlink" title="Auto Rename Tag"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dformulahendry.auto-rename-tag" target="_blank" rel="noopener">Auto Rename Tag</a></h3><p>与 Auto Close Tag 是一对，可以在我们修改标签的时候自动帮助我们修改一对。</p>
-<h3 id="Beautify"><a href="#Beautify" class="headerlink" title="Beautify"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DHookyQR.beautify" target="_blank" rel="noopener">Beautify</a></h3><p>一个自动格式化软件</p>
-<h3 id="Bracket-Pair-Colorizer"><a href="#Bracket-Pair-Colorizer" class="headerlink" title="Bracket Pair Colorizer"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DCoenraadS.bracket-pair-colorizer" target="_blank" rel="noopener">Bracket Pair Colorizer</a></h3><p>一个自动给括号上不同颜色的插件，妈妈再也不怕我面对括号嵌套了。</p>
-<h3 id="EditorConfig-VS-Code-Snippet"><a href="#EditorConfig-VS-Code-Snippet" class="headerlink" title="EditorConfig VS Code Snippet"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dzgudino.editorconfig-vscode-snippet" target="_blank" rel="noopener">EditorConfig VS Code Snippet</a></h3><p>项目文件中的<code>.editorconfig</code>文件，加上这个插件就能自动读取了。</p>
-<h3 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddbaeumer.vscode-eslint" target="_blank" rel="noopener">ESLint</a></h3><p>一个添加vscode对于eslint支持的插件，加上以后不需要命令行就可以直接在编辑器中标识不符合规则的部分。</p>
-<h3 id="filesize"><a href="#filesize" class="headerlink" title="filesize"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dmkxml.vscode-filesize" target="_blank" rel="noopener">filesize</a></h3><p>一个可以自动标识文件大小的小插件</p>
-<h3 id="Git-History"><a href="#Git-History" class="headerlink" title="Git History"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddonjayamanne.githistory" target="_blank" rel="noopener">Git History</a></h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-4f543e4a4ffde0dc.gif" alt="gitHistory">一个很方便的查看git历史记录的插件</p>
-<h3 id="GitLens"><a href="#GitLens" class="headerlink" title="GitLens"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Deamodio.gitlens" target="_blank" rel="noopener">GitLens</a></h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-82e7fc27724d2b85.gif" alt="GitLens">一个可以看到当前代码提交记录的插件</p>
-<h3 id="HTML-CSS-SUPPORT"><a href="#HTML-CSS-SUPPORT" class="headerlink" title="HTML CSS SUPPORT"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Decmel.vscode-html-css" target="_blank" rel="noopener">HTML CSS SUPPORT</a></h3><p>代码补全工具</p>
-<h3 id="HTML-Snippets"><a href="#HTML-Snippets" class="headerlink" title="HTML Snippets"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dabusaidm.html-snippets" target="_blank" rel="noopener">HTML Snippets</a></h3><p>HTML的snippet插件</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-74e8c410147ac51c.gif" alt="html snippet">### <a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dzhuangtongfa.Material-theme" target="_blank" rel="noopener">One Dark Pro</a></p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-7645cf03cde89df4.png" alt="oneDarkPro">很漂亮的vscode主题，再也不羡慕Atom了</p>
-<h3 id="Path-Intellisense"><a href="#Path-Intellisense" class="headerlink" title="Path Intellisense"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dchristian-kohler.path-intellisense" target="_blank" rel="noopener">Path Intellisense</a></h3><p>自动路径提示</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-432a522c222f3ae5.gif" alt="path intellisense">### <a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dchrmarti.regex" target="_blank" rel="noopener">Regex Previewer</a></p>
-<p>一个写完正则就可以直接测试的插件</p>
-<h3 id="TODO-Highlight"><a href="#TODO-Highlight" class="headerlink" title="TODO Highlight"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dwayou.vscode-todo-highlight" target="_blank" rel="noopener">TODO Highlight</a></h3><p>一个TODO LIST的插件</p>
-<h3 id="Vetur"><a href="#Vetur" class="headerlink" title="Vetur"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Doctref.vetur" target="_blank" rel="noopener">Vetur</a></h3><p>vue官方推荐的插件，可以代码提示等功能</p>
-<h3 id="vscode-icons"><a href="#vscode-icons" class="headerlink" title="vscode-icons"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Drobertohuertasm.vscode-icons" target="_blank" rel="noopener">vscode-icons</a></h3><p>很漂亮且很实用的图标插件，帮助我们区分不同类型。</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-57f5cc18c0676ebd.gif" alt="vscode-icon"></p>
+            <h2 id="面向对象分析方法"><a href="#面向对象分析方法" class="headerlink" title="面向对象分析方法"></a>面向对象分析方法</h2><h3 id="软件的错误是怎样产生的？软件工程的挑战有哪些"><a href="#软件的错误是怎样产生的？软件工程的挑战有哪些" class="headerlink" title="软件的错误是怎样产生的？软件工程的挑战有哪些"></a>软件的错误是怎样产生的？软件工程的挑战有哪些</h3><ol>
+<li>交付的软件不是用户需要的</li>
+<li>用户需求的变化</li>
+<li>风险没有管理</li>
+<li>无力的团队管理</li>
+</ol>
+<!-- -->
+<h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><p>软件是一种特别的产品，随着规模和复杂性的进步以及应用领域的扩大逐渐形成了工程。<br></p>
+<p> 是计算机中与硬件相互依存的另一部分，包括程序、数据和说明文档。</p>
+<p>程序是按照设计要求和性能指标设计的指令序列</p>
+<p>数据是程序能够正常操纵信息的数据结构</p>
+<p>说明文档是用于开发和维护软件程序的各种图文资料。</p>
+<h3 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h3><p>软件工程是软件的工程性方法，涵盖了所有生命周期，并提供了一整套工程性方法来指导软件开发。</p>
+<p>软件工程是一门研究如何用系统化、规范化、数量化等工程原则和方法去进行软件的开发和维护的学科。</p>
+<p>包含：1. 软件开发技术 2. 软件项目管理</p>
+<p>软件工程三要素：方法、工具、过程</p>
+<p>软件工程应包括的知识（10个）：软件需求、软件设计、软件构建、软件维护、软件配置管理、软件工程管理、软件工程过程、软件工程工具和方法、软件质量</p>
+<h3 id="软件的发展历程经历了哪几个阶段，每个阶段的特点是什么？"><a href="#软件的发展历程经历了哪几个阶段，每个阶段的特点是什么？" class="headerlink" title="软件的发展历程经历了哪几个阶段，每个阶段的特点是什么？"></a>软件的发展历程经历了哪几个阶段，每个阶段的特点是什么？</h3><ul>
+<li><p><strong>第一阶段：</strong>程序设计阶段 - 个人英雄主义的开发、软件开发就是程序设计、不考虑通用型</p>
+<ul>
+<li>文档不全</li>
+<li>只有程序的概念，没有软件的概念。</li>
+<li><p>采用汇编语言、机器语言应对计算机性能问题</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p><strong>第二阶段：</strong>软件设计阶段 - 程序规模增大、需小组协作生产</p>
+<ul>
+<li>由小组运行、维护</li>
+<li>程序重要性提升，不再被视作硬件的附属成分。</li>
+<li><p>在计算机系统的开发过程中与硬件工程师共同起主导作用。</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p><strong>第三阶段：</strong>传统软件工程阶段 - 采用工程化生产方式</p>
+<ul>
+<li>软件产业兴起</li>
+<li>软件开发成功率、质量大大提升。</li>
+<li><p>软件工程并发环境及并发环境涌现，度量问题得到重视。</p>
+<!-- -->
+</li>
+</ul>
+</li>
+<li><p><strong>第四阶段：</strong>现代软件工程阶段 - OOP广泛使用</p>
+<ul>
+<li><p>软件开发技术逐渐成熟</p>
+<!-- -->
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+<h3 id="软件危机"><a href="#软件危机" class="headerlink" title="软件危机"></a>软件危机</h3><p>指计算机软件的开发和维护过程中所遇到了一系列严重问题。</p>
+<h3 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h3><p>包括分析、设计、实现、测试和维护等。</p>
+<h3 id="软件工程的框架"><a href="#软件工程的框架" class="headerlink" title="软件工程的框架"></a>软件工程的框架</h3><p>软件工程目标：正确性、可用性、费用合算</p>
+<p>软件工程活动：需求、设计、实现、确认、支持</p>
+<p>软件工程原则：适宜开发范型、合适设计方法、高质量工程支持</p>
+<h3 id="软件过程"><a href="#软件过程" class="headerlink" title="软件过程"></a>软件过程</h3><p>是为了获得高质量软件所需要完成的一系列步骤。</p>
+<p>生命周期模型把生命周期划分成那些阶段以及执行顺序，也称为软件过程模型。</p>
+<p>常见模型：瀑布模型、快速原型模型、增量模型、螺旋模型</p>
+<h3 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-7c113c0f38095316.jpg" alt="瀑布模型.jpg"><strong>应用场景：</strong>大型软件项目；需求明确；需求变化少</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li>阶段间具有顺序性和依赖性</li>
+<li>推迟实现的观点。</li>
+<li>质量保证的观点</li>
+</ul>
+<!-- -->
+<p><strong>优点：</strong></p>
+<ul>
+<li>严格规定了必须提交的文档</li>
+<li>按活动划分的检查点</li>
+<li>当前阶段完成后，只需关注后续阶段</li>
+</ul>
+<!-- -->
+<p><strong>缺点：</strong></p>
+<ul>
+<li>阶段划分固定、阶段间大量文档增加工作量</li>
+<li>开发模型线性，只有在过程结束才能看到成果，增加风险</li>
+<li>早期的错误可能要等到末期测试才能发现，带来严重后果</li>
+</ul>
+<!-- -->
+<h3 id="快速原型模型"><a href="#快速原型模型" class="headerlink" title="快速原型模型"></a>快速原型模型</h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-910c5279f56299dc.jpg" alt="快速原型模型.jpg"><strong>应用领域：</strong>客户不熟悉软件、沟通理解困难</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>减少需求不明确带来的开发风险</li>
+<li>更好和客户沟通</li>
+<li>减少技术、应用风险，缩小成本，提高产品质量</li>
+</ul>
+<!-- -->
+<p><strong>缺点</strong></p>
+<ul>
+<li>尽可能快速建造原型、限制开发人员创新</li>
+<li>所选技术工具不一定主流，效率低</li>
+<li>可能导致产品设计差</li>
+<li>客户确定真正需求、原型可能被抛弃</li>
+</ul>
+<!-- -->
+<h3 id="增量模型（演化模型）"><a href="#增量模型（演化模型）" class="headerlink" title="增量模型（演化模型）"></a>增量模型（演化模型）</h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-7540c98ec24b4304.jpg" alt="增量模型.jpg"><strong>适用范围：</strong>需求比较明确、架构稳定</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>及时反馈、适应变化好</li>
+<li>客户看到不断变化的软件，降低开发风险</li>
+<li>团队士气的鼓舞</li>
+</ul>
+<!-- -->
+<p><strong>缺点：</strong></p>
+<ul>
+<li>需要开放式的体系结构，维护难度大</li>
+<li>容易退化为边做边改模型、使软件过程控制失去整体性</li>
+</ul>
+<!-- -->
+<h3 id="螺旋模型"><a href="#螺旋模型" class="headerlink" title="螺旋模型"></a>螺旋模型</h3><p><img src="//upload-images.jianshu.io/upload_images/5617469-a0d7885fbe7f587c.jpg" alt="螺旋模型.jpg"><strong>适用范围：</strong>大型复杂的系统</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>强调可选方案以及约束条件支持软件重用</li>
+<li>有助于提升软件质量</li>
+</ul>
+<!-- -->
+<p><strong>缺点：</strong></p>
+<ul>
+<li>要求客户接受相信风险分析</li>
+<li>风险分析成本过大则无意义</li>
+<li>需善于识别风险且准确</li>
+</ul>
+<!-- -->
+<h3 id="结构化方法（面向功能、数据流软件开发方法，结构化生命周期法）"><a href="#结构化方法（面向功能、数据流软件开发方法，结构化生命周期法）" class="headerlink" title="结构化方法（面向功能、数据流软件开发方法，结构化生命周期法）"></a>结构化方法（面向功能、数据流软件开发方法，结构化生命周期法）</h3><p><strong>五个阶段：</strong>规划、分析、设计、实施、运行维护<br></p>
+<p><strong>Jackson方法的表示：</strong>顺序、选择、重复</p>
+<h3 id="面向对象软件开发方法"><a href="#面向对象软件开发方法" class="headerlink" title="面向对象软件开发方法"></a>面向对象软件开发方法</h3><p>自底向上的归纳、自顶向下的分解，尽可能运用人类自然思维方式</p>
+<p><strong>要点：</strong></p>
+<ul>
+<li>客观世界由各种对象组成</li>
+<li>所有对象划分为类</li>
+<li>类具有登记</li>
+<li>对象之间通过消息交互</li>
+</ul>
+<!-- -->
+<p><strong>三大重要特征：</strong>封装、继承、多态</p>
+<p><strong>基本概念：</strong>对象、类、封装…</p>
+<p><strong>核心概念：</strong>对象、类</p>
 
           
         
@@ -1234,7 +1059,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Draft.js-Data-Structure/">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cao Yong">
@@ -1254,7 +1079,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/blog/2019/05/06/Draft.js-Data-Structure/" class="post-title-link" itemprop="url">Draft.js的数据结构</a>
+                <a href="/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/" class="post-title-link" itemprop="url">面向对象建模分析（二）</a>
               
             
           </h1>
@@ -1279,13 +1104,9 @@
                 
               
 
-              <time title="创建时间：2019-05-06 16:50:33 / 修改时间：17:20:01" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
             
 
-            
-              
-
-              
             
           </span>
 
@@ -1320,20 +1141,97 @@
       
         
           
-            <h1 id="Draft-js的数据结构"><a href="#Draft-js的数据结构" class="headerlink" title="Draft.js的数据结构"></a>Draft.js的数据结构</h1><p><code>Draft.js</code>使用EditorState来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍<code>Draft.js</code>的数据结构。</p>
-<h2 id="不可变的数据结构"><a href="#不可变的数据结构" class="headerlink" title="不可变的数据结构"></a>不可变的数据结构</h2><p><code>Draft.js</code>基于<code>immutable.js</code>实现了一种不可变的数据结构，基于这种数据结构，<code>Draft.js</code>实现了单项数据流，即 event -&gt; onChange -&gt; EditorState</p>
-<h2 id="EditorState-概览"><a href="#EditorState-概览" class="headerlink" title="EditorState 概览"></a>EditorState 概览</h2><p>我在 <a href="https://link.jianshu.com?t=https%3A%2F%2Fcodepen.io%2Fyungcho%2Fpen%2FNXJxNL%3Feditors%3D1111" target="_blank" rel="noopener">CodePen</a> 上面实现了一个简单的Demo用于展示EditorState，你可以在上面尝试一下。</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-da61a2f10ca947bb.png" alt="EditorState.png">上图展示了一个完整的EditorState，我们可以轻易的猜测出一些属性的含义，比如currentContent记录了当前编辑器中展示内容的状态，selection中标识当前的选区，redoStack和undoStack分别是撤销、重做栈，而EditorState则提供了操作这些属性的顶层方法。</p>
-<h2 id="样式展现"><a href="#样式展现" class="headerlink" title="样式展现"></a>样式展现</h2><p><code>Draft</code>将样式分为块级样式与内联样式，块级样式之间线性排列，不可嵌套，内联样式则用数组记录，可以重叠。</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-5f9ea9a1806e6f34.png" alt="块级样式.png">当我在<code>draft</code>中随意输入一些文字的时候，text将会记录下文字内容，而此时用于记录块级样式的type值为<code>unstyled</code></p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-6cb8672da4e5a2a1.png" alt="块级样式与内联样式.png">现在我们将H1（块级元素）应用于文本，我们可以发现用于标识块级样式的type值变为了<code>header-one</code>，当我们继续在该行输入的时候，将会同样被赋予H1样式。通过上述的数据结构我们可以发现，由于块级样式由type所规定，所以块级样式之间不可被嵌套，即不会出现无序列表嵌套有序列表的情况出现。</p>
-<p>对于同一块级元素中的文本内容，<code>draft</code>将其按照字符进行拆分,每一个字符的内联样式用数组进行展示，由此可以解决内联样式的嵌套问题。</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-d113d9fa0a9f9133.png" alt="内联样式.png"><br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"> [<span class="symbol">'ITALIC</span>'], // 斜</span><br><span class="line"> [<span class="symbol">'ITALIC</span>'], // 体</span><br><span class="line"> [],</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //斜</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //体</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //加</span><br><span class="line"> ...</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
-<h2 id="Entity元数据"><a href="#Entity元数据" class="headerlink" title="Entity元数据"></a>Entity元数据</h2><p>Entity并不是一个难以理解的数据类型，Entity数据主要用于展示一些不可被分割的数据类型，例如图片、mention、超链接等。</p>
-<p>典型场景就是mention类型，详细来说，我们在日常使用中会在富文本编辑器中提及一些人， @xxx 的数据类型要求是一个统一整体，一旦 @xxx 中有某一个字符被删除，就有可能会出现 @ 出的名字和 @ 的对象不一致的情况。</p>
-<p>在上图中，我将插入的图片数据结构打印了出来，我们可以发现这是一个Entity，记录了data，mutability与type，<code>Draft.js</code>向外暴露了一个顶层接口，当Entity数据被注入的时候，可以通过这个接口来设计数据对象的展现方式，如下图</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Draft Editor</span></span><br><span class="line">&lt;Editor</span><br><span class="line"> blockRendererFn=&#123;<span class="keyword">this</span>.mediaBlockRenderer&#125;</span><br><span class="line">/&gt;</span><br><span class="line">​</span><br><span class="line"><span class="comment">// mediaBlockRenderer</span></span><br><span class="line">mediaBlockRenderer(block) &#123;</span><br><span class="line"> <span class="keyword">if</span>(block.getType() === <span class="string">'atomic'</span>) &#123;</span><br><span class="line"> <span class="keyword">return</span> &#123;</span><br><span class="line"> component: Media,</span><br><span class="line"> editable: <span class="literal">false</span>,</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Media</span></span><br><span class="line"><span class="keyword">const</span> Media = <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">const</span> entity = props.contentState.getEntity(</span><br><span class="line"> props.block.getEntityAt(<span class="number">0</span>)</span><br><span class="line"> );</span><br><span class="line"> <span class="keyword">const</span> &#123;src&#125; = entity.getData();</span><br><span class="line"> <span class="keyword">const</span> <span class="keyword">type</span> = entity.getType();</span><br><span class="line"> <span class="built_in">console</span>.log(&#123;entity&#125;);</span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> media;</span><br><span class="line"> <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">'audio'</span>) &#123;</span><br><span class="line"> media = &lt;Audio src=&#123;src&#125; /&gt;;</span><br><span class="line"> &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">'image'</span>) &#123;</span><br><span class="line"> media = &lt;Image src=&#123;src&#125; /&gt;;</span><br><span class="line"> &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">'video'</span>) &#123;</span><br><span class="line"> media = &lt;Video src=&#123;src&#125; /&gt;;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> media;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+            <h1 id="需求工程"><a href="#需求工程" class="headerlink" title="需求工程"></a>需求工程</h1><h2 id="需求工程的基本概念"><a href="#需求工程的基本概念" class="headerlink" title="需求工程的基本概念"></a>需求工程的基本概念</h2><h3 id="什么是需求工程？"><a href="#什么是需求工程？" class="headerlink" title="什么是需求工程？"></a>什么是需求工程？</h3><p>对系统应该提供的服务和所受到的约束进行理解、分析、建立文档、检验的过程</p>
+<h3 id="软件需求的困难"><a href="#软件需求的困难" class="headerlink" title="软件需求的困难"></a>软件需求的困难</h3><ul>
+<li>应用领域的广泛性</li>
+<li>非功能性需求建模技术的缺乏</li>
+<li>沟通上的困难</li>
+</ul>
+<!-- -->
+<h3 id="软件需求的内容"><a href="#软件需求的内容" class="headerlink" title="软件需求的内容"></a>软件需求的内容</h3><ul>
+<li><p>功能需求</p>
+<p>  对系统应该提供的服务、功能以及系统在特定条件下的行为的描述</p>
+</li>
+<li><p>非功能需求</p>
+<p>  如性能指标、道德约束等</p>
+</li>
+<li><p>领域需求</p>
+<p>  是由软件系统的应用领域所决定的特有的功能需求</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="需求分析的作用"><a href="#需求分析的作用" class="headerlink" title="需求分析的作用"></a>需求分析的作用</h3><ul>
+<li><p>定义软件范围及必须满足的约束</p>
+</li>
+<li><p>确定软件功能、性能与其他系统成分接口</p>
+</li>
+<li><p>建立数据模型、功能模型、行为模型</p>
+</li>
+<li><p>最终提供需求规格说明，并作为评估质量的依据</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="需求工程基本活动"><a href="#需求工程基本活动" class="headerlink" title="需求工程基本活动"></a>需求工程基本活动</h3><ul>
+<li>获取需求</li>
+<li>需求分析与建模</li>
+<li>确认需求</li>
+<li>进化需求</li>
+</ul>
+<!-- -->
+<h3 id="需求获取"><a href="#需求获取" class="headerlink" title="需求获取"></a>需求获取</h3><p><strong>三个问题：</strong></p>
+<ul>
+<li>明确需要获取的信息（what）</li>
+<li>明确所获取信息的来源和渠道（where）</li>
+<li>怎样获取需求（how）</li>
+</ul>
+<!-- -->
+<h3 id="需求获取技术"><a href="#需求获取技术" class="headerlink" title="需求获取技术"></a>需求获取技术</h3><ul>
+<li><p>面谈法</p>
+<p>  众包：一个公司和机构吧过去由员工执行的工作任务，以自由自愿的方式外包给非特定的大众网络的做法。</p>
+</li>
+<li><p>问卷调查法</p>
+</li>
+<li><p>需求专题讨论会</p>
+</li>
+<li><p>观察用户的工作流程</p>
+</li>
+<li><p>原型化方法</p>
+</li>
+<li><p>基于用例的方法</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="需求分析与建模"><a href="#需求分析与建模" class="headerlink" title="需求分析与建模"></a>需求分析与建模</h3><p><strong>三个层次：</strong></p>
+<ul>
+<li>需求分析</li>
+<li>需求建模</li>
+<li>需求规格说明</li>
+</ul>
+<!-- -->
+<h3 id="需求分析常用技术"><a href="#需求分析常用技术" class="headerlink" title="需求分析常用技术"></a>需求分析常用技术</h3><ul>
+<li><p>分解</p>
+</li>
+<li><p>抽象</p>
+</li>
+<li><p>多视点</p>
+</li>
+</ul>
+<!-- -->
+<h3 id="需求分析方法"><a href="#需求分析方法" class="headerlink" title="需求分析方法"></a>需求分析方法</h3><h4 id="功能分解方法"><a href="#功能分解方法" class="headerlink" title="功能分解方法"></a>功能分解方法</h4><p><img src="//upload-images.jianshu.io/upload_images/5617469-8f086672c082915e.jpg" alt="功能分解方法.jpg">- 将系统看作若干功能模块的集合，每个功能可以分解为子功能（递归） - <strong>不足之处</strong> <br></p>
+<pre><code> 需要人工完成&lt;br&gt;
+
+ 无法对描述的准确度进行验证&lt;br&gt;
+
+ 难以适应需求变化
+
+&lt;!-- --&gt;
+</code></pre><!-- -->
+<h4 id="结构化分析方法"><a href="#结构化分析方法" class="headerlink" title="结构化分析方法"></a>结构化分析方法</h4><ul>
+<li>不考</li>
+</ul>
+<!-- -->
+<h4 id="信息建模法"><a href="#信息建模法" class="headerlink" title="信息建模法"></a>信息建模法</h4><p>是从数据的角度对现实世界建立系统的信息模型。ER图</p>
+<h4 id="面向对象分析方法"><a href="#面向对象分析方法" class="headerlink" title="面向对象分析方法"></a>面向对象分析方法</h4><p>识别问题域内的对象，分析他们之间的关系，并建立起三类模型。</p>
 
           
         
@@ -1390,7 +1288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cao Yong">
@@ -1410,7 +1308,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/blog/2019/05/06/Talk-About-Rem-And-Vw----Rem/" class="post-title-link" itemprop="url">谈谈 rem 与 vw -- rem</a>
+                <a href="/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/" class="post-title-link" itemprop="url">面向对象建模分析（四）</a>
               
             
           </h1>
@@ -1435,7 +1333,7 @@
                 
               
 
-              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
             
 
             
@@ -1472,53 +1370,26 @@
       
         
           
-            <h1 id="谈谈rem与vw-—-rem"><a href="#谈谈rem与vw-—-rem" class="headerlink" title="谈谈rem与vw — rem"></a>谈谈rem与vw — rem</h1><p>写这篇文章的原因，源于我在头条的面试。面试官问到了关于手机端适配rem的问题，这个问题非常有意思，想和大家分享一下：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Q:能谈谈<span class="built_in">rem</span>的作用吗，与em有什么区别？</span><br><span class="line">A: <span class="built_in">rem</span> 是html 的font-<span class="built_in">size</span>大小，一般为 <span class="number">16</span>px， em 是父节点的 font-<span class="built_in">size</span> 大小</span><br><span class="line">Q: 我们为什么要用<span class="built_in">rem</span>去做手机的适配？如果<span class="built_in">rem</span>只是根节点字体大小的话，那么<span class="built_in">rem</span> 其实和px 、em没有区别，<span class="built_in">rem</span>解决了什么问题？</span><br></pre></td></tr></table></figure>
-<p>我之前确实做过几个简单的手机H5页面，只是在使用淘宝的lib-flexible方案，只觉得rem是解决方案的结果，但是从没想过为什么要使用rem来做手机端的适配。</p>
-<p>当我再次去看淘宝的lib-flexible的时候，发现此方案已经不被推荐了，取而代之的是<a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.w3cplus.com%2Fmobile%2Fvw-layout-in-vue.html" target="_blank" rel="noopener">《如何在Vue项目中使用vw实现移动端适配》</a>,于是想借此机会将 rem 与 vw 一起总结一下。</p>
-<h2 id="手机端适配模式"><a href="#手机端适配模式" class="headerlink" title="手机端适配模式"></a>手机端适配模式</h2><p><img src="//upload-images.jianshu.io/upload_images/5617469-ed6d76dad2b44548.jpg" alt="手机淘宝团队适配协作模式">## 一些基本概念</p>
-<p>具体内容可以查看<a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.w3cplus.com%2Fmobile%2Flib-flexible-for-html5-layout.html" target="_blank" rel="noopener">《使用Flexible实现手淘H5页面的最终适配》</a>,在这里，我只对其中的一些概念谈一谈自己的理解。</p>
-<h3 id="viewport"><a href="#viewport" class="headerlink" title="viewport"></a>viewport</h3><p>简单来说，viewport严格等于浏览器视窗大小（不包含滚动条），但是在移动设备上有些复杂，分为 visualviewport 与 layoutviewport。这里不做详细解释，可以查看<a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.w3cplus.com%2Fcss%2Fviewports.html" target="_blank" rel="noopener">《viewports剖析》</a>来了解详细内容，看完这篇文章，你会明白为什么在html头部 emmet 会自动帮你生成</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">"viewport"</span> <span class="attribute">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="设备独立像素（虚拟像素）"><a href="#设备独立像素（虚拟像素）" class="headerlink" title="设备独立像素（虚拟像素）"></a>设备独立像素（虚拟像素）</h3><p>设备独立像素是软件概念上的一个像素，一个设备独立像素可以对应多个物理像素，对应关系由相关系统控制（我们不用管），CSS像素（即写在css中的1px）就是一种设备独立像素。</p>
-<p>例如苹果是Retina屏，1px（虚拟像素） = 4px（物理像素，dpr=2）</p>
-<p>盗一张手淘的图：</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-518e49b5197bf1f3.jpg" alt="物理像素对虚拟像素">### dpr</p>
-<p>dpr实际上是一个比值，标识一个虚拟像素对应几个物理像素。正常屏幕1个 CSS 像素对应1个物理像素，dpr=1，Retina 屏幕1个 CSS 像素对应 n^2 个物理像素，dpr 为 n。例如上面那张图 dpr 就是2，因为一个 CSS 像素对应 4 个物理像素， 长对应2个，宽对应2个。</p>
-<h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h3><p>rem 简单来说是 html 的 font-size 大小，一般默认为 16px，与 em 的父节点 font-size 大小不同。一般 rem 方案解决小屏幕适配问题就是通过 JavaScript 动态改变 html 元素的 font-size 大小进行适配（组件使用 rem 作为度量）</p>
-<h2 id="lib-flexible"><a href="#lib-flexible" class="headerlink" title="lib-flexible"></a>lib-flexible</h2><p><a href="https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Famfe%2Flib-flexible" target="_blank" rel="noopener">lib-flexible</a>是淘宝团队推出的一种 rem 适配方案，它帮我们解决了不同屏幕如何设置 html 的 font-size 大小与 dpr 的问题。</p>
-<p>可以看到 lib-flexible 里面有两个版本， master 里面用正则匹配 IOS 端和 Android 端，而Branch 2.0 版本则取消了对于 dpr 的适配，具体我会在下面进行介绍。</p>
-<h3 id="rem-解决了什么问题"><a href="#rem-解决了什么问题" class="headerlink" title="rem 解决了什么问题"></a>rem 解决了什么问题</h3><p>首先要明确的一点是 data-dpr 和 rem 解决的是两个维度的问题。 Rem 解决的是移动端适配的问题， data-dpr 是在解决了移动端适配问题的基础上用于提升视觉效果。</p>
-<p>在 Web App 上面，我们需要禁止页面缩放。</p>
-<p><br></p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-5206f315d53cde18.jpeg" alt="手淘webapp.jpeg">可以试着打开一下手机淘宝页面，你会发现你无法将这个页面放大。</p>
-<p>考虑一个问题，你需要为一个 375px 大小的屏幕做页面，页面充满整个屏幕, 里面有一个 200px 大小的弹窗，你需要如何去实现它？</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">375px</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="selector-class">.dialog</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果这么做就 GG 了，当这个页面放到大一些的屏幕上（例如 414px的屏幕），那么显示出来的效果会出现留白。 414 是 iPhone * Plus 的尺寸，如果放到 ipad 上面那么留白会更大。</p>
-<p>我们如何解决这个问题呢？</p>
-<p>如果能够有一种动态的修改元素的长度就好了。</p>
-<p>rem 就是这样一种原理，我们的组件使用 rem 进行编写，然后使用 JavaScript 动态设置 rem 到 px 的映射关系，这样就可以实现对于不同手机页面的适配了。</p>
-<p>上 lib-flexible 源码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 经过精简</span></span><br><span class="line"><span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setRemUnit</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rem = docEl.clientWidth / <span class="number">10</span></span><br><span class="line">    docEl.style.fontSize = rem + <span class="string">'px'</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>具体 rem 的计算我会在下面介绍，核心代码实际上就是为 html 元素设置一个 font-size 而已。</p>
-<h3 id="lib-flexible-设置-dpr-又是为了什么？"><a href="#lib-flexible-设置-dpr-又是为了什么？" class="headerlink" title="lib-flexible 设置 dpr 又是为了什么？"></a>lib-flexible 设置 dpr 又是为了什么？</h3><p>为了解决“极致的1px”问题。</p>
-<p>再次把这张图放一下：</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-aa5c7c5195cd2639.jpg" alt="物理像素对虚拟像素">在 Retina 屏幕上面，1个 CSS 像素实际上对应着4个物理像素（dpr=2的情况）。当我们在屏幕上画1px 的线时，Retina 屏幕实际上是2个物理像素宽。我们要实现“极致的1px”就是希望在Retina屏幕上画出一条1个物理像素宽的细线。</p>
-<p>原理其实也很简单，对于 dpr=2的设备，设置 rem 的值为正常值的 2 倍，将需要画出“极致的线”的地方使用1px表示，再将页面缩小2倍，这样1px的线就变成了“0.5px”，实际上为1个物理像素来表示。</p>
-<p>同理，对于 dpr=n 的设备，将 rem 值设为正常的 n 倍，在对页面缩放 n 倍。</p>
-<p>现在的 lib-flexible 有两个版本，master 版本和 2.0 版本。在 master 版本中使用 正则来判断系统种类（IOS/Andorid），但是只对 IOS 系统做了 dpr 的适配，对于 Android 手机，统一设置 dpr =1；</p>
-<p>实际上使用 rem 配合 dpr 缩放的方式有非常多的问题。最明显的例子就是安卓机 dpr 的混乱，例如 VIVO 的某款手机甚至出现了 dpr 为小数的情况（上文我们介绍到，1个 CSS 像素对应多少个物理像素 dpr 就是几，显然不可能出现小数位的情况），所以使用缩放来实现“极致的1px”兼容性并不是很好。</p>
-<p>有团队的做法是将 dpr 设置有问题的机型进行上报，然后收集成一个白名单，再根据白名单在 lib-flexible 对于有问题的机型进行单独适配，然而这个工作量一般的小团队没有精力去做……</p>
-<p>所以我们可以看到 2.0 版本已经舍弃了这种做法。</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 进行了精简</span></span><br><span class="line"><span class="comment">// detect 0.5px supports</span></span><br><span class="line"><span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement;</span><br><span class="line"><span class="keyword">if</span> (dpr &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> fakeBody = <span class="built_in">document</span>.createElement(<span class="string">'body'</span>)</span><br><span class="line">  <span class="keyword">var</span> testElement = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">  testElement.style.border = <span class="string">'.5px solid transparent'</span></span><br><span class="line">  fakeBody.appendChild(testElement)</span><br><span class="line">  docEl.appendChild(fakeBody)</span><br><span class="line">  <span class="keyword">if</span> (testElement.offsetHeight === <span class="number">1</span>) &#123;</span><br><span class="line">    docEl.classList.add(<span class="string">'hairlines'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  docEl.removeChild(fakeBody)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到这个版本对于设备进行了一个测试，如果该设备支持 0.5px 的书写方式，那么就在 <code>html</code> 元素上面添加一个 <code>hairlines</code> 的类,我们在使用的时候只需要在<code>header</code>中添加<code>.hirlines div {border-width: 0.5px}</code>就可以了。</p>
-<p>例如：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// some device support 0.5 px</span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">class</span>=<span class="string">"hairlines"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      div &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">boder</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.hairlines</span> <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">border</span>: 0<span class="selector-class">.5px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>我是极致的1px<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这样，如果支持 0.5 px，就会出现一条非常细的线，否则就按照正常的显示方式。</p>
-<h2 id="Rem的映射方式"><a href="#Rem的映射方式" class="headerlink" title="Rem的映射方式"></a>Rem的映射方式</h2><p>这个问题其实很简单，首先我们设定一个基于设计稿的 rem 基准值，然后在真实设备上乘一个设计稿对真实设备的比值：</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-648a2fc5ba4c63e2.png" alt="rem转化公式.png">而 lib-flexible 则默认规定了 rem 的取值为屏幕宽度的十分之一</p>
-<h2 id="Rem的一些问题"><a href="#Rem的一些问题" class="headerlink" title="Rem的一些问题"></a>Rem的一些问题</h2><p>使用 rem 方式布局其实有很多问题。我们使用 rem 转换出来的 px 往往有很多小数点，所以最终的展示效果的 CSS 长宽实际上是经过四舍五入的。因此往往我们需要手动去调整“最后的1px”，这给我们带来了很多的麻烦。</p>
-<p>因此 rem 确实是对移动端适配的一种解决方案，但并非无懈可击。</p>
+            <h2 id="什么是动态建模"><a href="#什么是动态建模" class="headerlink" title="什么是动态建模"></a>什么是动态建模</h2><p>所有系统均可表示为：静态结构和动态结构</p>
+<p>状态图、活动图、顺序图和协作图描述系统结构和行为，适合描述系统在不同的时间点是如何动态交互的。</p>
+<h2 id="活动图"><a href="#活动图" class="headerlink" title="活动图"></a>活动图</h2><h3 id="活动图与状态图的区别"><a href="#活动图与状态图的区别" class="headerlink" title="活动图与状态图的区别"></a>活动图与状态图的区别</h3><p>活动图能够表示并发活动</p>
+<p>活动图是面向对象的，流程图示面向过程的</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-cba0f2031eb4ea64.jpg" alt="活动图.jpg">- 带泳道的活动图</p>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-432b73ab0b199281.jpg" alt="泳道.jpg">## 状态图</p>
+<p>只有当行为的改变和状态有关时才能创建状态图</p>
+<p>状态图通常只用于描述单个对象的行为，如果要描述对象间的交互，最好采用时序图或协作图。</p>
+<p>两个核心元素：圆角矩形表示的状态；称为转换的箭头线。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-ba690ddac71b1408.jpg" alt="状态图.jpg"><img src="//upload-images.jianshu.io/upload_images/5617469-e68f47efe5e7cae1.jpg" alt="状态图2.jpg">## 顺序图</p>
+<p>消息的语法格式</p>
+<p>[前置消息列表][警戒条件][消息顺序号][返回值:=]([参数列表])</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-63e65f9ae73257cd.jpg" alt="消息语法格式.jpg">## 协作图</p>
+<p>类元素、关联元素、消息流</p>
+<ul>
+<li>消息标签</li>
+</ul>
+<!-- -->
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-ba0f15c0b575fae2.jpg" alt="消息标签.jpg"></p>
 
           
         
@@ -1575,7 +1446,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Draft.js-Event-Handling-Mechanism/">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cao Yong">
@@ -1595,7 +1466,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/blog/2019/05/06/Draft.js-Event-Handling-Mechanism/" class="post-title-link" itemprop="url">Draft.js的事件处理机制</a>
+                <a href="/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/" class="post-title-link" itemprop="url">Draft.js的事件处理机制</a>
               
             
           </h1>
@@ -1620,7 +1491,7 @@
                 
               
 
-              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
             
 
             
@@ -1731,7 +1602,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/From-Implementing-A-Traffic-Light-To-Functional-Programming/">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/09/Draft.js-Data-Structure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cao Yong">
@@ -1751,7 +1622,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/blog/2019/05/06/From-Implementing-A-Traffic-Light-To-Functional-Programming/" class="post-title-link" itemprop="url">从实现一个红绿灯到函数式编程</a>
+                <a href="/blog/2019/05/09/Draft.js-Data-Structure/" class="post-title-link" itemprop="url">Draft.js的数据结构</a>
               
             
           </h1>
@@ -1776,7 +1647,544 @@
                 
               
 
-              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
+              <time title="创建时间：2019-05-09 16:19:17" itemprop="dateCreated datePublished" datetime="2019-05-09T16:19:17+08:00">2019-05-09</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Draft-js的数据结构"><a href="#Draft-js的数据结构" class="headerlink" title="Draft.js的数据结构"></a>Draft.js的数据结构</h1><p><code>Draft.js</code>使用EditorState来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍<code>Draft.js</code>的数据结构。</p>
+<h2 id="不可变的数据结构"><a href="#不可变的数据结构" class="headerlink" title="不可变的数据结构"></a>不可变的数据结构</h2><p><code>Draft.js</code>基于<code>immutable.js</code>实现了一种不可变的数据结构，基于这种数据结构，<code>Draft.js</code>实现了单项数据流，即 event -&gt; onChange -&gt; EditorState</p>
+<h2 id="EditorState-概览"><a href="#EditorState-概览" class="headerlink" title="EditorState 概览"></a>EditorState 概览</h2><p>我在 <a href="https://link.jianshu.com?t=https%3A%2F%2Fcodepen.io%2Fyungcho%2Fpen%2FNXJxNL%3Feditors%3D1111" target="_blank" rel="noopener">CodePen</a> 上面实现了一个简单的Demo用于展示EditorState，你可以在上面尝试一下。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-da61a2f10ca947bb.png" alt="EditorState.png">上图展示了一个完整的EditorState，我们可以轻易的猜测出一些属性的含义，比如currentContent记录了当前编辑器中展示内容的状态，selection中标识当前的选区，redoStack和undoStack分别是撤销、重做栈，而EditorState则提供了操作这些属性的顶层方法。</p>
+<h2 id="样式展现"><a href="#样式展现" class="headerlink" title="样式展现"></a>样式展现</h2><p><code>Draft</code>将样式分为块级样式与内联样式，块级样式之间线性排列，不可嵌套，内联样式则用数组记录，可以重叠。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-5f9ea9a1806e6f34.png" alt="块级样式.png">当我在<code>draft</code>中随意输入一些文字的时候，text将会记录下文字内容，而此时用于记录块级样式的type值为<code>unstyled</code></p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-6cb8672da4e5a2a1.png" alt="块级样式与内联样式.png">现在我们将H1（块级元素）应用于文本，我们可以发现用于标识块级样式的type值变为了<code>header-one</code>，当我们继续在该行输入的时候，将会同样被赋予H1样式。通过上述的数据结构我们可以发现，由于块级样式由type所规定，所以块级样式之间不可被嵌套，即不会出现无序列表嵌套有序列表的情况出现。</p>
+<p>对于同一块级元素中的文本内容，<code>draft</code>将其按照字符进行拆分,每一个字符的内联样式用数组进行展示，由此可以解决内联样式的嵌套问题。</p>
+<p><img src="//upload-images.jianshu.io/upload_images/5617469-d113d9fa0a9f9133.png" alt="内联样式.png"><br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"> [<span class="symbol">'ITALIC</span>'], // 斜</span><br><span class="line"> [<span class="symbol">'ITALIC</span>'], // 体</span><br><span class="line"> [],</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //斜</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //体</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //加</span><br><span class="line"> ...</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h2 id="Entity元数据"><a href="#Entity元数据" class="headerlink" title="Entity元数据"></a>Entity元数据</h2><p>Entity并不是一个难以理解的数据类型，Entity数据主要用于展示一些不可被分割的数据类型，例如图片、mention、超链接等。</p>
+<p>典型场景就是mention类型，详细来说，我们在日常使用中会在富文本编辑器中提及一些人， @xxx 的数据类型要求是一个统一整体，一旦 @xxx 中有某一个字符被删除，就有可能会出现 @ 出的名字和 @ 的对象不一致的情况。</p>
+<p>在上图中，我将插入的图片数据结构打印了出来，我们可以发现这是一个Entity，记录了data，mutability与type，<code>Draft.js</code>向外暴露了一个顶层接口，当Entity数据被注入的时候，可以通过这个接口来设计数据对象的展现方式，如下图</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Draft Editor</span></span><br><span class="line">&lt;Editor</span><br><span class="line"> blockRendererFn=&#123;<span class="keyword">this</span>.mediaBlockRenderer&#125;</span><br><span class="line">/&gt;</span><br><span class="line">​</span><br><span class="line"><span class="comment">// mediaBlockRenderer</span></span><br><span class="line">mediaBlockRenderer(block) &#123;</span><br><span class="line"> <span class="keyword">if</span>(block.getType() === <span class="string">'atomic'</span>) &#123;</span><br><span class="line"> <span class="keyword">return</span> &#123;</span><br><span class="line"> component: Media,</span><br><span class="line"> editable: <span class="literal">false</span>,</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Media</span></span><br><span class="line"><span class="keyword">const</span> Media = <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">const</span> entity = props.contentState.getEntity(</span><br><span class="line"> props.block.getEntityAt(<span class="number">0</span>)</span><br><span class="line"> );</span><br><span class="line"> <span class="keyword">const</span> &#123;src&#125; = entity.getData();</span><br><span class="line"> <span class="keyword">const</span> <span class="keyword">type</span> = entity.getType();</span><br><span class="line"> <span class="built_in">console</span>.log(&#123;entity&#125;);</span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> media;</span><br><span class="line"> <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">'audio'</span>) &#123;</span><br><span class="line"> media = &lt;Audio src=&#123;src&#125; /&gt;;</span><br><span class="line"> &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">'image'</span>) &#123;</span><br><span class="line"> media = &lt;Image src=&#123;src&#125; /&gt;;</span><br><span class="line"> &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">'video'</span>) &#123;</span><br><span class="line"> media = &lt;Video src=&#123;src&#125; /&gt;;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> media;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/08/The-Pit-Of-The-JavaScript-Language/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/08/The-Pit-Of-The-JavaScript-Language/" class="post-title-link" itemprop="url">JavaScript语言精粹中的坑</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-08 23:32:52" itemprop="dateCreated datePublished" datetime="2019-05-08T23:32:52+08:00">2019-05-08</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>2017-12-20更新：</p>
+<ul>
+<li><p>更新了以往表达不清楚的部分，为三个版本不同的地方添加上了注<br></p>
+<p>释</p>
+</li>
+<li>附上了图书版次信息以供查询</li>
+</ul>
+<!-- -->
+</blockquote>
+<h1 id="Javascript语言精粹"><a href="#Javascript语言精粹" class="headerlink" title="Javascript语言精粹"></a>Javascript语言精粹</h1><h2 id="第3章-对象"><a href="#第3章-对象" class="headerlink" title="第3章 对象"></a>第3章 对象</h2><h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>  (<span class="keyword">typeof</span> <span class="built_in">Object</span>.beget !== <span class="string">'function'</span>)&#123; <span class="comment">// 注意这里检查是否存在beget函数</span></span><br><span class="line">    <span class="built_in">Object</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params">o</span>) </span>&#123; <span class="comment">// 而这里则是给Object添加了create方法</span></span><br><span class="line">        <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">        F.prototype = o;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数旨在为Object增加一个create方法，这个方法创建一个使用原对象作为其原型的新对象。<br></p>
+<p> 我不明白的是为什么检查beget是否是一个函数（即是否已经存在），而下面则没有用到beget函数（而是在Object上面添加了create方法？）</p>
+<p>直接上结论：</p>
+<h5 id="这应该是一个印刷错误"><a href="#这应该是一个印刷错误" class="headerlink" title="这应该是一个印刷错误"></a><strong>这应该是一个印刷错误</strong></h5><p>这块应该是有两个版本：</p>
+<ul>
+<li>这个是英文原版</li>
+</ul>
+<!-- -->
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( <span class="keyword">typeof</span> <span class="built_in">Object</span>.beget !== <span class="string">'function'</span> )&#123; <span class="comment">// 注意这里是检查beget是否存在</span></span><br><span class="line">    <span class="built_in">Object</span>.beget = <span class="function"><span class="keyword">function</span>(<span class="params">o</span>)</span>&#123; <span class="comment">// 而这里同样是添加beget方法</span></span><br><span class="line">          <span class="keyword">var</span> F =<span class="keyword">new</span> <span class="built_in">Function</span>()&#123;&#125;; </span><br><span class="line">          F.prototype = o;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这个是<code>Safari Books Online</code>上面的版本</li>
+</ul>
+<!-- -->
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Object</span>.create !== <span class="string">'function'</span>) &#123; <span class="comment">// 注意这里检查create方法是否存在</span></span><br><span class="line">    <span class="built_in">Object</span>.create = <span class="function"><span class="keyword">function</span> (<span class="params">o</span>) </span>&#123; <span class="comment">// 而这里是添加的create方法</span></span><br><span class="line">        <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">        F.prototype = o;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：在此书新版本中，不推荐使用new关键词，而是选择使用函数表达式的方法声明函数。</p>
+<p><em>这里附上图书版次信息,以供遇到同样的朋友参考</em></p>
+<blockquote>
+<p>Javacript语言精粹（Crockford,D.）<br></p>
+<p> 电子工业出版社 2012.9<br></p>
+<p> ISBN: 978-7-121-17740-8<br></p>
+<p> 印次：2017.04 第13次印刷</p>
+</blockquote>
+<hr>
+<p>感谢<a href="https://link.jianshu.com?t=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F6799642%2Fbeget-function-in-javascript-the-good-parts" target="_blank" rel="noopener">Brian Duncan</a>回答了这部分关于new的相关问题。</p>
+<p>另外，在javascript中，new关键字必须与函数一同工作。</p>
+<p>例如</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="type">Array</span>();</span><br></pre></td></tr></table></figure>
+<p>这里a是一个数组，<code>typeof a == &#39;Object&#39;</code>,而<code>typeof Array == &#39;function&#39;</code>;</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/08/Remember-A-Millet-Front-End-Test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/08/Remember-A-Millet-Front-End-Test/" class="post-title-link" itemprop="url">记一次小米前端面试题</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-08 23:32:51" itemprop="dateCreated datePublished" datetime="2019-05-08T23:32:51+08:00">2019-05-08</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这两天参加了一次小米的面试，面试方式比较随意，直接用微信聊的。感觉面试题有些意思，所以想记下来，也使我学到了不少东西。</p>
+<blockquote>
+<p>Q:</p>
+<p>定义这样一个函数</p>
+<p>function doRepeat(func, times, wait) {</p>
+<p>}</p>
+<p>参数分别是需要 repeat的函数， repeat的次数，每次repeat的间隔</p>
+<p>使用方式如下：</p>
+<p>调用这个函数能返回一个新函数，比如传入的是alert，这个函数的调用就是<br></p>
+<p> var repeatedFun = doRepeat(alert, 10, 5000);</p>
+<p>调用返回的这个新函数，如: repeatFun(“hellworld”);</p>
+<p>会依次alert十次 helloworld，每次间隔5秒</p>
+</blockquote>
+<p>这个题目很简单，单从要求来看考验的是闭包函数，所以我们只需要使用延时函数再return一个函数就能达到要求，答案网上也能查到。我使用<code>setInterval</code>函数实现的，这里只给出部分关键性代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> _args = <span class="built_in">arguments</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> handler = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (i == times) &#123;</span><br><span class="line">                clearInterval(handler);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            func(_args[<span class="number">0</span>]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;, wait)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数非常简单，请在十分钟内完成就好。但是这里想说一下几个要点：</p>
+<ul>
+<li><p>一个是程序的可用性：即程序是否可以正常运行，这个是最基本的条件，如果不能达到请自觉面壁30秒。</p>
+</li>
+<li><p>另外一个是程序的健壮性：是否检查传参的完整性？是否检查参数类型？我想强调这一点，因为javascript是自动类型的语言，在运行过程中进行类型的检测是十分重要的问题。</p>
+</li>
+<li><p>另外一个是程序的可读性：这个也是最基本的问题之一，代码风格良好的程序应该可读性强，并且仅添加必要的注释。</p>
+</li>
+<li><p>程序的和谐性：即在程序出错的情况下是否依然可以返回标准的数据格式？可以看到我在检查参数出错以后返回</p>
+</li>
+</ul>
+<!-- -->
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>这么做可以避免因为此函数出错而影响其他的功能性函数。</p>
+<ul>
+<li>程序的包容性：可以看到我在函数中进行了类型转换。这也是我在工作中遇到的问题，当我们参与工作的协作之时，我们往往需要调用同事或者其他人的函数，而javascript的自动类型也可能导致传过来的参数类型并不标准，如果我们能在代码中给予这些“小问题”适当的支持，那么我们的函数将会友好很多。这里我将并不标准的字符串类型转换为了Number类型。</li>
+</ul>
+<!-- -->
+<p>这些特点实际上是我在某篇文章上面看到的，但是实际应用以后发现受益良多，我会在找到这篇文章以后把链接发上来。我坚信良好的代码风格可以帮助我们避免很多坑，并且严格遵守这一点。</p>
+<p>但是实际上我写的这个函数并不完善，这一点也将在后面的面试题中考到。</p>
+<blockquote>
+<p>Q:<br></p>
+<p> 请再用setTimeout实现一下</p>
+</blockquote>
+<p>果然考到了这一点，setTimeout在实际运用的过程中会有很多的坑，最明显的问题就是异步问题，这也是我一开始使用<code>setInterval</code>来实现的原因。下面给出代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> _args = <span class="built_in">arguments</span>;</span><br><span class="line">        <span class="comment">// 如果次数大于0先执行一遍，避免setTimeout延迟问题</span></span><br><span class="line">        <span class="keyword">if</span> (times &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            func(_args[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; times; i++) &#123;</span><br><span class="line">            (<span class="built_in">window</span>.setTimeout)(func(_args[<span class="number">0</span>]), wait);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是我一开始写的代码，但是实际上这段代码是错误的。我在setTimeout一行中使用了立即执行函数，但是立即执行函数并不会阻塞函数的运行，所以这段代码还是会在N秒过后一下子把所有的函数全部执行一遍。</p>
+<p>请注意，这里又一个小坑，使用setTimeout是延迟执行函数，如果直接使用第一次传入的函数不会立即执行，所以需要先做一次判断。</p>
+<blockquote>
+<p>Q:<br></p>
+<p> 能不能不要一下子就设定好所有的setTimeout<br></p>
+<p> 在完成一个setTimeout后再去递归一下</p>
+</blockquote>
+<p>这次考的是递归，没有什么难度。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回函数主体</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 如果次数达到则退出</span></span><br><span class="line">        <span class="keyword">if</span> (times === i) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> _args = <span class="built_in">arguments</span>;</span><br><span class="line">        </span><br><span class="line">        func(_args[<span class="number">0</span>]);</span><br><span class="line">        i++;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 尾递归</span></span><br><span class="line">        <span class="keyword">return</span> setTimeout(repeat.bind(<span class="keyword">this</span>, _args[<span class="number">0</span>]), wait);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>写到这里，突然觉得这个函数其实还是不够健壮。我们来分析一下参数，func参数，默认是一个函数。times参数，默认是一个非负数。wait也默认是一个非负数。</p>
+<p>如果传入的参数times是一个负数，那么这个函数将会陷入死循环。这里做检测是否存在过度优化的问题？我还是抱有疑虑。</p>
+<blockquote>
+<p>Q: 这里如果有多个参数怎么办？比如传入的函数叫console.log,可以接受多个参数<br></p>
+<p> A:方法比较多，比如可以规定传参的格式，用数组将参数包裹起来，或者使用arguments<br></p>
+<p> Q: show me the code</p>
+</blockquote>
+<p>这里实际上有个坑，就是IE9的setTimeout只能传入两个参数（IE的梗已经被玩烂了）,这里可以使用<code>bind</code>函数来解决这个问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doRepeat</span>(<span class="params">func, times, wait</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 检查参数是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (!func || !times || !wait) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查参数类型</span></span><br><span class="line">    <span class="keyword">if</span> (!checkType(func, [<span class="string">'function'</span>]) &amp;&amp; !checkType(times, [<span class="string">'Number'</span>, <span class="string">'String'</span>]) &amp;&amp; !checkType(wait, [<span class="string">'Number'</span>, <span class="string">'String'</span>])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进行不规则类型的类型转换</span></span><br><span class="line">    times = exchange(times, <span class="string">'Number'</span>);</span><br><span class="line">    wait = exchange(wait, <span class="string">'Number'</span>);</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回函数主体</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 如果次数达到则退出</span></span><br><span class="line">        <span class="keyword">if</span> (times === i) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> _args = [].slice.call(<span class="built_in">arguments</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果次数大于0并且是第一次执行则先执行一遍，避免setTimeout延迟问题</span></span><br><span class="line">        func(..._args)</span><br><span class="line">        <span class="comment">// 尾递归</span></span><br><span class="line">        <span class="keyword">return</span> setTimeout(repeat.bind(<span class="keyword">this</span>, _args), wait);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里同样解释一下这行代码的作用</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _args = [].slice.<span class="built_in">call</span>(arguments)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到我在下面的代码中使用了展开运算符<code>...</code>，但是展开运算符的使用需要迭代器。<code>arguments</code>不是数组，所以没有迭代器。</p>
+<p>考虑以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log([] <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><br><span class="line">&#125;)() <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span> <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><br><span class="line">&#125;)() <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>这些大概就是全部的面试过程，不过最后俺没去成小米，因为时间实在是不合适……</p>
+<p>最后想给自己挖个坑，也出个升级版的问题</p>
+<blockquote>
+<p>Q: 请将这道题用setTimeout配合Generator函数实现一遍</p>
+</blockquote>
+<p>这几天考试，等考完试我再来填……</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/08/From-Implementing-A-Traffic-Light-To-Functional-Programming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cao Yong">
+      <meta itemprop="description" content="一些奇奇怪怪的东西">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eden's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/08/From-Implementing-A-Traffic-Light-To-Functional-Programming/" class="post-title-link" itemprop="url">从实现一个红绿灯到函数式编程</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-08 23:32:51" itemprop="dateCreated datePublished" datetime="2019-05-08T23:32:51+08:00">2019-05-08</time>
             
 
             
@@ -1839,347 +2247,6 @@
 <p>我们更可以优化一下上面的函数，使得不同等亮起时使用不同的行为函数:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TRAFFIC_LIGHT = [</span><br><span class="line">    [<span class="string">'绿灯'</span>, <span class="number">1000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// do something...</span></span><br><span class="line">    &#125;],</span><br><span class="line">    [<span class="string">'黄灯'</span>, <span class="number">2000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// do something...</span></span><br><span class="line">    &#125;],</span><br><span class="line">    [<span class="string">'红灯'</span>, <span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// do something...</span></span><br><span class="line">    &#125;]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们去掉了handler!!!!</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">semaphores</span>(<span class="params">lightList = [], count = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lightLength = lightList.length;     </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">handleSemaphores</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> [light, time, handler] = lightList[count % lightLength];</span><br><span class="line">              </span><br><span class="line">        <span class="keyword">return</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;light&#125;</span>亮`</span>);</span><br><span class="line">            <span class="comment">// 在这里使用它</span></span><br><span class="line">            handler &amp;&amp; handler(light, time);</span><br><span class="line">            count ++;</span><br><span class="line">            handleSemaphores();</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// delay 1s</span></span><br><span class="line"><span class="comment">// 绿灯亮</span></span><br><span class="line"><span class="comment">// dosomething1...</span></span><br><span class="line"><span class="comment">// delay 2s</span></span><br><span class="line"><span class="comment">// 黄灯亮</span></span><br><span class="line"><span class="comment">// dosomething2...</span></span><br><span class="line"><span class="comment">// delay 3s</span></span><br><span class="line"><span class="comment">// 红灯亮</span></span><br><span class="line"><span class="comment">// dosomething3...</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
 <p>函数式编程的抽象程度更高，它是对于过程的抽象。如果没有传入的参数作为支撑，那么这个函数毫无意义，比较明显的例子是<code>JavaScript</code>中的<code>map</code>和<code>reduce</code>。这是最主要的概念，剩下的概念则都是一些规定，帮助我们写出更好的更健壮的函数式函数，相信理解了我刚刚所说的例子，再去理解其他概念会容易许多。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/Event-Dilutes-Debounce-&-Throttle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cao Yong">
-      <meta itemprop="description" content="一些奇奇怪怪的东西">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eden's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/05/06/Event-Dilutes-Debounce-&-Throttle/" class="post-title-link" itemprop="url">事件稀释 Debounce & Throttle</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次<code>ajax</code>请求，这简直是一场灾难。</p>
-<h2 id="稀释原理"><a href="#稀释原理" class="headerlink" title="稀释原理"></a>稀释原理</h2><p>比较常见的解决方法是 <code>Debounce</code>和<code>Throttle</code>。两者的目的都是为了稀释事件，但是原理有所不同。</p>
-<p><code>Debounce</code>函数的理念是“推迟执行”，即把N次连续事件只执行一次。</p>
-<p><code>Throttle</code>函数的理念是“时间稀释”，即N次连续事件在规定时间内最多执行一次。</p>
-<p>举个例子来说，如果把事件触发比作是乘客，而事件的执行是公交车的话，当我们连续滚动屏幕不停触发’scrolling’事件的时候，就相当于来一个乘客，上一辆公交车，就发车，一辆公交车只搭载一名乘客就出发了。</p>
-<p>而 <code>Debounce</code> 函数则是“推迟发车”，即我们规定公交车等1分钟，每来一名乘客，公交车就多等一分钟，这样只要乘客到达的时间间隔小于1分钟，公交车就会无限等待下去，直到某一次两名乘客到达的时间间隔大于1分钟，公交车发车了。如果不来乘客，公交车就不发车。</p>
-<p><code>Throttle</code>函数则是对于时间的稀释，对于<code>Throttle</code>的公交车，即使有乘客，那么每一分钟最多只发车一次，即使上一名乘客是59秒达到而下一名乘客是1分01秒到达，公交车依旧会在1分钟时准时发车，下一名乘客只能等待下一班车了。同样，如果不来乘客，公交车就不会发车。</p>
-<p>下面我希望能通过一些函数Demo来说明<code>Debounce</code>与<code>Throttle</code></p>
-<h2 id="Debounce"><a href="#Debounce" class="headerlink" title="Debounce"></a>Debounce</h2><p>这里给出了一个Debounce函数的示例，我是用class的方式实现的</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Debounce &#123;</span><br><span class="line">  handleFunction: <span class="built_in">Function</span>;</span><br><span class="line">  time: <span class="built_in">number</span> | <span class="built_in">string</span>;</span><br><span class="line">  handler: <span class="built_in">number</span>;</span><br><span class="line">  context: object;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">handleFunction: <span class="built_in">Function</span>, time: <span class="built_in">number</span> | <span class="built_in">string</span>, context?:<span class="built_in">Object</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.handleFunction = handleFunction || <span class="function">(<span class="params">(<span class="params"></span>) =&gt; &#123; &#125;</span>);</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">time</span> = +<span class="params">time</span> || 0;</span></span><br><span class="line"><span class="function">    // 解决<span class="params">this</span>指针作用域</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">context</span> = <span class="params">context</span> || &#123;&#125;;</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">carry</span> = <span class="params">this</span>.<span class="params">carry</span>.<span class="params">bind</span>(<span class="params"><span class="keyword">this</span></span>);</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">clear</span> = <span class="params">this</span>.<span class="params">clear</span>.<span class="params">bind</span>(<span class="params"><span class="keyword">this</span></span>);</span></span><br><span class="line"><span class="function">    // <span class="params">setTimeout</span> 句柄</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">handler</span> = 0;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">carry</span><span class="params">()</span>: <span class="params">void</span> &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params"><span class="keyword">this</span>.handler</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">this</span>.<span class="params">clear</span><span class="params">()</span>;</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">handler</span> = <span class="params">setTimeout</span>(<span class="params">(<span class="params"></span>) =&gt; &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">this</span>.clear(<span class="params"></span>);</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">this</span>.handleFunction.apply(<span class="params"><span class="keyword">this</span>.context</span>);</span></span></span><br><span class="line"><span class="function"><span class="params">    &#125;, <span class="keyword">this</span>.time</span>);</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">clear</span><span class="params">()</span>: <span class="params">void</span> &#123;</span></span><br><span class="line"><span class="function">    <span class="params">clearTimeout</span>(<span class="params"><span class="keyword">this</span>.handler</span>);</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">handler</span> = 0;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>核心是<code>Debounce.prototype.carry</code>函数，我们可以看到，在每次调用的时候首先检测当前有没有正在执行的Debounce函数，如果有的话，则取消上一次的执行，再添加一次新的延迟执行函数，从而达到上述效果。</p>
-<p>如果你想测试一下上面的函数，可以用以下方式调用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Debounce <span class="keyword">from</span> <span class="string">'path/to/debounce'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> Debounce(<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hi"</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, a.carry);</span><br></pre></td></tr></table></figure>
-<p>再新建个HTML，然后把body的height设置大点就OK了。</p>
-<h2 id="Throttle"><a href="#Throttle" class="headerlink" title="Throttle"></a>Throttle</h2><p>同样给出<code>Throttle</code>函数</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Throttle &#123;</span><br><span class="line">  handleFunction: <span class="built_in">Function</span>;</span><br><span class="line">  time: <span class="built_in">number</span> | <span class="built_in">string</span>;</span><br><span class="line">  handler: <span class="built_in">number</span>;</span><br><span class="line">  context: object;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">handleFunction: <span class="built_in">Function</span>, time: <span class="built_in">number</span> | <span class="built_in">string</span>, context?:<span class="built_in">Object</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.handleFunction = handleFunction || <span class="function">(<span class="params">(<span class="params"></span>) =&gt; &#123; &#125;</span>);</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">time</span> = +<span class="params">time</span> || 0;</span></span><br><span class="line"><span class="function">    // 解决<span class="params">this</span>指针作用域</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">context</span> = <span class="params">context</span> || &#123;&#125;;</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">carry</span> = <span class="params">this</span>.<span class="params">carry</span>.<span class="params">bind</span>(<span class="params"><span class="keyword">this</span></span>);</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">clear</span> = <span class="params">this</span>.<span class="params">clear</span>.<span class="params">bind</span>(<span class="params"><span class="keyword">this</span></span>);</span></span><br><span class="line"><span class="function">    // <span class="params">setTimeout</span> 句柄</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">handler</span> = 0;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">carry</span><span class="params">()</span>: <span class="params">any</span> &#123;</span></span><br><span class="line"><span class="function">    <span class="params">if</span> (<span class="params"><span class="keyword">this</span>.handler</span>) &#123;</span></span><br><span class="line"><span class="function">      <span class="params">return</span>;</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">handler</span> = <span class="params">setInterval</span>(<span class="params">(<span class="params"></span>) =&gt; &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">this</span>.handleFunction.apply(<span class="params"><span class="keyword">this</span>.context</span>);</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">this</span>.clear(<span class="params"></span>);</span></span></span><br><span class="line"><span class="function"><span class="params">    &#125;, <span class="keyword">this</span>.time</span>);</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  <span class="params">clear</span><span class="params">()</span>: <span class="params">void</span> &#123;</span></span><br><span class="line"><span class="function">    <span class="params">clearInterval</span>(<span class="params"><span class="keyword">this</span>.handler</span>);</span></span><br><span class="line"><span class="function">    <span class="params">this</span>.<span class="params">handler</span> = 0;</span></span><br><span class="line"><span class="function">  &#125;</span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="params">export</span> <span class="params">default</span> <span class="params">Throttle</span>;</span></span><br></pre></td></tr></table></figure>
-<p>可以看到其中的<code>carry</code>函数在规定时间内最多执行一次。</p>
-<h2 id="最近在项目中遇到的一些坑"><a href="#最近在项目中遇到的一些坑" class="headerlink" title="最近在项目中遇到的一些坑"></a>最近在项目中遇到的一些坑</h2><p>其实这篇文章在写出以后确实在项目中遇到了一些问题，所以再看这篇文章写的还是有些不太全面。对于事件稀释，Throttle和Debounce都不过是稀释方法的一种。大致思想都是在对于在某一段时间内频繁触发的事件合并为一次进行请求。但是实际业务中的事件稀释方式要多得多。对于长页面的lazy load，不一定需要按时间为单位，亦可以按请求为单位，因为我们需要避免的事一秒发出几十次请求。对于不同的场景，我们要分析具体需要稀释的事情是什么。在错误的场景使用不合适的稀释方式可能反而会造成性能问题。事件稀释的精髓在于对于“事件”的稀释，不要拘泥于形式。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="//edencao.github.io/blog/blog/2019/05/06/You-Know-The-JS-Prototype-Chain-(top)---Objects-And-Prototypes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cao Yong">
-      <meta itemprop="description" content="一些奇奇怪怪的东西">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eden's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/05/06/You-Know-The-JS-Prototype-Chain-(top)---Objects-And-Prototypes/" class="post-title-link" itemprop="url">你知道的JS原型链（上）--对象与原型</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-06 16:50:33" itemprop="dateCreated datePublished" datetime="2019-05-06T16:50:33+08:00">2019-05-06</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="你知道的JS原型链–对象与原型"><a href="#你知道的JS原型链–对象与原型" class="headerlink" title="你知道的JS原型链–对象与原型"></a>你知道的JS原型链–对象与原型</h1><p>最近一直在以忙为借口犯懒，到了清明节终于捱不过去了，所以还是准备写一篇文章来总结一下。最近开发的一个项目涉及到一些关于es6继承的问题。得益于<code>JavaScript</code>强大的原型机制，我们可以很轻易的模仿出类的特性，当然由于是基于原型实现的<code>class</code>语法糖，所以我们可以做出一些特别骚气的操作，比如动态继承。<br></p>
-<p> 例如</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'this is A'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// class factory</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">InheritMaker</span>(<span class="params">constructor</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">constructor</span> </span>&#123;</span><br><span class="line">        <span class="keyword">constructor</span>()&#123;</span><br><span class="line">            <span class="keyword">super</span>();</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'this is B'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> A(); <span class="comment">// this is A</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> B = InheritMaker(A);</span><br><span class="line"><span class="keyword">const</span> b = <span class="keyword">new</span> B(); <span class="comment">// this is A; this is B</span></span><br></pre></td></tr></table></figure>
-<p>说实话，我一直在思考这种方式到底是不是违反了类的初衷。类是静态的，但是我们在 <code>JavaScript</code>中可以在运行时动态选择继承，这使得类的行为变得不确定: 我无法知道我的类到底会实现什么样子的功能，只用运行时才知道。这种见鬼的实现方式在<code>Java</code>中绝对会报错报到死，但是在<code>JavaScript</code>中却可以平稳运行。</p>
-<p>说了这么多，这种灵活不失骚气的实现方式还是得益于<code>JavaScript</code>中强大的原型机制。接下来，我希望来说清楚<code>JavaScript</code>中的原型到底是怎么回事，以及抛砖引玉的对于<code>es6</code>的<code>class</code>实现进行一些粗浅的探讨。</p>
-<h2 id="对象与原型"><a href="#对象与原型" class="headerlink" title="对象与原型"></a>对象与原型</h2><p>我最一开始接触<code>JavaScript</code>的时候不知道什么是原型，把它和对象当作两个概念来看待。<br></p>
-<p> 我们都知道，一个类<code>new</code>出来的实例是一个对象。</p>
-<p>我们来看下<code>EcmaScript</code>对于对象的定义:</p>
-<blockquote>
-<p>无序属性的集合，其属性可以包含基本值，对象或者函数</p>
-</blockquote>
-<p>原型就是无需属性的集合，<strong>原型就是对象,原型就是实例</strong></p>
-<p>下面让我们来抛开<code>es6</code>谈一谈对象与原型。</p>
-<p>我们都知道，对象是我们用<code>class</code> ‘new’出来的，例如我们想实现创建两个人，张三和李四，他们都拥有相同的属性，但是属性的值不同，所以我们将他们归为一个‘类’，在某些静态语言中大致长这样：</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> People &#123;</span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params"><span class="built_in">string</span> name, int age</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> zhangsan = <span class="keyword">new</span> People(<span class="string">'张三'</span>， <span class="number">12</span>)；</span><br><span class="line"><span class="keyword">const</span> lisi = <span class="keyword">new</span> People(<span class="string">'李四'</span>, <span class="number">14</span>);</span><br></pre></td></tr></table></figure>
-<p>这样两个人就创建好了。</p>
-<p>但是<code>JavaScript</code>没有类的概念怎么破？</p>
-<p>下面用<code>es5</code>实现了同样的 效果：</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Peole</span></span>(name, age) &#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> zhangsan = <span class="keyword">new</span> <span class="type">People</span>(<span class="string">'张三'</span>, <span class="number">12</span>);</span><br><span class="line"><span class="keyword">var</span> lisi = <span class="keyword">new</span> <span class="type">People</span>(<span class="string">'李四'</span>， <span class="number">14</span>);</span><br></pre></td></tr></table></figure>
-<p>上面创建了一个构造函数，实现了相同的效果。</p>
-<p>对于<code>JavaScript</code>来说，<code>People</code>是一个实例，它的构造函数是<code>Function</code>,因此它拥有<code>__proto__</code>,又是(构造)函数，所以拥有<code>prototype</code>，值得说明的一点是只有函数拥有<code>prototype</code>。</p>
-<p>那么<code>prototype</code>与<code>__proto__</code>又有什么区别呢？</p>
-<h2 id="prototype-amp-proto"><a href="#prototype-amp-proto" class="headerlink" title="prototype &amp; proto"></a>prototype &amp; <strong>proto</strong></h2><p><code>JavaScript</code>中有两个指针，<code>prototype</code>与<code>__proto__</code>，我在初学的时候一直对于这两个指针一直十分困惑，现在我希望可以解释清楚这些事情。</p>
-<p>对于<code>People</code>构造函数来说，它在被创建的时候拥有<code>prototype</code>属性，<code>prototype</code>的<code>constructor</code>指向它本身：</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-8776a720059a3953.png" alt="image.png">如果用一种不太准确但容易理解的方式来解释，<code>prototype</code>才是People的类，上面拥有People所定义的一切方法，例如我们举个例子：</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span> </span>&#123;</span><br><span class="line">    constructor(name, age)&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    changeName(<span class="keyword">new</span><span class="type">Name</span>)&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = <span class="keyword">new</span><span class="type">Name</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们在上面多声明了一个方法<code>changeName</code>,因此上面的图改为：</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-fc3524fcefb3885f.png" alt="image.png">这就是prototype</p>
-<p>但是我们也说了<code>People</code>不仅仅是个构造函数，它还是<code>Function</code>的实例，对于一个实例来说，它需要知道创建它的类是什么。</p>
-<p>注意这里非常容易糊涂：</p>
-<p>prototype指向的是<strong>它作为构造函数的类</strong><br></p>
-<p> _<em>proto</em>_指向的是<strong>创建它的类</strong></p>
-<p>其实这也非常容易理解，因为对于<code>JavaScript</code>来说，函数也是一个对象。也就是说函数也是被‘<code>new</code>’出来的。创建它的类是<code>Function</code></p>
-<p>就是下面的这个<code>Function</code>:</p>
-<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> People = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span><span class="params">()</span>;</span></span><br></pre></td></tr></table></figure>
-<p>因此上面的图可以更改为：</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-f4fe34645ad9a7e7.png" alt="image.png">同样的，Function类的构造函数也是一个函数。。所以<code>Function构造函数</code>的<code>prototype</code>指向<code>Function类</code>,而它的<code>__proto__</code>也指向它的类：</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-0286d0a3e51b7e69.png" alt="image.png">因此你可以试一下：</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span> === <span class="function"><span class="keyword">Function</span>.<span class="title">__proto__</span></span>; // true</span><br></pre></td></tr></table></figure>
-<p>我们刚才也说过了，prototype 也是一个对象，也是被’<code>new</code>‘出来的，因为是对象，所以创造它的构造函数是<code>Object</code>,因此上图可以更改为：</p>
-<p><img src="//upload-images.jianshu.io/upload_images/5617469-33255fb67e9242a7.png" alt="image.png">因此就出现了一个问题，创建Object的类是个毛？</p>
-<p>说的再玄幻一点就是创建对象的是个什么玩应？</p>
-<p><strong>是null</strong></p>
-<p>从无到有。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>因此原型的本质可以概括为：</p>
-<p><strong>JavaScript中的类也是个对象</strong></p>
-<p>当然这不太准确，我会在下节做阐述，先这么理解就好。</p>
 
           
         
