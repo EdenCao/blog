@@ -320,6 +320,28 @@
   </entry>
   
   <entry>
+    <title>操作系统（二）</title>
+    <link href="//edencao.github.io/blog/2019/05/09/Operating-System-(2)/"/>
+    <id>//edencao.github.io/blog/2019/05/09/Operating-System-(2)/</id>
+    <published>2019-05-09T08:19:17.886Z</published>
+    <updated>2019-05-09T08:19:17.886Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;进程调度&quot;&gt;&lt;a href=&quot;#进程调度&quot; class=&quot;headerlink&quot; title=&quot;进程调度&quot;&gt;&lt;/a&gt;进程调度&lt;/h1&gt;&lt;h2 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>观察者模式 vs 订阅发布模式</title>
     <link href="//edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/"/>
     <id>//edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/</id>
@@ -343,11 +365,11 @@
   </entry>
   
   <entry>
-    <title>操作系统（二）</title>
-    <link href="//edencao.github.io/blog/2019/05/09/Operating-System-(2)/"/>
-    <id>//edencao.github.io/blog/2019/05/09/Operating-System-(2)/</id>
-    <published>2019-05-09T08:19:17.886Z</published>
-    <updated>2019-05-09T08:19:17.886Z</updated>
+    <title>面向对象建模分析（二）</title>
+    <link href="//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/"/>
+    <id>//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</id>
+    <published>2019-05-09T08:19:17.885Z</published>
+    <updated>2019-05-09T08:19:17.885Z</updated>
     
     <summary type="html">
     
@@ -355,7 +377,7 @@
       
         
         
-          &lt;h1 id=&quot;进程调度&quot;&gt;&lt;a href=&quot;#进程调度&quot; class=&quot;headerlink&quot; title=&quot;进程调度&quot;&gt;&lt;/a&gt;进程调度&lt;/h1&gt;&lt;h2 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;需求工程&quot;&gt;&lt;a href=&quot;#需求工程&quot; class=&quot;headerlink&quot; title=&quot;需求工程&quot;&gt;&lt;/a&gt;需求工程&lt;/h1&gt;&lt;h2 id=&quot;需求工程的基本概念&quot;&gt;&lt;a href=&quot;#需求工程的基本概念&quot; class=&quot;headerlink&quot;
         
       
     
@@ -378,28 +400,6 @@
         
         
           &lt;h2 id=&quot;面向对象分析方法&quot;&gt;&lt;a href=&quot;#面向对象分析方法&quot; class=&quot;headerlink&quot; title=&quot;面向对象分析方法&quot;&gt;&lt;/a&gt;面向对象分析方法&lt;/h2&gt;&lt;h3 id=&quot;软件的错误是怎样产生的？软件工程的挑战有哪些&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>面向对象建模分析（二）</title>
-    <link href="//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/"/>
-    <id>//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</id>
-    <published>2019-05-09T08:19:17.885Z</published>
-    <updated>2019-05-09T08:19:17.885Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;需求工程&quot;&gt;&lt;a href=&quot;#需求工程&quot; class=&quot;headerlink&quot; title=&quot;需求工程&quot;&gt;&lt;/a&gt;需求工程&lt;/h1&gt;&lt;h2 id=&quot;需求工程的基本概念&quot;&gt;&lt;a href=&quot;#需求工程的基本概念&quot; class=&quot;headerlink&quot;
         
       
     
@@ -453,11 +453,11 @@
   </entry>
   
   <entry>
-    <title>事件稀释 Debounce &amp; Throttle</title>
-    <link href="//edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-&amp;-Throttle/"/>
-    <id>//edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-&amp;-Throttle/</id>
+    <title>Draft.js的事件处理机制</title>
+    <link href="//edencao.github.io/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/"/>
+    <id>//edencao.github.io/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/</id>
     <published>2019-05-09T08:19:17.883Z</published>
-    <updated>2019-05-09T08:19:17.884Z</updated>
+    <updated>2019-05-09T08:19:17.883Z</updated>
     
     <summary type="html">
     
@@ -465,8 +465,7 @@
       
         
         
-          &lt;p&gt;事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次&lt;code&gt;ajax&lt;/code&gt;请求，这简直是一场灾难。&lt;/p&gt;
-&lt;h2 id=&quot;稀释原理&quot;&gt;&lt;a
+          &lt;h1 id=&quot;Draft-事件处理机制&quot;&gt;&lt;a href=&quot;#Draft-事件处理机制&quot; class=&quot;headerlink&quot; title=&quot;Draft 事件处理机制&quot;&gt;&lt;/a&gt;Draft 事件处理机制&lt;/h1&gt;&lt;p&gt;Draft.js
         
       
     
