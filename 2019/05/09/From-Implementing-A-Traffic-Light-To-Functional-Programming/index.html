@@ -405,7 +405,7 @@
             
                 <span class="post-meta-item-text">评论数：</span>
                 <a href="/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/" itemprop="commentCount"></span>
+                  <span class="post-comments-count valine-comment-count" data-xid="/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -525,9 +525,6 @@
 
   
     <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
     </div>
 
   
@@ -808,41 +805,37 @@
   
 
   
-
-
   
-    <!-- LOCAL: You can save these files to your site and update links -->
 
-  
-  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
-<!-- END LOCAL -->
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 <script>
-  function renderGitment() {
-    var gitment = new Gitmint({
-      id: window.location.pathname,
-      owner: 'EdenCao',
-      repo: 'blog',
-      
-        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-      
-      oauth: {
-      
-      
-        client_secret: '403fd7b08932eb72291927b7c5bb6e574f7aa379',
-      
-        client_id: '524a2ec70d9f93b7d96f'
-      }
-    });
-    gitment.render('gitment-container');
-  }
-
-  
-    renderGitment();
-  
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'xdXxwiFUCKBJJfW8Yw0gl5UW-gzGzoHsz',
+    appKey: '5lyhKzBrlLhctaThJWRMTP3l',
+    placeholder: 'Leave your comment here',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'en' || 'zh-cn'
+  });
 </script>
+
+
+
 
   
 
