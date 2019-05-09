@@ -61,6 +61,30 @@
   </entry>
   
   <entry>
+    <title>永不落伍的大前端</title>
+    <link href="//edencao.github.io/blog/2019/05/09/The-Big-Front-End-That-Never-Goes-Out-Of-Style/"/>
+    <id>//edencao.github.io/blog/2019/05/09/The-Big-Front-End-That-Never-Goes-Out-Of-Style/</id>
+    <published>2019-05-09T08:19:17.890Z</published>
+    <updated>2019-05-09T08:19:17.890Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;一直想把自己了解到的前端知识体系总结一下。正好前些日子赶上团队分享，于是趁此机会把知识框架梳理了一下。通过这张图可以清楚的看到自己的不足……技术了解的足够多，但是泛而不精，需要加深对于基础知识的理解。另外就是软实力严重不足，亟待提升。&lt;/p&gt;
+&lt;/
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript语言精粹中的坑</title>
     <link href="//edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/"/>
     <id>//edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/</id>
@@ -105,30 +129,6 @@
         
           &lt;p&gt;距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。&lt;/p&gt;
 &lt;p&gt;如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：&lt;a
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>永不落伍的大前端</title>
-    <link href="//edencao.github.io/blog/2019/05/09/The-Big-Front-End-That-Never-Goes-Out-Of-Style/"/>
-    <id>//edencao.github.io/blog/2019/05/09/The-Big-Front-End-That-Never-Goes-Out-Of-Style/</id>
-    <published>2019-05-09T08:19:17.890Z</published>
-    <updated>2019-05-09T08:19:17.890Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;一直想把自己了解到的前端知识体系总结一下。正好前些日子赶上团队分享，于是趁此机会把知识框架梳理了一下。通过这张图可以清楚的看到自己的不足……技术了解的足够多，但是泛而不精，需要加深对于基础知识的理解。另外就是软实力严重不足，亟待提升。&lt;/p&gt;
-&lt;/
         
       
     
@@ -365,28 +365,6 @@
   </entry>
   
   <entry>
-    <title>面向对象建模分析（二）</title>
-    <link href="//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/"/>
-    <id>//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</id>
-    <published>2019-05-09T08:19:17.885Z</published>
-    <updated>2019-05-09T08:19:17.885Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;需求工程&quot;&gt;&lt;a href=&quot;#需求工程&quot; class=&quot;headerlink&quot; title=&quot;需求工程&quot;&gt;&lt;/a&gt;需求工程&lt;/h1&gt;&lt;h2 id=&quot;需求工程的基本概念&quot;&gt;&lt;a href=&quot;#需求工程的基本概念&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>面向对象建模分析（一）</title>
     <link href="//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(I)/"/>
     <id>//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(I)/</id>
@@ -400,6 +378,28 @@
         
         
           &lt;h2 id=&quot;面向对象分析方法&quot;&gt;&lt;a href=&quot;#面向对象分析方法&quot; class=&quot;headerlink&quot; title=&quot;面向对象分析方法&quot;&gt;&lt;/a&gt;面向对象分析方法&lt;/h2&gt;&lt;h3 id=&quot;软件的错误是怎样产生的？软件工程的挑战有哪些&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象建模分析（二）</title>
+    <link href="//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/"/>
+    <id>//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</id>
+    <published>2019-05-09T08:19:17.885Z</published>
+    <updated>2019-05-09T08:19:17.885Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;需求工程&quot;&gt;&lt;a href=&quot;#需求工程&quot; class=&quot;headerlink&quot; title=&quot;需求工程&quot;&gt;&lt;/a&gt;需求工程&lt;/h1&gt;&lt;h2 id=&quot;需求工程的基本概念&quot;&gt;&lt;a href=&quot;#需求工程的基本概念&quot; class=&quot;headerlink&quot;
         
       
     
@@ -453,11 +453,11 @@
   </entry>
   
   <entry>
-    <title>事件稀释 Debounce &amp; Throttle</title>
-    <link href="//edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-&amp;-Throttle/"/>
-    <id>//edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-&amp;-Throttle/</id>
+    <title>Draft.js的事件处理机制</title>
+    <link href="//edencao.github.io/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/"/>
+    <id>//edencao.github.io/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/</id>
     <published>2019-05-09T08:19:17.883Z</published>
-    <updated>2019-05-09T08:19:17.884Z</updated>
+    <updated>2019-05-09T08:19:17.883Z</updated>
     
     <summary type="html">
     
@@ -465,8 +465,7 @@
       
         
         
-          &lt;p&gt;事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次&lt;code&gt;ajax&lt;/code&gt;请求，这简直是一场灾难。&lt;/p&gt;
-&lt;h2 id=&quot;稀释原理&quot;&gt;&lt;a
+          &lt;h1 id=&quot;Draft-事件处理机制&quot;&gt;&lt;a href=&quot;#Draft-事件处理机制&quot; class=&quot;headerlink&quot; title=&quot;Draft 事件处理机制&quot;&gt;&lt;/a&gt;Draft 事件处理机制&lt;/h1&gt;&lt;p&gt;Draft.js
         
       
     
