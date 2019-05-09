@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>//edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-And-Throttle/</loc>
+    
+    <lastmod>2019-05-09T09:22:11.493Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>//edencao.github.io/blog/google81559cabd01361ba.html</loc>
     
     <lastmod>2019-05-09T09:16:27.965Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(I)/</loc>
     
     <lastmod>2019-05-09T08:19:17.885Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-&-Throttle/</loc>
-    
-    <lastmod>2019-05-09T08:19:17.884Z</lastmod>
     
   </url>
   

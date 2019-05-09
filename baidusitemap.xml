@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>//edencao.github.io/blog/blog/2019/05/09/Event-Dilutes-Debounce-And-Throttle/</loc>
+    <lastmod>2019-05-09</lastmod>
+  </url>  <url>
     <loc>//edencao.github.io/blog/blog/2019/05/09/You-Know-The-JS-Prototype-Chain-(top)---Objects-And-Prototypes/</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
@@ -56,9 +59,6 @@
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
     <loc>//edencao.github.io/blog/blog/2019/05/09/Object-oriented-Modeling-Analysis-(I)/</loc>
-    <lastmod>2019-05-09</lastmod>
-  </url>  <url>
-    <loc>//edencao.github.io/blog/blog/2019/05/09/Event-Dilutes-Debounce-&-Throttle/</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
     <loc>//edencao.github.io/blog/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/</loc>
