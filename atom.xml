@@ -85,29 +85,6 @@
   </entry>
   
   <entry>
-    <title>关于 ES Class 继承中的二三事（一）(你知道的原型链下)</title>
-    <link href="//edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/"/>
-    <id>//edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/</id>
-    <published>2019-05-09T08:19:17.890Z</published>
-    <updated>2019-05-09T08:19:17.891Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。&lt;/p&gt;
-&lt;p&gt;如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：&lt;a
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>JavaScript语言精粹中的坑</title>
     <link href="//edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/"/>
     <id>//edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/</id>
@@ -129,6 +106,29 @@
 &lt;li&gt;附上了图书版次信息以供查询&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!--
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于 ES Class 继承中的二三事（一）(你知道的原型链下)</title>
+    <link href="//edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/"/>
+    <id>//edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/</id>
+    <published>2019-05-09T08:19:17.890Z</published>
+    <updated>2019-05-09T08:19:17.891Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。&lt;/p&gt;
+&lt;p&gt;如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：&lt;a
         
       
     
@@ -320,28 +320,6 @@
   </entry>
   
   <entry>
-    <title>操作系统（二）</title>
-    <link href="//edencao.github.io/blog/2019/05/09/Operating-System-(2)/"/>
-    <id>//edencao.github.io/blog/2019/05/09/Operating-System-(2)/</id>
-    <published>2019-05-09T08:19:17.886Z</published>
-    <updated>2019-05-09T08:19:17.886Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;进程调度&quot;&gt;&lt;a href=&quot;#进程调度&quot; class=&quot;headerlink&quot; title=&quot;进程调度&quot;&gt;&lt;/a&gt;进程调度&lt;/h1&gt;&lt;h2 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>观察者模式 vs 订阅发布模式</title>
     <link href="//edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/"/>
     <id>//edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/</id>
@@ -365,11 +343,11 @@
   </entry>
   
   <entry>
-    <title>面向对象建模分析（二）</title>
-    <link href="//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/"/>
-    <id>//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</id>
-    <published>2019-05-09T08:19:17.885Z</published>
-    <updated>2019-05-09T08:19:17.885Z</updated>
+    <title>操作系统（二）</title>
+    <link href="//edencao.github.io/blog/2019/05/09/Operating-System-(2)/"/>
+    <id>//edencao.github.io/blog/2019/05/09/Operating-System-(2)/</id>
+    <published>2019-05-09T08:19:17.886Z</published>
+    <updated>2019-05-09T08:19:17.886Z</updated>
     
     <summary type="html">
     
@@ -377,7 +355,7 @@
       
         
         
-          &lt;h1 id=&quot;需求工程&quot;&gt;&lt;a href=&quot;#需求工程&quot; class=&quot;headerlink&quot; title=&quot;需求工程&quot;&gt;&lt;/a&gt;需求工程&lt;/h1&gt;&lt;h2 id=&quot;需求工程的基本概念&quot;&gt;&lt;a href=&quot;#需求工程的基本概念&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;进程调度&quot;&gt;&lt;a href=&quot;#进程调度&quot; class=&quot;headerlink&quot; title=&quot;进程调度&quot;&gt;&lt;/a&gt;进程调度&lt;/h1&gt;&lt;h2 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot;
         
       
     
@@ -431,6 +409,28 @@
   </entry>
   
   <entry>
+    <title>面向对象建模分析（二）</title>
+    <link href="//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/"/>
+    <id>//edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</id>
+    <published>2019-05-09T08:19:17.885Z</published>
+    <updated>2019-05-09T08:19:17.885Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;需求工程&quot;&gt;&lt;a href=&quot;#需求工程&quot; class=&quot;headerlink&quot; title=&quot;需求工程&quot;&gt;&lt;/a&gt;需求工程&lt;/h1&gt;&lt;h2 id=&quot;需求工程的基本概念&quot;&gt;&lt;a href=&quot;#需求工程的基本概念&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>从实现一个红绿灯到函数式编程</title>
     <link href="//edencao.github.io/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/"/>
     <id>//edencao.github.io/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/</id>
@@ -453,11 +453,11 @@
   </entry>
   
   <entry>
-    <title>事件稀释 Debounce &amp; Throttle</title>
-    <link href="//edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-And-Throttle/"/>
-    <id>//edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-And-Throttle/</id>
+    <title>Draft.js的事件处理机制</title>
+    <link href="//edencao.github.io/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/"/>
+    <id>//edencao.github.io/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/</id>
     <published>2019-05-09T08:19:17.883Z</published>
-    <updated>2019-05-09T09:22:11.493Z</updated>
+    <updated>2019-05-09T08:19:17.883Z</updated>
     
     <summary type="html">
     
@@ -465,8 +465,7 @@
       
         
         
-          &lt;p&gt;事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次&lt;code&gt;ajax&lt;/code&gt;请求，这简直是一场灾难。&lt;/p&gt;
-&lt;h2 id=&quot;稀释原理&quot;&gt;&lt;a
+          &lt;h1 id=&quot;Draft-事件处理机制&quot;&gt;&lt;a href=&quot;#Draft-事件处理机制&quot; class=&quot;headerlink&quot; title=&quot;Draft 事件处理机制&quot;&gt;&lt;/a&gt;Draft 事件处理机制&lt;/h1&gt;&lt;p&gt;Draft.js
         
       
     
