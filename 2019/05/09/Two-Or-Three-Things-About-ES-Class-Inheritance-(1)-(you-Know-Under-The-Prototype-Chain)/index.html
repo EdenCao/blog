@@ -104,23 +104,23 @@
 <meta name="keywords" content="JavaScript,TypeScript,Linux,macOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 ES Class 继承中的二三事（一）(你知道的原型链下)">
-<meta property="og:url" content="https//edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/index.html">
+<meta property="og:url" content="https://edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/index.html">
 <meta property="og:site_name" content="Eden&#39;s Blog">
 <meta property="og:description" content="距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。 如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：https://www.jianshu.com/p/866657da6b7e 其实上里面有一些概念是错误的：JS 中的 Class 是一个对象。本质上来说，如果将对象比喻成是一栋楼的话，Class 就是楼的设计图。这两者是不能混淆">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-baa09c4e46e6d98a.png">
-<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-44532289517b9738.png">
-<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-c7ebf470a45062ff.png">
-<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-1562b36d33528f56.png">
-<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-c67d34240301d20e.png">
-<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-4110695187c69974.png">
-<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-ebf0b761fe81f898.png">
-<meta property="og:image" content="//upload-images.jianshu.io/upload_images/5617469-724ca8fb99d9b649.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5617469-baa09c4e46e6d98a.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5617469-44532289517b9738.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5617469-c7ebf470a45062ff.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5617469-1562b36d33528f56.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5617469-c67d34240301d20e.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5617469-4110695187c69974.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5617469-ebf0b761fe81f898.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5617469-724ca8fb99d9b649.png">
 <meta property="og:updated_time" content="2019-05-09T08:19:17.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 ES Class 继承中的二三事（一）(你知道的原型链下)">
 <meta name="twitter:description" content="距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。 如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：https://www.jianshu.com/p/866657da6b7e 其实上里面有一些概念是错误的：JS 中的 Class 是一个对象。本质上来说，如果将对象比喻成是一栋楼的话，Class 就是楼的设计图。这两者是不能混淆">
-<meta name="twitter:image" content="//upload-images.jianshu.io/upload_images/5617469-baa09c4e46e6d98a.png">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5617469-baa09c4e46e6d98a.png">
 
 
 
@@ -130,7 +130,7 @@
 
   
   
-  <link rel="canonical" href="https//edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/">
+  <link rel="canonical" href="https://edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/">
 
 
 
@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https//edencao.github.io/blog/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/">
+    <link itemprop="mainEntityOfPage" href="https://edencao.github.io/blog/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cao Yong">
