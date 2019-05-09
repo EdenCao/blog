@@ -249,6 +249,28 @@
   </entry>
   
   <entry>
+    <title>操作系统（一）</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Operating-System-(I)/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Operating-System-(I)/</id>
+    <published>2019-05-09T08:19:17.887Z</published>
+    <updated>2019-05-09T08:19:17.887Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;操作系统概述&quot;&gt;&lt;a href=&quot;#操作系统概述&quot; class=&quot;headerlink&quot; title=&quot;操作系统概述&quot;&gt;&lt;/a&gt;操作系统概述&lt;/h1&gt;&lt;h2 id=&quot;计算机系统&quot;&gt;&lt;a href=&quot;#计算机系统&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>软件过程与项目管理（二）</title>
     <link href="https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(2)/"/>
     <id>https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(2)/</id>
@@ -272,33 +294,11 @@
   </entry>
   
   <entry>
-    <title>操作系统（一）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Operating-System-(I)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Operating-System-(I)/</id>
-    <published>2019-05-09T08:19:17.887Z</published>
-    <updated>2019-05-09T08:19:17.887Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;操作系统概述&quot;&gt;&lt;a href=&quot;#操作系统概述&quot; class=&quot;headerlink&quot; title=&quot;操作系统概述&quot;&gt;&lt;/a&gt;操作系统概述&lt;/h1&gt;&lt;h2 id=&quot;计算机系统&quot;&gt;&lt;a href=&quot;#计算机系统&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>记一次小米前端面试题</title>
     <link href="https://edencao.github.io/blog/2019/05/09/Remember-A-Millet-Front-End-Test/"/>
     <id>https://edencao.github.io/blog/2019/05/09/Remember-A-Millet-Front-End-Test/</id>
     <published>2019-05-09T08:19:17.887Z</published>
-    <updated>2019-05-09T08:19:17.887Z</updated>
+    <updated>2019-05-09T15:09:37.850Z</updated>
     
     <summary type="html">
     
@@ -306,34 +306,8 @@
       
         
         
-          &lt;p&gt;这两天参加了一次小米的面试，面试方式比较随意，直接用微信聊的。感觉面试题有些意思，所以想记下来，也使我学到了不少东西。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Q:&lt;/p&gt;
-&lt;p&gt;定义这样一个函数&lt;/p&gt;
-&lt;p&gt;function doRepeat(func, times,
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>观察者模式 vs 订阅发布模式</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/</id>
-    <published>2019-05-09T08:19:17.886Z</published>
-    <updated>2019-05-09T08:19:17.886Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。&lt;/p&gt;
-&lt;p&gt;实际上，我理解中的观察者模式是1:n，而订阅发布模式是m:n的模式。观察者模式需要观察者直接在被观察这种注册，两者直接耦合，一般是同步的，而订阅发布模式则存在一个调度中心，观察者与被
+          &lt;blockquote&gt;
+&lt;p&gt;2019.05.09
         
       
     
@@ -365,10 +339,10 @@
   </entry>
   
   <entry>
-    <title>面向对象建模分析（四）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/</id>
-    <published>2019-05-09T08:19:17.885Z</published>
+    <title>观察者模式 vs 订阅发布模式</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/</id>
+    <published>2019-05-09T08:19:17.886Z</published>
     <updated>2019-05-09T08:19:17.886Z</updated>
     
     <summary type="html">
@@ -377,7 +351,8 @@
       
         
         
-          &lt;h2 id=&quot;什么是动态建模&quot;&gt;&lt;a href=&quot;#什么是动态建模&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。&lt;/p&gt;
+&lt;p&gt;实际上，我理解中的观察者模式是1:n，而订阅发布模式是m:n的模式。观察者模式需要观察者直接在被观察这种注册，两者直接耦合，一般是同步的，而订阅发布模式则存在一个调度中心，观察者与被
         
       
     
@@ -431,6 +406,28 @@
   </entry>
   
   <entry>
+    <title>面向对象建模分析（四）</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/</id>
+    <published>2019-05-09T08:19:17.885Z</published>
+    <updated>2019-05-09T08:19:17.886Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;什么是动态建模&quot;&gt;&lt;a href=&quot;#什么是动态建模&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>从实现一个红绿灯到函数式编程</title>
     <link href="https://edencao.github.io/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/"/>
     <id>https://edencao.github.io/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/</id>
@@ -453,11 +450,11 @@
   </entry>
   
   <entry>
-    <title>Draft.js的事件处理机制</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/</id>
+    <title>事件稀释 Debounce &amp; Throttle</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-And-Throttle/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-And-Throttle/</id>
     <published>2019-05-09T08:19:17.883Z</published>
-    <updated>2019-05-09T08:19:17.883Z</updated>
+    <updated>2019-05-09T09:22:11.493Z</updated>
     
     <summary type="html">
     
@@ -465,7 +462,8 @@
       
         
         
-          &lt;h1 id=&quot;Draft-事件处理机制&quot;&gt;&lt;a href=&quot;#Draft-事件处理机制&quot; class=&quot;headerlink&quot; title=&quot;Draft 事件处理机制&quot;&gt;&lt;/a&gt;Draft 事件处理机制&lt;/h1&gt;&lt;p&gt;Draft.js
+          &lt;p&gt;事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次&lt;code&gt;ajax&lt;/code&gt;请求，这简直是一场灾难。&lt;/p&gt;
+&lt;h2 id=&quot;稀释原理&quot;&gt;&lt;a
         
       
     
