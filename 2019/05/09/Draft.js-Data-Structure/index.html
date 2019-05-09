@@ -410,7 +410,7 @@
             
                 <span class="post-meta-item-text">评论数：</span>
                 <a href="/blog/2019/05/09/Draft.js-Data-Structure/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/blog/2019/05/09/Draft.js-Data-Structure/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/09/Draft.js-Data-Structure/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -518,6 +518,9 @@
 
   
     <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
     </div>
 
   
@@ -799,33 +802,26 @@
 
   
   
+  <script id="dsq-count-scr" src="https://blog-35fx8ryvxv.disqus.com/count.js" async></script>
 
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 <script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: true,
-    appId: 'xdXxwiFUCKBJJfW8Yw0gl5UW-gzGzoHsz',
-    appKey: '5lyhKzBrlLhctaThJWRMTP3l',
-    placeholder: 'Leave your comment here',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'en' || 'zh-cn'
-  });
+  var disqus_config = function() {
+    this.page.url = "https://edencao.github.io/blog/2019/05/09/Draft.js-Data-Structure/";
+    this.page.identifier = "2019/05/09/Draft.js-Data-Structure/";
+    this.page.title = 'Draft.js的数据结构';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://blog-35fx8ryvxv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
 </script>
+
 
 
 
