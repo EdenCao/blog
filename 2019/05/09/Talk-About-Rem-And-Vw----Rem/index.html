@@ -373,6 +373,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/blog/2019/05/09/Talk-About-Rem-And-Vw----Rem/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/blog/2019/05/09/Talk-About-Rem-And-Vw----Rem/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -509,7 +522,10 @@
           
 
   
-    <div class="comments" id="gitalk-container">
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
     </div>
 
   
@@ -793,32 +809,37 @@
 
 
   
-    
+    <!-- LOCAL: You can save these files to your site and update links -->
 
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
 
-
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-
-
-<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
 
 <script>
-  var gitalk = new Gitalk({
-    clientID: '524a2ec70d9f93b7d96f',
-    clientSecret: '403fd7b08932eb72291927b7c5bb6e574f7aa379',
-    repo: 'blog',
-    owner: '43958460',
-    admin: ['EdenCao'],
-    id: md5(location.pathname),
-    
-      language: 'en',
-    
-    distractionFreeMode: 'true'
-  });
-  gitalk.render('gitalk-container');
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'EdenCao',
+      repo: 'blog',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '403fd7b08932eb72291927b7c5bb6e574f7aa379',
+      
+        client_id: '524a2ec70d9f93b7d96f'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
 </script>
 
   
