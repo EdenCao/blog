@@ -73,9 +73,7 @@
       
         
         
-          &lt;blockquote&gt;
-&lt;p&gt;一直想把自己了解到的前端知识体系总结一下。正好前些日子赶上团队分享，于是趁此机会把知识框架梳理了一下。通过这张图可以清楚的看到自己的不足……技术了解的足够多，但是泛而不精，需要加深对于基础知识的理解。另外就是软实力严重不足，亟待提升。&lt;/p&gt;
-&lt;/
+          &lt;blockquote&gt;&lt;p&gt;一直想把自己了解到的前端知识体系总结一下。正好前些日子赶上团队分享，于是趁此机会把知识框架梳理了一下。通过这张图可以清楚的看到自己的不足……技术了解的足够多，但是泛而不精，需要加深对于基础知识的理解。另外就是软实力严重不足，亟待提升。&lt;/p&gt;&lt;/bl
         
       
     
@@ -97,15 +95,7 @@
       
         
         
-          &lt;blockquote&gt;
-&lt;p&gt;2017-12-20更新：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;更新了以往表达不清楚的部分，为三个版本不同的地方添加上了注&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;释&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;附上了图书版次信息以供查询&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--
+          &lt;blockquote&gt;&lt;p&gt;2017-12-20更新：&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;更新了以往表达不清楚的部分，为三个版本不同的地方添加上了注&lt;br&gt;&lt;/p&gt;&lt;p&gt;释&lt;/p&gt;&lt;/li&gt;&lt;li&gt;附上了图书版次信息以供查询&lt;/li&gt;&lt;/ul&gt;&lt;/blockquote&gt;&lt;h1
         
       
     
@@ -127,8 +117,7 @@
       
         
         
-          &lt;p&gt;距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。&lt;/p&gt;
-&lt;p&gt;如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：&lt;a
+          &lt;p&gt;距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。&lt;/p&gt;&lt;p&gt;如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：&lt;a
         
       
     
@@ -194,8 +183,7 @@
       
         
         
-          &lt;h1 id=&quot;4-CMMI&quot;&gt;&lt;a href=&quot;#4-CMMI&quot; class=&quot;headerlink&quot; title=&quot;4-CMMI&quot;&gt;&lt;/a&gt;4-CMMI&lt;/h1&gt;&lt;p&gt;能力成熟度模型集成&lt;/p&gt;
-&lt;h2 id=&quot;过程能力&quot;&gt;&lt;a href=&quot;#过程能力&quot;
+          &lt;h1 id=&quot;4-CMMI&quot;&gt;&lt;a href=&quot;#4-CMMI&quot; class=&quot;headerlink&quot; title=&quot;4-CMMI&quot;&gt;&lt;/a&gt;4-CMMI&lt;/h1&gt;&lt;p&gt;能力成熟度模型集成&lt;/p&gt;&lt;h2 id=&quot;过程能力&quot;&gt;&lt;a href=&quot;#过程能力&quot;
         
       
     
@@ -249,6 +237,28 @@
   </entry>
   
   <entry>
+    <title>记一次小米前端面试题</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Remember-A-Millet-Front-End-Test/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Remember-A-Millet-Front-End-Test/</id>
+    <published>2019-05-09T08:19:17.887Z</published>
+    <updated>2019-05-10T09:09:25.130Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;&lt;p&gt;2019.05.09
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>操作系统（一）</title>
     <link href="https://edencao.github.io/blog/2019/05/09/Operating-System-(I)/"/>
     <id>https://edencao.github.io/blog/2019/05/09/Operating-System-(I)/</id>
@@ -283,8 +293,7 @@
       
         
         
-          &lt;h2 id=&quot;过程思维&quot;&gt;&lt;a href=&quot;#过程思维&quot; class=&quot;headerlink&quot; title=&quot;过程思维&quot;&gt;&lt;/a&gt;过程思维&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;面向过程的思维与面向任务的思维区别是什么&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img
+          &lt;h2 id=&quot;过程思维&quot;&gt;&lt;a href=&quot;#过程思维&quot; class=&quot;headerlink&quot; title=&quot;过程思维&quot;&gt;&lt;/a&gt;过程思维&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;面向过程的思维与面向任务的思维区别是什么&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;img
         
       
     
@@ -294,11 +303,11 @@
   </entry>
   
   <entry>
-    <title>记一次小米前端面试题</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Remember-A-Millet-Front-End-Test/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Remember-A-Millet-Front-End-Test/</id>
-    <published>2019-05-09T08:19:17.887Z</published>
-    <updated>2019-05-09T15:09:37.850Z</updated>
+    <title>观察者模式 vs 订阅发布模式</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/</id>
+    <published>2019-05-09T08:19:17.886Z</published>
+    <updated>2019-05-09T08:19:17.886Z</updated>
     
     <summary type="html">
     
@@ -306,8 +315,7 @@
       
         
         
-          &lt;blockquote&gt;
-&lt;p&gt;2019.05.09
+          &lt;p&gt;一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。&lt;/p&gt;&lt;p&gt;实际上，我理解中的观察者模式是1:n，而订阅发布模式是m:n的模式。观察者模式需要观察者直接在被观察这种注册，两者直接耦合，一般是同步的，而订阅发布模式则存在一个调度中心，观察者与被观
         
       
     
@@ -330,29 +338,6 @@
         
         
           &lt;h1 id=&quot;进程调度&quot;&gt;&lt;a href=&quot;#进程调度&quot; class=&quot;headerlink&quot; title=&quot;进程调度&quot;&gt;&lt;/a&gt;进程调度&lt;/h1&gt;&lt;h2 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>观察者模式 vs 订阅发布模式</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/</id>
-    <published>2019-05-09T08:19:17.886Z</published>
-    <updated>2019-05-09T08:19:17.886Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。&lt;/p&gt;
-&lt;p&gt;实际上，我理解中的观察者模式是1:n，而订阅发布模式是m:n的模式。观察者模式需要观察者直接在被观察这种注册，两者直接耦合，一般是同步的，而订阅发布模式则存在一个调度中心，观察者与被
         
       
     
@@ -450,11 +435,11 @@
   </entry>
   
   <entry>
-    <title>事件稀释 Debounce &amp; Throttle</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-And-Throttle/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-And-Throttle/</id>
+    <title>Draft.js的事件处理机制</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/</id>
     <published>2019-05-09T08:19:17.883Z</published>
-    <updated>2019-05-09T09:22:11.493Z</updated>
+    <updated>2019-05-09T08:19:17.883Z</updated>
     
     <summary type="html">
     
@@ -462,8 +447,7 @@
       
         
         
-          &lt;p&gt;事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次&lt;code&gt;ajax&lt;/code&gt;请求，这简直是一场灾难。&lt;/p&gt;
-&lt;h2 id=&quot;稀释原理&quot;&gt;&lt;a
+          &lt;h1 id=&quot;Draft-事件处理机制&quot;&gt;&lt;a href=&quot;#Draft-事件处理机制&quot; class=&quot;headerlink&quot; title=&quot;Draft 事件处理机制&quot;&gt;&lt;/a&gt;Draft 事件处理机制&lt;/h1&gt;&lt;p&gt;Draft.js
         
       
     
