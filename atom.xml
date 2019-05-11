@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://edencao.github.io/blog/"/>
-  <updated>2019-05-11T09:24:30.558Z</updated>
+  <updated>2019-05-11T09:57:16.566Z</updated>
   <id>https://edencao.github.io/blog/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://edencao.github.io/blog/2019/05/11/N-Number-Sum/"/>
     <id>https://edencao.github.io/blog/2019/05/11/N-Number-Sum/</id>
     <published>2019-05-11T08:54:26.000Z</published>
-    <updated>2019-05-11T09:24:30.558Z</updated>
+    <updated>2019-05-11T09:57:16.566Z</updated>
     
     <summary type="html">
     
@@ -36,7 +36,9 @@
     </summary>
     
     
-      <category term="leetcode, algorithm" scheme="https://edencao.github.io/blog/tags/leetcode-algorithm/"/>
+      <category term="leetcode" scheme="https://edencao.github.io/blog/tags/leetcode/"/>
+    
+      <category term="algorithm" scheme="https://edencao.github.io/blog/tags/algorithm/"/>
     
   </entry>
   
@@ -85,28 +87,6 @@
   </entry>
   
   <entry>
-    <title>关于 ES Class 继承中的二三事（一）(你知道的原型链下)</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/</id>
-    <published>2019-05-09T08:19:17.890Z</published>
-    <updated>2019-05-09T08:19:17.891Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。&lt;/p&gt;&lt;p&gt;如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：&lt;a
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>JavaScript语言精粹中的坑</title>
     <link href="https://edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/"/>
     <id>https://edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/</id>
@@ -142,6 +122,28 @@
         
         
           &lt;blockquote&gt;&lt;p&gt;一直想把自己了解到的前端知识体系总结一下。正好前些日子赶上团队分享，于是趁此机会把知识框架梳理了一下。通过这张图可以清楚的看到自己的不足……技术了解的足够多，但是泛而不精，需要加深对于基础知识的理解。另外就是软实力严重不足，亟待提升。&lt;/p&gt;&lt;/bl
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于 ES Class 继承中的二三事（一）(你知道的原型链下)</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/</id>
+    <published>2019-05-09T08:19:17.890Z</published>
+    <updated>2019-05-09T08:19:17.891Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。&lt;/p&gt;&lt;p&gt;如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：&lt;a
         
       
     
@@ -261,28 +263,6 @@
   </entry>
   
   <entry>
-    <title>软件过程与项目管理（二）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(2)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(2)/</id>
-    <published>2019-05-09T08:19:17.887Z</published>
-    <updated>2019-05-09T08:19:17.887Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;过程思维&quot;&gt;&lt;a href=&quot;#过程思维&quot; class=&quot;headerlink&quot; title=&quot;过程思维&quot;&gt;&lt;/a&gt;过程思维&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;面向过程的思维与面向任务的思维区别是什么&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>操作系统（一）</title>
     <link href="https://edencao.github.io/blog/2019/05/09/Operating-System-(I)/"/>
     <id>https://edencao.github.io/blog/2019/05/09/Operating-System-(I)/</id>
@@ -296,6 +276,28 @@
         
         
           &lt;h1 id=&quot;操作系统概述&quot;&gt;&lt;a href=&quot;#操作系统概述&quot; class=&quot;headerlink&quot; title=&quot;操作系统概述&quot;&gt;&lt;/a&gt;操作系统概述&lt;/h1&gt;&lt;h2 id=&quot;计算机系统&quot;&gt;&lt;a href=&quot;#计算机系统&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>软件过程与项目管理（二）</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(2)/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(2)/</id>
+    <published>2019-05-09T08:19:17.887Z</published>
+    <updated>2019-05-09T08:19:17.887Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;过程思维&quot;&gt;&lt;a href=&quot;#过程思维&quot; class=&quot;headerlink&quot; title=&quot;过程思维&quot;&gt;&lt;/a&gt;过程思维&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;面向过程的思维与面向任务的思维区别是什么&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;img
         
       
     
@@ -327,28 +329,6 @@
   </entry>
   
   <entry>
-    <title>观察者模式 vs 订阅发布模式</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/</id>
-    <published>2019-05-09T08:19:17.886Z</published>
-    <updated>2019-05-09T08:19:17.886Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。&lt;/p&gt;&lt;p&gt;实际上，我理解中的观察者模式是1:n，而订阅发布模式是m:n的模式。观察者模式需要观察者直接在被观察这种注册，两者直接耦合，一般是同步的，而订阅发布模式则存在一个调度中心，观察者与被观
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>操作系统（二）</title>
     <link href="https://edencao.github.io/blog/2019/05/09/Operating-System-(2)/"/>
     <id>https://edencao.github.io/blog/2019/05/09/Operating-System-(2)/</id>
@@ -371,10 +351,10 @@
   </entry>
   
   <entry>
-    <title>面向对象建模分析（四）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/</id>
-    <published>2019-05-09T08:19:17.885Z</published>
+    <title>观察者模式 vs 订阅发布模式</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/</id>
+    <published>2019-05-09T08:19:17.886Z</published>
     <updated>2019-05-09T08:19:17.886Z</updated>
     
     <summary type="html">
@@ -383,7 +363,29 @@
       
         
         
-          &lt;h2 id=&quot;什么是动态建模&quot;&gt;&lt;a href=&quot;#什么是动态建模&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。&lt;/p&gt;&lt;p&gt;实际上，我理解中的观察者模式是1:n，而订阅发布模式是m:n的模式。观察者模式需要观察者直接在被观察这种注册，两者直接耦合，一般是同步的，而订阅发布模式则存在一个调度中心，观察者与被观
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象建模分析（二）</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</id>
+    <published>2019-05-09T08:19:17.885Z</published>
+    <updated>2019-05-09T08:19:17.885Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;需求工程&quot;&gt;&lt;a href=&quot;#需求工程&quot; class=&quot;headerlink&quot; title=&quot;需求工程&quot;&gt;&lt;/a&gt;需求工程&lt;/h1&gt;&lt;h2 id=&quot;需求工程的基本概念&quot;&gt;&lt;a href=&quot;#需求工程的基本概念&quot; class=&quot;headerlink&quot;
         
       
     
@@ -415,11 +417,11 @@
   </entry>
   
   <entry>
-    <title>面向对象建模分析（二）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</id>
+    <title>面向对象建模分析（四）</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/</id>
     <published>2019-05-09T08:19:17.885Z</published>
-    <updated>2019-05-09T08:19:17.885Z</updated>
+    <updated>2019-05-09T08:19:17.886Z</updated>
     
     <summary type="html">
     
@@ -427,7 +429,7 @@
       
         
         
-          &lt;h1 id=&quot;需求工程&quot;&gt;&lt;a href=&quot;#需求工程&quot; class=&quot;headerlink&quot; title=&quot;需求工程&quot;&gt;&lt;/a&gt;需求工程&lt;/h1&gt;&lt;h2 id=&quot;需求工程的基本概念&quot;&gt;&lt;a href=&quot;#需求工程的基本概念&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;什么是动态建模&quot;&gt;&lt;a href=&quot;#什么是动态建模&quot; class=&quot;headerlink&quot;
         
       
     
