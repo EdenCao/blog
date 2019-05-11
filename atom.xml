@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://edencao.github.io/blog/"/>
-  <updated>2019-05-11T09:57:16.566Z</updated>
+  <updated>2019-05-11T10:28:29.795Z</updated>
   <id>https://edencao.github.io/blog/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://edencao.github.io/blog/2019/05/11/N-Number-Sum/"/>
     <id>https://edencao.github.io/blog/2019/05/11/N-Number-Sum/</id>
     <published>2019-05-11T08:54:26.000Z</published>
-    <updated>2019-05-11T09:57:16.566Z</updated>
+    <updated>2019-05-11T10:28:29.795Z</updated>
     
     <summary type="html">
     
@@ -87,28 +87,6 @@
   </entry>
   
   <entry>
-    <title>JavaScript语言精粹中的坑</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/</id>
-    <published>2019-05-09T08:19:17.890Z</published>
-    <updated>2019-05-09T08:19:17.890Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;&lt;p&gt;2017-12-20更新：&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;更新了以往表达不清楚的部分，为三个版本不同的地方添加上了注&lt;br&gt;&lt;/p&gt;&lt;p&gt;释&lt;/p&gt;&lt;/li&gt;&lt;li&gt;附上了图书版次信息以供查询&lt;/li&gt;&lt;/ul&gt;&lt;/blockquote&gt;&lt;h1
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>永不落伍的大前端</title>
     <link href="https://edencao.github.io/blog/2019/05/09/The-Big-Front-End-That-Never-Goes-Out-Of-Style/"/>
     <id>https://edencao.github.io/blog/2019/05/09/The-Big-Front-End-That-Never-Goes-Out-Of-Style/</id>
@@ -144,6 +122,28 @@
         
         
           &lt;p&gt;距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。&lt;/p&gt;&lt;p&gt;如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript语言精粹中的坑</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/</id>
+    <published>2019-05-09T08:19:17.890Z</published>
+    <updated>2019-05-09T08:19:17.890Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;&lt;p&gt;2017-12-20更新：&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;更新了以往表达不清楚的部分，为三个版本不同的地方添加上了注&lt;br&gt;&lt;/p&gt;&lt;p&gt;释&lt;/p&gt;&lt;/li&gt;&lt;li&gt;附上了图书版次信息以供查询&lt;/li&gt;&lt;/ul&gt;&lt;/blockquote&gt;&lt;h1
         
       
     
@@ -329,28 +329,6 @@
   </entry>
   
   <entry>
-    <title>操作系统（二）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Operating-System-(2)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Operating-System-(2)/</id>
-    <published>2019-05-09T08:19:17.886Z</published>
-    <updated>2019-05-09T08:19:17.886Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;进程调度&quot;&gt;&lt;a href=&quot;#进程调度&quot; class=&quot;headerlink&quot; title=&quot;进程调度&quot;&gt;&lt;/a&gt;进程调度&lt;/h1&gt;&lt;h2 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>观察者模式 vs 订阅发布模式</title>
     <link href="https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/"/>
     <id>https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/</id>
@@ -373,11 +351,11 @@
   </entry>
   
   <entry>
-    <title>面向对象建模分析（二）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</id>
-    <published>2019-05-09T08:19:17.885Z</published>
-    <updated>2019-05-09T08:19:17.885Z</updated>
+    <title>操作系统（二）</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Operating-System-(2)/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Operating-System-(2)/</id>
+    <published>2019-05-09T08:19:17.886Z</published>
+    <updated>2019-05-09T08:19:17.886Z</updated>
     
     <summary type="html">
     
@@ -385,7 +363,7 @@
       
         
         
-          &lt;h1 id=&quot;需求工程&quot;&gt;&lt;a href=&quot;#需求工程&quot; class=&quot;headerlink&quot; title=&quot;需求工程&quot;&gt;&lt;/a&gt;需求工程&lt;/h1&gt;&lt;h2 id=&quot;需求工程的基本概念&quot;&gt;&lt;a href=&quot;#需求工程的基本概念&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;进程调度&quot;&gt;&lt;a href=&quot;#进程调度&quot; class=&quot;headerlink&quot; title=&quot;进程调度&quot;&gt;&lt;/a&gt;进程调度&lt;/h1&gt;&lt;h2 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot;
         
       
     
@@ -408,6 +386,28 @@
         
         
           &lt;h2 id=&quot;面向对象分析方法&quot;&gt;&lt;a href=&quot;#面向对象分析方法&quot; class=&quot;headerlink&quot; title=&quot;面向对象分析方法&quot;&gt;&lt;/a&gt;面向对象分析方法&lt;/h2&gt;&lt;h3 id=&quot;软件的错误是怎样产生的？软件工程的挑战有哪些&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象建模分析（二）</title>
+    <link href="https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/"/>
+    <id>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</id>
+    <published>2019-05-09T08:19:17.885Z</published>
+    <updated>2019-05-09T08:19:17.885Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;需求工程&quot;&gt;&lt;a href=&quot;#需求工程&quot; class=&quot;headerlink&quot; title=&quot;需求工程&quot;&gt;&lt;/a&gt;需求工程&lt;/h1&gt;&lt;h2 id=&quot;需求工程的基本概念&quot;&gt;&lt;a href=&quot;#需求工程的基本概念&quot; class=&quot;headerlink&quot;
         
       
     
