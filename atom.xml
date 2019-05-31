@@ -73,7 +73,8 @@
       
         
         
-          &lt;p&gt;距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。&lt;/p&gt;&lt;p&gt;如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：&lt;a
+          &lt;p&gt;距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。&lt;/p&gt;
+&lt;p&gt;如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：&lt;a
         
       
     
@@ -95,7 +96,9 @@
       
         
         
-          &lt;blockquote&gt;&lt;p&gt;一直想把自己了解到的前端知识体系总结一下。正好前些日子赶上团队分享，于是趁此机会把知识框架梳理了一下。通过这张图可以清楚的看到自己的不足……技术了解的足够多，但是泛而不精，需要加深对于基础知识的理解。另外就是软实力严重不足，亟待提升。&lt;/p&gt;&lt;/bl
+          &lt;blockquote&gt;
+&lt;p&gt;一直想把自己了解到的前端知识体系总结一下。正好前些日子赶上团队分享，于是趁此机会把知识框架梳理了一下。通过这张图可以清楚的看到自己的不足……技术了解的足够多，但是泛而不精，需要加深对于基础知识的理解。另外就是软实力严重不足，亟待提升。&lt;/p&gt;
+&lt;/
         
       
     
@@ -117,7 +120,16 @@
       
         
         
-          &lt;blockquote&gt;&lt;p&gt;2017-12-20 更新：&lt;/p&gt;&lt;ul&gt;&lt;li&gt;更新了以往表达不清楚的部分，为三个版本不同的地方添加上了注&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;释&lt;/p&gt;&lt;ul&gt;&lt;li&gt;附上了图书版次信息以供查询&lt;/li&gt;&lt;/ul&gt;&lt;/blockquote&gt;&lt;h1
+          &lt;blockquote&gt;
+&lt;p&gt;2017-12-20 更新：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;更新了以往表达不清楚的部分，为三个版本不同的地方添加上了注&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;释&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;附上了图书版次信息以供查询&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
         
       
     
@@ -183,7 +195,8 @@
       
         
         
-          &lt;h1 id=&quot;4-CMMI&quot;&gt;&lt;a href=&quot;#4-CMMI&quot; class=&quot;headerlink&quot; title=&quot;4-CMMI&quot;&gt;&lt;/a&gt;4-CMMI&lt;/h1&gt;&lt;p&gt;能力成熟度模型集成&lt;/p&gt;&lt;h2 id=&quot;过程能力&quot;&gt;&lt;a href=&quot;#过程能力&quot;
+          &lt;h1 id=&quot;4-CMMI&quot;&gt;&lt;a href=&quot;#4-CMMI&quot; class=&quot;headerlink&quot; title=&quot;4-CMMI&quot;&gt;&lt;/a&gt;4-CMMI&lt;/h1&gt;&lt;p&gt;能力成熟度模型集成&lt;/p&gt;
+&lt;h2 id=&quot;过程能力&quot;&gt;&lt;a href=&quot;#过程能力&quot;
         
       
     
@@ -227,7 +240,8 @@
       
         
         
-          &lt;h2 id=&quot;过程思维&quot;&gt;&lt;a href=&quot;#过程思维&quot; class=&quot;headerlink&quot; title=&quot;过程思维&quot;&gt;&lt;/a&gt;过程思维&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;面向过程的思维与面向任务的思维区别是什么&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;img
+          &lt;h2 id=&quot;过程思维&quot;&gt;&lt;a href=&quot;#过程思维&quot; class=&quot;headerlink&quot; title=&quot;过程思维&quot;&gt;&lt;/a&gt;过程思维&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;面向过程的思维与面向任务的思维区别是什么&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img
         
       
     
@@ -249,7 +263,11 @@
       
         
         
-          &lt;p&gt;这两天参加了一次小米的面试，面试方式比较随意，直接用微信聊的。感觉面试题有些意思，所以想记下来，也使我学到了不少东西。&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;Q:&lt;/p&gt;&lt;p&gt;定义这样一个函数&lt;/p&gt;&lt;p&gt;function doRepeat(func, times,
+          &lt;p&gt;这两天参加了一次小米的面试，面试方式比较随意，直接用微信聊的。感觉面试题有些意思，所以想记下来，也使我学到了不少东西。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Q:&lt;/p&gt;
+&lt;p&gt;定义这样一个函数&lt;/p&gt;
+&lt;p&gt;function doRepeat(func, times,
         
       
     
@@ -315,7 +333,8 @@
       
         
         
-          &lt;p&gt;一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。&lt;/p&gt;&lt;p&gt;实际上，我理解中的观察者模式是 1:n，而订阅发布模式是 m:n
+          &lt;p&gt;一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。&lt;/p&gt;
+&lt;p&gt;实际上，我理解中的观察者模式是 1:n，而订阅发布模式是 m:n
         
       
     
@@ -447,7 +466,8 @@
       
         
         
-          &lt;p&gt;事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次&lt;code&gt;ajax&lt;/code&gt;请求，这简直是一场灾难。&lt;/p&gt;&lt;h2 id=&quot;稀释原理&quot;&gt;&lt;a
+          &lt;p&gt;事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次&lt;code&gt;ajax&lt;/code&gt;请求，这简直是一场灾难。&lt;/p&gt;
+&lt;h2 id=&quot;稀释原理&quot;&gt;&lt;a
         
       
     
