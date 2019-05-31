@@ -108,15 +108,15 @@
 <meta property="og:site_name" content="Eden&#39;s Blog">
 <meta property="og:description" content="Draft.js 的数据结构Draft.js使用 EditorState 来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍Draft.js的数据结构。 不可变的数据结构Draft.js基于immutable.js实现了一种不可变的数据结构，基于这种数据结构，Draft.js实现了单项数据流，即 event -&amp;gt; onChange -&amp;gt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Draft.js-Data-Structure/Draft.js-Data-Structure/xgfny$EditorState.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Draft.js-Data-Structure/Draft.js-Data-Structure/dkvoz$块级样式.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Draft.js-Data-Structure/Draft.js-Data-Structure/gogqf$块级样式与内联样式.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Draft.js-Data-Structure/Draft.js-Data-Structure/pfmgo$内联样式.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Draft.js-Data-Structure/xgfny$EditorState.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Draft.js-Data-Structure/dkvoz$块级样式.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Draft.js-Data-Structure/gogqf$块级样式与内联样式.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Draft.js-Data-Structure/pfmgo$内联样式.png">
 <meta property="og:updated_time" content="2019-05-31T05:07:05.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Draft.js的数据结构">
 <meta name="twitter:description" content="Draft.js 的数据结构Draft.js使用 EditorState 来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍Draft.js的数据结构。 不可变的数据结构Draft.js基于immutable.js实现了一种不可变的数据结构，基于这种数据结构，Draft.js实现了单项数据流，即 event -&amp;gt; onChange -&amp;gt;">
-<meta name="twitter:image" content="https://edencao.github.io/blog/2019/05/29/Draft.js-Data-Structure/Draft.js-Data-Structure/xgfny$EditorState.png">
+<meta name="twitter:image" content="https://edencao.github.io/blog/2019/05/29/Draft.js-Data-Structure/xgfny$EditorState.png">
 
 
 
@@ -457,12 +457,12 @@
         <h1 id="Draft-js-的数据结构"><a href="#Draft-js-的数据结构" class="headerlink" title="Draft.js 的数据结构"></a>Draft.js 的数据结构</h1><p><code>Draft.js</code>使用 EditorState 来保存数据结构顶层，其中记录了用于展示数据的所有数据结构。本文将通过提供一系列的简单示例来简单介绍<code>Draft.js</code>的数据结构。</p>
 <h2 id="不可变的数据结构"><a href="#不可变的数据结构" class="headerlink" title="不可变的数据结构"></a>不可变的数据结构</h2><p><code>Draft.js</code>基于<code>immutable.js</code>实现了一种不可变的数据结构，基于这种数据结构，<code>Draft.js</code>实现了单项数据流，即 event -&gt; onChange -&gt; EditorState</p>
 <h2 id="EditorState-概览"><a href="#EditorState-概览" class="headerlink" title="EditorState 概览"></a>EditorState 概览</h2><p>我在 <a href="https://link.jianshu.com?t=https%3A%2F%2Fcodepen.io%2Fyungcho%2Fpen%2FNXJxNL%3Feditors%3D1111" target="_blank" rel="noopener">CodePen</a> 上面实现了一个简单的 Demo 用于展示 EditorState，你可以在上面尝试一下。</p>
-<p><img src="/blog/2019/05/29/Draft.js-Data-Structure/./Draft.js-Data-Structure/xgfny$EditorState.png" alt="xgfny$EditorState.png">上图展示了一个完整的 EditorState，我们可以轻易的猜测出一些属性的含义，比如 currentContent 记录了当前编辑器中展示内容的状态，selection 中标识当前的选区，redoStack 和 undoStack 分别是撤销、重做栈，而 EditorState 则提供了操作这些属性的顶层方法。</p>
+<p><img src="/blog/2019/05/29/Draft.js-Data-Structure/xgfny$EditorState.png" alt="xgfny$EditorState.png">上图展示了一个完整的 EditorState，我们可以轻易的猜测出一些属性的含义，比如 currentContent 记录了当前编辑器中展示内容的状态，selection 中标识当前的选区，redoStack 和 undoStack 分别是撤销、重做栈，而 EditorState 则提供了操作这些属性的顶层方法。</p>
 <h2 id="样式展现"><a href="#样式展现" class="headerlink" title="样式展现"></a>样式展现</h2><p><code>Draft</code>将样式分为块级样式与内联样式，块级样式之间线性排列，不可嵌套，内联样式则用数组记录，可以重叠。</p>
-<p><img src="/blog/2019/05/29/Draft.js-Data-Structure/./Draft.js-Data-Structure/dkvoz$块级样式.png" alt="dkvoz$块级样式.png">当我在<code>draft</code>中随意输入一些文字的时候，text 将会记录下文字内容，而此时用于记录块级样式的 type 值为<code>unstyled</code></p>
-<p><img src="/blog/2019/05/29/Draft.js-Data-Structure/./Draft.js-Data-Structure/gogqf$块级样式与内联样式.png" alt="gogqf$块级样式与内联样式.png">现在我们将 H1（块级元素）应用于文本，我们可以发现用于标识块级样式的 type 值变为了<code>header-one</code>，当我们继续在该行输入的时候，将会同样被赋予 H1 样式。通过上述的数据结构我们可以发现，由于块级样式由 type 所规定，所以块级样式之间不可被嵌套，即不会出现无序列表嵌套有序列表的情况出现。</p>
+<p><img src="/blog/2019/05/29/Draft.js-Data-Structure/dkvoz$块级样式.png" alt="dkvoz$块级样式.png">当我在<code>draft</code>中随意输入一些文字的时候，text 将会记录下文字内容，而此时用于记录块级样式的 type 值为<code>unstyled</code></p>
+<p><img src="/blog/2019/05/29/Draft.js-Data-Structure/gogqf$块级样式与内联样式.png" alt="gogqf$块级样式与内联样式.png">现在我们将 H1（块级元素）应用于文本，我们可以发现用于标识块级样式的 type 值变为了<code>header-one</code>，当我们继续在该行输入的时候，将会同样被赋予 H1 样式。通过上述的数据结构我们可以发现，由于块级样式由 type 所规定，所以块级样式之间不可被嵌套，即不会出现无序列表嵌套有序列表的情况出现。</p>
 <p>对于同一块级元素中的文本内容，<code>draft</code>将其按照字符进行拆分,每一个字符的内联样式用数组进行展示，由此可以解决内联样式的嵌套问题。</p>
-<p><img src="/blog/2019/05/29/Draft.js-Data-Structure/./Draft.js-Data-Structure/pfmgo$内联样式.png" alt="pfmgo$内联样式.png"></p>
+<p><img src="/blog/2019/05/29/Draft.js-Data-Structure/pfmgo$内联样式.png" alt="pfmgo$内联样式.png"></p>
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"> [<span class="symbol">'ITALIC</span>'], // 斜</span><br><span class="line"> [<span class="symbol">'ITALIC</span>'], // 体</span><br><span class="line"> [],</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //斜</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //体</span><br><span class="line"> [<span class="symbol">'ITALIC</span>',<span class="symbol">'BOLD</span>',<span class="symbol">'UNDERLINE</span>'], //加</span><br><span class="line"> ...</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <h2 id="Entity-元数据"><a href="#Entity-元数据" class="headerlink" title="Entity 元数据"></a>Entity 元数据</h2><p>Entity 并不是一个难以理解的数据类型，Entity 数据主要用于展示一些不可被分割的数据类型，例如图片、mention、超链接等。</p>
 <p>典型场景就是 mention 类型，详细来说，我们在日常使用中会在富文本编辑器中提及一些人， @xxx 的数据类型要求是一个统一整体，一旦 @xxx 中有某一个字符被删除，就有可能会出现 @ 出的名字和 @ 的对象不一致的情况。</p>

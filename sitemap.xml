@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/</loc>
+    
+    <lastmod>2019-05-31T05:26:49.972Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/</loc>
     
     <lastmod>2019-05-31T05:07:07.245Z</lastmod>
@@ -103,13 +110,6 @@
     <loc>https://edencao.github.io/blog/2019/05/29/Object-oriented-Modeling-Analysis-I/</loc>
     
     <lastmod>2019-05-31T05:07:06.262Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/</loc>
-    
-    <lastmod>2019-05-31T05:07:06.158Z</lastmod>
     
   </url>
   

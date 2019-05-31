@@ -108,16 +108,16 @@
 <meta property="og:site_name" content="Eden&#39;s Blog">
 <meta property="og:description" content="你知道的 JS 原型链–对象与原型最近一直在以忙为借口犯懒，到了清明节终于捱不过去了，所以还是准备写一篇文章来总结一下。最近开发的一个项目涉及到一些关于 es6 继承的问题。得益于JavaScript强大的原型机制，我们可以很轻易的模仿出类的特性，当然由于是基于原型实现的class语法糖，所以我们可以做出一些特别骚气的操作，比如动态继承。 例如 12345678910111213141516171">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/You-Know-The-JS-Prototype-Chain-(top">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/Object-And-Prototype/smdyz$image.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/Object-And-Prototype/nyxnh$image.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/Object-And-Prototype/emygv$image.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/Object-And-Prototype/etpgc$image.png">
-<meta property="og:updated_time" content="2019-05-31T05:07:06.158Z">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/eodnh$image.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/smdyz$image.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/nyxnh$image.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/emygv$image.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/etpgc$image.png">
+<meta property="og:updated_time" content="2019-05-31T05:26:49.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你知道的JS原型链（上）--对象与原型">
 <meta name="twitter:description" content="你知道的 JS 原型链–对象与原型最近一直在以忙为借口犯懒，到了清明节终于捱不过去了，所以还是准备写一篇文章来总结一下。最近开发的一个项目涉及到一些关于 es6 继承的问题。得益于JavaScript强大的原型机制，我们可以很轻易的模仿出类的特性，当然由于是基于原型实现的class语法糖，所以我们可以做出一些特别骚气的操作，比如动态继承。 例如 12345678910111213141516171">
-<meta name="twitter:image" content="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/You-Know-The-JS-Prototype-Chain-(top">
+<meta name="twitter:image" content="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/eodnh$image.png">
 
 
   
@@ -410,7 +410,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-31 13:07:06" itemprop="dateModified" datetime="2019-05-31T13:07:06+08:00">2019-05-31</time>
+                <time title="修改时间：2019-05-31 13:26:49" itemprop="dateModified" datetime="2019-05-31T13:26:49+08:00">2019-05-31</time>
               
             
           </span>
@@ -481,10 +481,10 @@
 <p>那么<code>prototype</code>与<code>__proto__</code>又有什么区别呢？</p>
 <h2 id="prototype-amp-proto"><a href="#prototype-amp-proto" class="headerlink" title="prototype &amp; proto"></a>prototype &amp; <strong>proto</strong></h2><p><code>JavaScript</code>中有两个指针，<code>prototype</code>与<code>__proto__</code>，我在初学的时候一直对于这两个指针一直十分困惑，现在我希望可以解释清楚这些事情。</p>
 <p>对于<code>People</code>构造函数来说，它在被创建的时候拥有<code>prototype</code>属性，<code>prototype</code>的<code>constructor</code>指向它本身：</p>
-<p><img src="/blog/2019/05/29/Object-And-Prototype/./You-Know-The-JS-Prototype-Chain-(top" alt="eodnh$image.png">—-Object-And-Prototype/eodnh$image.png&gt;)如果用一种不太准确但容易理解的方式来解释，<code>prototype</code>才是 People 的类，上面拥有 People 所定义的一切方法，例如我们举个例子：</p>
+<p><img src="/blog/2019/05/29/Object-And-Prototype/eodnh$image.png" alt="eodnh$image.png">如果用一种不太准确但容易理解的方式来解释，<code>prototype</code>才是 People 的类，上面拥有 People 所定义的一切方法，例如我们举个例子：</p>
 <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span> </span>&#123;</span><br><span class="line">    constructor(name, age)&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    changeName(<span class="keyword">new</span><span class="type">Name</span>)&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = <span class="keyword">new</span><span class="type">Name</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们在上面多声明了一个方法<code>changeName</code>,因此上面的图改为：</p>
-<p><img src="/blog/2019/05/29/Object-And-Prototype/./Object-And-Prototype/smdyz$image.png" alt="smdyz$image.png">这就是 prototype</p>
+<p><img src="/blog/2019/05/29/Object-And-Prototype/smdyz$image.png" alt="smdyz$image.png">这就是 prototype</p>
 <p>但是我们也说了<code>People</code>不仅仅是个构造函数，它还是<code>Function</code>的实例，对于一个实例来说，它需要知道创建它的类是什么。</p>
 <p>注意这里非常容易糊涂：</p>
 <p>prototype 指向的是<strong>它作为构造函数的类</strong><br></p>
@@ -493,11 +493,11 @@
 <p>就是下面的这个<code>Function</code>:</p>
 <figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> People = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span><span class="params">()</span>;</span></span><br></pre></td></tr></table></figure>
 <p>因此上面的图可以更改为：</p>
-<p><img src="/blog/2019/05/29/Object-And-Prototype/./Object-And-Prototype/nyxnh$image.png" alt="nyxnh$image.png">同样的，Function 类的构造函数也是一个函数。。所以<code>Function构造函数</code>的<code>prototype</code>指向<code>Function类</code>,而它的<code>__proto__</code>也指向它的类：</p>
-<p><img src="/blog/2019/05/29/Object-And-Prototype/./Object-And-Prototype/emygv$image.png" alt="emygv$image.png">因此你可以试一下：</p>
+<p><img src="/blog/2019/05/29/Object-And-Prototype/nyxnh$image.png" alt="nyxnh$image.png">同样的，Function 类的构造函数也是一个函数。。所以<code>Function构造函数</code>的<code>prototype</code>指向<code>Function类</code>,而它的<code>__proto__</code>也指向它的类：</p>
+<p><img src="/blog/2019/05/29/Object-And-Prototype/emygv$image.png" alt="emygv$image.png">因此你可以试一下：</p>
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span> === <span class="function"><span class="keyword">Function</span>.<span class="title">__proto__</span></span>; // true</span><br></pre></td></tr></table></figure>
 <p>我们刚才也说过了，prototype 也是一个对象，也是被’<code>new</code>‘出来的，因为是对象，所以创造它的构造函数是<code>Object</code>,因此上图可以更改为：</p>
-<p><img src="/blog/2019/05/29/Object-And-Prototype/./Object-And-Prototype/etpgc$image.png" alt="etpgc$image.png">因此就出现了一个问题，创建 Object 的类是个毛？</p>
+<p><img src="/blog/2019/05/29/Object-And-Prototype/etpgc$image.png" alt="etpgc$image.png">因此就出现了一个问题，创建 Object 的类是个毛？</p>
 <p>说的再玄幻一点就是创建对象的是个什么玩应？</p>
 <p><strong>是 null</strong></p>
 <p>从无到有。</p>

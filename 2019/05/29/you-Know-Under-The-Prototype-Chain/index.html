@@ -108,19 +108,19 @@
 <meta property="og:site_name" content="Eden&#39;s Blog">
 <meta property="og:description" content="距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。 如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：https://www.jianshu.com/p/866657da6b7e 其实上里面有一些概念是错误的：JS 中的 Class 是一个对象。本质上来说，如果将对象比喻成是一栋楼的话，Class 就是楼的设计图。这两者是不能混淆">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/you-Know-Under-The-Prototype-Chain/rrafg$image.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/you-Know-Under-The-Prototype-Chain/zagyb$image.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/you-Know-Under-The-Prototype-Chain/tyfzy$image.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/you-Know-Under-The-Prototype-Chain/wxuno$image.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/you-Know-Under-The-Prototype-Chain/eskys$image.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/you-Know-Under-The-Prototype-Chain/gasbo$image.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/you-Know-Under-The-Prototype-Chain/ogbxz$image.png">
-<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/you-Know-Under-The-Prototype-Chain/uqcwn$image.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/rrafg$image.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/zagyb$image.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/tyfzy$image.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/wxuno$image.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/eskys$image.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/gasbo$image.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/ogbxz$image.png">
+<meta property="og:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/uqcwn$image.png">
 <meta property="og:updated_time" content="2019-05-31T05:07:07.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 ES Class 继承中的二三事（一）(你知道的原型链下)">
 <meta name="twitter:description" content="距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。 如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：https://www.jianshu.com/p/866657da6b7e 其实上里面有一些概念是错误的：JS 中的 Class 是一个对象。本质上来说，如果将对象比喻成是一栋楼的话，Class 就是楼的设计图。这两者是不能混淆">
-<meta name="twitter:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/you-Know-Under-The-Prototype-Chain/rrafg$image.png">
+<meta name="twitter:image" content="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/rrafg$image.png">
 
 
 
@@ -467,28 +467,28 @@
 <p>继承的方式有很多种，写 React 组件采用的是组合式继承，Vue 则是提供了官方的 mixins。</p>
 <p>在标准 ES6 出现之前，我们都是在通过手动的方式来模拟继承的方式。现在，为了拥抱新的标准，我们会使用类似于 Babel 或者 shim 的方式来使用一些语法的新特性。</p>
 <p>但如果看过 Babel 的具体实现就会发现，继承实际上还是基于原型实现的。具体来说是把实例属性挂到对象上，然后 class 方法放到原型上。</p>
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/rrafg$image.png" alt="rrafg$image.png">## 关于 bind</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/rrafg$image.png" alt="rrafg$image.png">## 关于 bind</p>
 <p>如果你通读过类库 React 的官方文档的话，一定会记得 React 推荐你使用组合的方式来实现继承，而不是 Inheritance。这里附上原文地址：<a href="https://reactjs.org/docs/composition-vs-inheritance.html" target="_blank" rel="noopener">Composition vs Inheritance – React</a></p>
 <p>一个经常非常常见的问题是 this 丢失的问题，为此我们需要在 React 组件中这样写：</p>
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/zagyb$image.png" alt="zagyb$image.png">是因为 method 方法在传递引用的过程中 this 丢失了，因此我们需要手动将远行方法绑定到实例上面。<br></p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/zagyb$image.png" alt="zagyb$image.png">是因为 method 方法在传递引用的过程中 this 丢失了，因此我们需要手动将远行方法绑定到实例上面。<br></p>
 <p>Bind 方法返回一个指定 this 的新函数，由于方法会先一步挂到 class 上面，因此右侧的 method 指的是原型上的 method 方法，这句话在实例上面创建了一个 method 属性，此属性保持着对于绑定 this 的 method 函数的引用。</p>
 <p>同样的写法还有如下两种：</p>
 <ul>
 <li>property method</li>
 </ul>
 <!-- -->
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/tyfzy$image.png" alt="tyfzy$image.png">- 在使用的时候绑定：</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/tyfzy$image.png" alt="tyfzy$image.png">- 在使用的时候绑定：</p>
 <!-- -->
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/wxuno$image.png" alt="wxuno$image.png">这三种使用方式会造成什么问题？</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/wxuno$image.png" alt="wxuno$image.png">这三种使用方式会造成什么问题？</p>
 <p>第一种会在实例上面创建一个实例属性。</p>
 <p>第二种方法实际上会被编译到 constructor 当中, 类似于这样：</p>
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/eskys$image.png" alt="eskys$image.png">我们在使用类继承的时候经常需要重载父类的函数，在 JavaScript 当中是通过遮蔽实现的。但是如果你在父类中使用了这种属性函数的方法，由于原型上的方法会先一步挂在到原型上，后一步 super 才会执行，结果是你的遮蔽是失效的。即使你在构造函数中手动绑定了 this 指向，也无法在函数内部通过 super.method 实现访问父类方法，因为这个方法并不存在在父类的原型上面。</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/eskys$image.png" alt="eskys$image.png">我们在使用类继承的时候经常需要重载父类的函数，在 JavaScript 当中是通过遮蔽实现的。但是如果你在父类中使用了这种属性函数的方法，由于原型上的方法会先一步挂在到原型上，后一步 super 才会执行，结果是你的遮蔽是失效的。即使你在构造函数中手动绑定了 this 指向，也无法在函数内部通过 super.method 实现访问父类方法，因为这个方法并不存在在父类的原型上面。</p>
 <p>第三种方式实在使用的时候绑定：</p>
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/gasbo$image.png" alt="gasbo$image.png">但是 bind 函数被执行后会返回一个新的函数，这会造成每次 render 函数执行时会重新创建一个新的函数传递给自组件，props 改变，可能造成不必要的子组件重新渲染。</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/gasbo$image.png" alt="gasbo$image.png">但是 bind 函数被执行后会返回一个新的函数，这会造成每次 render 函数执行时会重新创建一个新的函数传递给自组件，props 改变，可能造成不必要的子组件重新渲染。</p>
 <p>实际上这些问题不仅仅在使用 react 的时候才会出现，如果你大量依赖于继承去实现你自己的类库的话，很容易碰到上述问题。</p>
 <p>不过我在 github 上面找到了一个很有意思的解决方案：</p>
 <p>Autobind:<a href="https://github.com/andreypopp/autobind-decorator" target="_blank" rel="noopener">GitHub - andreypopp/autobind-decorator: Decorator to automatically bind methods to class instances</a></p>
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/ogbxz$image.png" alt="ogbxz$image.png">因为实际上是创建了一个 getter 的闭包函数来存储 bind 的 fn，因次只有在第一次访问的时候会绑定 this，剩下的访问的都是同一个函数，从而解决了多次渲染的问题。</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/ogbxz$image.png" alt="ogbxz$image.png">因为实际上是创建了一个 getter 的闭包函数来存储 bind 的 fn，因次只有在第一次访问的时候会绑定 this，剩下的访问的都是同一个函数，从而解决了多次渲染的问题。</p>
 <p>但这个方案也不是尽善尽美，我目前主要遇到了两个问题：</p>
 <ol>
 <li>实际上使用 decorator 去实现，但是高阶组件可能会有一些问题：</li>
@@ -499,7 +499,7 @@
 <p>不过我现在没有找到这句话，可能已经被其他大神纠正了。</p>
 <p>在这种装饰器里面是无法使用另一个装饰器的。</p>
 <p>而且 react 为了避免 bind 污染子属性的问题，使用组合的方式来实现继承，因此你在写高阶组件的时候实际上是这么写的</p>
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/uqcwn$image.png" alt="uqcwn$image.png">实际上返回的是一个全新的组件，因此高阶组件 connect 到底属不属于 decorator 需要另作讨论。</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/uqcwn$image.png" alt="uqcwn$image.png">实际上返回的是一个全新的组件，因此高阶组件 connect 到底属不属于 decorator 需要另作讨论。</p>
 <ol start="2">
 <li>mixins<br></li>
 </ol>

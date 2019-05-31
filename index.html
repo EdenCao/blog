@@ -404,7 +404,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-31 13:07:06" itemprop="dateModified" datetime="2019-05-31T13:07:06+08:00">2019-05-31</time>
+                <time title="修改时间：2019-05-31 13:26:49" itemprop="dateModified" datetime="2019-05-31T13:26:49+08:00">2019-05-31</time>
               
             
           </span>
@@ -477,10 +477,10 @@
 <p>那么<code>prototype</code>与<code>__proto__</code>又有什么区别呢？</p>
 <h2 id="prototype-amp-proto"><a href="#prototype-amp-proto" class="headerlink" title="prototype &amp; proto"></a>prototype &amp; <strong>proto</strong></h2><p><code>JavaScript</code>中有两个指针，<code>prototype</code>与<code>__proto__</code>，我在初学的时候一直对于这两个指针一直十分困惑，现在我希望可以解释清楚这些事情。</p>
 <p>对于<code>People</code>构造函数来说，它在被创建的时候拥有<code>prototype</code>属性，<code>prototype</code>的<code>constructor</code>指向它本身：</p>
-<p><img src="/blog/2019/05/29/Object-And-Prototype/./You-Know-The-JS-Prototype-Chain-(top" alt="eodnh$image.png">—-Object-And-Prototype/eodnh$image.png&gt;)如果用一种不太准确但容易理解的方式来解释，<code>prototype</code>才是 People 的类，上面拥有 People 所定义的一切方法，例如我们举个例子：</p>
+<p><img src="/blog/2019/05/29/Object-And-Prototype/eodnh$image.png" alt="eodnh$image.png">如果用一种不太准确但容易理解的方式来解释，<code>prototype</code>才是 People 的类，上面拥有 People 所定义的一切方法，例如我们举个例子：</p>
 <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span> </span>&#123;</span><br><span class="line">    constructor(name, age)&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    changeName(<span class="keyword">new</span><span class="type">Name</span>)&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = <span class="keyword">new</span><span class="type">Name</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们在上面多声明了一个方法<code>changeName</code>,因此上面的图改为：</p>
-<p><img src="/blog/2019/05/29/Object-And-Prototype/./Object-And-Prototype/smdyz$image.png" alt="smdyz$image.png">这就是 prototype</p>
+<p><img src="/blog/2019/05/29/Object-And-Prototype/smdyz$image.png" alt="smdyz$image.png">这就是 prototype</p>
 <p>但是我们也说了<code>People</code>不仅仅是个构造函数，它还是<code>Function</code>的实例，对于一个实例来说，它需要知道创建它的类是什么。</p>
 <p>注意这里非常容易糊涂：</p>
 <p>prototype 指向的是<strong>它作为构造函数的类</strong><br></p>
@@ -489,11 +489,11 @@
 <p>就是下面的这个<code>Function</code>:</p>
 <figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> People = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span><span class="params">()</span>;</span></span><br></pre></td></tr></table></figure>
 <p>因此上面的图可以更改为：</p>
-<p><img src="/blog/2019/05/29/Object-And-Prototype/./Object-And-Prototype/nyxnh$image.png" alt="nyxnh$image.png">同样的，Function 类的构造函数也是一个函数。。所以<code>Function构造函数</code>的<code>prototype</code>指向<code>Function类</code>,而它的<code>__proto__</code>也指向它的类：</p>
-<p><img src="/blog/2019/05/29/Object-And-Prototype/./Object-And-Prototype/emygv$image.png" alt="emygv$image.png">因此你可以试一下：</p>
+<p><img src="/blog/2019/05/29/Object-And-Prototype/nyxnh$image.png" alt="nyxnh$image.png">同样的，Function 类的构造函数也是一个函数。。所以<code>Function构造函数</code>的<code>prototype</code>指向<code>Function类</code>,而它的<code>__proto__</code>也指向它的类：</p>
+<p><img src="/blog/2019/05/29/Object-And-Prototype/emygv$image.png" alt="emygv$image.png">因此你可以试一下：</p>
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span> === <span class="function"><span class="keyword">Function</span>.<span class="title">__proto__</span></span>; // true</span><br></pre></td></tr></table></figure>
 <p>我们刚才也说过了，prototype 也是一个对象，也是被’<code>new</code>‘出来的，因为是对象，所以创造它的构造函数是<code>Object</code>,因此上图可以更改为：</p>
-<p><img src="/blog/2019/05/29/Object-And-Prototype/./Object-And-Prototype/etpgc$image.png" alt="etpgc$image.png">因此就出现了一个问题，创建 Object 的类是个毛？</p>
+<p><img src="/blog/2019/05/29/Object-And-Prototype/etpgc$image.png" alt="etpgc$image.png">因此就出现了一个问题，创建 Object 的类是个毛？</p>
 <p>说的再玄幻一点就是创建对象的是个什么玩应？</p>
 <p><strong>是 null</strong></p>
 <p>从无到有。</p>
@@ -678,19 +678,19 @@
 <h3 id="EditorConfig-VS-Code-Snippet"><a href="#EditorConfig-VS-Code-Snippet" class="headerlink" title="EditorConfig VS Code Snippet"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dzgudino.editorconfig-vscode-snippet" target="_blank" rel="noopener">EditorConfig VS Code Snippet</a></h3><p>项目文件中的<code>.editorconfig</code>文件，加上这个插件就能自动读取了。</p>
 <h3 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddbaeumer.vscode-eslint" target="_blank" rel="noopener">ESLint</a></h3><p>一个添加 vscode 对于 eslint 支持的插件，加上以后不需要命令行就可以直接在编辑器中标识不符合规则的部分。</p>
 <h3 id="filesize"><a href="#filesize" class="headerlink" title="filesize"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dmkxml.vscode-filesize" target="_blank" rel="noopener">filesize</a></h3><p>一个可以自动标识文件大小的小插件</p>
-<h3 id="Git-History"><a href="#Git-History" class="headerlink" title="Git History"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddonjayamanne.githistory" target="_blank" rel="noopener">Git History</a></h3><p><img src="/blog/2019/05/29/VScode-Configuration-Manifest/./VScode-Configuration-Manifest/mgpca$gitHistory" alt="mgpca$gitHistory">一个很方便的查看 git 历史记录的插件</p>
-<h3 id="GitLens"><a href="#GitLens" class="headerlink" title="GitLens"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Deamodio.gitlens" target="_blank" rel="noopener">GitLens</a></h3><p><img src="/blog/2019/05/29/VScode-Configuration-Manifest/./VScode-Configuration-Manifest/nqinv$GitLens" alt="nqinv$GitLens">一个可以看到当前代码提交记录的插件</p>
+<h3 id="Git-History"><a href="#Git-History" class="headerlink" title="Git History"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddonjayamanne.githistory" target="_blank" rel="noopener">Git History</a></h3><p><img src="/blog/2019/05/29/VScode-Configuration-Manifest/mgpca$gitHistory" alt="mgpca$gitHistory">一个很方便的查看 git 历史记录的插件</p>
+<h3 id="GitLens"><a href="#GitLens" class="headerlink" title="GitLens"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Deamodio.gitlens" target="_blank" rel="noopener">GitLens</a></h3><p><img src="/blog/2019/05/29/VScode-Configuration-Manifest/nqinv$GitLens" alt="nqinv$GitLens">一个可以看到当前代码提交记录的插件</p>
 <h3 id="HTML-CSS-SUPPORT"><a href="#HTML-CSS-SUPPORT" class="headerlink" title="HTML CSS SUPPORT"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Decmel.vscode-html-css" target="_blank" rel="noopener">HTML CSS SUPPORT</a></h3><p>代码补全工具</p>
 <h3 id="HTML-Snippets"><a href="#HTML-Snippets" class="headerlink" title="HTML Snippets"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dabusaidm.html-snippets" target="_blank" rel="noopener">HTML Snippets</a></h3><p>HTML 的 snippet 插件</p>
-<p><img src="/blog/2019/05/29/VScode-Configuration-Manifest/./VScode-Configuration-Manifest/rqlmg$html snippet" alt="rqlmg$html snippet">### <a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dzhuangtongfa.Material-theme" target="_blank" rel="noopener">One Dark Pro</a></p>
-<p><img src="/blog/2019/05/29/VScode-Configuration-Manifest/./VScode-Configuration-Manifest/rburk$oneDarkPro" alt="rburk$oneDarkPro">很漂亮的 vscode 主题，再也不羡慕 Atom 了</p>
+<p><img src="/blog/2019/05/29/VScode-Configuration-Manifest/rqlmg$html snippet" alt="rqlmg$html snippet">### <a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dzhuangtongfa.Material-theme" target="_blank" rel="noopener">One Dark Pro</a></p>
+<p><img src="/blog/2019/05/29/VScode-Configuration-Manifest/rburk$oneDarkPro" alt="rburk$oneDarkPro">很漂亮的 vscode 主题，再也不羡慕 Atom 了</p>
 <h3 id="Path-Intellisense"><a href="#Path-Intellisense" class="headerlink" title="Path Intellisense"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dchristian-kohler.path-intellisense" target="_blank" rel="noopener">Path Intellisense</a></h3><p>自动路径提示</p>
-<p><img src="/blog/2019/05/29/VScode-Configuration-Manifest/./VScode-Configuration-Manifest/ztetd$path intellisense" alt="ztetd$path intellisense">### <a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dchrmarti.regex" target="_blank" rel="noopener">Regex Previewer</a></p>
+<p><img src="/blog/2019/05/29/VScode-Configuration-Manifest/ztetd$path intellisense" alt="ztetd$path intellisense">### <a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dchrmarti.regex" target="_blank" rel="noopener">Regex Previewer</a></p>
 <p>一个写完正则就可以直接测试的插件</p>
 <h3 id="TODO-Highlight"><a href="#TODO-Highlight" class="headerlink" title="TODO Highlight"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dwayou.vscode-todo-highlight" target="_blank" rel="noopener">TODO Highlight</a></h3><p>一个 TODO LIST 的插件</p>
 <h3 id="Vetur"><a href="#Vetur" class="headerlink" title="Vetur"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Doctref.vetur" target="_blank" rel="noopener">Vetur</a></h3><p>vue 官方推荐的插件，可以代码提示等功能</p>
 <h3 id="vscode-icons"><a href="#vscode-icons" class="headerlink" title="vscode-icons"></a><a href="https://link.jianshu.com?t=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Drobertohuertasm.vscode-icons" target="_blank" rel="noopener">vscode-icons</a></h3><p>很漂亮且很实用的图标插件，帮助我们区分不同类型。</p>
-<p><img src="/blog/2019/05/29/VScode-Configuration-Manifest/./VScode-Configuration-Manifest/fmsov$vscode-icon" alt="fmsov$vscode-icon"></p>
+<p><img src="/blog/2019/05/29/VScode-Configuration-Manifest/fmsov$vscode-icon" alt="fmsov$vscode-icon"></p>
 
           
         
@@ -867,28 +867,28 @@
 <p>继承的方式有很多种，写 React 组件采用的是组合式继承，Vue 则是提供了官方的 mixins。</p>
 <p>在标准 ES6 出现之前，我们都是在通过手动的方式来模拟继承的方式。现在，为了拥抱新的标准，我们会使用类似于 Babel 或者 shim 的方式来使用一些语法的新特性。</p>
 <p>但如果看过 Babel 的具体实现就会发现，继承实际上还是基于原型实现的。具体来说是把实例属性挂到对象上，然后 class 方法放到原型上。</p>
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/rrafg$image.png" alt="rrafg$image.png">## 关于 bind</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/rrafg$image.png" alt="rrafg$image.png">## 关于 bind</p>
 <p>如果你通读过类库 React 的官方文档的话，一定会记得 React 推荐你使用组合的方式来实现继承，而不是 Inheritance。这里附上原文地址：<a href="https://reactjs.org/docs/composition-vs-inheritance.html" target="_blank" rel="noopener">Composition vs Inheritance – React</a></p>
 <p>一个经常非常常见的问题是 this 丢失的问题，为此我们需要在 React 组件中这样写：</p>
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/zagyb$image.png" alt="zagyb$image.png">是因为 method 方法在传递引用的过程中 this 丢失了，因此我们需要手动将远行方法绑定到实例上面。<br></p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/zagyb$image.png" alt="zagyb$image.png">是因为 method 方法在传递引用的过程中 this 丢失了，因此我们需要手动将远行方法绑定到实例上面。<br></p>
 <p>Bind 方法返回一个指定 this 的新函数，由于方法会先一步挂到 class 上面，因此右侧的 method 指的是原型上的 method 方法，这句话在实例上面创建了一个 method 属性，此属性保持着对于绑定 this 的 method 函数的引用。</p>
 <p>同样的写法还有如下两种：</p>
 <ul>
 <li>property method</li>
 </ul>
 <!-- -->
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/tyfzy$image.png" alt="tyfzy$image.png">- 在使用的时候绑定：</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/tyfzy$image.png" alt="tyfzy$image.png">- 在使用的时候绑定：</p>
 <!-- -->
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/wxuno$image.png" alt="wxuno$image.png">这三种使用方式会造成什么问题？</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/wxuno$image.png" alt="wxuno$image.png">这三种使用方式会造成什么问题？</p>
 <p>第一种会在实例上面创建一个实例属性。</p>
 <p>第二种方法实际上会被编译到 constructor 当中, 类似于这样：</p>
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/eskys$image.png" alt="eskys$image.png">我们在使用类继承的时候经常需要重载父类的函数，在 JavaScript 当中是通过遮蔽实现的。但是如果你在父类中使用了这种属性函数的方法，由于原型上的方法会先一步挂在到原型上，后一步 super 才会执行，结果是你的遮蔽是失效的。即使你在构造函数中手动绑定了 this 指向，也无法在函数内部通过 super.method 实现访问父类方法，因为这个方法并不存在在父类的原型上面。</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/eskys$image.png" alt="eskys$image.png">我们在使用类继承的时候经常需要重载父类的函数，在 JavaScript 当中是通过遮蔽实现的。但是如果你在父类中使用了这种属性函数的方法，由于原型上的方法会先一步挂在到原型上，后一步 super 才会执行，结果是你的遮蔽是失效的。即使你在构造函数中手动绑定了 this 指向，也无法在函数内部通过 super.method 实现访问父类方法，因为这个方法并不存在在父类的原型上面。</p>
 <p>第三种方式实在使用的时候绑定：</p>
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/gasbo$image.png" alt="gasbo$image.png">但是 bind 函数被执行后会返回一个新的函数，这会造成每次 render 函数执行时会重新创建一个新的函数传递给自组件，props 改变，可能造成不必要的子组件重新渲染。</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/gasbo$image.png" alt="gasbo$image.png">但是 bind 函数被执行后会返回一个新的函数，这会造成每次 render 函数执行时会重新创建一个新的函数传递给自组件，props 改变，可能造成不必要的子组件重新渲染。</p>
 <p>实际上这些问题不仅仅在使用 react 的时候才会出现，如果你大量依赖于继承去实现你自己的类库的话，很容易碰到上述问题。</p>
 <p>不过我在 github 上面找到了一个很有意思的解决方案：</p>
 <p>Autobind:<a href="https://github.com/andreypopp/autobind-decorator" target="_blank" rel="noopener">GitHub - andreypopp/autobind-decorator: Decorator to automatically bind methods to class instances</a></p>
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/ogbxz$image.png" alt="ogbxz$image.png">因为实际上是创建了一个 getter 的闭包函数来存储 bind 的 fn，因次只有在第一次访问的时候会绑定 this，剩下的访问的都是同一个函数，从而解决了多次渲染的问题。</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/ogbxz$image.png" alt="ogbxz$image.png">因为实际上是创建了一个 getter 的闭包函数来存储 bind 的 fn，因次只有在第一次访问的时候会绑定 this，剩下的访问的都是同一个函数，从而解决了多次渲染的问题。</p>
 <p>但这个方案也不是尽善尽美，我目前主要遇到了两个问题：</p>
 <ol>
 <li>实际上使用 decorator 去实现，但是高阶组件可能会有一些问题：</li>
@@ -899,7 +899,7 @@
 <p>不过我现在没有找到这句话，可能已经被其他大神纠正了。</p>
 <p>在这种装饰器里面是无法使用另一个装饰器的。</p>
 <p>而且 react 为了避免 bind 污染子属性的问题，使用组合的方式来实现继承，因此你在写高阶组件的时候实际上是这么写的</p>
-<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/./you-Know-Under-The-Prototype-Chain/uqcwn$image.png" alt="uqcwn$image.png">实际上返回的是一个全新的组件，因此高阶组件 connect 到底属不属于 decorator 需要另作讨论。</p>
+<p><img src="/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/uqcwn$image.png" alt="uqcwn$image.png">实际上返回的是一个全新的组件，因此高阶组件 connect 到底属不属于 decorator 需要另作讨论。</p>
 <ol start="2">
 <li>mixins<br></li>
 </ol>
@@ -1078,7 +1078,7 @@
             <blockquote>
 <p>一直想把自己了解到的前端知识体系总结一下。正好前些日子赶上团队分享，于是趁此机会把知识框架梳理了一下。通过这张图可以清楚的看到自己的不足……技术了解的足够多，但是泛而不精，需要加深对于基础知识的理解。另外就是软实力严重不足，亟待提升。</p>
 </blockquote>
-<p><img src="/blog/2019/05/29/The-Timeless-Big-Front/./The-Timeless-Big-Front/vfnpq$永不落伍的大前端.png" alt="vfnpq$永不落伍的大前端.png"></p>
+<p><img src="/blog/2019/05/29/The-Timeless-Big-Front/vfnpq$永不落伍的大前端.png" alt="vfnpq$永不落伍的大前端.png"></p>
 
           
         
@@ -1716,8 +1716,8 @@
 <li>设备维护</li>
 </ul>
 <!-- -->
-<h3 id="以过程为中心的优点"><a href="#以过程为中心的优点" class="headerlink" title="以过程为中心的优点"></a>以过程为中心的优点</h3><p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/./Software-Process-And-Software-Management-I/yhena$以过程为中心的优点.jpg" alt="yhena$以过程为中心的优点.jpg">### 过程管理</p>
-<p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/./Software-Process-And-Software-Management-I/tlgfy$过程管理.jpg" alt="tlgfy$过程管理.jpg"><strong>目的：</strong>让过程能够被共享、服用，并得到持续的改进。</p>
+<h3 id="以过程为中心的优点"><a href="#以过程为中心的优点" class="headerlink" title="以过程为中心的优点"></a>以过程为中心的优点</h3><p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/yhena$以过程为中心的优点.jpg" alt="yhena$以过程为中心的优点.jpg">### 过程管理</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/tlgfy$过程管理.jpg" alt="tlgfy$过程管理.jpg"><strong>目的：</strong>让过程能够被共享、服用，并得到持续的改进。</p>
 <p>注重循序渐进的积累。积累项目中的各个环节的实践经验和项目管理的实践经验，保证生产力持续的发展。</p>
 <p><strong>规范过程的特点：</strong></p>
 <ul>
@@ -1753,7 +1753,7 @@
 </ul>
 <!-- -->
 <h3 id="软件过程改进"><a href="#软件过程改进" class="headerlink" title="软件过程改进"></a>软件过程改进</h3><p>软件过程改进帮助软件企业对其软件（制作）过程的改变进行计划、措施制定以及实施。</p>
-<p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/./Software-Process-And-Software-Management-I/iztsv$软件过程改进.jpg" alt="iztsv$软件过程改进.jpg"><strong>软件过程改进环境：</strong>一个软件过程改进环境不断要对过程的定义及文档话加以支持，而且要实现对软件监控、反馈、角色改进及活动的支持，从而最终建立一个可持续改进的额软件过程。</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/iztsv$软件过程改进.jpg" alt="iztsv$软件过程改进.jpg"><strong>软件过程改进环境：</strong>一个软件过程改进环境不断要对过程的定义及文档话加以支持，而且要实现对软件监控、反馈、角色改进及活动的支持，从而最终建立一个可持续改进的额软件过程。</p>
 <p><strong>PDCA 循环</strong></p>
 <p>过程改进带来的益处：</p>
 <ul>
@@ -1769,11 +1769,11 @@
 <li>能够直观表达软件生命周期的全过程，明确规定要完成的主要活动、任务和开发策略</li>
 </ul>
 <!-- -->
-<h4 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/./Software-Process-And-Software-Management-I/yizgv$瀑布模型.jpg" alt="yizgv$瀑布模型.jpg">瀑布模型式是最典型的预见性的方法，严格遵循预先计划的需求分析、设计、编码、集成、测试、维护的步骤顺序进行。<br></p>
+<h4 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/yizgv$瀑布模型.jpg" alt="yizgv$瀑布模型.jpg">瀑布模型式是最典型的预见性的方法，严格遵循预先计划的需求分析、设计、编码、集成、测试、维护的步骤顺序进行。<br></p>
 <p>步骤成果作为衡量进度的方法，例如需求规格，设计文档，测试计划和代码审阅等等。</p>
 <p><strong>主要问题：</strong>它的严格分级导致的自由度降低，项目早期即作出承诺导致对后期需求的变化难以调整，<br></p>
 <p>代价高昂。瀑布式方法在需求不明并且在项目进行过程中可能变化的情况下基本是不可行的。</p>
-<h4 id="螺旋模型"><a href="#螺旋模型" class="headerlink" title="螺旋模型"></a>螺旋模型</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/./Software-Process-And-Software-Management-I/lnzow$螺旋模型.jpg" alt="lnzow$螺旋模型.jpg">螺旋模型将瀑布模型和快速原型模型结合起来，强调了其他模型所忽视的风险分析，特别适合于大型复杂的系统。<br></p>
+<h4 id="螺旋模型"><a href="#螺旋模型" class="headerlink" title="螺旋模型"></a>螺旋模型</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/lnzow$螺旋模型.jpg" alt="lnzow$螺旋模型.jpg">螺旋模型将瀑布模型和快速原型模型结合起来，强调了其他模型所忽视的风险分析，特别适合于大型复杂的系统。<br></p>
 <p>“螺旋模型”刚开始规模很小，当项目被定义得更好、更稳定时，逐渐展开。</p>
 <p>“螺旋模型”的核心就在于不需要在刚开始的时候就把所有事情都定义清楚。定义最重要的功能，实现它，然后听取客户的意见，之后再进入到下一个阶段。如此不断轮回重复，直到得到您满意的最终产品。</p>
 <ol>
@@ -1784,7 +1784,7 @@
 </ol>
 <!-- -->
 <p>螺旋模型很大程度上是一种风险驱动的方法体系，因为在每个阶段之前及经常发生的循环之前，都必须首先进行风险评估。</p>
-<h4 id="迭代和增量模型"><a href="#迭代和增量模型" class="headerlink" title="迭代和增量模型"></a>迭代和增量模型</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/./Software-Process-And-Software-Management-I/gcqgf$迭代模型.jpg" alt="gcqgf$迭代模型.jpg">迭代式开发也被称作迭代增量式开发或迭代进化式开发，是一种与传统的瀑布式开发相反的软件开发过程，它弥补了传统开发方式中的一些弱点，具有更高的成功率和生产率。</p>
+<h4 id="迭代和增量模型"><a href="#迭代和增量模型" class="headerlink" title="迭代和增量模型"></a>迭代和增量模型</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/gcqgf$迭代模型.jpg" alt="gcqgf$迭代模型.jpg">迭代式开发也被称作迭代增量式开发或迭代进化式开发，是一种与传统的瀑布式开发相反的软件开发过程，它弥补了传统开发方式中的一些弱点，具有更高的成功率和生产率。</p>
 <p><strong>什么是迭代式开发?</strong></p>
 <p>每次只设计和实现这个产品的一部分, 逐步逐步完成的方法叫迭代开发, 每次设计和实现一个阶段叫做一个迭代.</p>
 <p>在迭代式开发方法中，整个开发工作被组织为一系列的短小的、固定长度（如 3 周）的小项目，被称为一系列的迭代。<br></p>
@@ -1792,7 +1792,7 @@
 <p>采用这种方法，开发工作可以在需求被完整地确定之前启动，<br></p>
 <p>并在一次迭代中完成系统的一部分功能或业务逻辑的开发工作。<br></p>
 <p>再通过客户的反馈来细化需求，并开始新一轮的迭代。</p>
-<h4 id="敏捷模型"><a href="#敏捷模型" class="headerlink" title="敏捷模型"></a>敏捷模型</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/./Software-Process-And-Software-Management-I/wohpb$敏捷模型.jpg" alt="wohpb$敏捷模型.jpg">是一种应对快速变化的需求的一种软件开发能力,更强调程序员团队与业务专家之间的紧密协作、面对面的沟通（认为比书面的文档更有效）、频繁交付新的软件版本、紧凑而自我组织型的团队、能够很好地适应需求变化的代码编写和团队组织方法，也更注重软件开发中人的作用。</p>
+<h4 id="敏捷模型"><a href="#敏捷模型" class="headerlink" title="敏捷模型"></a>敏捷模型</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/wohpb$敏捷模型.jpg" alt="wohpb$敏捷模型.jpg">是一种应对快速变化的需求的一种软件开发能力,更强调程序员团队与业务专家之间的紧密协作、面对面的沟通（认为比书面的文档更有效）、频繁交付新的软件版本、紧凑而自我组织型的团队、能够很好地适应需求变化的代码编写和团队组织方法，也更注重软件开发中人的作用。</p>
 <p><strong>特点</strong></p>
 <ol>
 <li>人和交互 重于过程和工具。</li>
@@ -1979,22 +1979,22 @@
             <h1 id="4-CMMI"><a href="#4-CMMI" class="headerlink" title="4-CMMI"></a>4-CMMI</h1><p>能力成熟度模型集成</p>
 <h2 id="过程能力"><a href="#过程能力" class="headerlink" title="过程能力"></a>过程能力</h2><p>通过遵循某个过程，有能力预见未来所得到的结果范围</p>
 <p><br></p>
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/./Software-Process-And-Project-Management-iv/gxhnx$过程能力.jpg" alt="gxhnx$过程能力.jpg">过程性能：特定项目遵循某过程所得到的实际结果的度量</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/gxhnx$过程能力.jpg" alt="gxhnx$过程能力.jpg">过程性能：特定项目遵循某过程所得到的实际结果的度量</p>
 <p><br></p>
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/./Software-Process-And-Project-Management-iv/sbgkm$过程性能.jpg" alt="sbgkm$过程性能.jpg">过程能力轮廓：可以用二维平面中的一系列点来表示过程能力轮廓<br></p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/sbgkm$过程性能.jpg" alt="sbgkm$过程性能.jpg">过程能力轮廓：可以用二维平面中的一系列点来表示过程能力轮廓<br></p>
 <p>过程维：描述执行什么过程（干啥）<br></p>
 <p>能力维：描述某个过程执行多好</p>
 <p><br></p>
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/./Software-Process-And-Project-Management-iv/thwnz$过程能力轮廓.jpg" alt="thwnz$过程能力轮廓.jpg">### 衡量成熟度的尺度</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/thwnz$过程能力轮廓.jpg" alt="thwnz$过程能力轮廓.jpg">### 衡量成熟度的尺度</p>
 <p>评估模型</p>
 <p><br></p>
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/./Software-Process-And-Project-Management-iv/ftyps$评估模型.jpg" alt="ftyps$评估模型.jpg">## CMM 主要思想</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/ftyps$评估模型.jpg" alt="ftyps$评估模型.jpg">## CMM 主要思想</p>
 <p>专门针对软件产品的质量管理和质量保证标准</p>
 <p>系统工程是连续式的，其他模型是分级式的</p>
 <h3 id="CMMI-能力成熟度模型集成"><a href="#CMMI-能力成熟度模型集成" class="headerlink" title="CMMI 能力成熟度模型集成"></a>CMMI 能力成熟度模型集成</h3><p>是如何做好软件的最佳实践的集合</p>
-<h4 id="级别差异"><a href="#级别差异" class="headerlink" title="级别差异"></a>级别差异</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/./Software-Process-And-Project-Management-iv/hfkda$CMMI模型.jpg" alt="hfkda$CMMI模型.jpg">## CMMI 的表示形式</p>
+<h4 id="级别差异"><a href="#级别差异" class="headerlink" title="级别差异"></a>级别差异</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/hfkda$CMMI模型.jpg" alt="hfkda$CMMI模型.jpg">## CMMI 的表示形式</p>
 <p>连续式和阶段式</p>
-<h2 id="CMMI-主要内容"><a href="#CMMI-主要内容" class="headerlink" title="CMMI 主要内容"></a>CMMI 主要内容</h2><h3 id="CMMI-概念体系"><a href="#CMMI-概念体系" class="headerlink" title="CMMI 概念体系"></a>CMMI 概念体系</h3><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/./Software-Process-And-Project-Management-iv/odiqp$CMMI概念体系.jpg" alt="odiqp$CMMI概念体系.jpg">要通过高级别的评估，要满足这个级别以下的所有级别的标准</p>
+<h2 id="CMMI-主要内容"><a href="#CMMI-主要内容" class="headerlink" title="CMMI 主要内容"></a>CMMI 主要内容</h2><h3 id="CMMI-概念体系"><a href="#CMMI-概念体系" class="headerlink" title="CMMI 概念体系"></a>CMMI 概念体系</h3><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/odiqp$CMMI概念体系.jpg" alt="odiqp$CMMI概念体系.jpg">要通过高级别的评估，要满足这个级别以下的所有级别的标准</p>
 <p><strong>过程域(PA)</strong>过程域是指在单个过程域中的一组实践，当这个域中的实践全部履行时，就能满足一组有重要意义的目标。</p>
 <p>过程域并非是对过程的描述</p>
 <p><strong>实践：</strong>经执行可以达到一个过程域的目标的行为</p>
@@ -2172,11 +2172,11 @@
           
             <h1 id="软件过程与项目管理"><a href="#软件过程与项目管理" class="headerlink" title="软件过程与项目管理"></a>软件过程与项目管理</h1><h2 id="软件过程改进"><a href="#软件过程改进" class="headerlink" title="软件过程改进"></a>软件过程改进</h2><p>过程改进帮助软件企业对其软件过程的改进进行计划、措施制 定以及实施。</p>
 <h3 id="软件过程改进环境"><a href="#软件过程改进环境" class="headerlink" title="软件过程改进环境"></a>软件过程改进环境</h3><p>一个软件过程改进环境不断要对过程的定义及文档化加以支持，而且要实现对软件监控、反馈、角色改进及活动的支持，从而最终建立一个可持续改进的软件过程.</p>
-<h3 id="软件过程改进步骤"><a href="#软件过程改进步骤" class="headerlink" title="软件过程改进步骤"></a>软件过程改进步骤</h3><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/./Software-Process-And-Project-Management-iii/abtgd$软件过程改进步骤.jpg" alt="abtgd$软件过程改进步骤.jpg"><strong>评估:</strong>发现弱项或存在的问题<br></p>
+<h3 id="软件过程改进步骤"><a href="#软件过程改进步骤" class="headerlink" title="软件过程改进步骤"></a>软件过程改进步骤</h3><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/abtgd$软件过程改进步骤.jpg" alt="abtgd$软件过程改进步骤.jpg"><strong>评估:</strong>发现弱项或存在的问题<br></p>
 <p><strong>计划:</strong>针对弱项或问题制定改进计划<br></p>
 <p><strong>改进:</strong>实施改进监控计划<br></p>
 <p><strong>监控:</strong>检验实施的情况，纠正不符合要求的现象</p>
-<h2 id="软件过程改进框架"><a href="#软件过程改进框架" class="headerlink" title="软件过程改进框架"></a>软件过程改进框架</h2><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/./Software-Process-And-Project-Management-iii/vurzd$软件过程改进框架.jpg" alt="vurzd$软件过程改进框架.jpg">是支撑软件过程运作的框架以及结构基础</p>
+<h2 id="软件过程改进框架"><a href="#软件过程改进框架" class="headerlink" title="软件过程改进框架"></a>软件过程改进框架</h2><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/vurzd$软件过程改进框架.jpg" alt="vurzd$软件过程改进框架.jpg">是支撑软件过程运作的框架以及结构基础</p>
 <p>不但包含人员组织、管理方面所涉及的角色与职责，而且还包括执行过程活动、获取并分析过程活动结果、过程反馈以及过程改进活动所需的技术工具和运行架构。</p>
 <p><strong>必须拥有两类架构</strong></p>
 <ul>
@@ -2262,7 +2262,7 @@
 </ul>
 <!-- -->
 <p><strong>SEPG 目标与任务</strong></p>
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/./Software-Process-And-Project-Management-iii/yyops$sepg目标与任务.jpg" alt="yyops$sepg目标与任务.jpg">- 软件过程改进组（PIT）：由软件工程师组成的团队，他们利用部分工作时间，针对某一特定的领域进行过程改进。</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/yyops$sepg目标与任务.jpg" alt="yyops$sepg目标与任务.jpg">- 软件过程改进组（PIT）：由软件工程师组成的团队，他们利用部分工作时间，针对某一特定的领域进行过程改进。</p>
 <ul>
 <li>实现关键过程域的过程改进活动。</li>
 <li>对当前过程的分析、再设计以及文档话。</li>
@@ -2275,14 +2275,14 @@
 </ul>
 <!-- -->
 <p><strong>实体职责</strong></p>
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/./Software-Process-And-Project-Management-iii/nhabe$实体职责.jpg" alt="nhabe$实体职责.jpg">### 技术方面的架构</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/nhabe$实体职责.jpg" alt="nhabe$实体职责.jpg">### 技术方面的架构</p>
 <ul>
 <li>软件过程技术方面的架构包括</li>
 <li>用于支持软件工程过程组与过程改进团队的技术架构、计算机设备以及工具</li>
 </ul>
 <!-- -->
 <p>一个高效灵活的技术过程架构是进行有效的过程改进和过程维护的基础。</p>
-<h4 id="包含内容"><a href="#包含内容" class="headerlink" title="包含内容"></a>包含内容</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/./Software-Process-And-Project-Management-iii/hqcug$技术架构包含内容.jpg" alt="hqcug$技术架构包含内容.jpg"><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/./Software-Process-And-Project-Management-iii/xvyvi$技术架构实例.jpg" alt="xvyvi$技术架构实例.jpg">#### 过程支持工具</p>
+<h4 id="包含内容"><a href="#包含内容" class="headerlink" title="包含内容"></a>包含内容</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/hqcug$技术架构包含内容.jpg" alt="hqcug$技术架构包含内容.jpg"><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/xvyvi$技术架构实例.jpg" alt="xvyvi$技术架构实例.jpg">#### 过程支持工具</p>
 <ul>
 <li>保存及管理过程定义和过程数据的工具</li>
 <li>检索及传播过程定义和过程数据的工具</li>
@@ -2309,8 +2309,8 @@
 <li>每个过程有自己的成熟尺度</li>
 </ul>
 <!-- -->
-<h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/./Software-Process-And-Project-Management-iii/dvcav$阶段型与连续型的比较.jpg" alt="dvcav$阶段型与连续型的比较.jpg">#### CMMI</p>
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/./Software-Process-And-Project-Management-iii/deuto$CMMI模型.jpg" alt="deuto$CMMI模型.jpg">## 软件过程评估方法</p>
+<h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/dvcav$阶段型与连续型的比较.jpg" alt="dvcav$阶段型与连续型的比较.jpg">#### CMMI</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/deuto$CMMI模型.jpg" alt="deuto$CMMI模型.jpg">## 软件过程评估方法</p>
 <ul>
 <li>评估组织当前软件过程、活动以及架构的方法和技术</li>
 <li>十一过程改进规划图为依据进行度量、检测过程的成熟度级别，并总结出当前活动的特点，给出优势与弱势，判断出当前过程对质量、成本、进度方面进行控制以避免问题的能力。</li>
@@ -2337,11 +2337,11 @@
 <li>帮助获得应有的权利并对评估活动提供支持</li>
 </ul>
 <!-- -->
-<h3 id="评估方式"><a href="#评估方式" class="headerlink" title="评估方式"></a>评估方式</h3><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/./Software-Process-And-Project-Management-iii/nurol$评估方式.jpg" alt="nurol$评估方式.jpg">### 软件过程评估领域</p>
+<h3 id="评估方式"><a href="#评估方式" class="headerlink" title="评估方式"></a>评估方式</h3><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/nurol$评估方式.jpg" alt="nurol$评估方式.jpg">### 软件过程评估领域</p>
 <p>组织即-&gt;项目级-&gt;个体级别</p>
 <p>即</p>
 <p>[图片上传失败…(image-7998cf-1513791811221)]</p>
-<h3 id="评估流程"><a href="#评估流程" class="headerlink" title="评估流程"></a>评估流程</h3><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/./Software-Process-And-Project-Management-iii/mlzlr$评估流程1.jpg" alt="mlzlr$评估流程1.jpg"><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/./Software-Process-And-Project-Management-iii/mupen$评估流程2.jpg" alt="mupen$评估流程2.jpg">## 软件过程改进计划</p>
+<h3 id="评估流程"><a href="#评估流程" class="headerlink" title="评估流程"></a>评估流程</h3><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/mlzlr$评估流程1.jpg" alt="mlzlr$评估流程1.jpg"><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/mupen$评估流程2.jpg" alt="mupen$评估流程2.jpg">## 软件过程改进计划</p>
 <ul>
 <li>根据评估所发现的问题，有针对性的制定出相应的改进方案，并将方案转化为软件过程改进的行动计划</li>
 <li>通过执行过程改进计划，将会提高现有的软件过程水平，同时提高过程的规范化程度以及过程的有效性。</li>
@@ -2523,7 +2523,7 @@
         
           
             <h2 id="过程思维"><a href="#过程思维" class="headerlink" title="过程思维"></a>过程思维</h2><p><strong>面向过程的思维与面向任务的思维区别是什么</strong></p>
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/./Software-Process-And-Project-Management-ii/izhkz$过程思维与任务思维.jpg" alt="izhkz$过程思维与任务思维.jpg">面向过程的思维：<br></p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/izhkz$过程思维与任务思维.jpg" alt="izhkz$过程思维与任务思维.jpg">面向过程的思维：<br></p>
 <p>注重的是总体目标、各部分工作的协调性和一致性，从而消除了各部分工作之间的冲突，提高了总体的工作效率，从而有效的达到工作的总体目标</p>
 <p>面向任务的思维：<br></p>
 <p>注重人物、作业、人员、组织架构，特点是指派人员去完成，解决局部问题。</p>
@@ -2533,17 +2533,17 @@
 <li>角色与职责</li>
 </ol>
 <!-- -->
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/./Software-Process-And-Project-Management-ii/wahlc$角色与职责.jpg" alt="wahlc$角色与职责.jpg">2. 处理变更的方式</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/wahlc$角色与职责.jpg" alt="wahlc$角色与职责.jpg">2. 处理变更的方式</p>
 <!-- -->
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/./Software-Process-And-Project-Management-ii/brnvd$处理变更的方式.jpg" alt="brnvd$处理变更的方式.jpg">3. 对问题发生的反应</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/brnvd$处理变更的方式.jpg" alt="brnvd$处理变更的方式.jpg">3. 对问题发生的反应</p>
 <!-- -->
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/./Software-Process-And-Project-Management-ii/tbhan$对问题发生的反应.jpg" alt="tbhan$对问题发生的反应.jpg">4. 可信性</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/tbhan$对问题发生的反应.jpg" alt="tbhan$对问题发生的反应.jpg">4. 可信性</p>
 <!-- -->
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/./Software-Process-And-Project-Management-ii/aapom$可信性.jpg" alt="aapom$可信性.jpg">5. 对工作人员的奖励</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/aapom$可信性.jpg" alt="aapom$可信性.jpg">5. 对工作人员的奖励</p>
 <!-- -->
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/./Software-Process-And-Project-Management-ii/dkpak$对工作人员的奖励.jpg" alt="dkpak$对工作人员的奖励.jpg">6. 预见性</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/dkpak$对工作人员的奖励.jpg" alt="dkpak$对工作人员的奖励.jpg">6. 预见性</p>
 <!-- -->
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/./Software-Process-And-Project-Management-ii/blabn$预见性.jpg" alt="blabn$预见性.jpg">### 高效软件过程（与规范过程相同）</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/blabn$预见性.jpg" alt="blabn$预见性.jpg">### 高效软件过程（与规范过程相同）</p>
 <p><strong>特点：</strong></p>
 <ul>
 <li>有明确定义</li>
@@ -2570,19 +2570,19 @@
 </ul>
 <!-- -->
 <p><strong>实现条件:</strong></p>
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/./Software-Process-And-Project-Management-ii/xvazz$高效软件实现条件.jpg" alt="xvazz$高效软件实现条件.jpg">### 过程认同与过程制度化</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/xvazz$高效软件实现条件.jpg" alt="xvazz$高效软件实现条件.jpg">### 过程认同与过程制度化</p>
 <p>过程的要求已经变成全体员工的自觉行动，得到大家的认同和坚持遵循时，过程便成为制度化的。</p>
 <p>要靠过程文化和过程基础设施的支持</p>
 <h4 id="过程文化"><a href="#过程文化" class="headerlink" title="过程文化"></a>过程文化</h4><p>指人们的习惯和行为收到过程思维和过程管理原则的影响。人们对于规范化过程时完全认同的，就是说，人们的活动自觉的安过程要求去做。</p>
 <p>过程文化应具有自己的特性。</p>
-<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/./Software-Process-And-Project-Management-ii/pzsbq$过程文化特征表现.jpg" alt="pzsbq$过程文化特征表现.jpg">#### 过程基础设施</p>
+<p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/pzsbq$过程文化特征表现.jpg" alt="pzsbq$过程文化特征表现.jpg">#### 过程基础设施</p>
 <p>支持软件过程的基础框架和结构基础</p>
 <p>过程基础设施包含组织和管理基础设施、技术基础设施</p>
 <p>组织和管理基础设施：组织和管理的岗位和职责</p>
 <p>技术基础设施：支持定义过程、开展过程活动、获取和分析过程有关绩效反馈以及不断进行过程改进活动所必须的技术工具和平台。</p>
 <p>组织管理基础设施：建立、监控和推进过程活动的岗位及其职责</p>
 <h2 id="质量管理与认证体系"><a href="#质量管理与认证体系" class="headerlink" title="质量管理与认证体系"></a>质量管理与认证体系</h2><p>近代质量管理的理论与实践 是软件过程成熟度学说的基础</p>
-<h3 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h3><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/./Software-Process-And-Project-Management-ii/cpmgu$cmmi.jpg" alt="cpmgu$cmmi.jpg"></p>
+<h3 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h3><p><img src="/blog/2019/05/29/SoftwareProcessAndProjectManagementii/cpmgu$cmmi.jpg" alt="cpmgu$cmmi.jpg"></p>
 
           
         
