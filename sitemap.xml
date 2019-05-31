@@ -2,128 +2,156 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/You-Know-The-JS-Prototype-Chain-(top)---Objects-And-Prototypes/</loc>
+    <loc>https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/</loc>
     
-    <lastmod>2019-05-11T11:21:19.879Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/VScode-Configuration-List/</loc>
-    
-    <lastmod>2019-05-11T11:21:19.817Z</lastmod>
+    <lastmod>2019-05-31T05:07:07.245Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/</loc>
+    <loc>https://edencao.github.io/blog/2019/05/29/VScode-Configuration-Manifest/</loc>
     
-    <lastmod>2019-05-11T11:21:19.770Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/</loc>
-    
-    <lastmod>2019-05-11T11:21:19.691Z</lastmod>
+    <lastmod>2019-05-31T05:07:07.126Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/The-Big-Front-End-That-Never-Goes-Out-Of-Style/</loc>
+    <loc>https://edencao.github.io/blog/2019/05/29/The-Timeless-Big-Front/</loc>
     
-    <lastmod>2019-05-11T11:21:19.663Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Talk-About-Rem-And-Vw----Rem/</loc>
-    
-    <lastmod>2019-05-11T11:21:19.648Z</lastmod>
+    <lastmod>2019-05-31T05:07:07.049Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/</loc>
+    <loc>https://edencao.github.io/blog/2019/05/29/The-Pit-Of-The-JavaScript-Language/</loc>
     
-    <lastmod>2019-05-11T11:21:19.555Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Software-Process-And-Software-Management-(1)/</loc>
-    
-    <lastmod>2019-05-11T11:21:19.488Z</lastmod>
+    <lastmod>2019-05-31T05:07:07.032Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(iv)/</loc>
+    <loc>https://edencao.github.io/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/</loc>
     
-    <lastmod>2019-05-11T11:21:19.369Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(3)/</loc>
-    
-    <lastmod>2019-05-11T11:21:19.324Z</lastmod>
+    <lastmod>2019-05-31T05:07:07.004Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(2)/</loc>
+    <loc>https://edencao.github.io/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/</loc>
     
-    <lastmod>2019-05-11T11:21:19.194Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Remember-A-Millet-Front-End-Test/</loc>
-    
-    <lastmod>2019-05-11T11:21:19.122Z</lastmod>
+    <lastmod>2019-05-31T05:07:06.880Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Operating-System-(I)/</loc>
+    <loc>https://edencao.github.io/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/</loc>
     
-    <lastmod>2019-05-11T11:21:19.031Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Operating-System-(2)/</loc>
-    
-    <lastmod>2019-05-11T11:21:18.990Z</lastmod>
+    <lastmod>2019-05-31T05:07:06.838Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/</loc>
+    <loc>https://edencao.github.io/blog/2019/05/29/SoftwareProcessAndProjectManagementii/</loc>
     
-    <lastmod>2019-05-11T11:21:18.909Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/</loc>
-    
-    <lastmod>2019-05-11T11:21:18.856Z</lastmod>
+    <lastmod>2019-05-31T05:07:06.690Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</loc>
+    <loc>https://edencao.github.io/blog/2019/05/29/Remember-The-Front-End-Of-Millet-Test/</loc>
     
-    <lastmod>2019-05-11T11:21:18.827Z</lastmod>
+    <lastmod>2019-05-31T05:07:06.640Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(I)/</loc>
+    <loc>https://edencao.github.io/blog/2019/05/29/Operating-System-2/</loc>
     
-    <lastmod>2019-05-11T11:21:18.766Z</lastmod>
+    <lastmod>2019-05-31T05:07:06.530Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/Operating-System-1/</loc>
+    
+    <lastmod>2019-05-31T05:07:06.430Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/Observer-Mode-Vs.-Subscription-Publishing-Mode/</loc>
+    
+    <lastmod>2019-05-31T05:07:06.385Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/Object-oriented-Modeling-Analysis-iv/</loc>
+    
+    <lastmod>2019-05-31T05:07:06.334Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/Object-oriented-Modeling-Analysis-ii/</loc>
+    
+    <lastmod>2019-05-31T05:07:06.308Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/Object-oriented-Modeling-Analysis-I/</loc>
+    
+    <lastmod>2019-05-31T05:07:06.262Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/</loc>
+    
+    <lastmod>2019-05-31T05:07:06.158Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/MVVM/</loc>
+    
+    <lastmod>2019-05-31T05:07:05.707Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/Let's-Talk-About-Rem-And-Vw----Rem/</loc>
+    
+    <lastmod>2019-05-31T05:07:05.616Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/FP/</loc>
+    
+    <lastmod>2019-05-31T05:07:05.502Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/Event-Dilution-Debounce-&-Throttle/</loc>
+    
+    <lastmod>2019-05-31T05:07:05.419Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/Draft.js-Event-Handling-Mechanism/</loc>
+    
+    <lastmod>2019-05-31T05:07:05.331Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://edencao.github.io/blog/2019/05/29/Draft.js-Data-Structure/</loc>
+    
+    <lastmod>2019-05-31T05:07:05.258Z</lastmod>
     
   </url>
   
@@ -138,34 +166,6 @@
     <loc>https://edencao.github.io/blog/2019/05/06/links/</loc>
     
     <lastmod>2019-05-11T11:21:18.304Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/</loc>
-    
-    <lastmod>2019-05-11T11:21:18.282Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Event-Dilutes-Debounce-And-Throttle/</loc>
-    
-    <lastmod>2019-05-11T11:21:18.194Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Draft.js-Event-Handling-Mechanism/</loc>
-    
-    <lastmod>2019-05-11T11:21:18.121Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://edencao.github.io/blog/2019/05/09/Draft.js-Data-Structure/</loc>
-    
-    <lastmod>2019-05-11T11:21:18.055Z</lastmod>
     
   </url>
   

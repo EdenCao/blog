@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://edencao.github.io/blog/"/>
-  <updated>2019-05-11T11:21:18.657Z</updated>
+  <updated>2019-05-31T05:07:06.158Z</updated>
   <id>https://edencao.github.io/blog/</id>
   
   <author>
@@ -17,37 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>N 数之和</title>
-    <link href="https://edencao.github.io/blog/2019/05/11/N-Number-Sum/"/>
-    <id>https://edencao.github.io/blog/2019/05/11/N-Number-Sum/</id>
-    <published>2019-05-11T08:54:26.000Z</published>
-    <updated>2019-05-11T11:21:18.657Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;最近在刷 leetcode 的时候看到了一些有意思的题目所以想总结一下，这次主要整理的是 N 数之和系列，希望能把自己做题时候的过程介绍清楚。&lt;/p&gt;&lt;h2 id=&quot;两数之和&quot;&gt;&lt;a href=&quot;#两数之和&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="https://edencao.github.io/blog/tags/leetcode/"/>
-    
-      <category term="algorithm" scheme="https://edencao.github.io/blog/tags/algorithm/"/>
-    
-  </entry>
-  
-  <entry>
     <title>你知道的JS原型链（上）--对象与原型</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/You-Know-The-JS-Prototype-Chain-(top)---Objects-And-Prototypes/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/You-Know-The-JS-Prototype-Chain-(top)---Objects-And-Prototypes/</id>
-    <published>2019-05-09T08:19:17.891Z</published>
-    <updated>2019-05-11T11:21:19.879Z</updated>
+    <link href="https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/Object-And-Prototype/</id>
+    <published>2019-05-29T08:15:00.813Z</published>
+    <updated>2019-05-31T05:07:06.158Z</updated>
     
     <summary type="html">
     
@@ -66,10 +40,10 @@
   
   <entry>
     <title>VScode 配置清单</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/VScode-Configuration-List/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/VScode-Configuration-List/</id>
-    <published>2019-05-09T08:19:17.891Z</published>
-    <updated>2019-05-11T11:21:19.817Z</updated>
+    <link href="https://edencao.github.io/blog/2019/05/29/VScode-Configuration-Manifest/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/VScode-Configuration-Manifest/</id>
+    <published>2019-05-29T08:15:00.789Z</published>
+    <updated>2019-05-31T05:07:07.126Z</updated>
     
     <summary type="html">
     
@@ -87,11 +61,33 @@
   </entry>
   
   <entry>
+    <title>关于 ES Class 继承中的二三事（一）(你知道的原型链下)</title>
+    <link href="https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/you-Know-Under-The-Prototype-Chain/</id>
+    <published>2019-05-29T08:15:00.767Z</published>
+    <updated>2019-05-31T05:07:07.245Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。&lt;/p&gt;&lt;p&gt;如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>永不落伍的大前端</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/The-Big-Front-End-That-Never-Goes-Out-Of-Style/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/The-Big-Front-End-That-Never-Goes-Out-Of-Style/</id>
-    <published>2019-05-09T08:19:17.890Z</published>
-    <updated>2019-05-11T11:21:19.663Z</updated>
+    <link href="https://edencao.github.io/blog/2019/05/29/The-Timeless-Big-Front/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/The-Timeless-Big-Front/</id>
+    <published>2019-05-29T08:15:00.761Z</published>
+    <updated>2019-05-31T05:07:07.049Z</updated>
     
     <summary type="html">
     
@@ -110,10 +106,10 @@
   
   <entry>
     <title>JavaScript语言精粹中的坑</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/The-Pit-Of-The-JavaScript-Language/</id>
-    <published>2019-05-09T08:19:17.890Z</published>
-    <updated>2019-05-11T11:21:19.691Z</updated>
+    <link href="https://edencao.github.io/blog/2019/05/29/The-Pit-Of-The-JavaScript-Language/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/The-Pit-Of-The-JavaScript-Language/</id>
+    <published>2019-05-29T08:15:00.735Z</published>
+    <updated>2019-05-31T05:07:07.032Z</updated>
     
     <summary type="html">
     
@@ -131,33 +127,11 @@
   </entry>
   
   <entry>
-    <title>关于 ES Class 继承中的二三事（一）(你知道的原型链下)</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Two-Or-Three-Things-About-ES-Class-Inheritance-(1)-(you-Know-Under-The-Prototype-Chain)/</id>
-    <published>2019-05-09T08:19:17.890Z</published>
-    <updated>2019-05-11T11:21:19.770Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;距离上已经写完了好长时间了，现在感觉对于 ES6 Class 有了一些新的理解。&lt;/p&gt;&lt;p&gt;如果对于 JavaScript 中的原型机制还不太了解，可以帮我指正一下我写的这篇文章：&lt;a
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>前端组件化之路的一些思考与被神化的MVVM</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Some-Thoughts-On-The-Way-Of-Front-End-Componentization-And-MVVM-Deified/</id>
-    <published>2019-05-09T08:19:17.889Z</published>
-    <updated>2019-05-11T11:21:19.555Z</updated>
+    <link href="https://edencao.github.io/blog/2019/05/29/MVVM/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/MVVM/</id>
+    <published>2019-05-29T08:15:00.716Z</published>
+    <updated>2019-05-31T05:07:05.707Z</updated>
     
     <summary type="html">
     
@@ -175,11 +149,11 @@
   </entry>
   
   <entry>
-    <title>谈谈 rem 与 vw -- rem</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Talk-About-Rem-And-Vw----Rem/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Talk-About-Rem-And-Vw----Rem/</id>
-    <published>2019-05-09T08:19:17.889Z</published>
-    <updated>2019-05-11T11:21:19.648Z</updated>
+    <title>软件过程与软件管理（一）</title>
+    <link href="https://edencao.github.io/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/SoftwareProcessAndSoftwareManagementI/</id>
+    <published>2019-05-29T08:15:00.710Z</published>
+    <updated>2019-05-31T05:07:07.004Z</updated>
     
     <summary type="html">
     
@@ -187,7 +161,7 @@
       
         
         
-          &lt;h1 id=&quot;谈谈-rem-与-vw-—-rem&quot;&gt;&lt;a href=&quot;#谈谈-rem-与-vw-—-rem&quot; class=&quot;headerlink&quot; title=&quot;谈谈 rem 与 vw — rem&quot;&gt;&lt;/a&gt;谈谈 rem 与 vw —
+          &lt;h1 id=&quot;软件过程与项目管理（一）&quot;&gt;&lt;a href=&quot;#软件过程与项目管理（一）&quot; class=&quot;headerlink&quot; title=&quot;软件过程与项目管理（一）&quot;&gt;&lt;/a&gt;软件过程与项目管理（一）&lt;/h1&gt;&lt;h2 id=&quot;软件危机&quot;&gt;&lt;a href=&quot;#软件危机&quot;
         
       
     
@@ -198,10 +172,10 @@
   
   <entry>
     <title>软件过程与项目管理(四)</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(iv)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(iv)/</id>
-    <published>2019-05-09T08:19:17.888Z</published>
-    <updated>2019-05-11T11:21:19.369Z</updated>
+    <link href="https://edencao.github.io/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/SoftwareProcessAndProjectManagementiv/</id>
+    <published>2019-05-29T08:15:00.689Z</published>
+    <updated>2019-05-31T05:07:06.880Z</updated>
     
     <summary type="html">
     
@@ -220,10 +194,10 @@
   
   <entry>
     <title>软件过程与项目管理（三）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(3)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(3)/</id>
-    <published>2019-05-09T08:19:17.888Z</published>
-    <updated>2019-05-11T11:21:19.324Z</updated>
+    <link href="https://edencao.github.io/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/SoftwareProcessAndProjectManagementiii/</id>
+    <published>2019-05-29T08:15:00.666Z</published>
+    <updated>2019-05-31T05:07:06.838Z</updated>
     
     <summary type="html">
     
@@ -241,55 +215,11 @@
   </entry>
   
   <entry>
-    <title>软件过程与软件管理（一）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Software-Process-And-Software-Management-(1)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Software-Process-And-Software-Management-(1)/</id>
-    <published>2019-05-09T08:19:17.888Z</published>
-    <updated>2019-05-11T11:21:19.488Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;软件过程与项目管理（一）&quot;&gt;&lt;a href=&quot;#软件过程与项目管理（一）&quot; class=&quot;headerlink&quot; title=&quot;软件过程与项目管理（一）&quot;&gt;&lt;/a&gt;软件过程与项目管理（一）&lt;/h1&gt;&lt;h2 id=&quot;软件危机&quot;&gt;&lt;a href=&quot;#软件危机&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统（一）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Operating-System-(I)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Operating-System-(I)/</id>
-    <published>2019-05-09T08:19:17.887Z</published>
-    <updated>2019-05-11T11:21:19.031Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;操作系统概述&quot;&gt;&lt;a href=&quot;#操作系统概述&quot; class=&quot;headerlink&quot; title=&quot;操作系统概述&quot;&gt;&lt;/a&gt;操作系统概述&lt;/h1&gt;&lt;h2 id=&quot;计算机系统&quot;&gt;&lt;a href=&quot;#计算机系统&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>软件过程与项目管理（二）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(2)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Software-Process-And-Project-Management-(2)/</id>
-    <published>2019-05-09T08:19:17.887Z</published>
-    <updated>2019-05-11T11:21:19.194Z</updated>
+    <link href="https://edencao.github.io/blog/2019/05/29/SoftwareProcessAndProjectManagementii/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/SoftwareProcessAndProjectManagementii/</id>
+    <published>2019-05-29T08:15:00.660Z</published>
+    <updated>2019-05-31T05:07:06.690Z</updated>
     
     <summary type="html">
     
@@ -307,11 +237,11 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Remember-A-Millet-Front-End-Test/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Remember-A-Millet-Front-End-Test/</id>
-    <published>2019-05-09T08:19:17.887Z</published>
-    <updated>2019-05-11T11:21:19.122Z</updated>
+    <title>记一次小米前端面试题</title>
+    <link href="https://edencao.github.io/blog/2019/05/29/Remember-The-Front-End-Of-Millet-Test/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/Remember-The-Front-End-Of-Millet-Test/</id>
+    <published>2019-05-29T08:15:00.638Z</published>
+    <updated>2019-05-31T05:07:06.640Z</updated>
     
     <summary type="html">
     
@@ -319,29 +249,7 @@
       
         
         
-          &lt;p&gt;var repeatedFun = doRepeat(alert, 10, 5000);&lt;/p&gt;&lt;blockquote&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>观察者模式 vs 订阅发布模式</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Observer-Mode-Vs.-Subscription-Publishing-Mode/</id>
-    <published>2019-05-09T08:19:17.886Z</published>
-    <updated>2019-05-11T11:21:18.909Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。&lt;/p&gt;&lt;p&gt;实际上，我理解中的观察者模式是 1:n，而订阅发布模式是 m:n
+          &lt;p&gt;这两天参加了一次小米的面试，面试方式比较随意，直接用微信聊的。感觉面试题有些意思，所以想记下来，也使我学到了不少东西。&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;Q:&lt;/p&gt;&lt;p&gt;定义这样一个函数&lt;/p&gt;&lt;p&gt;function doRepeat(func, times,
         
       
     
@@ -352,10 +260,10 @@
   
   <entry>
     <title>操作系统（二）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Operating-System-(2)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Operating-System-(2)/</id>
-    <published>2019-05-09T08:19:17.886Z</published>
-    <updated>2019-05-11T11:21:18.990Z</updated>
+    <link href="https://edencao.github.io/blog/2019/05/29/Operating-System-2/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/Operating-System-2/</id>
+    <published>2019-05-29T08:15:00.620Z</published>
+    <updated>2019-05-31T05:07:06.530Z</updated>
     
     <summary type="html">
     
@@ -373,11 +281,11 @@
   </entry>
   
   <entry>
-    <title>面向对象建模分析（一）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(I)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(I)/</id>
-    <published>2019-05-09T08:19:17.885Z</published>
-    <updated>2019-05-11T11:21:18.766Z</updated>
+    <title>操作系统（一）</title>
+    <link href="https://edencao.github.io/blog/2019/05/29/Operating-System-1/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/Operating-System-1/</id>
+    <published>2019-05-29T08:15:00.600Z</published>
+    <updated>2019-05-31T05:07:06.430Z</updated>
     
     <summary type="html">
     
@@ -385,7 +293,7 @@
       
         
         
-          &lt;h2 id=&quot;面向对象分析方法&quot;&gt;&lt;a href=&quot;#面向对象分析方法&quot; class=&quot;headerlink&quot; title=&quot;面向对象分析方法&quot;&gt;&lt;/a&gt;面向对象分析方法&lt;/h2&gt;&lt;h3 id=&quot;软件的错误是怎样产生的？软件工程的挑战有哪些&quot;&gt;&lt;a
+          &lt;h1 id=&quot;操作系统概述&quot;&gt;&lt;a href=&quot;#操作系统概述&quot; class=&quot;headerlink&quot; title=&quot;操作系统概述&quot;&gt;&lt;/a&gt;操作系统概述&lt;/h1&gt;&lt;h2 id=&quot;计算机系统&quot;&gt;&lt;a href=&quot;#计算机系统&quot; class=&quot;headerlink&quot;
         
       
     
@@ -395,11 +303,11 @@
   </entry>
   
   <entry>
-    <title>面向对象建模分析（二）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(ii)/</id>
-    <published>2019-05-09T08:19:17.885Z</published>
-    <updated>2019-05-11T11:21:18.827Z</updated>
+    <title>观察者模式 vs 订阅发布模式</title>
+    <link href="https://edencao.github.io/blog/2019/05/29/Observer-Mode-Vs.-Subscription-Publishing-Mode/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/Observer-Mode-Vs.-Subscription-Publishing-Mode/</id>
+    <published>2019-05-29T08:15:00.593Z</published>
+    <updated>2019-05-31T05:07:06.385Z</updated>
     
     <summary type="html">
     
@@ -407,7 +315,7 @@
       
         
         
-          &lt;h1 id=&quot;需求工程&quot;&gt;&lt;a href=&quot;#需求工程&quot; class=&quot;headerlink&quot; title=&quot;需求工程&quot;&gt;&lt;/a&gt;需求工程&lt;/h1&gt;&lt;h2 id=&quot;需求工程的基本概念&quot;&gt;&lt;a href=&quot;#需求工程的基本概念&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;一直很好奇订阅/发布模式和观察者模式有什么区别，一直以来都把这两者混为一谈。&lt;/p&gt;&lt;p&gt;实际上，我理解中的观察者模式是 1:n，而订阅发布模式是 m:n
         
       
     
@@ -418,10 +326,10 @@
   
   <entry>
     <title>面向对象建模分析（四）</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/Object-oriented-Modeling-Analysis-(iv)/</id>
-    <published>2019-05-09T08:19:17.885Z</published>
-    <updated>2019-05-11T11:21:18.856Z</updated>
+    <link href="https://edencao.github.io/blog/2019/05/29/Object-oriented-Modeling-Analysis-iv/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/Object-oriented-Modeling-Analysis-iv/</id>
+    <published>2019-05-29T08:15:00.574Z</published>
+    <updated>2019-05-31T05:07:06.334Z</updated>
     
     <summary type="html">
     
@@ -439,11 +347,77 @@
   </entry>
   
   <entry>
+    <title>面向对象建模分析（二）</title>
+    <link href="https://edencao.github.io/blog/2019/05/29/Object-oriented-Modeling-Analysis-ii/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/Object-oriented-Modeling-Analysis-ii/</id>
+    <published>2019-05-29T08:15:00.556Z</published>
+    <updated>2019-05-31T05:07:06.308Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;需求工程&quot;&gt;&lt;a href=&quot;#需求工程&quot; class=&quot;headerlink&quot; title=&quot;需求工程&quot;&gt;&lt;/a&gt;需求工程&lt;/h1&gt;&lt;h2 id=&quot;需求工程的基本概念&quot;&gt;&lt;a href=&quot;#需求工程的基本概念&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象建模分析（一）</title>
+    <link href="https://edencao.github.io/blog/2019/05/29/Object-oriented-Modeling-Analysis-I/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/Object-oriented-Modeling-Analysis-I/</id>
+    <published>2019-05-29T08:15:00.523Z</published>
+    <updated>2019-05-31T05:07:06.262Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;面向对象分析方法&quot;&gt;&lt;a href=&quot;#面向对象分析方法&quot; class=&quot;headerlink&quot; title=&quot;面向对象分析方法&quot;&gt;&lt;/a&gt;面向对象分析方法&lt;/h2&gt;&lt;h3 id=&quot;软件的错误是怎样产生的？软件工程的挑战有哪些&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>谈谈 rem 与 vw -- rem</title>
+    <link href="https://edencao.github.io/blog/2019/05/29/Let&#39;s-Talk-About-Rem-And-Vw----Rem/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/Let&#39;s-Talk-About-Rem-And-Vw----Rem/</id>
+    <published>2019-05-29T08:15:00.503Z</published>
+    <updated>2019-05-31T05:07:05.616Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;谈谈-rem-与-vw-—-rem&quot;&gt;&lt;a href=&quot;#谈谈-rem-与-vw-—-rem&quot; class=&quot;headerlink&quot; title=&quot;谈谈 rem 与 vw — rem&quot;&gt;&lt;/a&gt;谈谈 rem 与 vw —
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>从实现一个红绿灯到函数式编程</title>
-    <link href="https://edencao.github.io/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/"/>
-    <id>https://edencao.github.io/blog/2019/05/09/From-Implementing-A-Traffic-Light-To-Functional-Programming/</id>
-    <published>2019-05-09T08:19:17.884Z</published>
-    <updated>2019-05-11T11:21:18.282Z</updated>
+    <link href="https://edencao.github.io/blog/2019/05/29/FP/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/FP/</id>
+    <published>2019-05-29T08:15:00.495Z</published>
+    <updated>2019-05-31T05:07:05.502Z</updated>
     
     <summary type="html">
     
@@ -452,6 +426,28 @@
         
         
           &lt;p&gt;我认为函数式编程的本质是把函数当作变量来使用。最近接触了&lt;code&gt;React&lt;/code&gt;，我们可以发现在&lt;code&gt;React&lt;/code&gt;中处处存在函数式编程的思想，我们将&lt;code&gt;JSX&lt;/code&gt;写成一个函数的返回值，并且在&lt;code&gt;render&lt;/code
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>事件稀释 Debounce &amp; Throttle</title>
+    <link href="https://edencao.github.io/blog/2019/05/29/Event-Dilution-Debounce-&amp;-Throttle/"/>
+    <id>https://edencao.github.io/blog/2019/05/29/Event-Dilution-Debounce-&amp;-Throttle/</id>
+    <published>2019-05-29T08:15:00.472Z</published>
+    <updated>2019-05-31T05:07:05.419Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;事件稀释是一个在实际开发过程中经常遇到的问题，例如一次鼠标滚动可能触发几十次滚动事件，当我们在懒加载的时候如果不做稀释的话，很可能用户滚动一下鼠标就会发出几十次&lt;code&gt;ajax&lt;/code&gt;请求，这简直是一场灾难。&lt;/p&gt;&lt;h2 id=&quot;稀释原理&quot;&gt;&lt;a
         
       
     
